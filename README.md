@@ -1,2 +1,5 @@
-# compute-api-client
-Auto generated api client for the compute job manager
+# Compute API Client
+
+## Documentation
+
+Documentation for the python calls can be found in: [compute-api-client](./compute-api-client/).

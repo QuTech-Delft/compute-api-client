@@ -1,0 +1,24 @@
+[tool.poetry]
+name = "compute-api-client"
+version = "0.1.0"
+description = "An API client that creates a python API to communicate with the Compute Job Manager."
+authors = ["Quantum Inspire <support@quantum-inspire.eu>"]
+packages = [
+    { include = "compute_api_client" },
+]
+exclude = ["compute-api-client/tests"]
+
+[tool.poetry.dependencies]
+python = "^3.10"
+urllib3 = "^1.25.3"
+python-dateutil = "^2.8.2"
+aiohttp = "^3.8.1"
+
+[tool.poetry.dev-dependencies]
+pytest = {extras = ["toml"], version = "^7.0.0"}
+black = "^22.1.0"
+isort = "^5.10.1"
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
