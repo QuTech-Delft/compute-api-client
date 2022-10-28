@@ -9,7 +9,8 @@ packages = [
 exclude = ["compute-api-client/tests"]
 
 [tool.poetry.dependencies]
-python = "^3.10"
+# Should not exceed package python version, so be conservative
+python = "^3.7"
 urllib3 = "^1.25.3"
 python-dateutil = "^2.8.2"
 aiohttp = "^3.8.1"
