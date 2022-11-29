@@ -35,17 +35,17 @@ class TestBatchRunsApi(unittest.TestCase):
         """
         pass
 
-    def test_peek_batch_run_batch_runs_peek_post(self):
-        """Test case for peek_batch_run_batch_runs_peek_post
+    def test_peek_batch_run_batch_runs_peek_patch(self):
+        """Test case for peek_batch_run_batch_runs_peek_patch
 
         Peek batch run  # noqa: E501
         """
         pass
 
-    def test_pop_batch_run_batch_runs_pop_post(self):
-        """Test case for pop_batch_run_batch_runs_pop_post
+    def test_pop_batch_run_batch_runs_pop_patch(self):
+        """Test case for pop_batch_run_batch_runs_pop_patch
 
-        Pop batch run  # noqa: E501
+        Take batch run  # noqa: E501
         """
         pass
 

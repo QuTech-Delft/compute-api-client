@@ -35,15 +35,15 @@ class TestResultsApi(unittest.TestCase):
         """
         pass
 
-    def test_read_result_by_run_id_results_run_run_id_get(self):
-        """Test case for read_result_by_run_id_results_run_run_id_get
+    def test_read_result_results_id_get(self):
+        """Test case for read_result_results_id_get
 
-        Retrieve result by run ID  # noqa: E501
+        Retrieve result  # noqa: E501
         """
         pass
 
-    def test_read_result_results_id_get(self):
-        """Test case for read_result_results_id_get
+    def test_read_results_by_run_id_results_run_run_id_get(self):
+        """Test case for read_results_by_run_id_results_run_run_id_get
 
         Retrieve result  # noqa: E501
         """

@@ -37,7 +37,7 @@ class TestValidationError(unittest.TestCase):
         if include_optional :
             return ValidationError(
                 loc = [
-                    ''
+                    null
                     ], 
                 msg = '', 
                 type = ''
@@ -45,7 +45,7 @@ class TestValidationError(unittest.TestCase):
         else :
             return ValidationError(
                 loc = [
-                    ''
+                    null
                     ],
                 msg = '',
                 type = '',

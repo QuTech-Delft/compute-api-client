@@ -45,7 +45,7 @@ class TestProjectsApi(unittest.TestCase):
     def test_partial_update_project_projects_id_patch(self):
         """Test case for partial_update_project_projects_id_patch
 
-        Partial update project  # noqa: E501
+        Partially update project  # noqa: E501
         """
         pass
 

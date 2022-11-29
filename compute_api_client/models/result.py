@@ -36,24 +36,22 @@ class Result(object):
                             and the value is json key in definition.
     """
     openapi_types = {
-        'run_id': 'int',
-        'metadata_id': 'int',
         'created_on': 'datetime',
+        'id': 'int',
         'number_of_qubits': 'int',
         'execution_time_in_seconds': 'float',
         'raw_text': 'str',
         'raw_data': 'object',
-        'histogram': 'dict(str, float)',
+        'histogram': 'object',
         'measurement_mask': 'object',
         'quantum_states': 'object',
         'measurement_register': 'object',
-        'id': 'int'
+        'run_id': 'int'
     }
 
     attribute_map = {
-        'run_id': 'run_id',
-        'metadata_id': 'metadata_id',
         'created_on': 'created_on',
+        'id': 'id',
         'number_of_qubits': 'number_of_qubits',
         'execution_time_in_seconds': 'execution_time_in_seconds',
         'raw_text': 'raw_text',
@@ -62,18 +60,17 @@ class Result(object):
         'measurement_mask': 'measurement_mask',
         'quantum_states': 'quantum_states',
         'measurement_register': 'measurement_register',
-        'id': 'id'
+        'run_id': 'run_id'
     }
 
-    def __init__(self, run_id=None, metadata_id=None, created_on=None, number_of_qubits=None, execution_time_in_seconds=None, raw_text=None, raw_data=None, histogram=None, measurement_mask=None, quantum_states=None, measurement_register=None, id=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, created_on=None, id=None, number_of_qubits=None, execution_time_in_seconds=None, raw_text=None, raw_data=None, histogram=None, measurement_mask=None, quantum_states=None, measurement_register=None, run_id=None, local_vars_configuration=None):  # noqa: E501
         """Result - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration.get_default_copy()
         self.local_vars_configuration = local_vars_configuration
 
-        self._run_id = None
-        self._metadata_id = None
         self._created_on = None
+        self._id = None
         self._number_of_qubits = None
         self._execution_time_in_seconds = None
         self._raw_text = None
@@ -82,12 +79,11 @@ class Result(object):
         self._measurement_mask = None
         self._quantum_states = None
         self._measurement_register = None
-        self._id = None
+        self._run_id = None
         self.discriminator = None
 
-        self.run_id = run_id
-        self.metadata_id = metadata_id
         self.created_on = created_on
+        self.id = id
         self.number_of_qubits = number_of_qubits
         self.execution_time_in_seconds = execution_time_in_seconds
         self.raw_text = raw_text
@@ -96,53 +92,7 @@ class Result(object):
         self.measurement_mask = measurement_mask
         self.quantum_states = quantum_states
         self.measurement_register = measurement_register
-        self.id = id
-
-    @property
-    def run_id(self):
-        """Gets the run_id of this Result.  # noqa: E501
-
-
-        :return: The run_id of this Result.  # noqa: E501
-        :rtype: int
-        """
-        return self._run_id
-
-    @run_id.setter
-    def run_id(self, run_id):
-        """Sets the run_id of this Result.
-
-
-        :param run_id: The run_id of this Result.  # noqa: E501
-        :type run_id: int
-        """
-        if self.local_vars_configuration.client_side_validation and run_id is None:  # noqa: E501
-            raise ValueError("Invalid value for `run_id`, must not be `None`")  # noqa: E501
-
-        self._run_id = run_id
-
-    @property
-    def metadata_id(self):
-        """Gets the metadata_id of this Result.  # noqa: E501
-
-
-        :return: The metadata_id of this Result.  # noqa: E501
-        :rtype: int
-        """
-        return self._metadata_id
-
-    @metadata_id.setter
-    def metadata_id(self, metadata_id):
-        """Sets the metadata_id of this Result.
-
-
-        :param metadata_id: The metadata_id of this Result.  # noqa: E501
-        :type metadata_id: int
-        """
-        if self.local_vars_configuration.client_side_validation and metadata_id is None:  # noqa: E501
-            raise ValueError("Invalid value for `metadata_id`, must not be `None`")  # noqa: E501
-
-        self._metadata_id = metadata_id
+        self.run_id = run_id
 
     @property
     def created_on(self):
@@ -168,6 +118,35 @@ class Result(object):
         self._created_on = created_on
 
     @property
+    def id(self):
+        """Gets the id of this Result.  # noqa: E501
+
+
+        :return: The id of this Result.  # noqa: E501
+        :rtype: int
+        """
+        return self._id
+
+    @id.setter
+    def id(self, id):
+        """Sets the id of this Result.
+
+
+        :param id: The id of this Result.  # noqa: E501
+        :type id: int
+        """
+        if self.local_vars_configuration.client_side_validation and id is None:  # noqa: E501
+            raise ValueError("Invalid value for `id`, must not be `None`")  # noqa: E501
+        if (self.local_vars_configuration.client_side_validation and
+                id is not None and id > 2147483647):  # noqa: E501
+            raise ValueError("Invalid value for `id`, must be a value less than or equal to `2147483647`")  # noqa: E501
+        if (self.local_vars_configuration.client_side_validation and
+                id is not None and id < 1):  # noqa: E501
+            raise ValueError("Invalid value for `id`, must be a value greater than or equal to `1`")  # noqa: E501
+
+        self._id = id
+
+    @property
     def number_of_qubits(self):
         """Gets the number_of_qubits of this Result.  # noqa: E501
 
@@ -187,6 +166,12 @@ class Result(object):
         """
         if self.local_vars_configuration.client_side_validation and number_of_qubits is None:  # noqa: E501
             raise ValueError("Invalid value for `number_of_qubits`, must not be `None`")  # noqa: E501
+        if (self.local_vars_configuration.client_side_validation and
+                number_of_qubits is not None and number_of_qubits > 32767):  # noqa: E501
+            raise ValueError("Invalid value for `number_of_qubits`, must be a value less than or equal to `32767`")  # noqa: E501
+        if (self.local_vars_configuration.client_side_validation and
+                number_of_qubits is not None and number_of_qubits < -32768):  # noqa: E501
+            raise ValueError("Invalid value for `number_of_qubits`, must be a value greater than or equal to `-32768`")  # noqa: E501
 
         self._number_of_qubits = number_of_qubits
 
@@ -254,8 +239,6 @@ class Result(object):
         :param raw_data: The raw_data of this Result.  # noqa: E501
         :type raw_data: object
         """
-        if self.local_vars_configuration.client_side_validation and raw_data is None:  # noqa: E501
-            raise ValueError("Invalid value for `raw_data`, must not be `None`")  # noqa: E501
 
         self._raw_data = raw_data
 
@@ -265,7 +248,7 @@ class Result(object):
 
 
         :return: The histogram of this Result.  # noqa: E501
-        :rtype: dict(str, float)
+        :rtype: object
         """
         return self._histogram
 
@@ -275,10 +258,8 @@ class Result(object):
 
 
         :param histogram: The histogram of this Result.  # noqa: E501
-        :type histogram: dict(str, float)
+        :type histogram: object
         """
-        if self.local_vars_configuration.client_side_validation and histogram is None:  # noqa: E501
-            raise ValueError("Invalid value for `histogram`, must not be `None`")  # noqa: E501
 
         self._histogram = histogram
 
@@ -300,8 +281,6 @@ class Result(object):
         :param measurement_mask: The measurement_mask of this Result.  # noqa: E501
         :type measurement_mask: object
         """
-        if self.local_vars_configuration.client_side_validation and measurement_mask is None:  # noqa: E501
-            raise ValueError("Invalid value for `measurement_mask`, must not be `None`")  # noqa: E501
 
         self._measurement_mask = measurement_mask
 
@@ -323,8 +302,6 @@ class Result(object):
         :param quantum_states: The quantum_states of this Result.  # noqa: E501
         :type quantum_states: object
         """
-        if self.local_vars_configuration.client_side_validation and quantum_states is None:  # noqa: E501
-            raise ValueError("Invalid value for `quantum_states`, must not be `None`")  # noqa: E501
 
         self._quantum_states = quantum_states
 
@@ -346,33 +323,37 @@ class Result(object):
         :param measurement_register: The measurement_register of this Result.  # noqa: E501
         :type measurement_register: object
         """
-        if self.local_vars_configuration.client_side_validation and measurement_register is None:  # noqa: E501
-            raise ValueError("Invalid value for `measurement_register`, must not be `None`")  # noqa: E501
 
         self._measurement_register = measurement_register
 
     @property
-    def id(self):
-        """Gets the id of this Result.  # noqa: E501
+    def run_id(self):
+        """Gets the run_id of this Result.  # noqa: E501
 
 
-        :return: The id of this Result.  # noqa: E501
+        :return: The run_id of this Result.  # noqa: E501
         :rtype: int
         """
-        return self._id
+        return self._run_id
 
-    @id.setter
-    def id(self, id):
-        """Sets the id of this Result.
+    @run_id.setter
+    def run_id(self, run_id):
+        """Sets the run_id of this Result.
 
 
-        :param id: The id of this Result.  # noqa: E501
-        :type id: int
+        :param run_id: The run_id of this Result.  # noqa: E501
+        :type run_id: int
         """
-        if self.local_vars_configuration.client_side_validation and id is None:  # noqa: E501
-            raise ValueError("Invalid value for `id`, must not be `None`")  # noqa: E501
+        if self.local_vars_configuration.client_side_validation and run_id is None:  # noqa: E501
+            raise ValueError("Invalid value for `run_id`, must not be `None`")  # noqa: E501
+        if (self.local_vars_configuration.client_side_validation and
+                run_id is not None and run_id > 2147483647):  # noqa: E501
+            raise ValueError("Invalid value for `run_id`, must be a value less than or equal to `2147483647`")  # noqa: E501
+        if (self.local_vars_configuration.client_side_validation and
+                run_id is not None and run_id < 1):  # noqa: E501
+            raise ValueError("Invalid value for `run_id`, must be a value greater than or equal to `1`")  # noqa: E501
 
-        self._id = id
+        self._run_id = run_id
 
     def to_dict(self, serialize=False):
         """Returns the model properties as a dict"""

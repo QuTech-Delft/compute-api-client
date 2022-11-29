@@ -36,7 +36,7 @@ class ValidationError(object):
                             and the value is json key in definition.
     """
     openapi_types = {
-        'loc': 'list[str]',
+        'loc': 'list[LocationInner]',
         'msg': 'str',
         'type': 'str'
     }
@@ -68,7 +68,7 @@ class ValidationError(object):
 
 
         :return: The loc of this ValidationError.  # noqa: E501
-        :rtype: list[str]
+        :rtype: list[LocationInner]
         """
         return self._loc
 
@@ -78,7 +78,7 @@ class ValidationError(object):
 
 
         :param loc: The loc of this ValidationError.  # noqa: E501
-        :type loc: list[str]
+        :type loc: list[LocationInner]
         """
         if self.local_vars_configuration.client_side_validation and loc is None:  # noqa: E501
             raise ValueError("Invalid value for `loc`, must not be `None`")  # noqa: E501

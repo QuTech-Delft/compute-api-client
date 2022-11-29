@@ -36,15 +36,15 @@ class TestLanguage(unittest.TestCase):
         # model = compute_api_client.models.language.Language()  # noqa: E501
         if include_optional :
             return Language(
+                id = 1.0, 
                 name = '', 
-                version = '', 
-                id = 56
+                version = ''
             )
         else :
             return Language(
+                id = 1.0,
                 name = '',
                 version = '',
-                id = 56,
         )
 
     def testLanguage(self):

@@ -39,7 +39,7 @@ class TestHTTPValidationError(unittest.TestCase):
                 detail = [
                     compute_api_client.models.validation_error.ValidationError(
                         loc = [
-                            ''
+                            null
                             ], 
                         msg = '', 
                         type = '', )

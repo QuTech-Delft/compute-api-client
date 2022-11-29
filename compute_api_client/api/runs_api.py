@@ -36,18 +36,18 @@ class RunsApi(object):
             api_client = ApiClient()
         self.api_client = api_client
 
-    def create_run_runs_post(self, run_create, **kwargs):  # noqa: E501
+    def create_run_runs_post(self, run_in, **kwargs):  # noqa: E501
         """Create run  # noqa: E501
 
         Create new run.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
-        >>> thread = api.create_run_runs_post(run_create, async_req=True)
+        >>> thread = api.create_run_runs_post(run_in, async_req=True)
         >>> result = thread.get()
 
-        :param run_create: (required)
-        :type run_create: RunCreate
+        :param run_in: (required)
+        :type run_in: RunIn
         :param async_req: Whether to execute the request asynchronously.
         :type async_req: bool, optional
         :param _preload_content: if False, the urllib3.HTTPResponse object will
@@ -64,20 +64,20 @@ class RunsApi(object):
         :rtype: Run
         """
         kwargs['_return_http_data_only'] = True
-        return self.create_run_runs_post_with_http_info(run_create, **kwargs)  # noqa: E501
+        return self.create_run_runs_post_with_http_info(run_in, **kwargs)  # noqa: E501
 
-    def create_run_runs_post_with_http_info(self, run_create, **kwargs):  # noqa: E501
+    def create_run_runs_post_with_http_info(self, run_in, **kwargs):  # noqa: E501
         """Create run  # noqa: E501
 
         Create new run.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
-        >>> thread = api.create_run_runs_post_with_http_info(run_create, async_req=True)
+        >>> thread = api.create_run_runs_post_with_http_info(run_in, async_req=True)
         >>> result = thread.get()
 
-        :param run_create: (required)
-        :type run_create: RunCreate
+        :param run_in: (required)
+        :type run_in: RunIn
         :param async_req: Whether to execute the request asynchronously.
         :type async_req: bool, optional
         :param _return_http_data_only: response data without head status code
@@ -105,7 +105,7 @@ class RunsApi(object):
         local_var_params = locals()
 
         all_params = [
-            'run_create'
+            'run_in'
         ]
         all_params.extend(
             [
@@ -127,9 +127,9 @@ class RunsApi(object):
                 )
             local_var_params[key] = val
         del local_var_params['kwargs']
-        # verify the required parameter 'run_create' is set
-        if self.api_client.client_side_validation and local_var_params.get('run_create') is None:  # noqa: E501
-            raise ApiValueError("Missing the required parameter `run_create` when calling `create_run_runs_post`")  # noqa: E501
+        # verify the required parameter 'run_in' is set
+        if self.api_client.client_side_validation and local_var_params.get('run_in') is None:  # noqa: E501
+            raise ApiValueError("Missing the required parameter `run_in` when calling `create_run_runs_post`")  # noqa: E501
 
         collection_formats = {}
 
@@ -143,8 +143,8 @@ class RunsApi(object):
         local_var_files = {}
 
         body_params = None
-        if 'run_create' in local_var_params:
-            body_params = local_var_params['run_create']
+        if 'run_in' in local_var_params:
+            body_params = local_var_params['run_in']
         # HTTP header `Accept`
         header_params['Accept'] = self.api_client.select_header_accept(
             ['application/json'])  # noqa: E501
@@ -161,7 +161,7 @@ class RunsApi(object):
         auth_settings = []  # noqa: E501
 
         response_types_map = {
-            200: "Run",
+            201: "Run",
             422: "HTTPValidationError",
         }
 
@@ -435,6 +435,7 @@ class RunsApi(object):
 
         response_types_map = {
             200: "Run",
+            404: "HTTPNotFoundError",
             422: "HTTPValidationError",
         }
 
@@ -458,7 +459,7 @@ class RunsApi(object):
     def read_runs_runs_get(self, **kwargs):  # noqa: E501
         """List runs  # noqa: E501
 
-        Read runs.  # noqa: E501
+        List runs.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -486,7 +487,7 @@ class RunsApi(object):
     def read_runs_runs_get_with_http_info(self, **kwargs):  # noqa: E501
         """List runs  # noqa: E501
 
-        Read runs.  # noqa: E501
+        List runs.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 

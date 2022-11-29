@@ -36,22 +36,21 @@ class TestFile(unittest.TestCase):
         # model = compute_api_client.models.file.File()  # noqa: E501
         if include_optional :
             return File(
-                commit_id = 56, 
+                id = 1.0, 
                 content = '', 
-                language_id = 56, 
-                compile_stage = 'none', 
-                compile_properties = compute_api_client.models.compile_properties.Compile Properties(), 
+                compile_stage = None, 
+                compile_properties = None, 
                 generated = True, 
-                id = 56
+                commit_id = 1.0, 
+                language_id = 1.0
             )
         else :
             return File(
-                commit_id = 56,
+                id = 1.0,
                 content = '',
-                language_id = 56,
-                compile_stage = 'none',
-                compile_properties = compute_api_client.models.compile_properties.Compile Properties(),
-                id = 56,
+                compile_stage = None,
+                commit_id = 1.0,
+                language_id = 1.0,
         )
 
     def testFile(self):

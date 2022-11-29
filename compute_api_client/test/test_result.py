@@ -36,37 +36,26 @@ class TestResult(unittest.TestCase):
         # model = compute_api_client.models.result.Result()  # noqa: E501
         if include_optional :
             return Result(
-                run_id = 56, 
-                metadata_id = 56, 
                 created_on = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
-                number_of_qubits = 56, 
+                id = 1.0, 
+                number_of_qubits = -32768.0, 
                 execution_time_in_seconds = 1.337, 
                 raw_text = '', 
-                raw_data = compute_api_client.models.raw_data.Raw Data(), 
-                histogram = {
-                    'key' : 1.337
-                    }, 
-                measurement_mask = compute_api_client.models.measurement_mask.Measurement Mask(), 
-                quantum_states = compute_api_client.models.quantum_states.Quantum States(), 
-                measurement_register = compute_api_client.models.measurement_register.Measurement Register(), 
-                id = 56
+                raw_data = None, 
+                histogram = None, 
+                measurement_mask = None, 
+                quantum_states = None, 
+                measurement_register = None, 
+                run_id = 1.0
             )
         else :
             return Result(
-                run_id = 56,
-                metadata_id = 56,
                 created_on = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'),
-                number_of_qubits = 56,
+                id = 1.0,
+                number_of_qubits = -32768.0,
                 execution_time_in_seconds = 1.337,
                 raw_text = '',
-                raw_data = compute_api_client.models.raw_data.Raw Data(),
-                histogram = {
-                    'key' : 1.337
-                    },
-                measurement_mask = compute_api_client.models.measurement_mask.Measurement Mask(),
-                quantum_states = compute_api_client.models.quantum_states.Quantum States(),
-                measurement_register = compute_api_client.models.measurement_register.Measurement Register(),
-                id = 56,
+                run_id = 1.0,
         )
 
     def testResult(self):

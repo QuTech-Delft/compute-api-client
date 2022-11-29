@@ -36,66 +36,74 @@ class BatchRun(object):
                             and the value is json key in definition.
     """
     openapi_types = {
-        'run_ids': 'list[int]',
+        'created_on': 'datetime',
         'queued_at': 'datetime',
         'finished_at': 'datetime',
-        'runtime_type_id': 'int',
-        'runtime_id': 'int',
-        'id': 'int'
+        'id': 'int',
+        'status': 'BatchRunStatus',
+        'reserved_at': 'datetime',
+        'run_ids': 'list[int]',
+        'aggregated_algorithm_type': 'AlgorithmType'
     }
 
     attribute_map = {
-        'run_ids': 'run_ids',
+        'created_on': 'created_on',
         'queued_at': 'queued_at',
         'finished_at': 'finished_at',
-        'runtime_type_id': 'runtime_type_id',
-        'runtime_id': 'runtime_id',
-        'id': 'id'
+        'id': 'id',
+        'status': 'status',
+        'reserved_at': 'reserved_at',
+        'run_ids': 'run_ids',
+        'aggregated_algorithm_type': 'aggregated_algorithm_type'
     }
 
-    def __init__(self, run_ids=None, queued_at=None, finished_at=None, runtime_type_id=None, runtime_id=None, id=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, created_on=None, queued_at=None, finished_at=None, id=None, status=None, reserved_at=None, run_ids=None, aggregated_algorithm_type=None, local_vars_configuration=None):  # noqa: E501
         """BatchRun - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration.get_default_copy()
         self.local_vars_configuration = local_vars_configuration
 
-        self._run_ids = None
+        self._created_on = None
         self._queued_at = None
         self._finished_at = None
-        self._runtime_type_id = None
-        self._runtime_id = None
         self._id = None
+        self._status = None
+        self._reserved_at = None
+        self._run_ids = None
+        self._aggregated_algorithm_type = None
         self.discriminator = None
 
-        self.run_ids = run_ids
+        self.created_on = created_on
         self.queued_at = queued_at
         self.finished_at = finished_at
-        self.runtime_type_id = runtime_type_id
-        self.runtime_id = runtime_id
         self.id = id
+        self.status = status
+        self.reserved_at = reserved_at
+        self.run_ids = run_ids
+        self.aggregated_algorithm_type = aggregated_algorithm_type
 
     @property
-    def run_ids(self):
-        """Gets the run_ids of this BatchRun.  # noqa: E501
+    def created_on(self):
+        """Gets the created_on of this BatchRun.  # noqa: E501
 
 
-        :return: The run_ids of this BatchRun.  # noqa: E501
-        :rtype: list[int]
+        :return: The created_on of this BatchRun.  # noqa: E501
+        :rtype: datetime
         """
-        return self._run_ids
+        return self._created_on
 
-    @run_ids.setter
-    def run_ids(self, run_ids):
-        """Sets the run_ids of this BatchRun.
+    @created_on.setter
+    def created_on(self, created_on):
+        """Sets the created_on of this BatchRun.
 
 
-        :param run_ids: The run_ids of this BatchRun.  # noqa: E501
-        :type run_ids: list[int]
+        :param created_on: The created_on of this BatchRun.  # noqa: E501
+        :type created_on: datetime
         """
-        if self.local_vars_configuration.client_side_validation and run_ids is None:  # noqa: E501
-            raise ValueError("Invalid value for `run_ids`, must not be `None`")  # noqa: E501
+        if self.local_vars_configuration.client_side_validation and created_on is None:  # noqa: E501
+            raise ValueError("Invalid value for `created_on`, must not be `None`")  # noqa: E501
 
-        self._run_ids = run_ids
+        self._created_on = created_on
 
     @property
     def queued_at(self):
@@ -115,8 +123,6 @@ class BatchRun(object):
         :param queued_at: The queued_at of this BatchRun.  # noqa: E501
         :type queued_at: datetime
         """
-        if self.local_vars_configuration.client_side_validation and queued_at is None:  # noqa: E501
-            raise ValueError("Invalid value for `queued_at`, must not be `None`")  # noqa: E501
 
         self._queued_at = queued_at
 
@@ -142,50 +148,6 @@ class BatchRun(object):
         self._finished_at = finished_at
 
     @property
-    def runtime_type_id(self):
-        """Gets the runtime_type_id of this BatchRun.  # noqa: E501
-
-
-        :return: The runtime_type_id of this BatchRun.  # noqa: E501
-        :rtype: int
-        """
-        return self._runtime_type_id
-
-    @runtime_type_id.setter
-    def runtime_type_id(self, runtime_type_id):
-        """Sets the runtime_type_id of this BatchRun.
-
-
-        :param runtime_type_id: The runtime_type_id of this BatchRun.  # noqa: E501
-        :type runtime_type_id: int
-        """
-        if self.local_vars_configuration.client_side_validation and runtime_type_id is None:  # noqa: E501
-            raise ValueError("Invalid value for `runtime_type_id`, must not be `None`")  # noqa: E501
-
-        self._runtime_type_id = runtime_type_id
-
-    @property
-    def runtime_id(self):
-        """Gets the runtime_id of this BatchRun.  # noqa: E501
-
-
-        :return: The runtime_id of this BatchRun.  # noqa: E501
-        :rtype: int
-        """
-        return self._runtime_id
-
-    @runtime_id.setter
-    def runtime_id(self, runtime_id):
-        """Sets the runtime_id of this BatchRun.
-
-
-        :param runtime_id: The runtime_id of this BatchRun.  # noqa: E501
-        :type runtime_id: int
-        """
-
-        self._runtime_id = runtime_id
-
-    @property
     def id(self):
         """Gets the id of this BatchRun.  # noqa: E501
 
@@ -205,8 +167,109 @@ class BatchRun(object):
         """
         if self.local_vars_configuration.client_side_validation and id is None:  # noqa: E501
             raise ValueError("Invalid value for `id`, must not be `None`")  # noqa: E501
+        if (self.local_vars_configuration.client_side_validation and
+                id is not None and id > 2147483647):  # noqa: E501
+            raise ValueError("Invalid value for `id`, must be a value less than or equal to `2147483647`")  # noqa: E501
+        if (self.local_vars_configuration.client_side_validation and
+                id is not None and id < 1):  # noqa: E501
+            raise ValueError("Invalid value for `id`, must be a value greater than or equal to `1`")  # noqa: E501
 
         self._id = id
+
+    @property
+    def status(self):
+        """Gets the status of this BatchRun.  # noqa: E501
+
+        PLANNED: planned<br/>QUEUED: queued<br/>RESERVED: reserved<br/>RUNNING: running<br/>FINISHED: finished  # noqa: E501
+
+        :return: The status of this BatchRun.  # noqa: E501
+        :rtype: BatchRunStatus
+        """
+        return self._status
+
+    @status.setter
+    def status(self, status):
+        """Sets the status of this BatchRun.
+
+        PLANNED: planned<br/>QUEUED: queued<br/>RESERVED: reserved<br/>RUNNING: running<br/>FINISHED: finished  # noqa: E501
+
+        :param status: The status of this BatchRun.  # noqa: E501
+        :type status: BatchRunStatus
+        """
+        if self.local_vars_configuration.client_side_validation and status is None:  # noqa: E501
+            raise ValueError("Invalid value for `status`, must not be `None`")  # noqa: E501
+        if (self.local_vars_configuration.client_side_validation and
+                status is not None and len(status) > 8):
+            raise ValueError("Invalid value for `status`, length must be less than or equal to `8`")  # noqa: E501
+
+        self._status = status
+
+    @property
+    def reserved_at(self):
+        """Gets the reserved_at of this BatchRun.  # noqa: E501
+
+
+        :return: The reserved_at of this BatchRun.  # noqa: E501
+        :rtype: datetime
+        """
+        return self._reserved_at
+
+    @reserved_at.setter
+    def reserved_at(self, reserved_at):
+        """Sets the reserved_at of this BatchRun.
+
+
+        :param reserved_at: The reserved_at of this BatchRun.  # noqa: E501
+        :type reserved_at: datetime
+        """
+
+        self._reserved_at = reserved_at
+
+    @property
+    def run_ids(self):
+        """Gets the run_ids of this BatchRun.  # noqa: E501
+
+
+        :return: The run_ids of this BatchRun.  # noqa: E501
+        :rtype: list[int]
+        """
+        return self._run_ids
+
+    @run_ids.setter
+    def run_ids(self, run_ids):
+        """Sets the run_ids of this BatchRun.
+
+
+        :param run_ids: The run_ids of this BatchRun.  # noqa: E501
+        :type run_ids: list[int]
+        """
+        if self.local_vars_configuration.client_side_validation and run_ids is None:  # noqa: E501
+            raise ValueError("Invalid value for `run_ids`, must not be `None`")  # noqa: E501
+
+        self._run_ids = run_ids
+
+    @property
+    def aggregated_algorithm_type(self):
+        """Gets the aggregated_algorithm_type of this BatchRun.  # noqa: E501
+
+
+        :return: The aggregated_algorithm_type of this BatchRun.  # noqa: E501
+        :rtype: AlgorithmType
+        """
+        return self._aggregated_algorithm_type
+
+    @aggregated_algorithm_type.setter
+    def aggregated_algorithm_type(self, aggregated_algorithm_type):
+        """Sets the aggregated_algorithm_type of this BatchRun.
+
+
+        :param aggregated_algorithm_type: The aggregated_algorithm_type of this BatchRun.  # noqa: E501
+        :type aggregated_algorithm_type: AlgorithmType
+        """
+        if self.local_vars_configuration.client_side_validation and aggregated_algorithm_type is None:  # noqa: E501
+            raise ValueError("Invalid value for `aggregated_algorithm_type`, must not be `None`")  # noqa: E501
+
+        self._aggregated_algorithm_type = aggregated_algorithm_type
 
     def to_dict(self, serialize=False):
         """Returns the model properties as a dict"""

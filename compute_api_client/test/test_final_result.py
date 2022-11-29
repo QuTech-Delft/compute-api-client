@@ -36,17 +36,16 @@ class TestFinalResult(unittest.TestCase):
         # model = compute_api_client.models.final_result.FinalResult()  # noqa: E501
         if include_optional :
             return FinalResult(
-                run_id = 56, 
-                final_result = compute_api_client.models.final_result.Final Result(), 
                 created_on = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
-                id = 56
+                id = 1.0, 
+                final_result = None, 
+                run_id = 1.0
             )
         else :
             return FinalResult(
-                run_id = 56,
-                final_result = compute_api_client.models.final_result.Final Result(),
                 created_on = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'),
-                id = 56,
+                id = 1.0,
+                run_id = 1.0,
         )
 
     def testFinalResult(self):

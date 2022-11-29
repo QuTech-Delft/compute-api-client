@@ -45,7 +45,7 @@ class TestCommitsApi(unittest.TestCase):
     def test_read_commit_commits_id_get(self):
         """Test case for read_commit_commits_id_get
 
-        Retrieve commit  # noqa: E501
+        Get commit by ID  # noqa: E501
         """
         pass
 

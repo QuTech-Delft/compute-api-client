@@ -36,18 +36,22 @@ class TestRun(unittest.TestCase):
         # model = compute_api_client.models.run.Run()  # noqa: E501
         if include_optional :
             return Run(
-                file_id = 56, 
-                status = 'planned', 
+                created_on = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
                 queued_at = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
                 finished_at = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
-                id = 56
+                id = 1.0, 
+                algorithm_type = None, 
+                status = None, 
+                batch_run_id = 1.0, 
+                file_id = 1.0
             )
         else :
             return Run(
-                file_id = 56,
-                status = 'planned',
-                queued_at = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'),
-                id = 56,
+                created_on = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'),
+                id = 1.0,
+                algorithm_type = None,
+                status = None,
+                file_id = 1.0,
         )
 
     def testRun(self):

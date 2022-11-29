@@ -36,18 +36,18 @@ class CommitsApi(object):
             api_client = ApiClient()
         self.api_client = api_client
 
-    def create_commit_commits_post(self, commit_create, **kwargs):  # noqa: E501
+    def create_commit_commits_post(self, commit_in, **kwargs):  # noqa: E501
         """Create commit  # noqa: E501
 
         Create new commit.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
-        >>> thread = api.create_commit_commits_post(commit_create, async_req=True)
+        >>> thread = api.create_commit_commits_post(commit_in, async_req=True)
         >>> result = thread.get()
 
-        :param commit_create: (required)
-        :type commit_create: CommitCreate
+        :param commit_in: (required)
+        :type commit_in: CommitIn
         :param async_req: Whether to execute the request asynchronously.
         :type async_req: bool, optional
         :param _preload_content: if False, the urllib3.HTTPResponse object will
@@ -64,20 +64,20 @@ class CommitsApi(object):
         :rtype: Commit
         """
         kwargs['_return_http_data_only'] = True
-        return self.create_commit_commits_post_with_http_info(commit_create, **kwargs)  # noqa: E501
+        return self.create_commit_commits_post_with_http_info(commit_in, **kwargs)  # noqa: E501
 
-    def create_commit_commits_post_with_http_info(self, commit_create, **kwargs):  # noqa: E501
+    def create_commit_commits_post_with_http_info(self, commit_in, **kwargs):  # noqa: E501
         """Create commit  # noqa: E501
 
         Create new commit.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
-        >>> thread = api.create_commit_commits_post_with_http_info(commit_create, async_req=True)
+        >>> thread = api.create_commit_commits_post_with_http_info(commit_in, async_req=True)
         >>> result = thread.get()
 
-        :param commit_create: (required)
-        :type commit_create: CommitCreate
+        :param commit_in: (required)
+        :type commit_in: CommitIn
         :param async_req: Whether to execute the request asynchronously.
         :type async_req: bool, optional
         :param _return_http_data_only: response data without head status code
@@ -105,7 +105,7 @@ class CommitsApi(object):
         local_var_params = locals()
 
         all_params = [
-            'commit_create'
+            'commit_in'
         ]
         all_params.extend(
             [
@@ -127,9 +127,9 @@ class CommitsApi(object):
                 )
             local_var_params[key] = val
         del local_var_params['kwargs']
-        # verify the required parameter 'commit_create' is set
-        if self.api_client.client_side_validation and local_var_params.get('commit_create') is None:  # noqa: E501
-            raise ApiValueError("Missing the required parameter `commit_create` when calling `create_commit_commits_post`")  # noqa: E501
+        # verify the required parameter 'commit_in' is set
+        if self.api_client.client_side_validation and local_var_params.get('commit_in') is None:  # noqa: E501
+            raise ApiValueError("Missing the required parameter `commit_in` when calling `create_commit_commits_post`")  # noqa: E501
 
         collection_formats = {}
 
@@ -143,8 +143,8 @@ class CommitsApi(object):
         local_var_files = {}
 
         body_params = None
-        if 'commit_create' in local_var_params:
-            body_params = local_var_params['commit_create']
+        if 'commit_in' in local_var_params:
+            body_params = local_var_params['commit_in']
         # HTTP header `Accept`
         header_params['Accept'] = self.api_client.select_header_accept(
             ['application/json'])  # noqa: E501
@@ -161,7 +161,7 @@ class CommitsApi(object):
         auth_settings = []  # noqa: E501
 
         response_types_map = {
-            200: "Commit",
+            201: "Commit",
             422: "HTTPValidationError",
         }
 
@@ -318,7 +318,7 @@ class CommitsApi(object):
             _request_auth=local_var_params.get('_request_auth'))
 
     def read_commit_commits_id_get(self, id, **kwargs):  # noqa: E501
-        """Retrieve commit  # noqa: E501
+        """Get commit by ID  # noqa: E501
 
         Get commit by ID.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
@@ -348,7 +348,7 @@ class CommitsApi(object):
         return self.read_commit_commits_id_get_with_http_info(id, **kwargs)  # noqa: E501
 
     def read_commit_commits_id_get_with_http_info(self, id, **kwargs):  # noqa: E501
-        """Retrieve commit  # noqa: E501
+        """Get commit by ID  # noqa: E501
 
         Get commit by ID.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
@@ -435,6 +435,7 @@ class CommitsApi(object):
 
         response_types_map = {
             200: "Commit",
+            404: "HTTPNotFoundError",
             422: "HTTPValidationError",
         }
 
@@ -458,7 +459,7 @@ class CommitsApi(object):
     def read_commits_commits_get(self, **kwargs):  # noqa: E501
         """List commits  # noqa: E501
 
-        Read commits.  # noqa: E501
+        List commits.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -486,7 +487,7 @@ class CommitsApi(object):
     def read_commits_commits_get_with_http_info(self, **kwargs):  # noqa: E501
         """List commits  # noqa: E501
 
-        Read commits.  # noqa: E501
+        List commits.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 

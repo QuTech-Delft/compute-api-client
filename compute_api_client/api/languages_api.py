@@ -154,6 +154,7 @@ class LanguagesApi(object):
 
         response_types_map = {
             200: "Language",
+            404: "HTTPNotFoundError",
             422: "HTTPValidationError",
         }
 
@@ -177,7 +178,7 @@ class LanguagesApi(object):
     def read_languages_languages_get(self, **kwargs):  # noqa: E501
         """List languages  # noqa: E501
 
-        Read languages.  # noqa: E501
+        List languages.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -207,7 +208,7 @@ class LanguagesApi(object):
     def read_languages_languages_get_with_http_info(self, **kwargs):  # noqa: E501
         """List languages  # noqa: E501
 
-        Read languages.  # noqa: E501
+        List languages.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 

@@ -36,18 +36,18 @@ class BatchRunsApi(object):
             api_client = ApiClient()
         self.api_client = api_client
 
-    def create_batch_run_batch_runs_post(self, batch_run_create, **kwargs):  # noqa: E501
+    def create_batch_run_batch_runs_post(self, batch_run_in, **kwargs):  # noqa: E501
         """Create batch run  # noqa: E501
 
         Create new batch run.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
-        >>> thread = api.create_batch_run_batch_runs_post(batch_run_create, async_req=True)
+        >>> thread = api.create_batch_run_batch_runs_post(batch_run_in, async_req=True)
         >>> result = thread.get()
 
-        :param batch_run_create: (required)
-        :type batch_run_create: BatchRunCreate
+        :param batch_run_in: (required)
+        :type batch_run_in: BatchRunIn
         :param async_req: Whether to execute the request asynchronously.
         :type async_req: bool, optional
         :param _preload_content: if False, the urllib3.HTTPResponse object will
@@ -64,20 +64,20 @@ class BatchRunsApi(object):
         :rtype: BatchRun
         """
         kwargs['_return_http_data_only'] = True
-        return self.create_batch_run_batch_runs_post_with_http_info(batch_run_create, **kwargs)  # noqa: E501
+        return self.create_batch_run_batch_runs_post_with_http_info(batch_run_in, **kwargs)  # noqa: E501
 
-    def create_batch_run_batch_runs_post_with_http_info(self, batch_run_create, **kwargs):  # noqa: E501
+    def create_batch_run_batch_runs_post_with_http_info(self, batch_run_in, **kwargs):  # noqa: E501
         """Create batch run  # noqa: E501
 
         Create new batch run.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
-        >>> thread = api.create_batch_run_batch_runs_post_with_http_info(batch_run_create, async_req=True)
+        >>> thread = api.create_batch_run_batch_runs_post_with_http_info(batch_run_in, async_req=True)
         >>> result = thread.get()
 
-        :param batch_run_create: (required)
-        :type batch_run_create: BatchRunCreate
+        :param batch_run_in: (required)
+        :type batch_run_in: BatchRunIn
         :param async_req: Whether to execute the request asynchronously.
         :type async_req: bool, optional
         :param _return_http_data_only: response data without head status code
@@ -105,7 +105,7 @@ class BatchRunsApi(object):
         local_var_params = locals()
 
         all_params = [
-            'batch_run_create'
+            'batch_run_in'
         ]
         all_params.extend(
             [
@@ -127,9 +127,9 @@ class BatchRunsApi(object):
                 )
             local_var_params[key] = val
         del local_var_params['kwargs']
-        # verify the required parameter 'batch_run_create' is set
-        if self.api_client.client_side_validation and local_var_params.get('batch_run_create') is None:  # noqa: E501
-            raise ApiValueError("Missing the required parameter `batch_run_create` when calling `create_batch_run_batch_runs_post`")  # noqa: E501
+        # verify the required parameter 'batch_run_in' is set
+        if self.api_client.client_side_validation and local_var_params.get('batch_run_in') is None:  # noqa: E501
+            raise ApiValueError("Missing the required parameter `batch_run_in` when calling `create_batch_run_batch_runs_post`")  # noqa: E501
 
         collection_formats = {}
 
@@ -143,8 +143,8 @@ class BatchRunsApi(object):
         local_var_files = {}
 
         body_params = None
-        if 'batch_run_create' in local_var_params:
-            body_params = local_var_params['batch_run_create']
+        if 'batch_run_in' in local_var_params:
+            body_params = local_var_params['batch_run_in']
         # HTTP header `Accept`
         header_params['Accept'] = self.api_client.select_header_accept(
             ['application/json'])  # noqa: E501
@@ -161,7 +161,7 @@ class BatchRunsApi(object):
         auth_settings = []  # noqa: E501
 
         response_types_map = {
-            200: "BatchRun",
+            201: "BatchRun",
             422: "HTTPValidationError",
         }
 
@@ -182,14 +182,14 @@ class BatchRunsApi(object):
             collection_formats=collection_formats,
             _request_auth=local_var_params.get('_request_auth'))
 
-    def peek_batch_run_batch_runs_peek_post(self, request_body, **kwargs):  # noqa: E501
+    def peek_batch_run_batch_runs_peek_patch(self, request_body, **kwargs):  # noqa: E501
         """Peek batch run  # noqa: E501
 
-        Get batch run excluding list of IDs.  # noqa: E501
+        Get batch run that can be taken up, excluding list of IDs.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
-        >>> thread = api.peek_batch_run_batch_runs_peek_post(request_body, async_req=True)
+        >>> thread = api.peek_batch_run_batch_runs_peek_patch(request_body, async_req=True)
         >>> result = thread.get()
 
         :param request_body: (required)
@@ -210,16 +210,16 @@ class BatchRunsApi(object):
         :rtype: BatchRun
         """
         kwargs['_return_http_data_only'] = True
-        return self.peek_batch_run_batch_runs_peek_post_with_http_info(request_body, **kwargs)  # noqa: E501
+        return self.peek_batch_run_batch_runs_peek_patch_with_http_info(request_body, **kwargs)  # noqa: E501
 
-    def peek_batch_run_batch_runs_peek_post_with_http_info(self, request_body, **kwargs):  # noqa: E501
+    def peek_batch_run_batch_runs_peek_patch_with_http_info(self, request_body, **kwargs):  # noqa: E501
         """Peek batch run  # noqa: E501
 
-        Get batch run excluding list of IDs.  # noqa: E501
+        Get batch run that can be taken up, excluding list of IDs.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
-        >>> thread = api.peek_batch_run_batch_runs_peek_post_with_http_info(request_body, async_req=True)
+        >>> thread = api.peek_batch_run_batch_runs_peek_patch_with_http_info(request_body, async_req=True)
         >>> result = thread.get()
 
         :param request_body: (required)
@@ -269,13 +269,13 @@ class BatchRunsApi(object):
             if key not in all_params:
                 raise ApiTypeError(
                     "Got an unexpected keyword argument '%s'"
-                    " to method peek_batch_run_batch_runs_peek_post" % key
+                    " to method peek_batch_run_batch_runs_peek_patch" % key
                 )
             local_var_params[key] = val
         del local_var_params['kwargs']
         # verify the required parameter 'request_body' is set
         if self.api_client.client_side_validation and local_var_params.get('request_body') is None:  # noqa: E501
-            raise ApiValueError("Missing the required parameter `request_body` when calling `peek_batch_run_batch_runs_peek_post`")  # noqa: E501
+            raise ApiValueError("Missing the required parameter `request_body` when calling `peek_batch_run_batch_runs_peek_patch`")  # noqa: E501
 
         collection_formats = {}
 
@@ -299,7 +299,7 @@ class BatchRunsApi(object):
         content_types_list = local_var_params.get('_content_type',
             self.api_client.select_header_content_type(
                 ['application/json'],
-                'POST', body_params))  # noqa: E501
+                'PATCH', body_params))  # noqa: E501
         if content_types_list:
                 header_params['Content-Type'] = content_types_list
 
@@ -308,12 +308,11 @@ class BatchRunsApi(object):
 
         response_types_map = {
             200: "BatchRun",
-            204: None,
             422: "HTTPValidationError",
         }
 
         return self.api_client.call_api(
-            '/batch_runs/peek', 'POST',
+            '/batch_runs/peek', 'PATCH',
             path_params,
             query_params,
             header_params,
@@ -329,18 +328,16 @@ class BatchRunsApi(object):
             collection_formats=collection_formats,
             _request_auth=local_var_params.get('_request_auth'))
 
-    def pop_batch_run_batch_runs_pop_post(self, body, **kwargs):  # noqa: E501
-        """Pop batch run  # noqa: E501
+    def pop_batch_run_batch_runs_pop_patch(self, **kwargs):  # noqa: E501
+        """Take batch run  # noqa: E501
 
         Claim batch run by ID.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
-        >>> thread = api.pop_batch_run_batch_runs_pop_post(body, async_req=True)
+        >>> thread = api.pop_batch_run_batch_runs_pop_patch(async_req=True)
         >>> result = thread.get()
 
-        :param body: (required)
-        :type body: int
         :param async_req: Whether to execute the request asynchronously.
         :type async_req: bool, optional
         :param _preload_content: if False, the urllib3.HTTPResponse object will
@@ -357,20 +354,18 @@ class BatchRunsApi(object):
         :rtype: BatchRun
         """
         kwargs['_return_http_data_only'] = True
-        return self.pop_batch_run_batch_runs_pop_post_with_http_info(body, **kwargs)  # noqa: E501
+        return self.pop_batch_run_batch_runs_pop_patch_with_http_info(**kwargs)  # noqa: E501
 
-    def pop_batch_run_batch_runs_pop_post_with_http_info(self, body, **kwargs):  # noqa: E501
-        """Pop batch run  # noqa: E501
+    def pop_batch_run_batch_runs_pop_patch_with_http_info(self, **kwargs):  # noqa: E501
+        """Take batch run  # noqa: E501
 
         Claim batch run by ID.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
-        >>> thread = api.pop_batch_run_batch_runs_pop_post_with_http_info(body, async_req=True)
+        >>> thread = api.pop_batch_run_batch_runs_pop_patch_with_http_info(async_req=True)
         >>> result = thread.get()
 
-        :param body: (required)
-        :type body: int
         :param async_req: Whether to execute the request asynchronously.
         :type async_req: bool, optional
         :param _return_http_data_only: response data without head status code
@@ -398,7 +393,6 @@ class BatchRunsApi(object):
         local_var_params = locals()
 
         all_params = [
-            'body'
         ]
         all_params.extend(
             [
@@ -416,13 +410,10 @@ class BatchRunsApi(object):
             if key not in all_params:
                 raise ApiTypeError(
                     "Got an unexpected keyword argument '%s'"
-                    " to method pop_batch_run_batch_runs_pop_post" % key
+                    " to method pop_batch_run_batch_runs_pop_patch" % key
                 )
             local_var_params[key] = val
         del local_var_params['kwargs']
-        # verify the required parameter 'body' is set
-        if self.api_client.client_side_validation and local_var_params.get('body') is None:  # noqa: E501
-            raise ApiValueError("Missing the required parameter `body` when calling `pop_batch_run_batch_runs_pop_post`")  # noqa: E501
 
         collection_formats = {}
 
@@ -436,30 +427,20 @@ class BatchRunsApi(object):
         local_var_files = {}
 
         body_params = None
-        if 'body' in local_var_params:
-            body_params = local_var_params['body']
         # HTTP header `Accept`
         header_params['Accept'] = self.api_client.select_header_accept(
             ['application/json'])  # noqa: E501
-
-        # HTTP header `Content-Type`
-        content_types_list = local_var_params.get('_content_type',
-            self.api_client.select_header_content_type(
-                ['application/json'],
-                'POST', body_params))  # noqa: E501
-        if content_types_list:
-                header_params['Content-Type'] = content_types_list
 
         # Authentication setting
         auth_settings = []  # noqa: E501
 
         response_types_map = {
             200: "BatchRun",
-            422: "HTTPValidationError",
+            404: "HTTPNotFoundError",
         }
 
         return self.api_client.call_api(
-            '/batch_runs/pop', 'POST',
+            '/batch_runs/pop', 'PATCH',
             path_params,
             query_params,
             header_params,
@@ -478,7 +459,7 @@ class BatchRunsApi(object):
     def read_batch_runs_batch_runs_get(self, **kwargs):  # noqa: E501
         """List batch runs  # noqa: E501
 
-        Read batch runs.  # noqa: E501
+        List batch runs.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -506,7 +487,7 @@ class BatchRunsApi(object):
     def read_batch_runs_batch_runs_get_with_http_info(self, **kwargs):  # noqa: E501
         """List batch runs  # noqa: E501
 
-        Read batch runs.  # noqa: E501
+        List batch runs.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 

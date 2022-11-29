@@ -36,18 +36,18 @@ class TestAlgorithm(unittest.TestCase):
         # model = compute_api_client.models.algorithm.Algorithm()  # noqa: E501
         if include_optional :
             return Algorithm(
-                project_id = 56, 
-                type = 'hybrid', 
-                shared = 'private', 
+                id = 1.0, 
+                type = None, 
+                shared = None, 
                 link = '', 
-                id = 56
+                project_id = 1.0
             )
         else :
             return Algorithm(
-                project_id = 56,
-                type = 'hybrid',
-                shared = 'private',
-                id = 56,
+                id = 1.0,
+                type = None,
+                shared = None,
+                project_id = 1.0,
         )
 
     def testAlgorithm(self):

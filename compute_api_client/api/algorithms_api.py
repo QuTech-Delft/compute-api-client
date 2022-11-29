@@ -36,18 +36,18 @@ class AlgorithmsApi(object):
             api_client = ApiClient()
         self.api_client = api_client
 
-    def create_algorithm_algorithms_post(self, algorithm_create, **kwargs):  # noqa: E501
+    def create_algorithm_algorithms_post(self, algorithm_in, **kwargs):  # noqa: E501
         """Create algorithm  # noqa: E501
 
         Create new algorithm.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
-        >>> thread = api.create_algorithm_algorithms_post(algorithm_create, async_req=True)
+        >>> thread = api.create_algorithm_algorithms_post(algorithm_in, async_req=True)
         >>> result = thread.get()
 
-        :param algorithm_create: (required)
-        :type algorithm_create: AlgorithmCreate
+        :param algorithm_in: (required)
+        :type algorithm_in: AlgorithmIn
         :param async_req: Whether to execute the request asynchronously.
         :type async_req: bool, optional
         :param _preload_content: if False, the urllib3.HTTPResponse object will
@@ -64,20 +64,20 @@ class AlgorithmsApi(object):
         :rtype: Algorithm
         """
         kwargs['_return_http_data_only'] = True
-        return self.create_algorithm_algorithms_post_with_http_info(algorithm_create, **kwargs)  # noqa: E501
+        return self.create_algorithm_algorithms_post_with_http_info(algorithm_in, **kwargs)  # noqa: E501
 
-    def create_algorithm_algorithms_post_with_http_info(self, algorithm_create, **kwargs):  # noqa: E501
+    def create_algorithm_algorithms_post_with_http_info(self, algorithm_in, **kwargs):  # noqa: E501
         """Create algorithm  # noqa: E501
 
         Create new algorithm.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
-        >>> thread = api.create_algorithm_algorithms_post_with_http_info(algorithm_create, async_req=True)
+        >>> thread = api.create_algorithm_algorithms_post_with_http_info(algorithm_in, async_req=True)
         >>> result = thread.get()
 
-        :param algorithm_create: (required)
-        :type algorithm_create: AlgorithmCreate
+        :param algorithm_in: (required)
+        :type algorithm_in: AlgorithmIn
         :param async_req: Whether to execute the request asynchronously.
         :type async_req: bool, optional
         :param _return_http_data_only: response data without head status code
@@ -105,7 +105,7 @@ class AlgorithmsApi(object):
         local_var_params = locals()
 
         all_params = [
-            'algorithm_create'
+            'algorithm_in'
         ]
         all_params.extend(
             [
@@ -127,9 +127,9 @@ class AlgorithmsApi(object):
                 )
             local_var_params[key] = val
         del local_var_params['kwargs']
-        # verify the required parameter 'algorithm_create' is set
-        if self.api_client.client_side_validation and local_var_params.get('algorithm_create') is None:  # noqa: E501
-            raise ApiValueError("Missing the required parameter `algorithm_create` when calling `create_algorithm_algorithms_post`")  # noqa: E501
+        # verify the required parameter 'algorithm_in' is set
+        if self.api_client.client_side_validation and local_var_params.get('algorithm_in') is None:  # noqa: E501
+            raise ApiValueError("Missing the required parameter `algorithm_in` when calling `create_algorithm_algorithms_post`")  # noqa: E501
 
         collection_formats = {}
 
@@ -143,8 +143,8 @@ class AlgorithmsApi(object):
         local_var_files = {}
 
         body_params = None
-        if 'algorithm_create' in local_var_params:
-            body_params = local_var_params['algorithm_create']
+        if 'algorithm_in' in local_var_params:
+            body_params = local_var_params['algorithm_in']
         # HTTP header `Accept`
         header_params['Accept'] = self.api_client.select_header_accept(
             ['application/json'])  # noqa: E501
@@ -161,7 +161,7 @@ class AlgorithmsApi(object):
         auth_settings = []  # noqa: E501
 
         response_types_map = {
-            200: "Algorithm",
+            201: "Algorithm",
             422: "HTTPValidationError",
         }
 
@@ -435,6 +435,7 @@ class AlgorithmsApi(object):
 
         response_types_map = {
             200: "Algorithm",
+            404: "HTTPNotFoundError",
             422: "HTTPValidationError",
         }
 
@@ -458,7 +459,7 @@ class AlgorithmsApi(object):
     def read_algorithms_algorithms_get(self, **kwargs):  # noqa: E501
         """List algorithms  # noqa: E501
 
-        Read algorithms.  # noqa: E501
+        List algorithms.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -486,7 +487,7 @@ class AlgorithmsApi(object):
     def read_algorithms_algorithms_get_with_http_info(self, **kwargs):  # noqa: E501
         """List algorithms  # noqa: E501
 
-        Read algorithms.  # noqa: E501
+        List algorithms.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -582,20 +583,20 @@ class AlgorithmsApi(object):
             collection_formats=collection_formats,
             _request_auth=local_var_params.get('_request_auth'))
 
-    def update_algorithm_algorithms_id_put(self, id, algorithm_create, **kwargs):  # noqa: E501
+    def update_algorithm_algorithms_id_put(self, id, algorithm_in, **kwargs):  # noqa: E501
         """Update algorithm  # noqa: E501
 
         Update an algorithm.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
-        >>> thread = api.update_algorithm_algorithms_id_put(id, algorithm_create, async_req=True)
+        >>> thread = api.update_algorithm_algorithms_id_put(id, algorithm_in, async_req=True)
         >>> result = thread.get()
 
         :param id: (required)
         :type id: int
-        :param algorithm_create: (required)
-        :type algorithm_create: AlgorithmCreate
+        :param algorithm_in: (required)
+        :type algorithm_in: AlgorithmIn
         :param async_req: Whether to execute the request asynchronously.
         :type async_req: bool, optional
         :param _preload_content: if False, the urllib3.HTTPResponse object will
@@ -612,22 +613,22 @@ class AlgorithmsApi(object):
         :rtype: Algorithm
         """
         kwargs['_return_http_data_only'] = True
-        return self.update_algorithm_algorithms_id_put_with_http_info(id, algorithm_create, **kwargs)  # noqa: E501
+        return self.update_algorithm_algorithms_id_put_with_http_info(id, algorithm_in, **kwargs)  # noqa: E501
 
-    def update_algorithm_algorithms_id_put_with_http_info(self, id, algorithm_create, **kwargs):  # noqa: E501
+    def update_algorithm_algorithms_id_put_with_http_info(self, id, algorithm_in, **kwargs):  # noqa: E501
         """Update algorithm  # noqa: E501
 
         Update an algorithm.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
-        >>> thread = api.update_algorithm_algorithms_id_put_with_http_info(id, algorithm_create, async_req=True)
+        >>> thread = api.update_algorithm_algorithms_id_put_with_http_info(id, algorithm_in, async_req=True)
         >>> result = thread.get()
 
         :param id: (required)
         :type id: int
-        :param algorithm_create: (required)
-        :type algorithm_create: AlgorithmCreate
+        :param algorithm_in: (required)
+        :type algorithm_in: AlgorithmIn
         :param async_req: Whether to execute the request asynchronously.
         :type async_req: bool, optional
         :param _return_http_data_only: response data without head status code
@@ -656,7 +657,7 @@ class AlgorithmsApi(object):
 
         all_params = [
             'id',
-            'algorithm_create'
+            'algorithm_in'
         ]
         all_params.extend(
             [
@@ -681,9 +682,9 @@ class AlgorithmsApi(object):
         # verify the required parameter 'id' is set
         if self.api_client.client_side_validation and local_var_params.get('id') is None:  # noqa: E501
             raise ApiValueError("Missing the required parameter `id` when calling `update_algorithm_algorithms_id_put`")  # noqa: E501
-        # verify the required parameter 'algorithm_create' is set
-        if self.api_client.client_side_validation and local_var_params.get('algorithm_create') is None:  # noqa: E501
-            raise ApiValueError("Missing the required parameter `algorithm_create` when calling `update_algorithm_algorithms_id_put`")  # noqa: E501
+        # verify the required parameter 'algorithm_in' is set
+        if self.api_client.client_side_validation and local_var_params.get('algorithm_in') is None:  # noqa: E501
+            raise ApiValueError("Missing the required parameter `algorithm_in` when calling `update_algorithm_algorithms_id_put`")  # noqa: E501
 
         collection_formats = {}
 
@@ -699,8 +700,8 @@ class AlgorithmsApi(object):
         local_var_files = {}
 
         body_params = None
-        if 'algorithm_create' in local_var_params:
-            body_params = local_var_params['algorithm_create']
+        if 'algorithm_in' in local_var_params:
+            body_params = local_var_params['algorithm_in']
         # HTTP header `Accept`
         header_params['Accept'] = self.api_client.select_header_accept(
             ['application/json'])  # noqa: E501
@@ -718,6 +719,7 @@ class AlgorithmsApi(object):
 
         response_types_map = {
             200: "Algorithm",
+            404: "HTTPNotFoundError",
             422: "HTTPValidationError",
         }
 

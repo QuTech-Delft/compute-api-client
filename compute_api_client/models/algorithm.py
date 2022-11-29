@@ -36,129 +36,39 @@ class Algorithm(object):
                             and the value is json key in definition.
     """
     openapi_types = {
-        'project_id': 'int',
+        'id': 'int',
         'type': 'AlgorithmType',
         'shared': 'ShareType',
         'link': 'str',
-        'id': 'int'
+        'project_id': 'int'
     }
 
     attribute_map = {
-        'project_id': 'project_id',
+        'id': 'id',
         'type': 'type',
         'shared': 'shared',
         'link': 'link',
-        'id': 'id'
+        'project_id': 'project_id'
     }
 
-    def __init__(self, project_id=None, type=None, shared=None, link=None, id=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, id=None, type=None, shared=None, link=None, project_id=None, local_vars_configuration=None):  # noqa: E501
         """Algorithm - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration.get_default_copy()
         self.local_vars_configuration = local_vars_configuration
 
-        self._project_id = None
+        self._id = None
         self._type = None
         self._shared = None
         self._link = None
-        self._id = None
+        self._project_id = None
         self.discriminator = None
 
-        self.project_id = project_id
+        self.id = id
         self.type = type
         self.shared = shared
         self.link = link
-        self.id = id
-
-    @property
-    def project_id(self):
-        """Gets the project_id of this Algorithm.  # noqa: E501
-
-
-        :return: The project_id of this Algorithm.  # noqa: E501
-        :rtype: int
-        """
-        return self._project_id
-
-    @project_id.setter
-    def project_id(self, project_id):
-        """Sets the project_id of this Algorithm.
-
-
-        :param project_id: The project_id of this Algorithm.  # noqa: E501
-        :type project_id: int
-        """
-        if self.local_vars_configuration.client_side_validation and project_id is None:  # noqa: E501
-            raise ValueError("Invalid value for `project_id`, must not be `None`")  # noqa: E501
-
-        self._project_id = project_id
-
-    @property
-    def type(self):
-        """Gets the type of this Algorithm.  # noqa: E501
-
-
-        :return: The type of this Algorithm.  # noqa: E501
-        :rtype: AlgorithmType
-        """
-        return self._type
-
-    @type.setter
-    def type(self, type):
-        """Sets the type of this Algorithm.
-
-
-        :param type: The type of this Algorithm.  # noqa: E501
-        :type type: AlgorithmType
-        """
-        if self.local_vars_configuration.client_side_validation and type is None:  # noqa: E501
-            raise ValueError("Invalid value for `type`, must not be `None`")  # noqa: E501
-
-        self._type = type
-
-    @property
-    def shared(self):
-        """Gets the shared of this Algorithm.  # noqa: E501
-
-
-        :return: The shared of this Algorithm.  # noqa: E501
-        :rtype: ShareType
-        """
-        return self._shared
-
-    @shared.setter
-    def shared(self, shared):
-        """Sets the shared of this Algorithm.
-
-
-        :param shared: The shared of this Algorithm.  # noqa: E501
-        :type shared: ShareType
-        """
-        if self.local_vars_configuration.client_side_validation and shared is None:  # noqa: E501
-            raise ValueError("Invalid value for `shared`, must not be `None`")  # noqa: E501
-
-        self._shared = shared
-
-    @property
-    def link(self):
-        """Gets the link of this Algorithm.  # noqa: E501
-
-
-        :return: The link of this Algorithm.  # noqa: E501
-        :rtype: str
-        """
-        return self._link
-
-    @link.setter
-    def link(self, link):
-        """Sets the link of this Algorithm.
-
-
-        :param link: The link of this Algorithm.  # noqa: E501
-        :type link: str
-        """
-
-        self._link = link
+        self.project_id = project_id
 
     @property
     def id(self):
@@ -180,8 +90,123 @@ class Algorithm(object):
         """
         if self.local_vars_configuration.client_side_validation and id is None:  # noqa: E501
             raise ValueError("Invalid value for `id`, must not be `None`")  # noqa: E501
+        if (self.local_vars_configuration.client_side_validation and
+                id is not None and id > 2147483647):  # noqa: E501
+            raise ValueError("Invalid value for `id`, must be a value less than or equal to `2147483647`")  # noqa: E501
+        if (self.local_vars_configuration.client_side_validation and
+                id is not None and id < 1):  # noqa: E501
+            raise ValueError("Invalid value for `id`, must be a value greater than or equal to `1`")  # noqa: E501
 
         self._id = id
+
+    @property
+    def type(self):
+        """Gets the type of this Algorithm.  # noqa: E501
+
+        HYBRID: hybrid<br/>QUANTUM: quantum  # noqa: E501
+
+        :return: The type of this Algorithm.  # noqa: E501
+        :rtype: AlgorithmType
+        """
+        return self._type
+
+    @type.setter
+    def type(self, type):
+        """Sets the type of this Algorithm.
+
+        HYBRID: hybrid<br/>QUANTUM: quantum  # noqa: E501
+
+        :param type: The type of this Algorithm.  # noqa: E501
+        :type type: AlgorithmType
+        """
+        if self.local_vars_configuration.client_side_validation and type is None:  # noqa: E501
+            raise ValueError("Invalid value for `type`, must not be `None`")  # noqa: E501
+        if (self.local_vars_configuration.client_side_validation and
+                type is not None and len(type) > 7):
+            raise ValueError("Invalid value for `type`, length must be less than or equal to `7`")  # noqa: E501
+
+        self._type = type
+
+    @property
+    def shared(self):
+        """Gets the shared of this Algorithm.  # noqa: E501
+
+        PRIVATE: private<br/>LINK_ONLY: link_only<br/>TEAM: team  # noqa: E501
+
+        :return: The shared of this Algorithm.  # noqa: E501
+        :rtype: ShareType
+        """
+        return self._shared
+
+    @shared.setter
+    def shared(self, shared):
+        """Sets the shared of this Algorithm.
+
+        PRIVATE: private<br/>LINK_ONLY: link_only<br/>TEAM: team  # noqa: E501
+
+        :param shared: The shared of this Algorithm.  # noqa: E501
+        :type shared: ShareType
+        """
+        if self.local_vars_configuration.client_side_validation and shared is None:  # noqa: E501
+            raise ValueError("Invalid value for `shared`, must not be `None`")  # noqa: E501
+        if (self.local_vars_configuration.client_side_validation and
+                shared is not None and len(shared) > 9):
+            raise ValueError("Invalid value for `shared`, length must be less than or equal to `9`")  # noqa: E501
+
+        self._shared = shared
+
+    @property
+    def link(self):
+        """Gets the link of this Algorithm.  # noqa: E501
+
+
+        :return: The link of this Algorithm.  # noqa: E501
+        :rtype: str
+        """
+        return self._link
+
+    @link.setter
+    def link(self, link):
+        """Sets the link of this Algorithm.
+
+
+        :param link: The link of this Algorithm.  # noqa: E501
+        :type link: str
+        """
+        if (self.local_vars_configuration.client_side_validation and
+                link is not None and len(link) > 255):
+            raise ValueError("Invalid value for `link`, length must be less than or equal to `255`")  # noqa: E501
+
+        self._link = link
+
+    @property
+    def project_id(self):
+        """Gets the project_id of this Algorithm.  # noqa: E501
+
+
+        :return: The project_id of this Algorithm.  # noqa: E501
+        :rtype: int
+        """
+        return self._project_id
+
+    @project_id.setter
+    def project_id(self, project_id):
+        """Sets the project_id of this Algorithm.
+
+
+        :param project_id: The project_id of this Algorithm.  # noqa: E501
+        :type project_id: int
+        """
+        if self.local_vars_configuration.client_side_validation and project_id is None:  # noqa: E501
+            raise ValueError("Invalid value for `project_id`, must not be `None`")  # noqa: E501
+        if (self.local_vars_configuration.client_side_validation and
+                project_id is not None and project_id > 2147483647):  # noqa: E501
+            raise ValueError("Invalid value for `project_id`, must be a value less than or equal to `2147483647`")  # noqa: E501
+        if (self.local_vars_configuration.client_side_validation and
+                project_id is not None and project_id < 1):  # noqa: E501
+            raise ValueError("Invalid value for `project_id`, must be a value greater than or equal to `1`")  # noqa: E501
+
+        self._project_id = project_id
 
     def to_dict(self, serialize=False):
         """Returns the model properties as a dict"""

@@ -36,31 +36,60 @@ class Language(object):
                             and the value is json key in definition.
     """
     openapi_types = {
+        'id': 'int',
         'name': 'str',
-        'version': 'str',
-        'id': 'int'
+        'version': 'str'
     }
 
     attribute_map = {
+        'id': 'id',
         'name': 'name',
-        'version': 'version',
-        'id': 'id'
+        'version': 'version'
     }
 
-    def __init__(self, name=None, version=None, id=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, id=None, name=None, version=None, local_vars_configuration=None):  # noqa: E501
         """Language - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration.get_default_copy()
         self.local_vars_configuration = local_vars_configuration
 
+        self._id = None
         self._name = None
         self._version = None
-        self._id = None
         self.discriminator = None
 
+        self.id = id
         self.name = name
         self.version = version
-        self.id = id
+
+    @property
+    def id(self):
+        """Gets the id of this Language.  # noqa: E501
+
+
+        :return: The id of this Language.  # noqa: E501
+        :rtype: int
+        """
+        return self._id
+
+    @id.setter
+    def id(self, id):
+        """Sets the id of this Language.
+
+
+        :param id: The id of this Language.  # noqa: E501
+        :type id: int
+        """
+        if self.local_vars_configuration.client_side_validation and id is None:  # noqa: E501
+            raise ValueError("Invalid value for `id`, must not be `None`")  # noqa: E501
+        if (self.local_vars_configuration.client_side_validation and
+                id is not None and id > 2147483647):  # noqa: E501
+            raise ValueError("Invalid value for `id`, must be a value less than or equal to `2147483647`")  # noqa: E501
+        if (self.local_vars_configuration.client_side_validation and
+                id is not None and id < 1):  # noqa: E501
+            raise ValueError("Invalid value for `id`, must be a value greater than or equal to `1`")  # noqa: E501
+
+        self._id = id
 
     @property
     def name(self):
@@ -82,6 +111,9 @@ class Language(object):
         """
         if self.local_vars_configuration.client_side_validation and name is None:  # noqa: E501
             raise ValueError("Invalid value for `name`, must not be `None`")  # noqa: E501
+        if (self.local_vars_configuration.client_side_validation and
+                name is not None and len(name) > 64):
+            raise ValueError("Invalid value for `name`, length must be less than or equal to `64`")  # noqa: E501
 
         self._name = name
 
@@ -105,31 +137,11 @@ class Language(object):
         """
         if self.local_vars_configuration.client_side_validation and version is None:  # noqa: E501
             raise ValueError("Invalid value for `version`, must not be `None`")  # noqa: E501
+        if (self.local_vars_configuration.client_side_validation and
+                version is not None and len(version) > 16):
+            raise ValueError("Invalid value for `version`, length must be less than or equal to `16`")  # noqa: E501
 
         self._version = version
-
-    @property
-    def id(self):
-        """Gets the id of this Language.  # noqa: E501
-
-
-        :return: The id of this Language.  # noqa: E501
-        :rtype: int
-        """
-        return self._id
-
-    @id.setter
-    def id(self, id):
-        """Sets the id of this Language.
-
-
-        :param id: The id of this Language.  # noqa: E501
-        :type id: int
-        """
-        if self.local_vars_configuration.client_side_validation and id is None:  # noqa: E501
-            raise ValueError("Invalid value for `id`, must not be `None`")  # noqa: E501
-
-        self._id = id
 
     def to_dict(self, serialize=False):
         """Returns the model properties as a dict"""

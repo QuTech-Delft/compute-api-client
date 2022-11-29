@@ -36,18 +36,18 @@ class FinalResultsApi(object):
             api_client = ApiClient()
         self.api_client = api_client
 
-    def create_final_result_final_results_post(self, final_result_create, **kwargs):  # noqa: E501
+    def create_final_result_final_results_post(self, final_result_in, **kwargs):  # noqa: E501
         """Create final result  # noqa: E501
 
         Create new final result.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
-        >>> thread = api.create_final_result_final_results_post(final_result_create, async_req=True)
+        >>> thread = api.create_final_result_final_results_post(final_result_in, async_req=True)
         >>> result = thread.get()
 
-        :param final_result_create: (required)
-        :type final_result_create: FinalResultCreate
+        :param final_result_in: (required)
+        :type final_result_in: FinalResultIn
         :param async_req: Whether to execute the request asynchronously.
         :type async_req: bool, optional
         :param _preload_content: if False, the urllib3.HTTPResponse object will
@@ -64,20 +64,20 @@ class FinalResultsApi(object):
         :rtype: FinalResult
         """
         kwargs['_return_http_data_only'] = True
-        return self.create_final_result_final_results_post_with_http_info(final_result_create, **kwargs)  # noqa: E501
+        return self.create_final_result_final_results_post_with_http_info(final_result_in, **kwargs)  # noqa: E501
 
-    def create_final_result_final_results_post_with_http_info(self, final_result_create, **kwargs):  # noqa: E501
+    def create_final_result_final_results_post_with_http_info(self, final_result_in, **kwargs):  # noqa: E501
         """Create final result  # noqa: E501
 
         Create new final result.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
-        >>> thread = api.create_final_result_final_results_post_with_http_info(final_result_create, async_req=True)
+        >>> thread = api.create_final_result_final_results_post_with_http_info(final_result_in, async_req=True)
         >>> result = thread.get()
 
-        :param final_result_create: (required)
-        :type final_result_create: FinalResultCreate
+        :param final_result_in: (required)
+        :type final_result_in: FinalResultIn
         :param async_req: Whether to execute the request asynchronously.
         :type async_req: bool, optional
         :param _return_http_data_only: response data without head status code
@@ -105,7 +105,7 @@ class FinalResultsApi(object):
         local_var_params = locals()
 
         all_params = [
-            'final_result_create'
+            'final_result_in'
         ]
         all_params.extend(
             [
@@ -127,9 +127,9 @@ class FinalResultsApi(object):
                 )
             local_var_params[key] = val
         del local_var_params['kwargs']
-        # verify the required parameter 'final_result_create' is set
-        if self.api_client.client_side_validation and local_var_params.get('final_result_create') is None:  # noqa: E501
-            raise ApiValueError("Missing the required parameter `final_result_create` when calling `create_final_result_final_results_post`")  # noqa: E501
+        # verify the required parameter 'final_result_in' is set
+        if self.api_client.client_side_validation and local_var_params.get('final_result_in') is None:  # noqa: E501
+            raise ApiValueError("Missing the required parameter `final_result_in` when calling `create_final_result_final_results_post`")  # noqa: E501
 
         collection_formats = {}
 
@@ -143,8 +143,8 @@ class FinalResultsApi(object):
         local_var_files = {}
 
         body_params = None
-        if 'final_result_create' in local_var_params:
-            body_params = local_var_params['final_result_create']
+        if 'final_result_in' in local_var_params:
+            body_params = local_var_params['final_result_in']
         # HTTP header `Accept`
         header_params['Accept'] = self.api_client.select_header_accept(
             ['application/json'])  # noqa: E501
@@ -161,7 +161,7 @@ class FinalResultsApi(object):
         auth_settings = []  # noqa: E501
 
         response_types_map = {
-            200: "FinalResult",
+            201: "FinalResult",
             422: "HTTPValidationError",
         }
 
@@ -438,6 +438,7 @@ class FinalResultsApi(object):
 
         response_types_map = {
             200: "FinalResult",
+            404: "HTTPNotFoundError",
             422: "HTTPValidationError",
         }
 

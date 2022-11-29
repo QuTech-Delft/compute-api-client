@@ -36,135 +36,40 @@ class Project(object):
                             and the value is json key in definition.
     """
     openapi_types = {
-        'owner_id': 'int',
+        'created_on': 'datetime',
+        'id': 'int',
         'name': 'str',
         'description': 'str',
-        'starred': 'bool',
-        'created_on': 'datetime',
-        'id': 'int'
+        'starred': 'bool'
     }
 
     attribute_map = {
-        'owner_id': 'owner_id',
+        'created_on': 'created_on',
+        'id': 'id',
         'name': 'name',
         'description': 'description',
-        'starred': 'starred',
-        'created_on': 'created_on',
-        'id': 'id'
+        'starred': 'starred'
     }
 
-    def __init__(self, owner_id=None, name=None, description=None, starred=None, created_on=None, id=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, created_on=None, id=None, name=None, description=None, starred=False, local_vars_configuration=None):  # noqa: E501
         """Project - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration.get_default_copy()
         self.local_vars_configuration = local_vars_configuration
 
-        self._owner_id = None
+        self._created_on = None
+        self._id = None
         self._name = None
         self._description = None
         self._starred = None
-        self._created_on = None
-        self._id = None
         self.discriminator = None
 
-        self.owner_id = owner_id
-        self.name = name
-        self.description = description
-        self.starred = starred
         self.created_on = created_on
         self.id = id
-
-    @property
-    def owner_id(self):
-        """Gets the owner_id of this Project.  # noqa: E501
-
-
-        :return: The owner_id of this Project.  # noqa: E501
-        :rtype: int
-        """
-        return self._owner_id
-
-    @owner_id.setter
-    def owner_id(self, owner_id):
-        """Sets the owner_id of this Project.
-
-
-        :param owner_id: The owner_id of this Project.  # noqa: E501
-        :type owner_id: int
-        """
-        if self.local_vars_configuration.client_side_validation and owner_id is None:  # noqa: E501
-            raise ValueError("Invalid value for `owner_id`, must not be `None`")  # noqa: E501
-
-        self._owner_id = owner_id
-
-    @property
-    def name(self):
-        """Gets the name of this Project.  # noqa: E501
-
-
-        :return: The name of this Project.  # noqa: E501
-        :rtype: str
-        """
-        return self._name
-
-    @name.setter
-    def name(self, name):
-        """Sets the name of this Project.
-
-
-        :param name: The name of this Project.  # noqa: E501
-        :type name: str
-        """
-        if self.local_vars_configuration.client_side_validation and name is None:  # noqa: E501
-            raise ValueError("Invalid value for `name`, must not be `None`")  # noqa: E501
-
-        self._name = name
-
-    @property
-    def description(self):
-        """Gets the description of this Project.  # noqa: E501
-
-
-        :return: The description of this Project.  # noqa: E501
-        :rtype: str
-        """
-        return self._description
-
-    @description.setter
-    def description(self, description):
-        """Sets the description of this Project.
-
-
-        :param description: The description of this Project.  # noqa: E501
-        :type description: str
-        """
-        if self.local_vars_configuration.client_side_validation and description is None:  # noqa: E501
-            raise ValueError("Invalid value for `description`, must not be `None`")  # noqa: E501
-
-        self._description = description
-
-    @property
-    def starred(self):
-        """Gets the starred of this Project.  # noqa: E501
-
-
-        :return: The starred of this Project.  # noqa: E501
-        :rtype: bool
-        """
-        return self._starred
-
-    @starred.setter
-    def starred(self, starred):
-        """Sets the starred of this Project.
-
-
-        :param starred: The starred of this Project.  # noqa: E501
-        :type starred: bool
-        """
-        if self.local_vars_configuration.client_side_validation and starred is None:  # noqa: E501
-            raise ValueError("Invalid value for `starred`, must not be `None`")  # noqa: E501
-
-        self._starred = starred
+        self.name = name
+        self.description = description
+        if starred is not None:
+            self.starred = starred
 
     @property
     def created_on(self):
@@ -209,8 +114,84 @@ class Project(object):
         """
         if self.local_vars_configuration.client_side_validation and id is None:  # noqa: E501
             raise ValueError("Invalid value for `id`, must not be `None`")  # noqa: E501
+        if (self.local_vars_configuration.client_side_validation and
+                id is not None and id > 2147483647):  # noqa: E501
+            raise ValueError("Invalid value for `id`, must be a value less than or equal to `2147483647`")  # noqa: E501
+        if (self.local_vars_configuration.client_side_validation and
+                id is not None and id < 1):  # noqa: E501
+            raise ValueError("Invalid value for `id`, must be a value greater than or equal to `1`")  # noqa: E501
 
         self._id = id
+
+    @property
+    def name(self):
+        """Gets the name of this Project.  # noqa: E501
+
+
+        :return: The name of this Project.  # noqa: E501
+        :rtype: str
+        """
+        return self._name
+
+    @name.setter
+    def name(self, name):
+        """Sets the name of this Project.
+
+
+        :param name: The name of this Project.  # noqa: E501
+        :type name: str
+        """
+        if self.local_vars_configuration.client_side_validation and name is None:  # noqa: E501
+            raise ValueError("Invalid value for `name`, must not be `None`")  # noqa: E501
+        if (self.local_vars_configuration.client_side_validation and
+                name is not None and len(name) > 255):
+            raise ValueError("Invalid value for `name`, length must be less than or equal to `255`")  # noqa: E501
+
+        self._name = name
+
+    @property
+    def description(self):
+        """Gets the description of this Project.  # noqa: E501
+
+
+        :return: The description of this Project.  # noqa: E501
+        :rtype: str
+        """
+        return self._description
+
+    @description.setter
+    def description(self, description):
+        """Sets the description of this Project.
+
+
+        :param description: The description of this Project.  # noqa: E501
+        :type description: str
+        """
+        if self.local_vars_configuration.client_side_validation and description is None:  # noqa: E501
+            raise ValueError("Invalid value for `description`, must not be `None`")  # noqa: E501
+
+        self._description = description
+
+    @property
+    def starred(self):
+        """Gets the starred of this Project.  # noqa: E501
+
+
+        :return: The starred of this Project.  # noqa: E501
+        :rtype: bool
+        """
+        return self._starred
+
+    @starred.setter
+    def starred(self, starred):
+        """Sets the starred of this Project.
+
+
+        :param starred: The starred of this Project.  # noqa: E501
+        :type starred: bool
+        """
+
+        self._starred = starred
 
     def to_dict(self, serialize=False):
         """Returns the model properties as a dict"""

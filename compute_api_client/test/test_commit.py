@@ -36,19 +36,19 @@ class TestCommit(unittest.TestCase):
         # model = compute_api_client.models.commit.Commit()  # noqa: E501
         if include_optional :
             return Commit(
+                created_on = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
+                id = 1.0, 
                 hash = '', 
                 description = '', 
-                algorithm_id = 56, 
-                created_on = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
-                id = 56
+                algorithm_id = 1.0
             )
         else :
             return Commit(
+                created_on = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'),
+                id = 1.0,
                 hash = '',
                 description = '',
-                algorithm_id = 56,
-                created_on = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'),
-                id = 56,
+                algorithm_id = 1.0,
         )
 
     def testCommit(self):

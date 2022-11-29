@@ -36,23 +36,26 @@ class TestBatchRun(unittest.TestCase):
         # model = compute_api_client.models.batch_run.BatchRun()  # noqa: E501
         if include_optional :
             return BatchRun(
+                created_on = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
+                queued_at = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
+                finished_at = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
+                id = 1.0, 
+                status = None, 
+                reserved_at = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
                 run_ids = [
                     56
                     ], 
-                queued_at = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
-                finished_at = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
-                runtime_type_id = 56, 
-                runtime_id = 56, 
-                id = 56
+                aggregated_algorithm_type = None
             )
         else :
             return BatchRun(
+                created_on = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'),
+                id = 1.0,
+                status = None,
                 run_ids = [
                     56
                     ],
-                queued_at = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'),
-                runtime_type_id = 56,
-                id = 56,
+                aggregated_algorithm_type = None,
         )
 
     def testBatchRun(self):

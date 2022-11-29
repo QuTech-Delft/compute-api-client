@@ -36,81 +36,35 @@ class FinalResult(object):
                             and the value is json key in definition.
     """
     openapi_types = {
-        'run_id': 'int',
-        'final_result': 'object',
         'created_on': 'datetime',
-        'id': 'int'
+        'id': 'int',
+        'final_result': 'object',
+        'run_id': 'int'
     }
 
     attribute_map = {
-        'run_id': 'run_id',
-        'final_result': 'final_result',
         'created_on': 'created_on',
-        'id': 'id'
+        'id': 'id',
+        'final_result': 'final_result',
+        'run_id': 'run_id'
     }
 
-    def __init__(self, run_id=None, final_result=None, created_on=None, id=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, created_on=None, id=None, final_result=None, run_id=None, local_vars_configuration=None):  # noqa: E501
         """FinalResult - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration.get_default_copy()
         self.local_vars_configuration = local_vars_configuration
 
-        self._run_id = None
-        self._final_result = None
         self._created_on = None
         self._id = None
+        self._final_result = None
+        self._run_id = None
         self.discriminator = None
 
-        self.run_id = run_id
-        self.final_result = final_result
         self.created_on = created_on
         self.id = id
-
-    @property
-    def run_id(self):
-        """Gets the run_id of this FinalResult.  # noqa: E501
-
-
-        :return: The run_id of this FinalResult.  # noqa: E501
-        :rtype: int
-        """
-        return self._run_id
-
-    @run_id.setter
-    def run_id(self, run_id):
-        """Sets the run_id of this FinalResult.
-
-
-        :param run_id: The run_id of this FinalResult.  # noqa: E501
-        :type run_id: int
-        """
-        if self.local_vars_configuration.client_side_validation and run_id is None:  # noqa: E501
-            raise ValueError("Invalid value for `run_id`, must not be `None`")  # noqa: E501
-
-        self._run_id = run_id
-
-    @property
-    def final_result(self):
-        """Gets the final_result of this FinalResult.  # noqa: E501
-
-
-        :return: The final_result of this FinalResult.  # noqa: E501
-        :rtype: object
-        """
-        return self._final_result
-
-    @final_result.setter
-    def final_result(self, final_result):
-        """Sets the final_result of this FinalResult.
-
-
-        :param final_result: The final_result of this FinalResult.  # noqa: E501
-        :type final_result: object
-        """
-        if self.local_vars_configuration.client_side_validation and final_result is None:  # noqa: E501
-            raise ValueError("Invalid value for `final_result`, must not be `None`")  # noqa: E501
-
-        self._final_result = final_result
+        self.final_result = final_result
+        self.run_id = run_id
 
     @property
     def created_on(self):
@@ -155,8 +109,64 @@ class FinalResult(object):
         """
         if self.local_vars_configuration.client_side_validation and id is None:  # noqa: E501
             raise ValueError("Invalid value for `id`, must not be `None`")  # noqa: E501
+        if (self.local_vars_configuration.client_side_validation and
+                id is not None and id > 2147483647):  # noqa: E501
+            raise ValueError("Invalid value for `id`, must be a value less than or equal to `2147483647`")  # noqa: E501
+        if (self.local_vars_configuration.client_side_validation and
+                id is not None and id < 1):  # noqa: E501
+            raise ValueError("Invalid value for `id`, must be a value greater than or equal to `1`")  # noqa: E501
 
         self._id = id
+
+    @property
+    def final_result(self):
+        """Gets the final_result of this FinalResult.  # noqa: E501
+
+
+        :return: The final_result of this FinalResult.  # noqa: E501
+        :rtype: object
+        """
+        return self._final_result
+
+    @final_result.setter
+    def final_result(self, final_result):
+        """Sets the final_result of this FinalResult.
+
+
+        :param final_result: The final_result of this FinalResult.  # noqa: E501
+        :type final_result: object
+        """
+
+        self._final_result = final_result
+
+    @property
+    def run_id(self):
+        """Gets the run_id of this FinalResult.  # noqa: E501
+
+
+        :return: The run_id of this FinalResult.  # noqa: E501
+        :rtype: int
+        """
+        return self._run_id
+
+    @run_id.setter
+    def run_id(self, run_id):
+        """Sets the run_id of this FinalResult.
+
+
+        :param run_id: The run_id of this FinalResult.  # noqa: E501
+        :type run_id: int
+        """
+        if self.local_vars_configuration.client_side_validation and run_id is None:  # noqa: E501
+            raise ValueError("Invalid value for `run_id`, must not be `None`")  # noqa: E501
+        if (self.local_vars_configuration.client_side_validation and
+                run_id is not None and run_id > 2147483647):  # noqa: E501
+            raise ValueError("Invalid value for `run_id`, must be a value less than or equal to `2147483647`")  # noqa: E501
+        if (self.local_vars_configuration.client_side_validation and
+                run_id is not None and run_id < 1):  # noqa: E501
+            raise ValueError("Invalid value for `run_id`, must be a value greater than or equal to `1`")  # noqa: E501
+
+        self._run_id = run_id
 
     def to_dict(self, serialize=False):
         """Returns the model properties as a dict"""
