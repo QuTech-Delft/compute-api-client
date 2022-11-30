@@ -36,18 +36,18 @@ class ReservationsApi(object):
             api_client = ApiClient()
         self.api_client = api_client
 
-    def create_reservation_reservations_post(self, reservation_create, **kwargs):  # noqa: E501
+    def create_reservation_reservations_post(self, reservation_in, **kwargs):  # noqa: E501
         """Create reservation  # noqa: E501
 
         Create new reservation.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
-        >>> thread = api.create_reservation_reservations_post(reservation_create, async_req=True)
+        >>> thread = api.create_reservation_reservations_post(reservation_in, async_req=True)
         >>> result = thread.get()
 
-        :param reservation_create: (required)
-        :type reservation_create: ReservationCreate
+        :param reservation_in: (required)
+        :type reservation_in: ReservationIn
         :param async_req: Whether to execute the request asynchronously.
         :type async_req: bool, optional
         :param _preload_content: if False, the urllib3.HTTPResponse object will
@@ -64,20 +64,20 @@ class ReservationsApi(object):
         :rtype: Reservation
         """
         kwargs['_return_http_data_only'] = True
-        return self.create_reservation_reservations_post_with_http_info(reservation_create, **kwargs)  # noqa: E501
+        return self.create_reservation_reservations_post_with_http_info(reservation_in, **kwargs)  # noqa: E501
 
-    def create_reservation_reservations_post_with_http_info(self, reservation_create, **kwargs):  # noqa: E501
+    def create_reservation_reservations_post_with_http_info(self, reservation_in, **kwargs):  # noqa: E501
         """Create reservation  # noqa: E501
 
         Create new reservation.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
-        >>> thread = api.create_reservation_reservations_post_with_http_info(reservation_create, async_req=True)
+        >>> thread = api.create_reservation_reservations_post_with_http_info(reservation_in, async_req=True)
         >>> result = thread.get()
 
-        :param reservation_create: (required)
-        :type reservation_create: ReservationCreate
+        :param reservation_in: (required)
+        :type reservation_in: ReservationIn
         :param async_req: Whether to execute the request asynchronously.
         :type async_req: bool, optional
         :param _return_http_data_only: response data without head status code
@@ -105,7 +105,7 @@ class ReservationsApi(object):
         local_var_params = locals()
 
         all_params = [
-            'reservation_create'
+            'reservation_in'
         ]
         all_params.extend(
             [
@@ -127,9 +127,9 @@ class ReservationsApi(object):
                 )
             local_var_params[key] = val
         del local_var_params['kwargs']
-        # verify the required parameter 'reservation_create' is set
-        if self.api_client.client_side_validation and local_var_params.get('reservation_create') is None:  # noqa: E501
-            raise ApiValueError("Missing the required parameter `reservation_create` when calling `create_reservation_reservations_post`")  # noqa: E501
+        # verify the required parameter 'reservation_in' is set
+        if self.api_client.client_side_validation and local_var_params.get('reservation_in') is None:  # noqa: E501
+            raise ApiValueError("Missing the required parameter `reservation_in` when calling `create_reservation_reservations_post`")  # noqa: E501
 
         collection_formats = {}
 
@@ -143,8 +143,8 @@ class ReservationsApi(object):
         local_var_files = {}
 
         body_params = None
-        if 'reservation_create' in local_var_params:
-            body_params = local_var_params['reservation_create']
+        if 'reservation_in' in local_var_params:
+            body_params = local_var_params['reservation_in']
         # HTTP header `Accept`
         header_params['Accept'] = self.api_client.select_header_accept(
             ['application/json'])  # noqa: E501
@@ -161,7 +161,7 @@ class ReservationsApi(object):
         auth_settings = []  # noqa: E501
 
         response_types_map = {
-            200: "Reservation",
+            201: "Reservation",
             422: "HTTPValidationError",
         }
 
@@ -300,6 +300,7 @@ class ReservationsApi(object):
 
         response_types_map = {
             200: "Reservation",
+            404: "HTTPNotFoundError",
             422: "HTTPValidationError",
         }
 
@@ -472,7 +473,7 @@ class ReservationsApi(object):
         :return: Returns the result object.
                  If the method is called asynchronously,
                  returns the request thread.
-        :rtype: None
+        :rtype: Reservation
         """
         kwargs['_return_http_data_only'] = True
         return self.terminate_reservation_reservations_id_terminate_patch_with_http_info(id, **kwargs)  # noqa: E501
@@ -510,7 +511,7 @@ class ReservationsApi(object):
         :return: Returns the result object.
                  If the method is called asynchronously,
                  returns the request thread.
-        :rtype: None
+        :rtype: tuple(Reservation, status_code(int), headers(HTTPHeaderDict))
         """
 
         local_var_params = locals()
@@ -563,7 +564,11 @@ class ReservationsApi(object):
         # Authentication setting
         auth_settings = []  # noqa: E501
 
-        response_types_map = {}
+        response_types_map = {
+            200: "Reservation",
+            404: "HTTPNotFoundError",
+            422: "HTTPValidationError",
+        }
 
         return self.api_client.call_api(
             '/reservations/{id}/terminate', 'PATCH',

@@ -36,23 +36,19 @@ class TestUser(unittest.TestCase):
         # model = compute_api_client.models.user.User()  # noqa: E501
         if include_optional :
             return User(
+                id = 1.0, 
                 full_name = '', 
                 email = '', 
                 is_superuser = True, 
                 is_staff = True, 
                 is_active = True, 
-                is_confirmed = True, 
-                id = 56
+                is_confirmed = True
             )
         else :
             return User(
+                id = 1.0,
                 full_name = '',
                 email = '',
-                is_superuser = True,
-                is_staff = True,
-                is_active = True,
-                is_confirmed = True,
-                id = 56,
         )
 
     def testUser(self):

@@ -42,6 +42,9 @@ class BatchRun(object):
         'id': 'int',
         'status': 'BatchRunStatus',
         'reserved_at': 'datetime',
+        'runtime_id': 'int',
+        'runtime_type_id': 'int',
+        'user_id': 'int',
         'run_ids': 'list[int]',
         'aggregated_algorithm_type': 'AlgorithmType'
     }
@@ -53,11 +56,14 @@ class BatchRun(object):
         'id': 'id',
         'status': 'status',
         'reserved_at': 'reserved_at',
+        'runtime_id': 'runtime_id',
+        'runtime_type_id': 'runtime_type_id',
+        'user_id': 'user_id',
         'run_ids': 'run_ids',
         'aggregated_algorithm_type': 'aggregated_algorithm_type'
     }
 
-    def __init__(self, created_on=None, queued_at=None, finished_at=None, id=None, status=None, reserved_at=None, run_ids=None, aggregated_algorithm_type=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, created_on=None, queued_at=None, finished_at=None, id=None, status=None, reserved_at=None, runtime_id=None, runtime_type_id=None, user_id=None, run_ids=None, aggregated_algorithm_type=None, local_vars_configuration=None):  # noqa: E501
         """BatchRun - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration.get_default_copy()
@@ -69,6 +75,9 @@ class BatchRun(object):
         self._id = None
         self._status = None
         self._reserved_at = None
+        self._runtime_id = None
+        self._runtime_type_id = None
+        self._user_id = None
         self._run_ids = None
         self._aggregated_algorithm_type = None
         self.discriminator = None
@@ -79,6 +88,9 @@ class BatchRun(object):
         self.id = id
         self.status = status
         self.reserved_at = reserved_at
+        self.runtime_id = runtime_id
+        self.runtime_type_id = runtime_type_id
+        self.user_id = user_id
         self.run_ids = run_ids
         self.aggregated_algorithm_type = aggregated_algorithm_type
 
@@ -224,6 +236,91 @@ class BatchRun(object):
         """
 
         self._reserved_at = reserved_at
+
+    @property
+    def runtime_id(self):
+        """Gets the runtime_id of this BatchRun.  # noqa: E501
+
+
+        :return: The runtime_id of this BatchRun.  # noqa: E501
+        :rtype: int
+        """
+        return self._runtime_id
+
+    @runtime_id.setter
+    def runtime_id(self, runtime_id):
+        """Sets the runtime_id of this BatchRun.
+
+
+        :param runtime_id: The runtime_id of this BatchRun.  # noqa: E501
+        :type runtime_id: int
+        """
+        if (self.local_vars_configuration.client_side_validation and
+                runtime_id is not None and runtime_id > 2147483647):  # noqa: E501
+            raise ValueError("Invalid value for `runtime_id`, must be a value less than or equal to `2147483647`")  # noqa: E501
+        if (self.local_vars_configuration.client_side_validation and
+                runtime_id is not None and runtime_id < 1):  # noqa: E501
+            raise ValueError("Invalid value for `runtime_id`, must be a value greater than or equal to `1`")  # noqa: E501
+
+        self._runtime_id = runtime_id
+
+    @property
+    def runtime_type_id(self):
+        """Gets the runtime_type_id of this BatchRun.  # noqa: E501
+
+
+        :return: The runtime_type_id of this BatchRun.  # noqa: E501
+        :rtype: int
+        """
+        return self._runtime_type_id
+
+    @runtime_type_id.setter
+    def runtime_type_id(self, runtime_type_id):
+        """Sets the runtime_type_id of this BatchRun.
+
+
+        :param runtime_type_id: The runtime_type_id of this BatchRun.  # noqa: E501
+        :type runtime_type_id: int
+        """
+        if self.local_vars_configuration.client_side_validation and runtime_type_id is None:  # noqa: E501
+            raise ValueError("Invalid value for `runtime_type_id`, must not be `None`")  # noqa: E501
+        if (self.local_vars_configuration.client_side_validation and
+                runtime_type_id is not None and runtime_type_id > 2147483647):  # noqa: E501
+            raise ValueError("Invalid value for `runtime_type_id`, must be a value less than or equal to `2147483647`")  # noqa: E501
+        if (self.local_vars_configuration.client_side_validation and
+                runtime_type_id is not None and runtime_type_id < 1):  # noqa: E501
+            raise ValueError("Invalid value for `runtime_type_id`, must be a value greater than or equal to `1`")  # noqa: E501
+
+        self._runtime_type_id = runtime_type_id
+
+    @property
+    def user_id(self):
+        """Gets the user_id of this BatchRun.  # noqa: E501
+
+
+        :return: The user_id of this BatchRun.  # noqa: E501
+        :rtype: int
+        """
+        return self._user_id
+
+    @user_id.setter
+    def user_id(self, user_id):
+        """Sets the user_id of this BatchRun.
+
+
+        :param user_id: The user_id of this BatchRun.  # noqa: E501
+        :type user_id: int
+        """
+        if self.local_vars_configuration.client_side_validation and user_id is None:  # noqa: E501
+            raise ValueError("Invalid value for `user_id`, must not be `None`")  # noqa: E501
+        if (self.local_vars_configuration.client_side_validation and
+                user_id is not None and user_id > 2147483647):  # noqa: E501
+            raise ValueError("Invalid value for `user_id`, must be a value less than or equal to `2147483647`")  # noqa: E501
+        if (self.local_vars_configuration.client_side_validation and
+                user_id is not None and user_id < 1):  # noqa: E501
+            raise ValueError("Invalid value for `user_id`, must be a value greater than or equal to `1`")  # noqa: E501
+
+        self._user_id = user_id
 
     @property
     def run_ids(self):

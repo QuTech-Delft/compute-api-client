@@ -36,18 +36,18 @@ class MembersApi(object):
             api_client = ApiClient()
         self.api_client = api_client
 
-    def create_member_members_post(self, member_create, **kwargs):  # noqa: E501
+    def create_member_members_post(self, member_in, **kwargs):  # noqa: E501
         """Create member  # noqa: E501
 
         Create new member.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
-        >>> thread = api.create_member_members_post(member_create, async_req=True)
+        >>> thread = api.create_member_members_post(member_in, async_req=True)
         >>> result = thread.get()
 
-        :param member_create: (required)
-        :type member_create: MemberCreate
+        :param member_in: (required)
+        :type member_in: MemberIn
         :param async_req: Whether to execute the request asynchronously.
         :type async_req: bool, optional
         :param _preload_content: if False, the urllib3.HTTPResponse object will
@@ -64,20 +64,20 @@ class MembersApi(object):
         :rtype: Member
         """
         kwargs['_return_http_data_only'] = True
-        return self.create_member_members_post_with_http_info(member_create, **kwargs)  # noqa: E501
+        return self.create_member_members_post_with_http_info(member_in, **kwargs)  # noqa: E501
 
-    def create_member_members_post_with_http_info(self, member_create, **kwargs):  # noqa: E501
+    def create_member_members_post_with_http_info(self, member_in, **kwargs):  # noqa: E501
         """Create member  # noqa: E501
 
         Create new member.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
-        >>> thread = api.create_member_members_post_with_http_info(member_create, async_req=True)
+        >>> thread = api.create_member_members_post_with_http_info(member_in, async_req=True)
         >>> result = thread.get()
 
-        :param member_create: (required)
-        :type member_create: MemberCreate
+        :param member_in: (required)
+        :type member_in: MemberIn
         :param async_req: Whether to execute the request asynchronously.
         :type async_req: bool, optional
         :param _return_http_data_only: response data without head status code
@@ -105,7 +105,7 @@ class MembersApi(object):
         local_var_params = locals()
 
         all_params = [
-            'member_create'
+            'member_in'
         ]
         all_params.extend(
             [
@@ -127,9 +127,9 @@ class MembersApi(object):
                 )
             local_var_params[key] = val
         del local_var_params['kwargs']
-        # verify the required parameter 'member_create' is set
-        if self.api_client.client_side_validation and local_var_params.get('member_create') is None:  # noqa: E501
-            raise ApiValueError("Missing the required parameter `member_create` when calling `create_member_members_post`")  # noqa: E501
+        # verify the required parameter 'member_in' is set
+        if self.api_client.client_side_validation and local_var_params.get('member_in') is None:  # noqa: E501
+            raise ApiValueError("Missing the required parameter `member_in` when calling `create_member_members_post`")  # noqa: E501
 
         collection_formats = {}
 
@@ -143,8 +143,8 @@ class MembersApi(object):
         local_var_files = {}
 
         body_params = None
-        if 'member_create' in local_var_params:
-            body_params = local_var_params['member_create']
+        if 'member_in' in local_var_params:
+            body_params = local_var_params['member_in']
         # HTTP header `Accept`
         header_params['Accept'] = self.api_client.select_header_accept(
             ['application/json'])  # noqa: E501
@@ -161,7 +161,7 @@ class MembersApi(object):
         auth_settings = []  # noqa: E501
 
         response_types_map = {
-            200: "Member",
+            201: "Member",
             422: "HTTPValidationError",
         }
 
@@ -435,6 +435,7 @@ class MembersApi(object):
 
         response_types_map = {
             200: "Member",
+            404: "HTTPNotFoundError",
             422: "HTTPValidationError",
         }
 

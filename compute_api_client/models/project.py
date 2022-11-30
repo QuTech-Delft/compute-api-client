@@ -40,7 +40,8 @@ class Project(object):
         'id': 'int',
         'name': 'str',
         'description': 'str',
-        'starred': 'bool'
+        'starred': 'bool',
+        'owner_id': 'int'
     }
 
     attribute_map = {
@@ -48,10 +49,11 @@ class Project(object):
         'id': 'id',
         'name': 'name',
         'description': 'description',
-        'starred': 'starred'
+        'starred': 'starred',
+        'owner_id': 'owner_id'
     }
 
-    def __init__(self, created_on=None, id=None, name=None, description=None, starred=False, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, created_on=None, id=None, name=None, description=None, starred=False, owner_id=None, local_vars_configuration=None):  # noqa: E501
         """Project - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration.get_default_copy()
@@ -62,6 +64,7 @@ class Project(object):
         self._name = None
         self._description = None
         self._starred = None
+        self._owner_id = None
         self.discriminator = None
 
         self.created_on = created_on
@@ -70,6 +73,7 @@ class Project(object):
         self.description = description
         if starred is not None:
             self.starred = starred
+        self.owner_id = owner_id
 
     @property
     def created_on(self):
@@ -192,6 +196,35 @@ class Project(object):
         """
 
         self._starred = starred
+
+    @property
+    def owner_id(self):
+        """Gets the owner_id of this Project.  # noqa: E501
+
+
+        :return: The owner_id of this Project.  # noqa: E501
+        :rtype: int
+        """
+        return self._owner_id
+
+    @owner_id.setter
+    def owner_id(self, owner_id):
+        """Sets the owner_id of this Project.
+
+
+        :param owner_id: The owner_id of this Project.  # noqa: E501
+        :type owner_id: int
+        """
+        if self.local_vars_configuration.client_side_validation and owner_id is None:  # noqa: E501
+            raise ValueError("Invalid value for `owner_id`, must not be `None`")  # noqa: E501
+        if (self.local_vars_configuration.client_side_validation and
+                owner_id is not None and owner_id > 2147483647):  # noqa: E501
+            raise ValueError("Invalid value for `owner_id`, must be a value less than or equal to `2147483647`")  # noqa: E501
+        if (self.local_vars_configuration.client_side_validation and
+                owner_id is not None and owner_id < 1):  # noqa: E501
+            raise ValueError("Invalid value for `owner_id`, must be a value greater than or equal to `1`")  # noqa: E501
+
+        self._owner_id = owner_id
 
     def to_dict(self, serialize=False):
         """Returns the model properties as a dict"""

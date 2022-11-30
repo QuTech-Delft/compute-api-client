@@ -36,19 +36,13 @@ class TestPermissionGroup(unittest.TestCase):
         # model = compute_api_client.models.permission_group.PermissionGroup()  # noqa: E501
         if include_optional :
             return PermissionGroup(
-                name = '', 
-                permission_ids = [
-                    56
-                    ], 
-                id = 56
+                id = 1.0, 
+                name = ''
             )
         else :
             return PermissionGroup(
+                id = 1.0,
                 name = '',
-                permission_ids = [
-                    56
-                    ],
-                id = 56,
         )
 
     def testPermissionGroup(self):

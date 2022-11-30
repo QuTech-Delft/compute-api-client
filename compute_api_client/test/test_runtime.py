@@ -36,23 +36,23 @@ class TestRuntime(unittest.TestCase):
         # model = compute_api_client.models.runtime.Runtime()  # noqa: E501
         if include_optional :
             return Runtime(
+                id = 1.0, 
                 name = '', 
                 location = '', 
-                runtime_type_id = 56, 
-                status = 'offline', 
+                status = None, 
                 last_heartbeat = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
                 authentication_hash = '', 
-                id = 56
+                runtime_type_id = 1.0
             )
         else :
             return Runtime(
+                id = 1.0,
                 name = '',
                 location = '',
-                runtime_type_id = 56,
-                status = 'offline',
+                status = None,
                 last_heartbeat = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'),
                 authentication_hash = '',
-                id = 56,
+                runtime_type_id = 1.0,
         )
 
     def testRuntime(self):

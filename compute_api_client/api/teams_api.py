@@ -39,7 +39,7 @@ class TeamsApi(object):
     def read_team_teams_id_get(self, id, **kwargs):  # noqa: E501
         """Retrieve teams  # noqa: E501
 
-        Get runtime type by ID.  # noqa: E501
+        Get team by ID.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -69,7 +69,7 @@ class TeamsApi(object):
     def read_team_teams_id_get_with_http_info(self, id, **kwargs):  # noqa: E501
         """Retrieve teams  # noqa: E501
 
-        Get runtime type by ID.  # noqa: E501
+        Get team by ID.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -154,6 +154,7 @@ class TeamsApi(object):
 
         response_types_map = {
             200: "Team",
+            404: "HTTPNotFoundError",
             422: "HTTPValidationError",
         }
 
@@ -177,7 +178,7 @@ class TeamsApi(object):
     def read_teams_teams_get(self, **kwargs):  # noqa: E501
         """List teams  # noqa: E501
 
-        Read runtime types.  # noqa: E501
+        Read teams.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -205,7 +206,7 @@ class TeamsApi(object):
     def read_teams_teams_get_with_http_info(self, **kwargs):  # noqa: E501
         """List teams  # noqa: E501
 
-        Read runtime types.  # noqa: E501
+        Read teams.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 

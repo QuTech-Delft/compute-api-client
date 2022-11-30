@@ -31,7 +31,7 @@ class TestRuntimeApi(unittest.TestCase):
     def test_read_runtime_runtimes_id_get(self):
         """Test case for read_runtime_runtimes_id_get
 
-        Retrieve runtimes  # noqa: E501
+        Retrieve runtime  # noqa: E501
         """
         pass
 

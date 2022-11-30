@@ -36,43 +36,65 @@ class Team(object):
                             and the value is json key in definition.
     """
     openapi_types = {
+        'id': 'int',
         'name': 'str',
         'slug': 'str',
-        'permission_group_ids': 'list[int]',
-        'permission_ids': 'list[int]',
-        'individual_user': 'bool',
-        'id': 'int'
+        'individual_user': 'bool'
     }
 
     attribute_map = {
+        'id': 'id',
         'name': 'name',
         'slug': 'slug',
-        'permission_group_ids': 'permission_group_ids',
-        'permission_ids': 'permission_ids',
-        'individual_user': 'individual_user',
-        'id': 'id'
+        'individual_user': 'individual_user'
     }
 
-    def __init__(self, name=None, slug=None, permission_group_ids=None, permission_ids=None, individual_user=None, id=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, id=None, name=None, slug=None, individual_user=False, local_vars_configuration=None):  # noqa: E501
         """Team - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration.get_default_copy()
         self.local_vars_configuration = local_vars_configuration
 
+        self._id = None
         self._name = None
         self._slug = None
-        self._permission_group_ids = None
-        self._permission_ids = None
         self._individual_user = None
-        self._id = None
         self.discriminator = None
 
+        self.id = id
         self.name = name
         self.slug = slug
-        self.permission_group_ids = permission_group_ids
-        self.permission_ids = permission_ids
-        self.individual_user = individual_user
-        self.id = id
+        if individual_user is not None:
+            self.individual_user = individual_user
+
+    @property
+    def id(self):
+        """Gets the id of this Team.  # noqa: E501
+
+
+        :return: The id of this Team.  # noqa: E501
+        :rtype: int
+        """
+        return self._id
+
+    @id.setter
+    def id(self, id):
+        """Sets the id of this Team.
+
+
+        :param id: The id of this Team.  # noqa: E501
+        :type id: int
+        """
+        if self.local_vars_configuration.client_side_validation and id is None:  # noqa: E501
+            raise ValueError("Invalid value for `id`, must not be `None`")  # noqa: E501
+        if (self.local_vars_configuration.client_side_validation and
+                id is not None and id > 2147483647):  # noqa: E501
+            raise ValueError("Invalid value for `id`, must be a value less than or equal to `2147483647`")  # noqa: E501
+        if (self.local_vars_configuration.client_side_validation and
+                id is not None and id < 1):  # noqa: E501
+            raise ValueError("Invalid value for `id`, must be a value greater than or equal to `1`")  # noqa: E501
+
+        self._id = id
 
     @property
     def name(self):
@@ -94,6 +116,9 @@ class Team(object):
         """
         if self.local_vars_configuration.client_side_validation and name is None:  # noqa: E501
             raise ValueError("Invalid value for `name`, must not be `None`")  # noqa: E501
+        if (self.local_vars_configuration.client_side_validation and
+                name is not None and len(name) > 64):
+            raise ValueError("Invalid value for `name`, length must be less than or equal to `64`")  # noqa: E501
 
         self._name = name
 
@@ -117,54 +142,11 @@ class Team(object):
         """
         if self.local_vars_configuration.client_side_validation and slug is None:  # noqa: E501
             raise ValueError("Invalid value for `slug`, must not be `None`")  # noqa: E501
+        if (self.local_vars_configuration.client_side_validation and
+                slug is not None and len(slug) > 64):
+            raise ValueError("Invalid value for `slug`, length must be less than or equal to `64`")  # noqa: E501
 
         self._slug = slug
-
-    @property
-    def permission_group_ids(self):
-        """Gets the permission_group_ids of this Team.  # noqa: E501
-
-
-        :return: The permission_group_ids of this Team.  # noqa: E501
-        :rtype: list[int]
-        """
-        return self._permission_group_ids
-
-    @permission_group_ids.setter
-    def permission_group_ids(self, permission_group_ids):
-        """Sets the permission_group_ids of this Team.
-
-
-        :param permission_group_ids: The permission_group_ids of this Team.  # noqa: E501
-        :type permission_group_ids: list[int]
-        """
-        if self.local_vars_configuration.client_side_validation and permission_group_ids is None:  # noqa: E501
-            raise ValueError("Invalid value for `permission_group_ids`, must not be `None`")  # noqa: E501
-
-        self._permission_group_ids = permission_group_ids
-
-    @property
-    def permission_ids(self):
-        """Gets the permission_ids of this Team.  # noqa: E501
-
-
-        :return: The permission_ids of this Team.  # noqa: E501
-        :rtype: list[int]
-        """
-        return self._permission_ids
-
-    @permission_ids.setter
-    def permission_ids(self, permission_ids):
-        """Sets the permission_ids of this Team.
-
-
-        :param permission_ids: The permission_ids of this Team.  # noqa: E501
-        :type permission_ids: list[int]
-        """
-        if self.local_vars_configuration.client_side_validation and permission_ids is None:  # noqa: E501
-            raise ValueError("Invalid value for `permission_ids`, must not be `None`")  # noqa: E501
-
-        self._permission_ids = permission_ids
 
     @property
     def individual_user(self):
@@ -184,33 +166,8 @@ class Team(object):
         :param individual_user: The individual_user of this Team.  # noqa: E501
         :type individual_user: bool
         """
-        if self.local_vars_configuration.client_side_validation and individual_user is None:  # noqa: E501
-            raise ValueError("Invalid value for `individual_user`, must not be `None`")  # noqa: E501
 
         self._individual_user = individual_user
-
-    @property
-    def id(self):
-        """Gets the id of this Team.  # noqa: E501
-
-
-        :return: The id of this Team.  # noqa: E501
-        :rtype: int
-        """
-        return self._id
-
-    @id.setter
-    def id(self, id):
-        """Sets the id of this Team.
-
-
-        :param id: The id of this Team.  # noqa: E501
-        :type id: int
-        """
-        if self.local_vars_configuration.client_side_validation and id is None:  # noqa: E501
-            raise ValueError("Invalid value for `id`, must not be `None`")  # noqa: E501
-
-        self._id = id
 
     def to_dict(self, serialize=False):
         """Returns the model properties as a dict"""

@@ -36,37 +36,23 @@ class TestRuntimeType(unittest.TestCase):
         # model = compute_api_client.models.runtime_type.RuntimeType()  # noqa: E501
         if include_optional :
             return RuntimeType(
+                id = 1.0, 
                 name = '', 
                 infrastructure = '', 
                 description = '', 
                 image_id = '', 
                 is_hardware = True, 
-                required_permissions = [
-                    ''
-                    ], 
-                features = [
-                    ''
-                    ], 
-                default_compiler_config = compute_api_client.models.default_compiler_config.Default Compiler Config(), 
-                native_gateset = compute_api_client.models.native_gateset.Native Gateset(), 
-                id = 56
+                features = None, 
+                default_compiler_config = None, 
+                native_gateset = None
             )
         else :
             return RuntimeType(
+                id = 1.0,
                 name = '',
                 infrastructure = '',
                 description = '',
                 image_id = '',
-                is_hardware = True,
-                required_permissions = [
-                    ''
-                    ],
-                features = [
-                    ''
-                    ],
-                default_compiler_config = compute_api_client.models.default_compiler_config.Default Compiler Config(),
-                native_gateset = compute_api_client.models.native_gateset.Native Gateset(),
-                id = 56,
         )
 
     def testRuntimeType(self):

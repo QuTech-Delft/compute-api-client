@@ -36,52 +36,82 @@ class Transaction(object):
                             and the value is json key in definition.
     """
     openapi_types = {
+        'id': 'int',
         'domain': 'Domain',
         'run': 'int',
-        'team_id': 'int',
-        'user_id': 'int',
         'change': 'int',
         'timestamp': 'datetime',
-        'id': 'int'
+        'team_id': 'int',
+        'user_id': 'int'
     }
 
     attribute_map = {
+        'id': 'id',
         'domain': 'domain',
         'run': 'run',
-        'team_id': 'team_id',
-        'user_id': 'user_id',
         'change': 'change',
         'timestamp': 'timestamp',
-        'id': 'id'
+        'team_id': 'team_id',
+        'user_id': 'user_id'
     }
 
-    def __init__(self, domain=None, run=None, team_id=None, user_id=None, change=None, timestamp=None, id=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, id=None, domain=None, run=None, change=None, timestamp=None, team_id=None, user_id=None, local_vars_configuration=None):  # noqa: E501
         """Transaction - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration.get_default_copy()
         self.local_vars_configuration = local_vars_configuration
 
+        self._id = None
         self._domain = None
         self._run = None
-        self._team_id = None
-        self._user_id = None
         self._change = None
         self._timestamp = None
-        self._id = None
+        self._team_id = None
+        self._user_id = None
         self.discriminator = None
 
+        self.id = id
         self.domain = domain
         self.run = run
-        self.team_id = team_id
-        self.user_id = user_id
         self.change = change
         self.timestamp = timestamp
-        self.id = id
+        self.team_id = team_id
+        self.user_id = user_id
+
+    @property
+    def id(self):
+        """Gets the id of this Transaction.  # noqa: E501
+
+
+        :return: The id of this Transaction.  # noqa: E501
+        :rtype: int
+        """
+        return self._id
+
+    @id.setter
+    def id(self, id):
+        """Sets the id of this Transaction.
+
+
+        :param id: The id of this Transaction.  # noqa: E501
+        :type id: int
+        """
+        if self.local_vars_configuration.client_side_validation and id is None:  # noqa: E501
+            raise ValueError("Invalid value for `id`, must not be `None`")  # noqa: E501
+        if (self.local_vars_configuration.client_side_validation and
+                id is not None and id > 2147483647):  # noqa: E501
+            raise ValueError("Invalid value for `id`, must be a value less than or equal to `2147483647`")  # noqa: E501
+        if (self.local_vars_configuration.client_side_validation and
+                id is not None and id < 1):  # noqa: E501
+            raise ValueError("Invalid value for `id`, must be a value greater than or equal to `1`")  # noqa: E501
+
+        self._id = id
 
     @property
     def domain(self):
         """Gets the domain of this Transaction.  # noqa: E501
 
+        COMPUTE: compute<br/>NETWORKING: networking<br/>SIMULATE: simulate  # noqa: E501
 
         :return: The domain of this Transaction.  # noqa: E501
         :rtype: Domain
@@ -92,10 +122,14 @@ class Transaction(object):
     def domain(self, domain):
         """Sets the domain of this Transaction.
 
+        COMPUTE: compute<br/>NETWORKING: networking<br/>SIMULATE: simulate  # noqa: E501
 
         :param domain: The domain of this Transaction.  # noqa: E501
         :type domain: Domain
         """
+        if (self.local_vars_configuration.client_side_validation and
+                domain is not None and len(domain) > 10):
+            raise ValueError("Invalid value for `domain`, length must be less than or equal to `10`")  # noqa: E501
 
         self._domain = domain
 
@@ -117,52 +151,14 @@ class Transaction(object):
         :param run: The run of this Transaction.  # noqa: E501
         :type run: int
         """
+        if (self.local_vars_configuration.client_side_validation and
+                run is not None and run > 2147483647):  # noqa: E501
+            raise ValueError("Invalid value for `run`, must be a value less than or equal to `2147483647`")  # noqa: E501
+        if (self.local_vars_configuration.client_side_validation and
+                run is not None and run < -2147483648):  # noqa: E501
+            raise ValueError("Invalid value for `run`, must be a value greater than or equal to `-2147483648`")  # noqa: E501
 
         self._run = run
-
-    @property
-    def team_id(self):
-        """Gets the team_id of this Transaction.  # noqa: E501
-
-
-        :return: The team_id of this Transaction.  # noqa: E501
-        :rtype: int
-        """
-        return self._team_id
-
-    @team_id.setter
-    def team_id(self, team_id):
-        """Sets the team_id of this Transaction.
-
-
-        :param team_id: The team_id of this Transaction.  # noqa: E501
-        :type team_id: int
-        """
-        if self.local_vars_configuration.client_side_validation and team_id is None:  # noqa: E501
-            raise ValueError("Invalid value for `team_id`, must not be `None`")  # noqa: E501
-
-        self._team_id = team_id
-
-    @property
-    def user_id(self):
-        """Gets the user_id of this Transaction.  # noqa: E501
-
-
-        :return: The user_id of this Transaction.  # noqa: E501
-        :rtype: int
-        """
-        return self._user_id
-
-    @user_id.setter
-    def user_id(self, user_id):
-        """Sets the user_id of this Transaction.
-
-
-        :param user_id: The user_id of this Transaction.  # noqa: E501
-        :type user_id: int
-        """
-
-        self._user_id = user_id
 
     @property
     def change(self):
@@ -184,6 +180,12 @@ class Transaction(object):
         """
         if self.local_vars_configuration.client_side_validation and change is None:  # noqa: E501
             raise ValueError("Invalid value for `change`, must not be `None`")  # noqa: E501
+        if (self.local_vars_configuration.client_side_validation and
+                change is not None and change > 32767):  # noqa: E501
+            raise ValueError("Invalid value for `change`, must be a value less than or equal to `32767`")  # noqa: E501
+        if (self.local_vars_configuration.client_side_validation and
+                change is not None and change < -32768):  # noqa: E501
+            raise ValueError("Invalid value for `change`, must be a value greater than or equal to `-32768`")  # noqa: E501
 
         self._change = change
 
@@ -211,27 +213,60 @@ class Transaction(object):
         self._timestamp = timestamp
 
     @property
-    def id(self):
-        """Gets the id of this Transaction.  # noqa: E501
+    def team_id(self):
+        """Gets the team_id of this Transaction.  # noqa: E501
 
 
-        :return: The id of this Transaction.  # noqa: E501
+        :return: The team_id of this Transaction.  # noqa: E501
         :rtype: int
         """
-        return self._id
+        return self._team_id
 
-    @id.setter
-    def id(self, id):
-        """Sets the id of this Transaction.
+    @team_id.setter
+    def team_id(self, team_id):
+        """Sets the team_id of this Transaction.
 
 
-        :param id: The id of this Transaction.  # noqa: E501
-        :type id: int
+        :param team_id: The team_id of this Transaction.  # noqa: E501
+        :type team_id: int
         """
-        if self.local_vars_configuration.client_side_validation and id is None:  # noqa: E501
-            raise ValueError("Invalid value for `id`, must not be `None`")  # noqa: E501
+        if self.local_vars_configuration.client_side_validation and team_id is None:  # noqa: E501
+            raise ValueError("Invalid value for `team_id`, must not be `None`")  # noqa: E501
+        if (self.local_vars_configuration.client_side_validation and
+                team_id is not None and team_id > 2147483647):  # noqa: E501
+            raise ValueError("Invalid value for `team_id`, must be a value less than or equal to `2147483647`")  # noqa: E501
+        if (self.local_vars_configuration.client_side_validation and
+                team_id is not None and team_id < 1):  # noqa: E501
+            raise ValueError("Invalid value for `team_id`, must be a value greater than or equal to `1`")  # noqa: E501
 
-        self._id = id
+        self._team_id = team_id
+
+    @property
+    def user_id(self):
+        """Gets the user_id of this Transaction.  # noqa: E501
+
+
+        :return: The user_id of this Transaction.  # noqa: E501
+        :rtype: int
+        """
+        return self._user_id
+
+    @user_id.setter
+    def user_id(self, user_id):
+        """Sets the user_id of this Transaction.
+
+
+        :param user_id: The user_id of this Transaction.  # noqa: E501
+        :type user_id: int
+        """
+        if (self.local_vars_configuration.client_side_validation and
+                user_id is not None and user_id > 2147483647):  # noqa: E501
+            raise ValueError("Invalid value for `user_id`, must be a value less than or equal to `2147483647`")  # noqa: E501
+        if (self.local_vars_configuration.client_side_validation and
+                user_id is not None and user_id < 1):  # noqa: E501
+            raise ValueError("Invalid value for `user_id`, must be a value greater than or equal to `1`")  # noqa: E501
+
+        self._user_id = user_id
 
     def to_dict(self, serialize=False):
         """Returns the model properties as a dict"""

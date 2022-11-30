@@ -36,31 +36,60 @@ class Permission(object):
                             and the value is json key in definition.
     """
     openapi_types = {
+        'id': 'int',
         'permission': 'str',
-        'name': 'str',
-        'id': 'int'
+        'name': 'str'
     }
 
     attribute_map = {
+        'id': 'id',
         'permission': 'permission',
-        'name': 'name',
-        'id': 'id'
+        'name': 'name'
     }
 
-    def __init__(self, permission=None, name=None, id=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, id=None, permission=None, name=None, local_vars_configuration=None):  # noqa: E501
         """Permission - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration.get_default_copy()
         self.local_vars_configuration = local_vars_configuration
 
+        self._id = None
         self._permission = None
         self._name = None
-        self._id = None
         self.discriminator = None
 
+        self.id = id
         self.permission = permission
         self.name = name
-        self.id = id
+
+    @property
+    def id(self):
+        """Gets the id of this Permission.  # noqa: E501
+
+
+        :return: The id of this Permission.  # noqa: E501
+        :rtype: int
+        """
+        return self._id
+
+    @id.setter
+    def id(self, id):
+        """Sets the id of this Permission.
+
+
+        :param id: The id of this Permission.  # noqa: E501
+        :type id: int
+        """
+        if self.local_vars_configuration.client_side_validation and id is None:  # noqa: E501
+            raise ValueError("Invalid value for `id`, must not be `None`")  # noqa: E501
+        if (self.local_vars_configuration.client_side_validation and
+                id is not None and id > 2147483647):  # noqa: E501
+            raise ValueError("Invalid value for `id`, must be a value less than or equal to `2147483647`")  # noqa: E501
+        if (self.local_vars_configuration.client_side_validation and
+                id is not None and id < 1):  # noqa: E501
+            raise ValueError("Invalid value for `id`, must be a value greater than or equal to `1`")  # noqa: E501
+
+        self._id = id
 
     @property
     def permission(self):
@@ -82,6 +111,9 @@ class Permission(object):
         """
         if self.local_vars_configuration.client_side_validation and permission is None:  # noqa: E501
             raise ValueError("Invalid value for `permission`, must not be `None`")  # noqa: E501
+        if (self.local_vars_configuration.client_side_validation and
+                permission is not None and len(permission) > 64):
+            raise ValueError("Invalid value for `permission`, length must be less than or equal to `64`")  # noqa: E501
 
         self._permission = permission
 
@@ -105,31 +137,11 @@ class Permission(object):
         """
         if self.local_vars_configuration.client_side_validation and name is None:  # noqa: E501
             raise ValueError("Invalid value for `name`, must not be `None`")  # noqa: E501
+        if (self.local_vars_configuration.client_side_validation and
+                name is not None and len(name) > 64):
+            raise ValueError("Invalid value for `name`, length must be less than or equal to `64`")  # noqa: E501
 
         self._name = name
-
-    @property
-    def id(self):
-        """Gets the id of this Permission.  # noqa: E501
-
-
-        :return: The id of this Permission.  # noqa: E501
-        :rtype: int
-        """
-        return self._id
-
-    @id.setter
-    def id(self, id):
-        """Sets the id of this Permission.
-
-
-        :param id: The id of this Permission.  # noqa: E501
-        :type id: int
-        """
-        if self.local_vars_configuration.client_side_validation and id is None:  # noqa: E501
-            raise ValueError("Invalid value for `id`, must not be `None`")  # noqa: E501
-
-        self._id = id
 
     def to_dict(self, serialize=False):
         """Returns the model properties as a dict"""

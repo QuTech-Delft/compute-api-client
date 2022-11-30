@@ -45,7 +45,7 @@ class TestMetadataApi(unittest.TestCase):
     def test_read_metadata_metadata_id_get(self):
         """Test case for read_metadata_metadata_id_get
 
-        Retrieve metadata  # noqa: E501
+        Get metadata by ID  # noqa: E501
         """
         pass
 

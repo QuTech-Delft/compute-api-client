@@ -86,12 +86,27 @@ Class | Method | HTTP request | Description
 *FinalResultsApi* | [**read_final_result_final_results_id_get**](compute_api_client/docs/FinalResultsApi.md#read_final_result_final_results_id_get) | **GET** /final_results/{id} | Retrieve final result
 *LanguagesApi* | [**read_language_languages_id_get**](compute_api_client/docs/LanguagesApi.md#read_language_languages_id_get) | **GET** /languages/{id} | Retrieve language
 *LanguagesApi* | [**read_languages_languages_get**](compute_api_client/docs/LanguagesApi.md#read_languages_languages_get) | **GET** /languages | List languages
+*MembersApi* | [**create_member_members_post**](compute_api_client/docs/MembersApi.md#create_member_members_post) | **POST** /members | Create member
+*MembersApi* | [**delete_member_members_id_delete**](compute_api_client/docs/MembersApi.md#delete_member_members_id_delete) | **DELETE** /members/{id} | Destroy member
+*MembersApi* | [**read_member_members_id_get**](compute_api_client/docs/MembersApi.md#read_member_members_id_get) | **GET** /members/{id} | Retrieve member
+*MembersApi* | [**read_members_members_get**](compute_api_client/docs/MembersApi.md#read_members_members_get) | **GET** /members | List members
+*MetadataApi* | [**create_metadata_metadata_post**](compute_api_client/docs/MetadataApi.md#create_metadata_metadata_post) | **POST** /metadata | Create metadata
+*MetadataApi* | [**read_metadata_by_runtime_id_metadata_runtime_runtime_id_get**](compute_api_client/docs/MetadataApi.md#read_metadata_by_runtime_id_metadata_runtime_runtime_id_get) | **GET** /metadata/runtime/{runtime_id} | Retrieve metadata by runtime ID
+*MetadataApi* | [**read_metadata_metadata_id_get**](compute_api_client/docs/MetadataApi.md#read_metadata_metadata_id_get) | **GET** /metadata/{id} | Get metadata by ID
+*PermissionsApi* | [**read_permission_group_permission_groups_id_get**](compute_api_client/docs/PermissionsApi.md#read_permission_group_permission_groups_id_get) | **GET** /permission_groups/{id} | Retrieve permission groups
+*PermissionsApi* | [**read_permission_groups_permission_groups_get**](compute_api_client/docs/PermissionsApi.md#read_permission_groups_permission_groups_get) | **GET** /permission_groups/ | List permission groups
+*PermissionsApi* | [**read_permission_permissions_id_get**](compute_api_client/docs/PermissionsApi.md#read_permission_permissions_id_get) | **GET** /permissions/{id} | Retrieve permissions
+*PermissionsApi* | [**read_permissions_permissions_get**](compute_api_client/docs/PermissionsApi.md#read_permissions_permissions_get) | **GET** /permissions/ | List permissions
 *ProjectsApi* | [**create_project_projects_post**](compute_api_client/docs/ProjectsApi.md#create_project_projects_post) | **POST** /projects | Create project
 *ProjectsApi* | [**delete_project_projects_id_delete**](compute_api_client/docs/ProjectsApi.md#delete_project_projects_id_delete) | **DELETE** /projects/{id} | Destroy project
 *ProjectsApi* | [**partial_update_project_projects_id_patch**](compute_api_client/docs/ProjectsApi.md#partial_update_project_projects_id_patch) | **PATCH** /projects/{id} | Partially update project
 *ProjectsApi* | [**read_project_projects_id_get**](compute_api_client/docs/ProjectsApi.md#read_project_projects_id_get) | **GET** /projects/{id} | Retrieve project
 *ProjectsApi* | [**read_projects_projects_get**](compute_api_client/docs/ProjectsApi.md#read_projects_projects_get) | **GET** /projects | List projects
 *ProjectsApi* | [**update_project_projects_id_put**](compute_api_client/docs/ProjectsApi.md#update_project_projects_id_put) | **PUT** /projects/{id} | Update project
+*ReservationsApi* | [**create_reservation_reservations_post**](compute_api_client/docs/ReservationsApi.md#create_reservation_reservations_post) | **POST** /reservations | Create reservation
+*ReservationsApi* | [**read_reservation_reservations_id_get**](compute_api_client/docs/ReservationsApi.md#read_reservation_reservations_id_get) | **GET** /reservations/{id} | Retrieve reservation
+*ReservationsApi* | [**read_reservations_reservations_get**](compute_api_client/docs/ReservationsApi.md#read_reservations_reservations_get) | **GET** /reservations | List reservations
+*ReservationsApi* | [**terminate_reservation_reservations_id_terminate_patch**](compute_api_client/docs/ReservationsApi.md#terminate_reservation_reservations_id_terminate_patch) | **PATCH** /reservations/{id}/terminate | Terminate reservation
 *ResultsApi* | [**create_result_results_post**](compute_api_client/docs/ResultsApi.md#create_result_results_post) | **POST** /results | Create result
 *ResultsApi* | [**read_result_results_id_get**](compute_api_client/docs/ResultsApi.md#read_result_results_id_get) | **GET** /results/{id} | Retrieve result
 *ResultsApi* | [**read_results_by_run_id_results_run_run_id_get**](compute_api_client/docs/ResultsApi.md#read_results_by_run_id_results_run_run_id_get) | **GET** /results/run/{run_id} | Retrieve result
@@ -99,6 +114,18 @@ Class | Method | HTTP request | Description
 *RunsApi* | [**delete_run_runs_id_delete**](compute_api_client/docs/RunsApi.md#delete_run_runs_id_delete) | **DELETE** /runs/{id} | Destroy run
 *RunsApi* | [**read_run_runs_id_get**](compute_api_client/docs/RunsApi.md#read_run_runs_id_get) | **GET** /runs/{id} | Retrieve run
 *RunsApi* | [**read_runs_runs_get**](compute_api_client/docs/RunsApi.md#read_runs_runs_get) | **GET** /runs | List runs
+*RuntimeApi* | [**read_runtime_runtimes_id_get**](compute_api_client/docs/RuntimeApi.md#read_runtime_runtimes_id_get) | **GET** /runtimes/{id} | Retrieve runtime
+*RuntimeApi* | [**read_runtimes_runtimes_get**](compute_api_client/docs/RuntimeApi.md#read_runtimes_runtimes_get) | **GET** /runtimes | List runtimes
+*RuntimeTypesApi* | [**read_runtime_type_runtime_types_id_get**](compute_api_client/docs/RuntimeTypesApi.md#read_runtime_type_runtime_types_id_get) | **GET** /runtime_types/{id} | Retrieve runtime type
+*RuntimeTypesApi* | [**read_runtime_types_runtime_types_get**](compute_api_client/docs/RuntimeTypesApi.md#read_runtime_types_runtime_types_get) | **GET** /runtime_types/ | List runtime types
+*TeamsApi* | [**read_team_teams_id_get**](compute_api_client/docs/TeamsApi.md#read_team_teams_id_get) | **GET** /teams/{id} | Retrieve teams
+*TeamsApi* | [**read_teams_teams_get**](compute_api_client/docs/TeamsApi.md#read_teams_teams_get) | **GET** /teams/ | List teams
+*TransactionsApi* | [**read_transaction_transactions_id_get**](compute_api_client/docs/TransactionsApi.md#read_transaction_transactions_id_get) | **GET** /transactions/{id} | Retrieve transactions
+*TransactionsApi* | [**read_transactions_transactions_get**](compute_api_client/docs/TransactionsApi.md#read_transactions_transactions_get) | **GET** /transactions/ | List transactions
+*UsersApi* | [**create_user_users_post**](compute_api_client/docs/UsersApi.md#create_user_users_post) | **POST** /users | Create user
+*UsersApi* | [**delete_user_users_id_delete**](compute_api_client/docs/UsersApi.md#delete_user_users_id_delete) | **DELETE** /users/{id} | Destroy user
+*UsersApi* | [**read_user_users_id_get**](compute_api_client/docs/UsersApi.md#read_user_users_id_get) | **GET** /users/{id} | Retrieve user
+*UsersApi* | [**read_users_users_get**](compute_api_client/docs/UsersApi.md#read_users_users_get) | **GET** /users | List users
 
 
 ## Documentation For Models
@@ -112,6 +139,7 @@ Class | Method | HTTP request | Description
  - [Commit](compute_api_client/docs/Commit.md)
  - [CommitIn](compute_api_client/docs/CommitIn.md)
  - [CompileStage](compute_api_client/docs/CompileStage.md)
+ - [Domain](compute_api_client/docs/Domain.md)
  - [File](compute_api_client/docs/File.md)
  - [FileIn](compute_api_client/docs/FileIn.md)
  - [FinalResult](compute_api_client/docs/FinalResult.md)
@@ -120,15 +148,31 @@ Class | Method | HTTP request | Description
  - [HTTPValidationError](compute_api_client/docs/HTTPValidationError.md)
  - [Language](compute_api_client/docs/Language.md)
  - [LocationInner](compute_api_client/docs/LocationInner.md)
+ - [Member](compute_api_client/docs/Member.md)
+ - [MemberIn](compute_api_client/docs/MemberIn.md)
+ - [Metadata](compute_api_client/docs/Metadata.md)
+ - [MetadataIn](compute_api_client/docs/MetadataIn.md)
+ - [Permission](compute_api_client/docs/Permission.md)
+ - [PermissionGroup](compute_api_client/docs/PermissionGroup.md)
  - [Project](compute_api_client/docs/Project.md)
  - [ProjectIn](compute_api_client/docs/ProjectIn.md)
  - [ProjectPatch](compute_api_client/docs/ProjectPatch.md)
+ - [Reservation](compute_api_client/docs/Reservation.md)
+ - [ReservationIn](compute_api_client/docs/ReservationIn.md)
  - [Result](compute_api_client/docs/Result.md)
  - [ResultIn](compute_api_client/docs/ResultIn.md)
+ - [Role](compute_api_client/docs/Role.md)
  - [Run](compute_api_client/docs/Run.md)
  - [RunIn](compute_api_client/docs/RunIn.md)
  - [RunStatus](compute_api_client/docs/RunStatus.md)
+ - [Runtime](compute_api_client/docs/Runtime.md)
+ - [RuntimeStatus](compute_api_client/docs/RuntimeStatus.md)
+ - [RuntimeType](compute_api_client/docs/RuntimeType.md)
  - [ShareType](compute_api_client/docs/ShareType.md)
+ - [Team](compute_api_client/docs/Team.md)
+ - [Transaction](compute_api_client/docs/Transaction.md)
+ - [User](compute_api_client/docs/User.md)
+ - [UserIn](compute_api_client/docs/UserIn.md)
  - [ValidationError](compute_api_client/docs/ValidationError.md)
 
 

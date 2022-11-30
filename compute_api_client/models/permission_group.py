@@ -36,77 +36,27 @@ class PermissionGroup(object):
                             and the value is json key in definition.
     """
     openapi_types = {
-        'name': 'str',
-        'permission_ids': 'list[int]',
-        'id': 'int'
+        'id': 'int',
+        'name': 'str'
     }
 
     attribute_map = {
-        'name': 'name',
-        'permission_ids': 'permission_ids',
-        'id': 'id'
+        'id': 'id',
+        'name': 'name'
     }
 
-    def __init__(self, name=None, permission_ids=None, id=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, id=None, name=None, local_vars_configuration=None):  # noqa: E501
         """PermissionGroup - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration.get_default_copy()
         self.local_vars_configuration = local_vars_configuration
 
-        self._name = None
-        self._permission_ids = None
         self._id = None
+        self._name = None
         self.discriminator = None
 
-        self.name = name
-        self.permission_ids = permission_ids
         self.id = id
-
-    @property
-    def name(self):
-        """Gets the name of this PermissionGroup.  # noqa: E501
-
-
-        :return: The name of this PermissionGroup.  # noqa: E501
-        :rtype: str
-        """
-        return self._name
-
-    @name.setter
-    def name(self, name):
-        """Sets the name of this PermissionGroup.
-
-
-        :param name: The name of this PermissionGroup.  # noqa: E501
-        :type name: str
-        """
-        if self.local_vars_configuration.client_side_validation and name is None:  # noqa: E501
-            raise ValueError("Invalid value for `name`, must not be `None`")  # noqa: E501
-
-        self._name = name
-
-    @property
-    def permission_ids(self):
-        """Gets the permission_ids of this PermissionGroup.  # noqa: E501
-
-
-        :return: The permission_ids of this PermissionGroup.  # noqa: E501
-        :rtype: list[int]
-        """
-        return self._permission_ids
-
-    @permission_ids.setter
-    def permission_ids(self, permission_ids):
-        """Sets the permission_ids of this PermissionGroup.
-
-
-        :param permission_ids: The permission_ids of this PermissionGroup.  # noqa: E501
-        :type permission_ids: list[int]
-        """
-        if self.local_vars_configuration.client_side_validation and permission_ids is None:  # noqa: E501
-            raise ValueError("Invalid value for `permission_ids`, must not be `None`")  # noqa: E501
-
-        self._permission_ids = permission_ids
+        self.name = name
 
     @property
     def id(self):
@@ -128,8 +78,40 @@ class PermissionGroup(object):
         """
         if self.local_vars_configuration.client_side_validation and id is None:  # noqa: E501
             raise ValueError("Invalid value for `id`, must not be `None`")  # noqa: E501
+        if (self.local_vars_configuration.client_side_validation and
+                id is not None and id > 2147483647):  # noqa: E501
+            raise ValueError("Invalid value for `id`, must be a value less than or equal to `2147483647`")  # noqa: E501
+        if (self.local_vars_configuration.client_side_validation and
+                id is not None and id < 1):  # noqa: E501
+            raise ValueError("Invalid value for `id`, must be a value greater than or equal to `1`")  # noqa: E501
 
         self._id = id
+
+    @property
+    def name(self):
+        """Gets the name of this PermissionGroup.  # noqa: E501
+
+
+        :return: The name of this PermissionGroup.  # noqa: E501
+        :rtype: str
+        """
+        return self._name
+
+    @name.setter
+    def name(self, name):
+        """Sets the name of this PermissionGroup.
+
+
+        :param name: The name of this PermissionGroup.  # noqa: E501
+        :type name: str
+        """
+        if self.local_vars_configuration.client_side_validation and name is None:  # noqa: E501
+            raise ValueError("Invalid value for `name`, must not be `None`")  # noqa: E501
+        if (self.local_vars_configuration.client_side_validation and
+                name is not None and len(name) > 64):
+            raise ValueError("Invalid value for `name`, length must be less than or equal to `64`")  # noqa: E501
+
+        self._name = name
 
     def to_dict(self, serialize=False):
         """Returns the model properties as a dict"""

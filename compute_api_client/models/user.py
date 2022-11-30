@@ -36,47 +36,80 @@ class User(object):
                             and the value is json key in definition.
     """
     openapi_types = {
+        'id': 'int',
         'full_name': 'str',
         'email': 'str',
         'is_superuser': 'bool',
         'is_staff': 'bool',
         'is_active': 'bool',
-        'is_confirmed': 'bool',
-        'id': 'int'
+        'is_confirmed': 'bool'
     }
 
     attribute_map = {
+        'id': 'id',
         'full_name': 'full_name',
         'email': 'email',
         'is_superuser': 'is_superuser',
         'is_staff': 'is_staff',
         'is_active': 'is_active',
-        'is_confirmed': 'is_confirmed',
-        'id': 'id'
+        'is_confirmed': 'is_confirmed'
     }
 
-    def __init__(self, full_name=None, email=None, is_superuser=None, is_staff=None, is_active=None, is_confirmed=None, id=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, id=None, full_name=None, email=None, is_superuser=False, is_staff=False, is_active=False, is_confirmed=False, local_vars_configuration=None):  # noqa: E501
         """User - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration.get_default_copy()
         self.local_vars_configuration = local_vars_configuration
 
+        self._id = None
         self._full_name = None
         self._email = None
         self._is_superuser = None
         self._is_staff = None
         self._is_active = None
         self._is_confirmed = None
-        self._id = None
         self.discriminator = None
 
+        self.id = id
         self.full_name = full_name
         self.email = email
-        self.is_superuser = is_superuser
-        self.is_staff = is_staff
-        self.is_active = is_active
-        self.is_confirmed = is_confirmed
-        self.id = id
+        if is_superuser is not None:
+            self.is_superuser = is_superuser
+        if is_staff is not None:
+            self.is_staff = is_staff
+        if is_active is not None:
+            self.is_active = is_active
+        if is_confirmed is not None:
+            self.is_confirmed = is_confirmed
+
+    @property
+    def id(self):
+        """Gets the id of this User.  # noqa: E501
+
+
+        :return: The id of this User.  # noqa: E501
+        :rtype: int
+        """
+        return self._id
+
+    @id.setter
+    def id(self, id):
+        """Sets the id of this User.
+
+
+        :param id: The id of this User.  # noqa: E501
+        :type id: int
+        """
+        if self.local_vars_configuration.client_side_validation and id is None:  # noqa: E501
+            raise ValueError("Invalid value for `id`, must not be `None`")  # noqa: E501
+        if (self.local_vars_configuration.client_side_validation and
+                id is not None and id > 2147483647):  # noqa: E501
+            raise ValueError("Invalid value for `id`, must be a value less than or equal to `2147483647`")  # noqa: E501
+        if (self.local_vars_configuration.client_side_validation and
+                id is not None and id < 1):  # noqa: E501
+            raise ValueError("Invalid value for `id`, must be a value greater than or equal to `1`")  # noqa: E501
+
+        self._id = id
 
     @property
     def full_name(self):
@@ -98,6 +131,9 @@ class User(object):
         """
         if self.local_vars_configuration.client_side_validation and full_name is None:  # noqa: E501
             raise ValueError("Invalid value for `full_name`, must not be `None`")  # noqa: E501
+        if (self.local_vars_configuration.client_side_validation and
+                full_name is not None and len(full_name) > 64):
+            raise ValueError("Invalid value for `full_name`, length must be less than or equal to `64`")  # noqa: E501
 
         self._full_name = full_name
 
@@ -121,6 +157,9 @@ class User(object):
         """
         if self.local_vars_configuration.client_side_validation and email is None:  # noqa: E501
             raise ValueError("Invalid value for `email`, must not be `None`")  # noqa: E501
+        if (self.local_vars_configuration.client_side_validation and
+                email is not None and len(email) > 256):
+            raise ValueError("Invalid value for `email`, length must be less than or equal to `256`")  # noqa: E501
 
         self._email = email
 
@@ -142,8 +181,6 @@ class User(object):
         :param is_superuser: The is_superuser of this User.  # noqa: E501
         :type is_superuser: bool
         """
-        if self.local_vars_configuration.client_side_validation and is_superuser is None:  # noqa: E501
-            raise ValueError("Invalid value for `is_superuser`, must not be `None`")  # noqa: E501
 
         self._is_superuser = is_superuser
 
@@ -165,8 +202,6 @@ class User(object):
         :param is_staff: The is_staff of this User.  # noqa: E501
         :type is_staff: bool
         """
-        if self.local_vars_configuration.client_side_validation and is_staff is None:  # noqa: E501
-            raise ValueError("Invalid value for `is_staff`, must not be `None`")  # noqa: E501
 
         self._is_staff = is_staff
 
@@ -188,8 +223,6 @@ class User(object):
         :param is_active: The is_active of this User.  # noqa: E501
         :type is_active: bool
         """
-        if self.local_vars_configuration.client_side_validation and is_active is None:  # noqa: E501
-            raise ValueError("Invalid value for `is_active`, must not be `None`")  # noqa: E501
 
         self._is_active = is_active
 
@@ -211,33 +244,8 @@ class User(object):
         :param is_confirmed: The is_confirmed of this User.  # noqa: E501
         :type is_confirmed: bool
         """
-        if self.local_vars_configuration.client_side_validation and is_confirmed is None:  # noqa: E501
-            raise ValueError("Invalid value for `is_confirmed`, must not be `None`")  # noqa: E501
 
         self._is_confirmed = is_confirmed
-
-    @property
-    def id(self):
-        """Gets the id of this User.  # noqa: E501
-
-
-        :return: The id of this User.  # noqa: E501
-        :rtype: int
-        """
-        return self._id
-
-    @id.setter
-    def id(self, id):
-        """Sets the id of this User.
-
-
-        :param id: The id of this User.  # noqa: E501
-        :type id: int
-        """
-        if self.local_vars_configuration.client_side_validation and id is None:  # noqa: E501
-            raise ValueError("Invalid value for `id`, must not be `None`")  # noqa: E501
-
-        self._id = id
 
     def to_dict(self, serialize=False):
         """Returns the model properties as a dict"""

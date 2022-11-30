@@ -154,6 +154,7 @@ class RuntimeTypesApi(object):
 
         response_types_map = {
             200: "RuntimeType",
+            404: "HTTPNotFoundError",
             422: "HTTPValidationError",
         }
 

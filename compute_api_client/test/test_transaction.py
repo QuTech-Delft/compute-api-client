@@ -36,20 +36,20 @@ class TestTransaction(unittest.TestCase):
         # model = compute_api_client.models.transaction.Transaction()  # noqa: E501
         if include_optional :
             return Transaction(
+                id = 1.0, 
                 domain = None, 
-                run = 56, 
-                team_id = 56, 
-                user_id = 56, 
-                change = 56, 
+                run = -2147483648, 
+                change = -32768.0, 
                 timestamp = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
-                id = 56
+                team_id = 1.0, 
+                user_id = 1.0
             )
         else :
             return Transaction(
-                team_id = 56,
-                change = 56,
+                id = 1.0,
+                change = -32768.0,
                 timestamp = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'),
-                id = 56,
+                team_id = 1.0,
         )
 
     def testTransaction(self):

@@ -36,18 +36,18 @@ class MetadataApi(object):
             api_client = ApiClient()
         self.api_client = api_client
 
-    def create_metadata_metadata_post(self, metadata_create, **kwargs):  # noqa: E501
+    def create_metadata_metadata_post(self, metadata_in, **kwargs):  # noqa: E501
         """Create metadata  # noqa: E501
 
         Create new metadata.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
-        >>> thread = api.create_metadata_metadata_post(metadata_create, async_req=True)
+        >>> thread = api.create_metadata_metadata_post(metadata_in, async_req=True)
         >>> result = thread.get()
 
-        :param metadata_create: (required)
-        :type metadata_create: MetadataCreate
+        :param metadata_in: (required)
+        :type metadata_in: MetadataIn
         :param async_req: Whether to execute the request asynchronously.
         :type async_req: bool, optional
         :param _preload_content: if False, the urllib3.HTTPResponse object will
@@ -64,20 +64,20 @@ class MetadataApi(object):
         :rtype: Metadata
         """
         kwargs['_return_http_data_only'] = True
-        return self.create_metadata_metadata_post_with_http_info(metadata_create, **kwargs)  # noqa: E501
+        return self.create_metadata_metadata_post_with_http_info(metadata_in, **kwargs)  # noqa: E501
 
-    def create_metadata_metadata_post_with_http_info(self, metadata_create, **kwargs):  # noqa: E501
+    def create_metadata_metadata_post_with_http_info(self, metadata_in, **kwargs):  # noqa: E501
         """Create metadata  # noqa: E501
 
         Create new metadata.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
-        >>> thread = api.create_metadata_metadata_post_with_http_info(metadata_create, async_req=True)
+        >>> thread = api.create_metadata_metadata_post_with_http_info(metadata_in, async_req=True)
         >>> result = thread.get()
 
-        :param metadata_create: (required)
-        :type metadata_create: MetadataCreate
+        :param metadata_in: (required)
+        :type metadata_in: MetadataIn
         :param async_req: Whether to execute the request asynchronously.
         :type async_req: bool, optional
         :param _return_http_data_only: response data without head status code
@@ -105,7 +105,7 @@ class MetadataApi(object):
         local_var_params = locals()
 
         all_params = [
-            'metadata_create'
+            'metadata_in'
         ]
         all_params.extend(
             [
@@ -127,9 +127,9 @@ class MetadataApi(object):
                 )
             local_var_params[key] = val
         del local_var_params['kwargs']
-        # verify the required parameter 'metadata_create' is set
-        if self.api_client.client_side_validation and local_var_params.get('metadata_create') is None:  # noqa: E501
-            raise ApiValueError("Missing the required parameter `metadata_create` when calling `create_metadata_metadata_post`")  # noqa: E501
+        # verify the required parameter 'metadata_in' is set
+        if self.api_client.client_side_validation and local_var_params.get('metadata_in') is None:  # noqa: E501
+            raise ApiValueError("Missing the required parameter `metadata_in` when calling `create_metadata_metadata_post`")  # noqa: E501
 
         collection_formats = {}
 
@@ -143,8 +143,8 @@ class MetadataApi(object):
         local_var_files = {}
 
         body_params = None
-        if 'metadata_create' in local_var_params:
-            body_params = local_var_params['metadata_create']
+        if 'metadata_in' in local_var_params:
+            body_params = local_var_params['metadata_in']
         # HTTP header `Accept`
         header_params['Accept'] = self.api_client.select_header_accept(
             ['application/json'])  # noqa: E501
@@ -161,7 +161,7 @@ class MetadataApi(object):
         auth_settings = []  # noqa: E501
 
         response_types_map = {
-            200: "Metadata",
+            201: "Metadata",
             422: "HTTPValidationError",
         }
 
@@ -321,7 +321,7 @@ class MetadataApi(object):
             _request_auth=local_var_params.get('_request_auth'))
 
     def read_metadata_metadata_id_get(self, id, **kwargs):  # noqa: E501
-        """Retrieve metadata  # noqa: E501
+        """Get metadata by ID  # noqa: E501
 
         Get metadata by ID.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
@@ -351,7 +351,7 @@ class MetadataApi(object):
         return self.read_metadata_metadata_id_get_with_http_info(id, **kwargs)  # noqa: E501
 
     def read_metadata_metadata_id_get_with_http_info(self, id, **kwargs):  # noqa: E501
-        """Retrieve metadata  # noqa: E501
+        """Get metadata by ID  # noqa: E501
 
         Get metadata by ID.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
@@ -438,6 +438,7 @@ class MetadataApi(object):
 
         response_types_map = {
             200: "Metadata",
+            404: "HTTPNotFoundError",
             422: "HTTPValidationError",
         }
 

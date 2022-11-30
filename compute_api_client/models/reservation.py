@@ -36,71 +36,77 @@ class Reservation(object):
                             and the value is json key in definition.
     """
     openapi_types = {
-        'member_id': 'int',
+        'id': 'int',
         'start_time': 'datetime',
         'end_time': 'datetime',
-        'runtime_type_id': 'int',
-        'runtime_id': 'int',
         'is_terminated': 'bool',
-        'id': 'int'
+        'member_id': 'int',
+        'runtime_id': 'int',
+        'runtime_type_id': 'int'
     }
 
     attribute_map = {
-        'member_id': 'member_id',
+        'id': 'id',
         'start_time': 'start_time',
         'end_time': 'end_time',
-        'runtime_type_id': 'runtime_type_id',
-        'runtime_id': 'runtime_id',
         'is_terminated': 'is_terminated',
-        'id': 'id'
+        'member_id': 'member_id',
+        'runtime_id': 'runtime_id',
+        'runtime_type_id': 'runtime_type_id'
     }
 
-    def __init__(self, member_id=None, start_time=None, end_time=None, runtime_type_id=None, runtime_id=None, is_terminated=False, id=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, id=None, start_time=None, end_time=None, is_terminated=False, member_id=None, runtime_id=None, runtime_type_id=None, local_vars_configuration=None):  # noqa: E501
         """Reservation - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration.get_default_copy()
         self.local_vars_configuration = local_vars_configuration
 
-        self._member_id = None
+        self._id = None
         self._start_time = None
         self._end_time = None
-        self._runtime_type_id = None
-        self._runtime_id = None
         self._is_terminated = None
-        self._id = None
+        self._member_id = None
+        self._runtime_id = None
+        self._runtime_type_id = None
         self.discriminator = None
 
-        self.member_id = member_id
+        self.id = id
         self.start_time = start_time
         self.end_time = end_time
-        self.runtime_type_id = runtime_type_id
-        self.runtime_id = runtime_id
         if is_terminated is not None:
             self.is_terminated = is_terminated
-        self.id = id
+        self.member_id = member_id
+        self.runtime_id = runtime_id
+        self.runtime_type_id = runtime_type_id
 
     @property
-    def member_id(self):
-        """Gets the member_id of this Reservation.  # noqa: E501
+    def id(self):
+        """Gets the id of this Reservation.  # noqa: E501
 
 
-        :return: The member_id of this Reservation.  # noqa: E501
+        :return: The id of this Reservation.  # noqa: E501
         :rtype: int
         """
-        return self._member_id
+        return self._id
 
-    @member_id.setter
-    def member_id(self, member_id):
-        """Sets the member_id of this Reservation.
+    @id.setter
+    def id(self, id):
+        """Sets the id of this Reservation.
 
 
-        :param member_id: The member_id of this Reservation.  # noqa: E501
-        :type member_id: int
+        :param id: The id of this Reservation.  # noqa: E501
+        :type id: int
         """
-        if self.local_vars_configuration.client_side_validation and member_id is None:  # noqa: E501
-            raise ValueError("Invalid value for `member_id`, must not be `None`")  # noqa: E501
+        if self.local_vars_configuration.client_side_validation and id is None:  # noqa: E501
+            raise ValueError("Invalid value for `id`, must not be `None`")  # noqa: E501
+        if (self.local_vars_configuration.client_side_validation and
+                id is not None and id > 2147483647):  # noqa: E501
+            raise ValueError("Invalid value for `id`, must be a value less than or equal to `2147483647`")  # noqa: E501
+        if (self.local_vars_configuration.client_side_validation and
+                id is not None and id < 1):  # noqa: E501
+            raise ValueError("Invalid value for `id`, must be a value greater than or equal to `1`")  # noqa: E501
 
-        self._member_id = member_id
+        self._id = id
 
     @property
     def start_time(self):
@@ -149,50 +155,6 @@ class Reservation(object):
         self._end_time = end_time
 
     @property
-    def runtime_type_id(self):
-        """Gets the runtime_type_id of this Reservation.  # noqa: E501
-
-
-        :return: The runtime_type_id of this Reservation.  # noqa: E501
-        :rtype: int
-        """
-        return self._runtime_type_id
-
-    @runtime_type_id.setter
-    def runtime_type_id(self, runtime_type_id):
-        """Sets the runtime_type_id of this Reservation.
-
-
-        :param runtime_type_id: The runtime_type_id of this Reservation.  # noqa: E501
-        :type runtime_type_id: int
-        """
-        if self.local_vars_configuration.client_side_validation and runtime_type_id is None:  # noqa: E501
-            raise ValueError("Invalid value for `runtime_type_id`, must not be `None`")  # noqa: E501
-
-        self._runtime_type_id = runtime_type_id
-
-    @property
-    def runtime_id(self):
-        """Gets the runtime_id of this Reservation.  # noqa: E501
-
-
-        :return: The runtime_id of this Reservation.  # noqa: E501
-        :rtype: int
-        """
-        return self._runtime_id
-
-    @runtime_id.setter
-    def runtime_id(self, runtime_id):
-        """Sets the runtime_id of this Reservation.
-
-
-        :param runtime_id: The runtime_id of this Reservation.  # noqa: E501
-        :type runtime_id: int
-        """
-
-        self._runtime_id = runtime_id
-
-    @property
     def is_terminated(self):
         """Gets the is_terminated of this Reservation.  # noqa: E501
 
@@ -214,27 +176,89 @@ class Reservation(object):
         self._is_terminated = is_terminated
 
     @property
-    def id(self):
-        """Gets the id of this Reservation.  # noqa: E501
+    def member_id(self):
+        """Gets the member_id of this Reservation.  # noqa: E501
 
 
-        :return: The id of this Reservation.  # noqa: E501
+        :return: The member_id of this Reservation.  # noqa: E501
         :rtype: int
         """
-        return self._id
+        return self._member_id
 
-    @id.setter
-    def id(self, id):
-        """Sets the id of this Reservation.
+    @member_id.setter
+    def member_id(self, member_id):
+        """Sets the member_id of this Reservation.
 
 
-        :param id: The id of this Reservation.  # noqa: E501
-        :type id: int
+        :param member_id: The member_id of this Reservation.  # noqa: E501
+        :type member_id: int
         """
-        if self.local_vars_configuration.client_side_validation and id is None:  # noqa: E501
-            raise ValueError("Invalid value for `id`, must not be `None`")  # noqa: E501
+        if self.local_vars_configuration.client_side_validation and member_id is None:  # noqa: E501
+            raise ValueError("Invalid value for `member_id`, must not be `None`")  # noqa: E501
+        if (self.local_vars_configuration.client_side_validation and
+                member_id is not None and member_id > 2147483647):  # noqa: E501
+            raise ValueError("Invalid value for `member_id`, must be a value less than or equal to `2147483647`")  # noqa: E501
+        if (self.local_vars_configuration.client_side_validation and
+                member_id is not None and member_id < 1):  # noqa: E501
+            raise ValueError("Invalid value for `member_id`, must be a value greater than or equal to `1`")  # noqa: E501
 
-        self._id = id
+        self._member_id = member_id
+
+    @property
+    def runtime_id(self):
+        """Gets the runtime_id of this Reservation.  # noqa: E501
+
+
+        :return: The runtime_id of this Reservation.  # noqa: E501
+        :rtype: int
+        """
+        return self._runtime_id
+
+    @runtime_id.setter
+    def runtime_id(self, runtime_id):
+        """Sets the runtime_id of this Reservation.
+
+
+        :param runtime_id: The runtime_id of this Reservation.  # noqa: E501
+        :type runtime_id: int
+        """
+        if (self.local_vars_configuration.client_side_validation and
+                runtime_id is not None and runtime_id > 2147483647):  # noqa: E501
+            raise ValueError("Invalid value for `runtime_id`, must be a value less than or equal to `2147483647`")  # noqa: E501
+        if (self.local_vars_configuration.client_side_validation and
+                runtime_id is not None and runtime_id < 1):  # noqa: E501
+            raise ValueError("Invalid value for `runtime_id`, must be a value greater than or equal to `1`")  # noqa: E501
+
+        self._runtime_id = runtime_id
+
+    @property
+    def runtime_type_id(self):
+        """Gets the runtime_type_id of this Reservation.  # noqa: E501
+
+
+        :return: The runtime_type_id of this Reservation.  # noqa: E501
+        :rtype: int
+        """
+        return self._runtime_type_id
+
+    @runtime_type_id.setter
+    def runtime_type_id(self, runtime_type_id):
+        """Sets the runtime_type_id of this Reservation.
+
+
+        :param runtime_type_id: The runtime_type_id of this Reservation.  # noqa: E501
+        :type runtime_type_id: int
+        """
+        if self.local_vars_configuration.client_side_validation and runtime_type_id is None:  # noqa: E501
+            raise ValueError("Invalid value for `runtime_type_id`, must not be `None`")  # noqa: E501
+        if (self.local_vars_configuration.client_side_validation and
+                runtime_type_id is not None and runtime_type_id > 2147483647):  # noqa: E501
+            raise ValueError("Invalid value for `runtime_type_id`, must be a value less than or equal to `2147483647`")  # noqa: E501
+        if (self.local_vars_configuration.client_side_validation and
+                runtime_type_id is not None and runtime_type_id < 1):  # noqa: E501
+            raise ValueError("Invalid value for `runtime_type_id`, must be a value greater than or equal to `1`")  # noqa: E501
+
+        self._runtime_type_id = runtime_type_id
 
     def to_dict(self, serialize=False):
         """Returns the model properties as a dict"""

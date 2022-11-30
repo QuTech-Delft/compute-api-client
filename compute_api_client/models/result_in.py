@@ -44,6 +44,7 @@ class ResultIn(object):
         'measurement_mask': 'object',
         'quantum_states': 'object',
         'measurement_register': 'object',
+        'metadata_id': 'int',
         'run_id': 'int'
     }
 
@@ -56,10 +57,11 @@ class ResultIn(object):
         'measurement_mask': 'measurement_mask',
         'quantum_states': 'quantum_states',
         'measurement_register': 'measurement_register',
+        'metadata_id': 'metadata_id',
         'run_id': 'run_id'
     }
 
-    def __init__(self, number_of_qubits=None, execution_time_in_seconds=None, raw_text=None, raw_data=None, histogram=None, measurement_mask=None, quantum_states=None, measurement_register=None, run_id=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, number_of_qubits=None, execution_time_in_seconds=None, raw_text=None, raw_data=None, histogram=None, measurement_mask=None, quantum_states=None, measurement_register=None, metadata_id=None, run_id=None, local_vars_configuration=None):  # noqa: E501
         """ResultIn - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration.get_default_copy()
@@ -73,6 +75,7 @@ class ResultIn(object):
         self._measurement_mask = None
         self._quantum_states = None
         self._measurement_register = None
+        self._metadata_id = None
         self._run_id = None
         self.discriminator = None
 
@@ -84,6 +87,7 @@ class ResultIn(object):
         self.measurement_mask = measurement_mask
         self.quantum_states = quantum_states
         self.measurement_register = measurement_register
+        self.metadata_id = metadata_id
         self.run_id = run_id
 
     @property
@@ -265,6 +269,35 @@ class ResultIn(object):
         """
 
         self._measurement_register = measurement_register
+
+    @property
+    def metadata_id(self):
+        """Gets the metadata_id of this ResultIn.  # noqa: E501
+
+
+        :return: The metadata_id of this ResultIn.  # noqa: E501
+        :rtype: int
+        """
+        return self._metadata_id
+
+    @metadata_id.setter
+    def metadata_id(self, metadata_id):
+        """Sets the metadata_id of this ResultIn.
+
+
+        :param metadata_id: The metadata_id of this ResultIn.  # noqa: E501
+        :type metadata_id: int
+        """
+        if self.local_vars_configuration.client_side_validation and metadata_id is None:  # noqa: E501
+            raise ValueError("Invalid value for `metadata_id`, must not be `None`")  # noqa: E501
+        if (self.local_vars_configuration.client_side_validation and
+                metadata_id is not None and metadata_id > 2147483647):  # noqa: E501
+            raise ValueError("Invalid value for `metadata_id`, must be a value less than or equal to `2147483647`")  # noqa: E501
+        if (self.local_vars_configuration.client_side_validation and
+                metadata_id is not None and metadata_id < 1):  # noqa: E501
+            raise ValueError("Invalid value for `metadata_id`, must be a value greater than or equal to `1`")  # noqa: E501
+
+        self._metadata_id = metadata_id
 
     @property
     def run_id(self):

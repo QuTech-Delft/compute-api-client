@@ -36,29 +36,16 @@ class TestTeam(unittest.TestCase):
         # model = compute_api_client.models.team.Team()  # noqa: E501
         if include_optional :
             return Team(
+                id = 1.0, 
                 name = '', 
                 slug = '', 
-                permission_group_ids = [
-                    56
-                    ], 
-                permission_ids = [
-                    56
-                    ], 
-                individual_user = True, 
-                id = 56
+                individual_user = True
             )
         else :
             return Team(
+                id = 1.0,
                 name = '',
                 slug = '',
-                permission_group_ids = [
-                    56
-                    ],
-                permission_ids = [
-                    56
-                    ],
-                individual_user = True,
-                id = 56,
         )
 
     def testTeam(self):

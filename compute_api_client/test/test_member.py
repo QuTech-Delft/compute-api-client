@@ -36,25 +36,18 @@ class TestMember(unittest.TestCase):
         # model = compute_api_client.models.member.Member()  # noqa: E501
         if include_optional :
             return Member(
-                team_id = 56, 
-                user_id = 56, 
-                role = 'member', 
-                permission_ids = [
-                    56
-                    ], 
+                id = 1.0, 
+                role = None, 
                 is_active = True, 
-                id = 56
+                team_id = 1.0, 
+                user_id = 1.0
             )
         else :
             return Member(
-                team_id = 56,
-                user_id = 56,
-                role = 'member',
-                permission_ids = [
-                    56
-                    ],
-                is_active = True,
-                id = 56,
+                id = 1.0,
+                role = None,
+                team_id = 1.0,
+                user_id = 1.0,
         )
 
     def testMember(self):

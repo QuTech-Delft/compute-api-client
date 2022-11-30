@@ -36,43 +36,118 @@ class Member(object):
                             and the value is json key in definition.
     """
     openapi_types = {
-        'team_id': 'int',
-        'user_id': 'int',
+        'id': 'int',
         'role': 'Role',
-        'permission_ids': 'list[int]',
         'is_active': 'bool',
-        'id': 'int'
+        'team_id': 'int',
+        'user_id': 'int'
     }
 
     attribute_map = {
-        'team_id': 'team_id',
-        'user_id': 'user_id',
+        'id': 'id',
         'role': 'role',
-        'permission_ids': 'permission_ids',
         'is_active': 'is_active',
-        'id': 'id'
+        'team_id': 'team_id',
+        'user_id': 'user_id'
     }
 
-    def __init__(self, team_id=None, user_id=None, role=None, permission_ids=None, is_active=None, id=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, id=None, role=None, is_active=False, team_id=None, user_id=None, local_vars_configuration=None):  # noqa: E501
         """Member - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration.get_default_copy()
         self.local_vars_configuration = local_vars_configuration
 
+        self._id = None
+        self._role = None
+        self._is_active = None
         self._team_id = None
         self._user_id = None
-        self._role = None
-        self._permission_ids = None
-        self._is_active = None
-        self._id = None
         self.discriminator = None
 
+        self.id = id
+        self.role = role
+        if is_active is not None:
+            self.is_active = is_active
         self.team_id = team_id
         self.user_id = user_id
-        self.role = role
-        self.permission_ids = permission_ids
-        self.is_active = is_active
-        self.id = id
+
+    @property
+    def id(self):
+        """Gets the id of this Member.  # noqa: E501
+
+
+        :return: The id of this Member.  # noqa: E501
+        :rtype: int
+        """
+        return self._id
+
+    @id.setter
+    def id(self, id):
+        """Sets the id of this Member.
+
+
+        :param id: The id of this Member.  # noqa: E501
+        :type id: int
+        """
+        if self.local_vars_configuration.client_side_validation and id is None:  # noqa: E501
+            raise ValueError("Invalid value for `id`, must not be `None`")  # noqa: E501
+        if (self.local_vars_configuration.client_side_validation and
+                id is not None and id > 2147483647):  # noqa: E501
+            raise ValueError("Invalid value for `id`, must be a value less than or equal to `2147483647`")  # noqa: E501
+        if (self.local_vars_configuration.client_side_validation and
+                id is not None and id < 1):  # noqa: E501
+            raise ValueError("Invalid value for `id`, must be a value greater than or equal to `1`")  # noqa: E501
+
+        self._id = id
+
+    @property
+    def role(self):
+        """Gets the role of this Member.  # noqa: E501
+
+        MEMBER: member<br/>ADMIN: admin  # noqa: E501
+
+        :return: The role of this Member.  # noqa: E501
+        :rtype: Role
+        """
+        return self._role
+
+    @role.setter
+    def role(self, role):
+        """Sets the role of this Member.
+
+        MEMBER: member<br/>ADMIN: admin  # noqa: E501
+
+        :param role: The role of this Member.  # noqa: E501
+        :type role: Role
+        """
+        if self.local_vars_configuration.client_side_validation and role is None:  # noqa: E501
+            raise ValueError("Invalid value for `role`, must not be `None`")  # noqa: E501
+        if (self.local_vars_configuration.client_side_validation and
+                role is not None and len(role) > 6):
+            raise ValueError("Invalid value for `role`, length must be less than or equal to `6`")  # noqa: E501
+
+        self._role = role
+
+    @property
+    def is_active(self):
+        """Gets the is_active of this Member.  # noqa: E501
+
+
+        :return: The is_active of this Member.  # noqa: E501
+        :rtype: bool
+        """
+        return self._is_active
+
+    @is_active.setter
+    def is_active(self, is_active):
+        """Sets the is_active of this Member.
+
+
+        :param is_active: The is_active of this Member.  # noqa: E501
+        :type is_active: bool
+        """
+
+        self._is_active = is_active
 
     @property
     def team_id(self):
@@ -94,6 +169,12 @@ class Member(object):
         """
         if self.local_vars_configuration.client_side_validation and team_id is None:  # noqa: E501
             raise ValueError("Invalid value for `team_id`, must not be `None`")  # noqa: E501
+        if (self.local_vars_configuration.client_side_validation and
+                team_id is not None and team_id > 2147483647):  # noqa: E501
+            raise ValueError("Invalid value for `team_id`, must be a value less than or equal to `2147483647`")  # noqa: E501
+        if (self.local_vars_configuration.client_side_validation and
+                team_id is not None and team_id < 1):  # noqa: E501
+            raise ValueError("Invalid value for `team_id`, must be a value greater than or equal to `1`")  # noqa: E501
 
         self._team_id = team_id
 
@@ -117,100 +198,14 @@ class Member(object):
         """
         if self.local_vars_configuration.client_side_validation and user_id is None:  # noqa: E501
             raise ValueError("Invalid value for `user_id`, must not be `None`")  # noqa: E501
+        if (self.local_vars_configuration.client_side_validation and
+                user_id is not None and user_id > 2147483647):  # noqa: E501
+            raise ValueError("Invalid value for `user_id`, must be a value less than or equal to `2147483647`")  # noqa: E501
+        if (self.local_vars_configuration.client_side_validation and
+                user_id is not None and user_id < 1):  # noqa: E501
+            raise ValueError("Invalid value for `user_id`, must be a value greater than or equal to `1`")  # noqa: E501
 
         self._user_id = user_id
-
-    @property
-    def role(self):
-        """Gets the role of this Member.  # noqa: E501
-
-
-        :return: The role of this Member.  # noqa: E501
-        :rtype: Role
-        """
-        return self._role
-
-    @role.setter
-    def role(self, role):
-        """Sets the role of this Member.
-
-
-        :param role: The role of this Member.  # noqa: E501
-        :type role: Role
-        """
-        if self.local_vars_configuration.client_side_validation and role is None:  # noqa: E501
-            raise ValueError("Invalid value for `role`, must not be `None`")  # noqa: E501
-
-        self._role = role
-
-    @property
-    def permission_ids(self):
-        """Gets the permission_ids of this Member.  # noqa: E501
-
-
-        :return: The permission_ids of this Member.  # noqa: E501
-        :rtype: list[int]
-        """
-        return self._permission_ids
-
-    @permission_ids.setter
-    def permission_ids(self, permission_ids):
-        """Sets the permission_ids of this Member.
-
-
-        :param permission_ids: The permission_ids of this Member.  # noqa: E501
-        :type permission_ids: list[int]
-        """
-        if self.local_vars_configuration.client_side_validation and permission_ids is None:  # noqa: E501
-            raise ValueError("Invalid value for `permission_ids`, must not be `None`")  # noqa: E501
-
-        self._permission_ids = permission_ids
-
-    @property
-    def is_active(self):
-        """Gets the is_active of this Member.  # noqa: E501
-
-
-        :return: The is_active of this Member.  # noqa: E501
-        :rtype: bool
-        """
-        return self._is_active
-
-    @is_active.setter
-    def is_active(self, is_active):
-        """Sets the is_active of this Member.
-
-
-        :param is_active: The is_active of this Member.  # noqa: E501
-        :type is_active: bool
-        """
-        if self.local_vars_configuration.client_side_validation and is_active is None:  # noqa: E501
-            raise ValueError("Invalid value for `is_active`, must not be `None`")  # noqa: E501
-
-        self._is_active = is_active
-
-    @property
-    def id(self):
-        """Gets the id of this Member.  # noqa: E501
-
-
-        :return: The id of this Member.  # noqa: E501
-        :rtype: int
-        """
-        return self._id
-
-    @id.setter
-    def id(self, id):
-        """Sets the id of this Member.
-
-
-        :param id: The id of this Member.  # noqa: E501
-        :type id: int
-        """
-        if self.local_vars_configuration.client_side_validation and id is None:  # noqa: E501
-            raise ValueError("Invalid value for `id`, must not be `None`")  # noqa: E501
-
-        self._id = id
 
     def to_dict(self, serialize=False):
         """Returns the model properties as a dict"""

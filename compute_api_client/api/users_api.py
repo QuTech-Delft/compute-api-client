@@ -36,18 +36,18 @@ class UsersApi(object):
             api_client = ApiClient()
         self.api_client = api_client
 
-    def create_user_users_post(self, user_create, **kwargs):  # noqa: E501
+    def create_user_users_post(self, user_in, **kwargs):  # noqa: E501
         """Create user  # noqa: E501
 
         Create new user.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
-        >>> thread = api.create_user_users_post(user_create, async_req=True)
+        >>> thread = api.create_user_users_post(user_in, async_req=True)
         >>> result = thread.get()
 
-        :param user_create: (required)
-        :type user_create: UserCreate
+        :param user_in: (required)
+        :type user_in: UserIn
         :param async_req: Whether to execute the request asynchronously.
         :type async_req: bool, optional
         :param _preload_content: if False, the urllib3.HTTPResponse object will
@@ -64,20 +64,20 @@ class UsersApi(object):
         :rtype: User
         """
         kwargs['_return_http_data_only'] = True
-        return self.create_user_users_post_with_http_info(user_create, **kwargs)  # noqa: E501
+        return self.create_user_users_post_with_http_info(user_in, **kwargs)  # noqa: E501
 
-    def create_user_users_post_with_http_info(self, user_create, **kwargs):  # noqa: E501
+    def create_user_users_post_with_http_info(self, user_in, **kwargs):  # noqa: E501
         """Create user  # noqa: E501
 
         Create new user.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
-        >>> thread = api.create_user_users_post_with_http_info(user_create, async_req=True)
+        >>> thread = api.create_user_users_post_with_http_info(user_in, async_req=True)
         >>> result = thread.get()
 
-        :param user_create: (required)
-        :type user_create: UserCreate
+        :param user_in: (required)
+        :type user_in: UserIn
         :param async_req: Whether to execute the request asynchronously.
         :type async_req: bool, optional
         :param _return_http_data_only: response data without head status code
@@ -105,7 +105,7 @@ class UsersApi(object):
         local_var_params = locals()
 
         all_params = [
-            'user_create'
+            'user_in'
         ]
         all_params.extend(
             [
@@ -127,9 +127,9 @@ class UsersApi(object):
                 )
             local_var_params[key] = val
         del local_var_params['kwargs']
-        # verify the required parameter 'user_create' is set
-        if self.api_client.client_side_validation and local_var_params.get('user_create') is None:  # noqa: E501
-            raise ApiValueError("Missing the required parameter `user_create` when calling `create_user_users_post`")  # noqa: E501
+        # verify the required parameter 'user_in' is set
+        if self.api_client.client_side_validation and local_var_params.get('user_in') is None:  # noqa: E501
+            raise ApiValueError("Missing the required parameter `user_in` when calling `create_user_users_post`")  # noqa: E501
 
         collection_formats = {}
 
@@ -143,8 +143,8 @@ class UsersApi(object):
         local_var_files = {}
 
         body_params = None
-        if 'user_create' in local_var_params:
-            body_params = local_var_params['user_create']
+        if 'user_in' in local_var_params:
+            body_params = local_var_params['user_in']
         # HTTP header `Accept`
         header_params['Accept'] = self.api_client.select_header_accept(
             ['application/json'])  # noqa: E501
@@ -161,7 +161,7 @@ class UsersApi(object):
         auth_settings = []  # noqa: E501
 
         response_types_map = {
-            200: "User",
+            201: "User",
             422: "HTTPValidationError",
         }
 
@@ -435,6 +435,7 @@ class UsersApi(object):
 
         response_types_map = {
             200: "User",
+            404: "HTTPNotFoundError",
             422: "HTTPValidationError",
         }
 

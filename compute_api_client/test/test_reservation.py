@@ -36,21 +36,21 @@ class TestReservation(unittest.TestCase):
         # model = compute_api_client.models.reservation.Reservation()  # noqa: E501
         if include_optional :
             return Reservation(
-                member_id = 56, 
+                id = 1.0, 
                 start_time = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
                 end_time = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
-                runtime_type_id = 56, 
-                runtime_id = 56, 
                 is_terminated = True, 
-                id = 56
+                member_id = 1.0, 
+                runtime_id = 1.0, 
+                runtime_type_id = 1.0
             )
         else :
             return Reservation(
-                member_id = 56,
+                id = 1.0,
                 start_time = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'),
                 end_time = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'),
-                runtime_type_id = 56,
-                id = 56,
+                member_id = 1.0,
+                runtime_type_id = 1.0,
         )
 
     def testReservation(self):

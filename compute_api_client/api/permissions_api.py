@@ -39,7 +39,7 @@ class PermissionsApi(object):
     def read_permission_group_permission_groups_id_get(self, id, **kwargs):  # noqa: E501
         """Retrieve permission groups  # noqa: E501
 
-        Get runtime type by ID.  # noqa: E501
+        Get permission group by ID.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -69,7 +69,7 @@ class PermissionsApi(object):
     def read_permission_group_permission_groups_id_get_with_http_info(self, id, **kwargs):  # noqa: E501
         """Retrieve permission groups  # noqa: E501
 
-        Get runtime type by ID.  # noqa: E501
+        Get permission group by ID.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -154,6 +154,7 @@ class PermissionsApi(object):
 
         response_types_map = {
             200: "PermissionGroup",
+            404: "HTTPNotFoundError",
             422: "HTTPValidationError",
         }
 
@@ -177,7 +178,7 @@ class PermissionsApi(object):
     def read_permission_groups_permission_groups_get(self, **kwargs):  # noqa: E501
         """List permission groups  # noqa: E501
 
-        Read runtime types.  # noqa: E501
+        Read permissions groups.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -205,7 +206,7 @@ class PermissionsApi(object):
     def read_permission_groups_permission_groups_get_with_http_info(self, **kwargs):  # noqa: E501
         """List permission groups  # noqa: E501
 
-        Read runtime types.  # noqa: E501
+        Read permissions groups.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -304,7 +305,7 @@ class PermissionsApi(object):
     def read_permission_permissions_id_get(self, id, **kwargs):  # noqa: E501
         """Retrieve permissions  # noqa: E501
 
-        Get runtime type by ID.  # noqa: E501
+        Get permission by ID.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -334,7 +335,7 @@ class PermissionsApi(object):
     def read_permission_permissions_id_get_with_http_info(self, id, **kwargs):  # noqa: E501
         """Retrieve permissions  # noqa: E501
 
-        Get runtime type by ID.  # noqa: E501
+        Get permission by ID.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -419,6 +420,7 @@ class PermissionsApi(object):
 
         response_types_map = {
             200: "Permission",
+            404: "HTTPNotFoundError",
             422: "HTTPValidationError",
         }
 
@@ -442,7 +444,7 @@ class PermissionsApi(object):
     def read_permissions_permissions_get(self, **kwargs):  # noqa: E501
         """List permissions  # noqa: E501
 
-        Read runtime types.  # noqa: E501
+        Read permissions.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -470,7 +472,7 @@ class PermissionsApi(object):
     def read_permissions_permissions_get_with_http_info(self, **kwargs):  # noqa: E501
         """List permissions  # noqa: E501
 
-        Read runtime types.  # noqa: E501
+        Read permissions.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 

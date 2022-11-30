@@ -36,59 +36,84 @@ class RuntimeType(object):
                             and the value is json key in definition.
     """
     openapi_types = {
+        'id': 'int',
         'name': 'str',
         'infrastructure': 'str',
         'description': 'str',
         'image_id': 'str',
         'is_hardware': 'bool',
-        'required_permissions': 'list[str]',
-        'features': 'list[str]',
+        'features': 'object',
         'default_compiler_config': 'object',
-        'native_gateset': 'object',
-        'id': 'int'
+        'native_gateset': 'object'
     }
 
     attribute_map = {
+        'id': 'id',
         'name': 'name',
         'infrastructure': 'infrastructure',
         'description': 'description',
         'image_id': 'image_id',
         'is_hardware': 'is_hardware',
-        'required_permissions': 'required_permissions',
         'features': 'features',
         'default_compiler_config': 'default_compiler_config',
-        'native_gateset': 'native_gateset',
-        'id': 'id'
+        'native_gateset': 'native_gateset'
     }
 
-    def __init__(self, name=None, infrastructure=None, description=None, image_id=None, is_hardware=None, required_permissions=None, features=None, default_compiler_config=None, native_gateset=None, id=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, id=None, name=None, infrastructure=None, description=None, image_id=None, is_hardware=None, features=None, default_compiler_config=None, native_gateset=None, local_vars_configuration=None):  # noqa: E501
         """RuntimeType - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration.get_default_copy()
         self.local_vars_configuration = local_vars_configuration
 
+        self._id = None
         self._name = None
         self._infrastructure = None
         self._description = None
         self._image_id = None
         self._is_hardware = None
-        self._required_permissions = None
         self._features = None
         self._default_compiler_config = None
         self._native_gateset = None
-        self._id = None
         self.discriminator = None
 
+        self.id = id
         self.name = name
         self.infrastructure = infrastructure
         self.description = description
         self.image_id = image_id
         self.is_hardware = is_hardware
-        self.required_permissions = required_permissions
         self.features = features
         self.default_compiler_config = default_compiler_config
         self.native_gateset = native_gateset
-        self.id = id
+
+    @property
+    def id(self):
+        """Gets the id of this RuntimeType.  # noqa: E501
+
+
+        :return: The id of this RuntimeType.  # noqa: E501
+        :rtype: int
+        """
+        return self._id
+
+    @id.setter
+    def id(self, id):
+        """Sets the id of this RuntimeType.
+
+
+        :param id: The id of this RuntimeType.  # noqa: E501
+        :type id: int
+        """
+        if self.local_vars_configuration.client_side_validation and id is None:  # noqa: E501
+            raise ValueError("Invalid value for `id`, must not be `None`")  # noqa: E501
+        if (self.local_vars_configuration.client_side_validation and
+                id is not None and id > 2147483647):  # noqa: E501
+            raise ValueError("Invalid value for `id`, must be a value less than or equal to `2147483647`")  # noqa: E501
+        if (self.local_vars_configuration.client_side_validation and
+                id is not None and id < 1):  # noqa: E501
+            raise ValueError("Invalid value for `id`, must be a value greater than or equal to `1`")  # noqa: E501
+
+        self._id = id
 
     @property
     def name(self):
@@ -110,6 +135,9 @@ class RuntimeType(object):
         """
         if self.local_vars_configuration.client_side_validation and name is None:  # noqa: E501
             raise ValueError("Invalid value for `name`, must not be `None`")  # noqa: E501
+        if (self.local_vars_configuration.client_side_validation and
+                name is not None and len(name) > 32):
+            raise ValueError("Invalid value for `name`, length must be less than or equal to `32`")  # noqa: E501
 
         self._name = name
 
@@ -133,6 +161,9 @@ class RuntimeType(object):
         """
         if self.local_vars_configuration.client_side_validation and infrastructure is None:  # noqa: E501
             raise ValueError("Invalid value for `infrastructure`, must not be `None`")  # noqa: E501
+        if (self.local_vars_configuration.client_side_validation and
+                infrastructure is not None and len(infrastructure) > 32):
+            raise ValueError("Invalid value for `infrastructure`, length must be less than or equal to `32`")  # noqa: E501
 
         self._infrastructure = infrastructure
 
@@ -179,6 +210,9 @@ class RuntimeType(object):
         """
         if self.local_vars_configuration.client_side_validation and image_id is None:  # noqa: E501
             raise ValueError("Invalid value for `image_id`, must not be `None`")  # noqa: E501
+        if (self.local_vars_configuration.client_side_validation and
+                image_id is not None and len(image_id) > 16):
+            raise ValueError("Invalid value for `image_id`, length must be less than or equal to `16`")  # noqa: E501
 
         self._image_id = image_id
 
@@ -206,35 +240,12 @@ class RuntimeType(object):
         self._is_hardware = is_hardware
 
     @property
-    def required_permissions(self):
-        """Gets the required_permissions of this RuntimeType.  # noqa: E501
-
-
-        :return: The required_permissions of this RuntimeType.  # noqa: E501
-        :rtype: list[str]
-        """
-        return self._required_permissions
-
-    @required_permissions.setter
-    def required_permissions(self, required_permissions):
-        """Sets the required_permissions of this RuntimeType.
-
-
-        :param required_permissions: The required_permissions of this RuntimeType.  # noqa: E501
-        :type required_permissions: list[str]
-        """
-        if self.local_vars_configuration.client_side_validation and required_permissions is None:  # noqa: E501
-            raise ValueError("Invalid value for `required_permissions`, must not be `None`")  # noqa: E501
-
-        self._required_permissions = required_permissions
-
-    @property
     def features(self):
         """Gets the features of this RuntimeType.  # noqa: E501
 
 
         :return: The features of this RuntimeType.  # noqa: E501
-        :rtype: list[str]
+        :rtype: object
         """
         return self._features
 
@@ -244,10 +255,8 @@ class RuntimeType(object):
 
 
         :param features: The features of this RuntimeType.  # noqa: E501
-        :type features: list[str]
+        :type features: object
         """
-        if self.local_vars_configuration.client_side_validation and features is None:  # noqa: E501
-            raise ValueError("Invalid value for `features`, must not be `None`")  # noqa: E501
 
         self._features = features
 
@@ -269,8 +278,6 @@ class RuntimeType(object):
         :param default_compiler_config: The default_compiler_config of this RuntimeType.  # noqa: E501
         :type default_compiler_config: object
         """
-        if self.local_vars_configuration.client_side_validation and default_compiler_config is None:  # noqa: E501
-            raise ValueError("Invalid value for `default_compiler_config`, must not be `None`")  # noqa: E501
 
         self._default_compiler_config = default_compiler_config
 
@@ -292,33 +299,8 @@ class RuntimeType(object):
         :param native_gateset: The native_gateset of this RuntimeType.  # noqa: E501
         :type native_gateset: object
         """
-        if self.local_vars_configuration.client_side_validation and native_gateset is None:  # noqa: E501
-            raise ValueError("Invalid value for `native_gateset`, must not be `None`")  # noqa: E501
 
         self._native_gateset = native_gateset
-
-    @property
-    def id(self):
-        """Gets the id of this RuntimeType.  # noqa: E501
-
-
-        :return: The id of this RuntimeType.  # noqa: E501
-        :rtype: int
-        """
-        return self._id
-
-    @id.setter
-    def id(self, id):
-        """Sets the id of this RuntimeType.
-
-
-        :param id: The id of this RuntimeType.  # noqa: E501
-        :type id: int
-        """
-        if self.local_vars_configuration.client_side_validation and id is None:  # noqa: E501
-            raise ValueError("Invalid value for `id`, must not be `None`")  # noqa: E501
-
-        self._id = id
 
     def to_dict(self, serialize=False):
         """Returns the model properties as a dict"""

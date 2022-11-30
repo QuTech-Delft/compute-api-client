@@ -37,9 +37,9 @@ class RuntimeApi(object):
         self.api_client = api_client
 
     def read_runtime_runtimes_id_get(self, id, **kwargs):  # noqa: E501
-        """Retrieve runtimes  # noqa: E501
+        """Retrieve runtime  # noqa: E501
 
-        Get runtime type by ID.  # noqa: E501
+        Get runtime by ID.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -67,9 +67,9 @@ class RuntimeApi(object):
         return self.read_runtime_runtimes_id_get_with_http_info(id, **kwargs)  # noqa: E501
 
     def read_runtime_runtimes_id_get_with_http_info(self, id, **kwargs):  # noqa: E501
-        """Retrieve runtimes  # noqa: E501
+        """Retrieve runtime  # noqa: E501
 
-        Get runtime type by ID.  # noqa: E501
+        Get runtime by ID.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -154,6 +154,7 @@ class RuntimeApi(object):
 
         response_types_map = {
             200: "Runtime",
+            404: "HTTPNotFoundError",
             422: "HTTPValidationError",
         }
 
@@ -177,7 +178,7 @@ class RuntimeApi(object):
     def read_runtimes_runtimes_get(self, **kwargs):  # noqa: E501
         """List runtimes  # noqa: E501
 
-        Read runtime types.  # noqa: E501
+        Read runtimes.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -205,7 +206,7 @@ class RuntimeApi(object):
     def read_runtimes_runtimes_get_with_http_info(self, **kwargs):  # noqa: E501
         """List runtimes  # noqa: E501
 
-        Read runtime types.  # noqa: E501
+        Read runtimes.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -285,7 +286,7 @@ class RuntimeApi(object):
         }
 
         return self.api_client.call_api(
-            '/runtimes/', 'GET',
+            '/runtimes', 'GET',
             path_params,
             query_params,
             header_params,

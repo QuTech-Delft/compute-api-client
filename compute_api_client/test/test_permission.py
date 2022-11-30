@@ -36,15 +36,15 @@ class TestPermission(unittest.TestCase):
         # model = compute_api_client.models.permission.Permission()  # noqa: E501
         if include_optional :
             return Permission(
+                id = 1.0, 
                 permission = '', 
-                name = '', 
-                id = 56
+                name = ''
             )
         else :
             return Permission(
+                id = 1.0,
                 permission = '',
                 name = '',
-                id = 56,
         )
 
     def testPermission(self):

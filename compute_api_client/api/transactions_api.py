@@ -39,7 +39,7 @@ class TransactionsApi(object):
     def read_transaction_transactions_id_get(self, id, **kwargs):  # noqa: E501
         """Retrieve transactions  # noqa: E501
 
-        Get runtime type by ID.  # noqa: E501
+        Get transaction by ID.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -69,7 +69,7 @@ class TransactionsApi(object):
     def read_transaction_transactions_id_get_with_http_info(self, id, **kwargs):  # noqa: E501
         """Retrieve transactions  # noqa: E501
 
-        Get runtime type by ID.  # noqa: E501
+        Get transaction by ID.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -154,6 +154,7 @@ class TransactionsApi(object):
 
         response_types_map = {
             200: "Transaction",
+            404: "HTTPNotFoundError",
             422: "HTTPValidationError",
         }
 
@@ -177,7 +178,7 @@ class TransactionsApi(object):
     def read_transactions_transactions_get(self, **kwargs):  # noqa: E501
         """List transactions  # noqa: E501
 
-        Read runtime types.  # noqa: E501
+        Read transactions.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -205,7 +206,7 @@ class TransactionsApi(object):
     def read_transactions_transactions_get_with_http_info(self, **kwargs):  # noqa: E501
         """List transactions  # noqa: E501
 
-        Read runtime types.  # noqa: E501
+        Read transactions.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
