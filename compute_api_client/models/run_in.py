@@ -107,6 +107,8 @@ class RunIn(object):
         :param batch_run_id: The batch_run_id of this RunIn.  # noqa: E501
         :type batch_run_id: int
         """
+        if self.local_vars_configuration.client_side_validation and batch_run_id is None:  # noqa: E501
+            raise ValueError("Invalid value for `batch_run_id`, must not be `None`")  # noqa: E501
         if (self.local_vars_configuration.client_side_validation and
                 batch_run_id is not None and batch_run_id > 2147483647):  # noqa: E501
             raise ValueError("Invalid value for `batch_run_id`, must be a value less than or equal to `2147483647`")  # noqa: E501
