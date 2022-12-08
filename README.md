@@ -71,6 +71,7 @@ Class | Method | HTTP request | Description
 *AlgorithmsApi* | [**update_algorithm_algorithms_id_put**](compute_api_client/docs/AlgorithmsApi.md#update_algorithm_algorithms_id_put) | **PUT** /algorithms/{id} | Update algorithm
 *BatchRunsApi* | [**create_batch_run_batch_runs_post**](compute_api_client/docs/BatchRunsApi.md#create_batch_run_batch_runs_post) | **POST** /batch_runs | Create batch run
 *BatchRunsApi* | [**enqueue_batch_run_batch_runs_id_enqueue_patch**](compute_api_client/docs/BatchRunsApi.md#enqueue_batch_run_batch_runs_id_enqueue_patch) | **PATCH** /batch_runs/{id}/enqueue | Enqueue batch run for execution
+*BatchRunsApi* | [**finish_batch_run_batch_runs_id_finish_patch**](compute_api_client/docs/BatchRunsApi.md#finish_batch_run_batch_runs_id_finish_patch) | **PATCH** /batch_runs/{id}/finish | Finish batch run
 *BatchRunsApi* | [**peek_batch_run_batch_runs_peek_patch**](compute_api_client/docs/BatchRunsApi.md#peek_batch_run_batch_runs_peek_patch) | **PATCH** /batch_runs/peek | Peek batch run
 *BatchRunsApi* | [**pop_batch_run_batch_runs_pop_patch**](compute_api_client/docs/BatchRunsApi.md#pop_batch_run_batch_runs_pop_patch) | **PATCH** /batch_runs/pop | Take batch run
 *BatchRunsApi* | [**read_batch_runs_batch_runs_get**](compute_api_client/docs/BatchRunsApi.md#read_batch_runs_batch_runs_get) | **GET** /batch_runs | List batch runs
@@ -115,6 +116,7 @@ Class | Method | HTTP request | Description
 *RunsApi* | [**delete_run_runs_id_delete**](compute_api_client/docs/RunsApi.md#delete_run_runs_id_delete) | **DELETE** /runs/{id} | Destroy run
 *RunsApi* | [**read_run_runs_id_get**](compute_api_client/docs/RunsApi.md#read_run_runs_id_get) | **GET** /runs/{id} | Retrieve run
 *RunsApi* | [**read_runs_runs_get**](compute_api_client/docs/RunsApi.md#read_runs_runs_get) | **GET** /runs | List runs
+*RunsApi* | [**start_run_runs_id_start_patch**](compute_api_client/docs/RunsApi.md#start_run_runs_id_start_patch) | **PATCH** /runs/{id}/start | Start run
 *RuntimeApi* | [**read_runtime_runtimes_id_get**](compute_api_client/docs/RuntimeApi.md#read_runtime_runtimes_id_get) | **GET** /runtimes/{id} | Retrieve runtime
 *RuntimeApi* | [**read_runtimes_runtimes_get**](compute_api_client/docs/RuntimeApi.md#read_runtimes_runtimes_get) | **GET** /runtimes | List runtimes
 *RuntimeTypesApi* | [**read_runtime_type_runtime_types_id_get**](compute_api_client/docs/RuntimeTypesApi.md#read_runtime_type_runtime_types_id_get) | **GET** /runtime_types/{id} | Retrieve runtime type

@@ -14,5 +14,5 @@ mkdir ../../../docs/design/code/components/compute_api_client
 cp README.md ../../../docs/design/code/components/compute_api_client/index.md
 cp compute_api_client/docs/* ../../../docs/design/code/components/compute_api_client/
 
-sed -i '' -e 's|compute_api_client/docs/||g' ../../../docs/design/code/components/compute_api_client/index.md
-find ../../../docs/design/code/components/compute_api_client -name "*.md" -exec sed -i '' -e 's|../README|index|g' {} \;
+sed -i -e 's|compute_api_client/docs/||g' ../../../docs/design/code/components/compute_api_client/index.md
+find ../../../docs/design/code/components/compute_api_client -name "*.md" -exec sed -i -e 's|../README|index|g' {} \;
