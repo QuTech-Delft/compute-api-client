@@ -19,3 +19,17 @@ cp compute_api_client/docs/* ../../../docs/design/code/components/compute_api_cl
 
 sed -i -e 's|compute_api_client/docs/||g' ../../../docs/design/code/components/compute_api_client/index.md
 find ../../../docs/design/code/components/compute_api_client -name "*.md" -exec sed -i -e 's|../README|index|g' {} \;
+
+# Update the version of the poetry project
+git_tag=$(git describe --tags --abbrev=0)
+poetry_tag=$(cat pyproject.toml | grep "^version =" | cut -d'"' -f2)
+
+echo "Last Git tag:           ${git_tag}"
+echo "Current Poetry version: ${poetry_tag}"
+
+echo "Please input the new version for this repo"
+read version
+
+sed -i -e "s/^version =.*/version = \"${version}\"/" pyproject.toml
+
+echo "Success!"
