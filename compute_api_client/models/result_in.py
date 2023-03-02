@@ -38,12 +38,9 @@ class ResultIn(object):
     openapi_types = {
         'number_of_qubits': 'int',
         'execution_time_in_seconds': 'float',
-        'raw_text': 'str',
-        'raw_data': 'object',
-        'histogram': 'object',
-        'measurement_mask': 'object',
-        'quantum_states': 'object',
-        'measurement_register': 'object',
+        'shots_requested': 'int',
+        'shots_done': 'int',
+        'results': 'object',
         'metadata_id': 'int',
         'run_id': 'int'
     }
@@ -51,17 +48,14 @@ class ResultIn(object):
     attribute_map = {
         'number_of_qubits': 'number_of_qubits',
         'execution_time_in_seconds': 'execution_time_in_seconds',
-        'raw_text': 'raw_text',
-        'raw_data': 'raw_data',
-        'histogram': 'histogram',
-        'measurement_mask': 'measurement_mask',
-        'quantum_states': 'quantum_states',
-        'measurement_register': 'measurement_register',
+        'shots_requested': 'shots_requested',
+        'shots_done': 'shots_done',
+        'results': 'results',
         'metadata_id': 'metadata_id',
         'run_id': 'run_id'
     }
 
-    def __init__(self, number_of_qubits=None, execution_time_in_seconds=None, raw_text=None, raw_data=None, histogram=None, measurement_mask=None, quantum_states=None, measurement_register=None, metadata_id=None, run_id=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, number_of_qubits=None, execution_time_in_seconds=None, shots_requested=None, shots_done=None, results=None, metadata_id=None, run_id=None, local_vars_configuration=None):  # noqa: E501
         """ResultIn - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration.get_default_copy()
@@ -69,24 +63,18 @@ class ResultIn(object):
 
         self._number_of_qubits = None
         self._execution_time_in_seconds = None
-        self._raw_text = None
-        self._raw_data = None
-        self._histogram = None
-        self._measurement_mask = None
-        self._quantum_states = None
-        self._measurement_register = None
+        self._shots_requested = None
+        self._shots_done = None
+        self._results = None
         self._metadata_id = None
         self._run_id = None
         self.discriminator = None
 
         self.number_of_qubits = number_of_qubits
         self.execution_time_in_seconds = execution_time_in_seconds
-        self.raw_text = raw_text
-        self.raw_data = raw_data
-        self.histogram = histogram
-        self.measurement_mask = measurement_mask
-        self.quantum_states = quantum_states
-        self.measurement_register = measurement_register
+        self.shots_requested = shots_requested
+        self.shots_done = shots_done
+        self.results = results
         self.metadata_id = metadata_id
         self.run_id = run_id
 
@@ -143,132 +131,79 @@ class ResultIn(object):
         self._execution_time_in_seconds = execution_time_in_seconds
 
     @property
-    def raw_text(self):
-        """Gets the raw_text of this ResultIn.  # noqa: E501
+    def shots_requested(self):
+        """Gets the shots_requested of this ResultIn.  # noqa: E501
 
 
-        :return: The raw_text of this ResultIn.  # noqa: E501
-        :rtype: str
+        :return: The shots_requested of this ResultIn.  # noqa: E501
+        :rtype: int
         """
-        return self._raw_text
+        return self._shots_requested
 
-    @raw_text.setter
-    def raw_text(self, raw_text):
-        """Sets the raw_text of this ResultIn.
+    @shots_requested.setter
+    def shots_requested(self, shots_requested):
+        """Sets the shots_requested of this ResultIn.
 
 
-        :param raw_text: The raw_text of this ResultIn.  # noqa: E501
-        :type raw_text: str
+        :param shots_requested: The shots_requested of this ResultIn.  # noqa: E501
+        :type shots_requested: int
         """
-        if self.local_vars_configuration.client_side_validation and raw_text is None:  # noqa: E501
-            raise ValueError("Invalid value for `raw_text`, must not be `None`")  # noqa: E501
+        if (self.local_vars_configuration.client_side_validation and
+                shots_requested is not None and shots_requested > 2147483647):  # noqa: E501
+            raise ValueError("Invalid value for `shots_requested`, must be a value less than or equal to `2147483647`")  # noqa: E501
+        if (self.local_vars_configuration.client_side_validation and
+                shots_requested is not None and shots_requested < -2147483648):  # noqa: E501
+            raise ValueError("Invalid value for `shots_requested`, must be a value greater than or equal to `-2147483648`")  # noqa: E501
 
-        self._raw_text = raw_text
+        self._shots_requested = shots_requested
 
     @property
-    def raw_data(self):
-        """Gets the raw_data of this ResultIn.  # noqa: E501
+    def shots_done(self):
+        """Gets the shots_done of this ResultIn.  # noqa: E501
 
 
-        :return: The raw_data of this ResultIn.  # noqa: E501
-        :rtype: object
+        :return: The shots_done of this ResultIn.  # noqa: E501
+        :rtype: int
         """
-        return self._raw_data
+        return self._shots_done
 
-    @raw_data.setter
-    def raw_data(self, raw_data):
-        """Sets the raw_data of this ResultIn.
+    @shots_done.setter
+    def shots_done(self, shots_done):
+        """Sets the shots_done of this ResultIn.
 
 
-        :param raw_data: The raw_data of this ResultIn.  # noqa: E501
-        :type raw_data: object
+        :param shots_done: The shots_done of this ResultIn.  # noqa: E501
+        :type shots_done: int
         """
+        if (self.local_vars_configuration.client_side_validation and
+                shots_done is not None and shots_done > 2147483647):  # noqa: E501
+            raise ValueError("Invalid value for `shots_done`, must be a value less than or equal to `2147483647`")  # noqa: E501
+        if (self.local_vars_configuration.client_side_validation and
+                shots_done is not None and shots_done < -2147483648):  # noqa: E501
+            raise ValueError("Invalid value for `shots_done`, must be a value greater than or equal to `-2147483648`")  # noqa: E501
 
-        self._raw_data = raw_data
+        self._shots_done = shots_done
 
     @property
-    def histogram(self):
-        """Gets the histogram of this ResultIn.  # noqa: E501
+    def results(self):
+        """Gets the results of this ResultIn.  # noqa: E501
 
 
-        :return: The histogram of this ResultIn.  # noqa: E501
+        :return: The results of this ResultIn.  # noqa: E501
         :rtype: object
         """
-        return self._histogram
+        return self._results
 
-    @histogram.setter
-    def histogram(self, histogram):
-        """Sets the histogram of this ResultIn.
+    @results.setter
+    def results(self, results):
+        """Sets the results of this ResultIn.
 
 
-        :param histogram: The histogram of this ResultIn.  # noqa: E501
-        :type histogram: object
+        :param results: The results of this ResultIn.  # noqa: E501
+        :type results: object
         """
 
-        self._histogram = histogram
-
-    @property
-    def measurement_mask(self):
-        """Gets the measurement_mask of this ResultIn.  # noqa: E501
-
-
-        :return: The measurement_mask of this ResultIn.  # noqa: E501
-        :rtype: object
-        """
-        return self._measurement_mask
-
-    @measurement_mask.setter
-    def measurement_mask(self, measurement_mask):
-        """Sets the measurement_mask of this ResultIn.
-
-
-        :param measurement_mask: The measurement_mask of this ResultIn.  # noqa: E501
-        :type measurement_mask: object
-        """
-
-        self._measurement_mask = measurement_mask
-
-    @property
-    def quantum_states(self):
-        """Gets the quantum_states of this ResultIn.  # noqa: E501
-
-
-        :return: The quantum_states of this ResultIn.  # noqa: E501
-        :rtype: object
-        """
-        return self._quantum_states
-
-    @quantum_states.setter
-    def quantum_states(self, quantum_states):
-        """Sets the quantum_states of this ResultIn.
-
-
-        :param quantum_states: The quantum_states of this ResultIn.  # noqa: E501
-        :type quantum_states: object
-        """
-
-        self._quantum_states = quantum_states
-
-    @property
-    def measurement_register(self):
-        """Gets the measurement_register of this ResultIn.  # noqa: E501
-
-
-        :return: The measurement_register of this ResultIn.  # noqa: E501
-        :rtype: object
-        """
-        return self._measurement_register
-
-    @measurement_register.setter
-    def measurement_register(self, measurement_register):
-        """Sets the measurement_register of this ResultIn.
-
-
-        :param measurement_register: The measurement_register of this ResultIn.  # noqa: E501
-        :type measurement_register: object
-        """
-
-        self._measurement_register = measurement_register
+        self._results = results
 
     @property
     def metadata_id(self):

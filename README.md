@@ -44,14 +44,14 @@ configuration = compute_api_client.Configuration(
 
 
 # Enter a context with an instance of the API client
-with compute_api_client.ApiClient(configuration) as api_client:
+async with compute_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = compute_api_client.AlgorithmsApi(api_client)
     algorithm_in = compute_api_client.AlgorithmIn() # AlgorithmIn | 
 
     try:
         # Create algorithm
-        api_response = api_instance.create_algorithm_algorithms_post(algorithm_in)
+        api_response = await api_instance.create_algorithm_algorithms_post(algorithm_in)
         pprint(api_response)
     except ApiException as e:
         print("Exception when calling AlgorithmsApi->create_algorithm_algorithms_post: %s\n" % e)

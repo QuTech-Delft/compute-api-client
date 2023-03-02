@@ -8,12 +8,9 @@ Name | Type | Description | Notes
 **id** | **int** |  | 
 **number_of_qubits** | **int** |  | 
 **execution_time_in_seconds** | **float** |  | 
-**raw_text** | **str** |  | 
-**raw_data** | **object** |  | [optional] 
-**histogram** | **object** |  | [optional] 
-**measurement_mask** | **object** |  | [optional] 
-**quantum_states** | **object** |  | [optional] 
-**measurement_register** | **object** |  | [optional] 
+**shots_requested** | **int** |  | [optional] 
+**shots_done** | **int** |  | [optional] 
+**results** | **object** |  | [optional] 
 **metadata_id** | **int** |  | 
 **run_id** | **int** |  | 
 
