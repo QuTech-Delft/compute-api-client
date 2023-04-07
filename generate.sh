@@ -1,5 +1,7 @@
 #!/bin/bash
 
+export OPENAPI_GENERATOR_VERSION=6.4.0
+
 openapi-generator-cli generate \
     --input-spec http://localhost:8000/openapi.json \
     --generator-name python-legacy \

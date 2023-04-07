@@ -80,6 +80,26 @@ class Configuration(object):
     :param ssl_ca_cert: str - the path to a file of concatenated CA certificates
       in PEM format
 
+    :Example:
+
+    API Key Authentication Example.
+    Given the following security scheme in the OpenAPI specification:
+      components:
+        securitySchemes:
+          cookieAuth:         # name for the security scheme
+            type: apiKey
+            in: cookie
+            name: JSESSIONID  # cookie name
+
+    You can programmatically set the cookie:
+
+conf = compute_api_client.Configuration(
+    api_key={'cookieAuth': 'abc123'}
+    api_key_prefix={'cookieAuth': 'JSESSIONID'}
+)
+
+    The following cookie will be added to the HTTP request:
+       Cookie: JSESSIONID abc123
     """
 
     _default = None
@@ -366,6 +386,15 @@ class Configuration(object):
         :return: The Auth Settings information dict.
         """
         auth = {}
+        if 'user' in self.api_key:
+            auth['user'] = {
+                'type': 'api_key',
+                'in': 'header',
+                'key': 'X-userid',
+                'value': self.get_api_key_with_prefix(
+                    'user',
+                ),
+            }
         return auth
 
     def to_debug_report(self):

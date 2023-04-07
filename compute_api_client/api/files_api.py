@@ -158,7 +158,7 @@ class FilesApi(object):
                 header_params['Content-Type'] = content_types_list
 
         # Authentication setting
-        auth_settings = []  # noqa: E501
+        auth_settings = ['user']  # noqa: E501
 
         response_types_map = {
             201: "File",
@@ -296,7 +296,7 @@ class FilesApi(object):
             ['application/json'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = []  # noqa: E501
+        auth_settings = ['user']  # noqa: E501
 
         response_types_map = {}
 
@@ -431,7 +431,7 @@ class FilesApi(object):
             ['application/json'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = []  # noqa: E501
+        auth_settings = ['user']  # noqa: E501
 
         response_types_map = {
             200: "File",
@@ -560,7 +560,7 @@ class FilesApi(object):
             ['application/json'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = []  # noqa: E501
+        auth_settings = ['user']  # noqa: E501
 
         response_types_map = {
             200: "list[File]",

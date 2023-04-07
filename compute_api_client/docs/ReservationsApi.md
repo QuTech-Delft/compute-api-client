@@ -19,6 +19,7 @@ Create new reservation.
 
 ### Example
 
+* Api Key Authentication (user):
 ```python
 from __future__ import print_function
 import time
@@ -31,9 +32,19 @@ configuration = compute_api_client.Configuration(
     host = "http://localhost"
 )
 
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: user
+configuration.api_key['user'] = 'YOUR_API_KEY'
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['user'] = 'Bearer'
 
 # Enter a context with an instance of the API client
-with compute_api_client.ApiClient() as api_client:
+with compute_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = compute_api_client.ReservationsApi(api_client)
     reservation_in = compute_api_client.ReservationIn() # ReservationIn | 
@@ -58,7 +69,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[user](../README.md#user)
 
 ### HTTP request headers
 
@@ -82,6 +93,7 @@ Get reservation by ID.
 
 ### Example
 
+* Api Key Authentication (user):
 ```python
 from __future__ import print_function
 import time
@@ -94,9 +106,19 @@ configuration = compute_api_client.Configuration(
     host = "http://localhost"
 )
 
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: user
+configuration.api_key['user'] = 'YOUR_API_KEY'
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['user'] = 'Bearer'
 
 # Enter a context with an instance of the API client
-with compute_api_client.ApiClient() as api_client:
+with compute_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = compute_api_client.ReservationsApi(api_client)
     id = 56 # int | 
@@ -121,7 +143,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[user](../README.md#user)
 
 ### HTTP request headers
 
@@ -146,6 +168,7 @@ Read reservations.
 
 ### Example
 
+* Api Key Authentication (user):
 ```python
 from __future__ import print_function
 import time
@@ -158,9 +181,19 @@ configuration = compute_api_client.Configuration(
     host = "http://localhost"
 )
 
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: user
+configuration.api_key['user'] = 'YOUR_API_KEY'
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['user'] = 'Bearer'
 
 # Enter a context with an instance of the API client
-with compute_api_client.ApiClient() as api_client:
+with compute_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = compute_api_client.ReservationsApi(api_client)
     
@@ -181,7 +214,7 @@ This endpoint does not need any parameter.
 
 ### Authorization
 
-No authorization required
+[user](../README.md#user)
 
 ### HTTP request headers
 
@@ -204,6 +237,7 @@ Terminate reservation by ID.
 
 ### Example
 
+* Api Key Authentication (user):
 ```python
 from __future__ import print_function
 import time
@@ -216,9 +250,19 @@ configuration = compute_api_client.Configuration(
     host = "http://localhost"
 )
 
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: user
+configuration.api_key['user'] = 'YOUR_API_KEY'
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['user'] = 'Bearer'
 
 # Enter a context with an instance of the API client
-with compute_api_client.ApiClient() as api_client:
+with compute_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = compute_api_client.ReservationsApi(api_client)
     id = 56 # int | 
@@ -243,7 +287,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[user](../README.md#user)
 
 ### HTTP request headers
 
