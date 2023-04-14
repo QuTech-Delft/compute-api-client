@@ -28,8 +28,6 @@ python-dateutil = "^2.8.2"
 urllib3 = "^1.25.3"
 
 [tool.poetry.group.dev.dependencies]
-black = "^23.0.0"
-isort = "^5.11.4"
 pytest = {extras = ["toml"], version = "^7.2.0"}
 
 [build-system]
