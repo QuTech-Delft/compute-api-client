@@ -395,6 +395,15 @@ conf = compute_api_client.Configuration(
                     'user',
                 ),
             }
+        if 'runtime' in self.api_key:
+            auth['runtime'] = {
+                'type': 'api_key',
+                'in': 'header',
+                'key': 'Authorization',
+                'value': self.get_api_key_with_prefix(
+                    'runtime',
+                ),
+            }
         return auth
 
     def to_debug_report(self):

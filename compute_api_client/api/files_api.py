@@ -431,7 +431,7 @@ class FilesApi(object):
             ['application/json'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['user']  # noqa: E501
+        auth_settings = ['runtime', 'user']  # noqa: E501
 
         response_types_map = {
             200: "File",

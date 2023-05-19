@@ -18,6 +18,50 @@ Create new final result.
 
 ### Example
 
+* Api Key Authentication (runtime):
+```python
+from __future__ import print_function
+import time
+import compute_api_client
+from compute_api_client.rest import ApiException
+from pprint import pprint
+# Defining the host is optional and defaults to http://localhost
+# See configuration.py for a list of all supported configuration parameters.
+configuration = compute_api_client.Configuration(
+    host = "http://localhost"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: runtime
+configuration.api_key['runtime'] = 'YOUR_API_KEY'
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['runtime'] = 'Bearer'
+
+# Configure API key authorization: user
+configuration.api_key['user'] = 'YOUR_API_KEY'
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['user'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with compute_api_client.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = compute_api_client.FinalResultsApi(api_client)
+    final_result_in = compute_api_client.FinalResultIn() # FinalResultIn | 
+
+    try:
+        # Create final result
+        api_response = api_instance.create_final_result_final_results_post(final_result_in)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling FinalResultsApi->create_final_result_final_results_post: %s\n" % e)
+```
+
 * Api Key Authentication (user):
 ```python
 from __future__ import print_function
@@ -35,6 +79,12 @@ configuration = compute_api_client.Configuration(
 # in accordance with the API server security policy.
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
+
+# Configure API key authorization: runtime
+configuration.api_key['runtime'] = 'YOUR_API_KEY'
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['runtime'] = 'Bearer'
 
 # Configure API key authorization: user
 configuration.api_key['user'] = 'YOUR_API_KEY'
@@ -68,7 +118,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[user](../README.md#user)
+[runtime](../README.md#runtime), [user](../README.md#user)
 
 ### HTTP request headers
 

@@ -52,6 +52,7 @@ from compute_api_client.models.run_status import RunStatus
 from compute_api_client.models.runtime import Runtime
 from compute_api_client.models.runtime_status import RuntimeStatus
 from compute_api_client.models.runtime_type import RuntimeType
+from compute_api_client.models.runtime_with_authentication import RuntimeWithAuthentication
 from compute_api_client.models.share_type import ShareType
 from compute_api_client.models.team import Team
 from compute_api_client.models.transaction import Transaction

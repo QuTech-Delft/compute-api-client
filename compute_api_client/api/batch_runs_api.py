@@ -435,7 +435,7 @@ class BatchRunsApi(object):
             ['application/json'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['user']  # noqa: E501
+        auth_settings = ['runtime', 'user']  # noqa: E501
 
         response_types_map = {
             200: "BatchRun",
@@ -582,7 +582,7 @@ class BatchRunsApi(object):
                 header_params['Content-Type'] = content_types_list
 
         # Authentication setting
-        auth_settings = ['user']  # noqa: E501
+        auth_settings = ['runtime', 'user']  # noqa: E501
 
         response_types_map = {
             200: "BatchRun",
@@ -710,7 +710,7 @@ class BatchRunsApi(object):
             ['application/json'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['user']  # noqa: E501
+        auth_settings = ['runtime', 'user']  # noqa: E501
 
         response_types_map = {
             200: "BatchRun",

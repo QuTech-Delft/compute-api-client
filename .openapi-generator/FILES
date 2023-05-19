@@ -73,6 +73,7 @@ compute_api_client/docs/RuntimeApi.md
 compute_api_client/docs/RuntimeStatus.md
 compute_api_client/docs/RuntimeType.md
 compute_api_client/docs/RuntimeTypesApi.md
+compute_api_client/docs/RuntimeWithAuthentication.md
 compute_api_client/docs/ShareType.md
 compute_api_client/docs/Team.md
 compute_api_client/docs/TeamsApi.md
@@ -122,6 +123,7 @@ compute_api_client/models/run_status.py
 compute_api_client/models/runtime.py
 compute_api_client/models/runtime_status.py
 compute_api_client/models/runtime_type.py
+compute_api_client/models/runtime_with_authentication.py
 compute_api_client/models/share_type.py
 compute_api_client/models/team.py
 compute_api_client/models/transaction.py
@@ -130,4 +132,5 @@ compute_api_client/models/user_in.py
 compute_api_client/models/validation_error.py
 compute_api_client/rest.py
 compute_api_client/test/__init__.py
+compute_api_client/test/test_runtime_with_authentication.py
 compute_api_client_README.md

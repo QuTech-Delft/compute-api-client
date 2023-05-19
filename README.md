@@ -127,6 +127,7 @@ Class | Method | HTTP request | Description
 *RunsApi* | [**read_run_runs_id_get**](compute_api_client/docs/RunsApi.md#read_run_runs_id_get) | **GET** /runs/{id} | Retrieve run
 *RunsApi* | [**read_runs_runs_get**](compute_api_client/docs/RunsApi.md#read_runs_runs_get) | **GET** /runs | List runs
 *RunsApi* | [**start_run_runs_id_start_patch**](compute_api_client/docs/RunsApi.md#start_run_runs_id_start_patch) | **PATCH** /runs/{id}/start | Start run
+*RuntimeApi* | [**create_runtime_runtimes_post**](compute_api_client/docs/RuntimeApi.md#create_runtime_runtimes_post) | **POST** /runtimes | Create runtime
 *RuntimeApi* | [**read_runtime_runtimes_id_get**](compute_api_client/docs/RuntimeApi.md#read_runtime_runtimes_id_get) | **GET** /runtimes/{id} | Retrieve runtime
 *RuntimeApi* | [**read_runtimes_runtimes_get**](compute_api_client/docs/RuntimeApi.md#read_runtimes_runtimes_get) | **GET** /runtimes | List runtimes
 *RuntimeTypesApi* | [**read_runtime_type_runtime_types_id_get**](compute_api_client/docs/RuntimeTypesApi.md#read_runtime_type_runtime_types_id_get) | **GET** /runtime_types/{id} | Retrieve runtime type
@@ -181,6 +182,7 @@ Class | Method | HTTP request | Description
  - [Runtime](compute_api_client/docs/Runtime.md)
  - [RuntimeStatus](compute_api_client/docs/RuntimeStatus.md)
  - [RuntimeType](compute_api_client/docs/RuntimeType.md)
+ - [RuntimeWithAuthentication](compute_api_client/docs/RuntimeWithAuthentication.md)
  - [ShareType](compute_api_client/docs/ShareType.md)
  - [Team](compute_api_client/docs/Team.md)
  - [Transaction](compute_api_client/docs/Transaction.md)
@@ -196,6 +198,13 @@ Class | Method | HTTP request | Description
 
 - **Type**: API key
 - **API key parameter name**: X-userid
+- **Location**: HTTP header
+
+
+## runtime
+
+- **Type**: API key
+- **API key parameter name**: Authorization
 - **Location**: HTTP header
 
 
