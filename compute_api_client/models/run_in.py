@@ -37,29 +37,33 @@ class RunIn(object):
     """
     openapi_types = {
         'status': 'RunStatus',
+        'number_of_shots': 'int',
         'batch_run_id': 'int',
         'file_id': 'int'
     }
 
     attribute_map = {
         'status': 'status',
+        'number_of_shots': 'number_of_shots',
         'batch_run_id': 'batch_run_id',
         'file_id': 'file_id'
     }
 
-    def __init__(self, status=None, batch_run_id=None, file_id=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, status=None, number_of_shots=None, batch_run_id=None, file_id=None, local_vars_configuration=None):  # noqa: E501
         """RunIn - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration.get_default_copy()
         self.local_vars_configuration = local_vars_configuration
 
         self._status = None
+        self._number_of_shots = None
         self._batch_run_id = None
         self._file_id = None
         self.discriminator = None
 
         if status is not None:
             self.status = status
+        self.number_of_shots = number_of_shots
         self.batch_run_id = batch_run_id
         self.file_id = file_id
 
@@ -88,6 +92,33 @@ class RunIn(object):
             raise ValueError("Invalid value for `status`, length must be less than or equal to `9`")  # noqa: E501
 
         self._status = status
+
+    @property
+    def number_of_shots(self):
+        """Gets the number_of_shots of this RunIn.  # noqa: E501
+
+
+        :return: The number_of_shots of this RunIn.  # noqa: E501
+        :rtype: int
+        """
+        return self._number_of_shots
+
+    @number_of_shots.setter
+    def number_of_shots(self, number_of_shots):
+        """Sets the number_of_shots of this RunIn.
+
+
+        :param number_of_shots: The number_of_shots of this RunIn.  # noqa: E501
+        :type number_of_shots: int
+        """
+        if (self.local_vars_configuration.client_side_validation and
+                number_of_shots is not None and number_of_shots > 2147483647):  # noqa: E501
+            raise ValueError("Invalid value for `number_of_shots`, must be a value less than or equal to `2147483647`")  # noqa: E501
+        if (self.local_vars_configuration.client_side_validation and
+                number_of_shots is not None and number_of_shots < -2147483648):  # noqa: E501
+            raise ValueError("Invalid value for `number_of_shots`, must be a value greater than or equal to `-2147483648`")  # noqa: E501
+
+        self._number_of_shots = number_of_shots
 
     @property
     def batch_run_id(self):

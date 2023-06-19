@@ -10,6 +10,7 @@ Name | Type | Description | Notes
 **id** | **int** |  | 
 **algorithm_type** | [**AlgorithmType**](AlgorithmType.md) | HYBRID: hybrid&lt;br/&gt;QUANTUM: quantum | 
 **status** | [**RunStatus**](RunStatus.md) | PLANNED: planned&lt;br/&gt;RUNNING: running&lt;br/&gt;COMPLETED: completed&lt;br/&gt;CANCELLED: cancelled&lt;br/&gt;FAILED: failed | 
+**number_of_shots** | **int** |  | [optional] 
 **batch_run_id** | **int** |  | 
 **file_id** | **int** |  | 
 
