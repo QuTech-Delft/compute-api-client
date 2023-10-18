@@ -42,7 +42,7 @@ class RuntimeType(object):
         'description': 'str',
         'image_id': 'str',
         'is_hardware': 'bool',
-        'features': 'object',
+        'features': 'list[str]',
         'default_compiler_config': 'object',
         'native_gateset': 'object'
     }
@@ -106,12 +106,6 @@ class RuntimeType(object):
         """
         if self.local_vars_configuration.client_side_validation and id is None:  # noqa: E501
             raise ValueError("Invalid value for `id`, must not be `None`")  # noqa: E501
-        if (self.local_vars_configuration.client_side_validation and
-                id is not None and id > 2147483647):  # noqa: E501
-            raise ValueError("Invalid value for `id`, must be a value less than or equal to `2147483647`")  # noqa: E501
-        if (self.local_vars_configuration.client_side_validation and
-                id is not None and id < 1):  # noqa: E501
-            raise ValueError("Invalid value for `id`, must be a value greater than or equal to `1`")  # noqa: E501
 
         self._id = id
 
@@ -245,7 +239,7 @@ class RuntimeType(object):
 
 
         :return: The features of this RuntimeType.  # noqa: E501
-        :rtype: object
+        :rtype: list[str]
         """
         return self._features
 
@@ -255,8 +249,10 @@ class RuntimeType(object):
 
 
         :param features: The features of this RuntimeType.  # noqa: E501
-        :type features: object
+        :type features: list[str]
         """
+        if self.local_vars_configuration.client_side_validation and features is None:  # noqa: E501
+            raise ValueError("Invalid value for `features`, must not be `None`")  # noqa: E501
 
         self._features = features
 
@@ -278,6 +274,8 @@ class RuntimeType(object):
         :param default_compiler_config: The default_compiler_config of this RuntimeType.  # noqa: E501
         :type default_compiler_config: object
         """
+        if self.local_vars_configuration.client_side_validation and default_compiler_config is None:  # noqa: E501
+            raise ValueError("Invalid value for `default_compiler_config`, must not be `None`")  # noqa: E501
 
         self._default_compiler_config = default_compiler_config
 
@@ -299,6 +297,8 @@ class RuntimeType(object):
         :param native_gateset: The native_gateset of this RuntimeType.  # noqa: E501
         :type native_gateset: object
         """
+        if self.local_vars_configuration.client_side_validation and native_gateset is None:  # noqa: E501
+            raise ValueError("Invalid value for `native_gateset`, must not be `None`")  # noqa: E501
 
         self._native_gateset = native_gateset
 

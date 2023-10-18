@@ -36,39 +36,62 @@ class Commit(object):
                             and the value is json key in definition.
     """
     openapi_types = {
-        'created_on': 'datetime',
         'id': 'int',
+        'created_on': 'datetime',
         'hash': 'str',
         'description': 'str',
         'algorithm_id': 'int'
     }
 
     attribute_map = {
-        'created_on': 'created_on',
         'id': 'id',
+        'created_on': 'created_on',
         'hash': 'hash',
         'description': 'description',
         'algorithm_id': 'algorithm_id'
     }
 
-    def __init__(self, created_on=None, id=None, hash=None, description=None, algorithm_id=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, id=None, created_on=None, hash=None, description=None, algorithm_id=None, local_vars_configuration=None):  # noqa: E501
         """Commit - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration.get_default_copy()
         self.local_vars_configuration = local_vars_configuration
 
-        self._created_on = None
         self._id = None
+        self._created_on = None
         self._hash = None
         self._description = None
         self._algorithm_id = None
         self.discriminator = None
 
-        self.created_on = created_on
         self.id = id
+        self.created_on = created_on
         self.hash = hash
         self.description = description
         self.algorithm_id = algorithm_id
+
+    @property
+    def id(self):
+        """Gets the id of this Commit.  # noqa: E501
+
+
+        :return: The id of this Commit.  # noqa: E501
+        :rtype: int
+        """
+        return self._id
+
+    @id.setter
+    def id(self, id):
+        """Sets the id of this Commit.
+
+
+        :param id: The id of this Commit.  # noqa: E501
+        :type id: int
+        """
+        if self.local_vars_configuration.client_side_validation and id is None:  # noqa: E501
+            raise ValueError("Invalid value for `id`, must not be `None`")  # noqa: E501
+
+        self._id = id
 
     @property
     def created_on(self):
@@ -92,35 +115,6 @@ class Commit(object):
             raise ValueError("Invalid value for `created_on`, must not be `None`")  # noqa: E501
 
         self._created_on = created_on
-
-    @property
-    def id(self):
-        """Gets the id of this Commit.  # noqa: E501
-
-
-        :return: The id of this Commit.  # noqa: E501
-        :rtype: int
-        """
-        return self._id
-
-    @id.setter
-    def id(self, id):
-        """Sets the id of this Commit.
-
-
-        :param id: The id of this Commit.  # noqa: E501
-        :type id: int
-        """
-        if self.local_vars_configuration.client_side_validation and id is None:  # noqa: E501
-            raise ValueError("Invalid value for `id`, must not be `None`")  # noqa: E501
-        if (self.local_vars_configuration.client_side_validation and
-                id is not None and id > 2147483647):  # noqa: E501
-            raise ValueError("Invalid value for `id`, must be a value less than or equal to `2147483647`")  # noqa: E501
-        if (self.local_vars_configuration.client_side_validation and
-                id is not None and id < 1):  # noqa: E501
-            raise ValueError("Invalid value for `id`, must be a value greater than or equal to `1`")  # noqa: E501
-
-        self._id = id
 
     @property
     def hash(self):
@@ -191,12 +185,6 @@ class Commit(object):
         """
         if self.local_vars_configuration.client_side_validation and algorithm_id is None:  # noqa: E501
             raise ValueError("Invalid value for `algorithm_id`, must not be `None`")  # noqa: E501
-        if (self.local_vars_configuration.client_side_validation and
-                algorithm_id is not None and algorithm_id > 2147483647):  # noqa: E501
-            raise ValueError("Invalid value for `algorithm_id`, must be a value less than or equal to `2147483647`")  # noqa: E501
-        if (self.local_vars_configuration.client_side_validation and
-                algorithm_id is not None and algorithm_id < 1):  # noqa: E501
-            raise ValueError("Invalid value for `algorithm_id`, must be a value greater than or equal to `1`")  # noqa: E501
 
         self._algorithm_id = algorithm_id
 

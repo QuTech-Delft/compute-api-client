@@ -36,118 +36,37 @@ class RunIn(object):
                             and the value is json key in definition.
     """
     openapi_types = {
+        'file_id': 'int',
         'status': 'RunStatus',
-        'number_of_shots': 'int',
         'batch_run_id': 'int',
-        'file_id': 'int'
+        'number_of_shots': 'int'
     }
 
     attribute_map = {
+        'file_id': 'file_id',
         'status': 'status',
-        'number_of_shots': 'number_of_shots',
         'batch_run_id': 'batch_run_id',
-        'file_id': 'file_id'
+        'number_of_shots': 'number_of_shots'
     }
 
-    def __init__(self, status=None, number_of_shots=None, batch_run_id=None, file_id=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, file_id=None, status=None, batch_run_id=None, number_of_shots=None, local_vars_configuration=None):  # noqa: E501
         """RunIn - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration.get_default_copy()
         self.local_vars_configuration = local_vars_configuration
 
-        self._status = None
-        self._number_of_shots = None
-        self._batch_run_id = None
         self._file_id = None
+        self._status = None
+        self._batch_run_id = None
+        self._number_of_shots = None
         self.discriminator = None
 
+        self.file_id = file_id
         if status is not None:
             self.status = status
-        self.number_of_shots = number_of_shots
         self.batch_run_id = batch_run_id
-        self.file_id = file_id
-
-    @property
-    def status(self):
-        """Gets the status of this RunIn.  # noqa: E501
-
-        PLANNED: planned<br/>RUNNING: running<br/>COMPLETED: completed<br/>CANCELLED: cancelled<br/>FAILED: failed  # noqa: E501
-
-        :return: The status of this RunIn.  # noqa: E501
-        :rtype: RunStatus
-        """
-        return self._status
-
-    @status.setter
-    def status(self, status):
-        """Sets the status of this RunIn.
-
-        PLANNED: planned<br/>RUNNING: running<br/>COMPLETED: completed<br/>CANCELLED: cancelled<br/>FAILED: failed  # noqa: E501
-
-        :param status: The status of this RunIn.  # noqa: E501
-        :type status: RunStatus
-        """
-        if (self.local_vars_configuration.client_side_validation and
-                status is not None and len(status) > 9):
-            raise ValueError("Invalid value for `status`, length must be less than or equal to `9`")  # noqa: E501
-
-        self._status = status
-
-    @property
-    def number_of_shots(self):
-        """Gets the number_of_shots of this RunIn.  # noqa: E501
-
-
-        :return: The number_of_shots of this RunIn.  # noqa: E501
-        :rtype: int
-        """
-        return self._number_of_shots
-
-    @number_of_shots.setter
-    def number_of_shots(self, number_of_shots):
-        """Sets the number_of_shots of this RunIn.
-
-
-        :param number_of_shots: The number_of_shots of this RunIn.  # noqa: E501
-        :type number_of_shots: int
-        """
-        if (self.local_vars_configuration.client_side_validation and
-                number_of_shots is not None and number_of_shots > 2147483647):  # noqa: E501
-            raise ValueError("Invalid value for `number_of_shots`, must be a value less than or equal to `2147483647`")  # noqa: E501
-        if (self.local_vars_configuration.client_side_validation and
-                number_of_shots is not None and number_of_shots < -2147483648):  # noqa: E501
-            raise ValueError("Invalid value for `number_of_shots`, must be a value greater than or equal to `-2147483648`")  # noqa: E501
-
-        self._number_of_shots = number_of_shots
-
-    @property
-    def batch_run_id(self):
-        """Gets the batch_run_id of this RunIn.  # noqa: E501
-
-
-        :return: The batch_run_id of this RunIn.  # noqa: E501
-        :rtype: int
-        """
-        return self._batch_run_id
-
-    @batch_run_id.setter
-    def batch_run_id(self, batch_run_id):
-        """Sets the batch_run_id of this RunIn.
-
-
-        :param batch_run_id: The batch_run_id of this RunIn.  # noqa: E501
-        :type batch_run_id: int
-        """
-        if self.local_vars_configuration.client_side_validation and batch_run_id is None:  # noqa: E501
-            raise ValueError("Invalid value for `batch_run_id`, must not be `None`")  # noqa: E501
-        if (self.local_vars_configuration.client_side_validation and
-                batch_run_id is not None and batch_run_id > 2147483647):  # noqa: E501
-            raise ValueError("Invalid value for `batch_run_id`, must be a value less than or equal to `2147483647`")  # noqa: E501
-        if (self.local_vars_configuration.client_side_validation and
-                batch_run_id is not None and batch_run_id < 1):  # noqa: E501
-            raise ValueError("Invalid value for `batch_run_id`, must be a value greater than or equal to `1`")  # noqa: E501
-
-        self._batch_run_id = batch_run_id
+        if number_of_shots is not None:
+            self.number_of_shots = number_of_shots
 
     @property
     def file_id(self):
@@ -169,14 +88,73 @@ class RunIn(object):
         """
         if self.local_vars_configuration.client_side_validation and file_id is None:  # noqa: E501
             raise ValueError("Invalid value for `file_id`, must not be `None`")  # noqa: E501
-        if (self.local_vars_configuration.client_side_validation and
-                file_id is not None and file_id > 2147483647):  # noqa: E501
-            raise ValueError("Invalid value for `file_id`, must be a value less than or equal to `2147483647`")  # noqa: E501
-        if (self.local_vars_configuration.client_side_validation and
-                file_id is not None and file_id < 1):  # noqa: E501
-            raise ValueError("Invalid value for `file_id`, must be a value greater than or equal to `1`")  # noqa: E501
 
         self._file_id = file_id
+
+    @property
+    def status(self):
+        """Gets the status of this RunIn.  # noqa: E501
+
+
+        :return: The status of this RunIn.  # noqa: E501
+        :rtype: RunStatus
+        """
+        return self._status
+
+    @status.setter
+    def status(self, status):
+        """Sets the status of this RunIn.
+
+
+        :param status: The status of this RunIn.  # noqa: E501
+        :type status: RunStatus
+        """
+
+        self._status = status
+
+    @property
+    def batch_run_id(self):
+        """Gets the batch_run_id of this RunIn.  # noqa: E501
+
+
+        :return: The batch_run_id of this RunIn.  # noqa: E501
+        :rtype: int
+        """
+        return self._batch_run_id
+
+    @batch_run_id.setter
+    def batch_run_id(self, batch_run_id):
+        """Sets the batch_run_id of this RunIn.
+
+
+        :param batch_run_id: The batch_run_id of this RunIn.  # noqa: E501
+        :type batch_run_id: int
+        """
+        if self.local_vars_configuration.client_side_validation and batch_run_id is None:  # noqa: E501
+            raise ValueError("Invalid value for `batch_run_id`, must not be `None`")  # noqa: E501
+
+        self._batch_run_id = batch_run_id
+
+    @property
+    def number_of_shots(self):
+        """Gets the number_of_shots of this RunIn.  # noqa: E501
+
+
+        :return: The number_of_shots of this RunIn.  # noqa: E501
+        :rtype: int
+        """
+        return self._number_of_shots
+
+    @number_of_shots.setter
+    def number_of_shots(self, number_of_shots):
+        """Sets the number_of_shots of this RunIn.
+
+
+        :param number_of_shots: The number_of_shots of this RunIn.  # noqa: E501
+        :type number_of_shots: int
+        """
+
+        self._number_of_shots = number_of_shots
 
     def to_dict(self, serialize=False):
         """Returns the model properties as a dict"""

@@ -36,39 +36,60 @@ class ProjectPatch(object):
                             and the value is json key in definition.
     """
     openapi_types = {
+        'owner_id': 'int',
         'name': 'str',
         'description': 'str',
-        'starred': 'bool',
-        'owner_id': 'int'
+        'starred': 'bool'
     }
 
     attribute_map = {
+        'owner_id': 'owner_id',
         'name': 'name',
         'description': 'description',
-        'starred': 'starred',
-        'owner_id': 'owner_id'
+        'starred': 'starred'
     }
 
-    def __init__(self, name=None, description=None, starred=False, owner_id=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, owner_id=None, name=None, description=None, starred=None, local_vars_configuration=None):  # noqa: E501
         """ProjectPatch - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration.get_default_copy()
         self.local_vars_configuration = local_vars_configuration
 
+        self._owner_id = None
         self._name = None
         self._description = None
         self._starred = None
-        self._owner_id = None
         self.discriminator = None
 
+        if owner_id is not None:
+            self.owner_id = owner_id
         if name is not None:
             self.name = name
         if description is not None:
             self.description = description
         if starred is not None:
             self.starred = starred
-        if owner_id is not None:
-            self.owner_id = owner_id
+
+    @property
+    def owner_id(self):
+        """Gets the owner_id of this ProjectPatch.  # noqa: E501
+
+
+        :return: The owner_id of this ProjectPatch.  # noqa: E501
+        :rtype: int
+        """
+        return self._owner_id
+
+    @owner_id.setter
+    def owner_id(self, owner_id):
+        """Sets the owner_id of this ProjectPatch.
+
+
+        :param owner_id: The owner_id of this ProjectPatch.  # noqa: E501
+        :type owner_id: int
+        """
+
+        self._owner_id = owner_id
 
     @property
     def name(self):
@@ -135,33 +156,6 @@ class ProjectPatch(object):
         """
 
         self._starred = starred
-
-    @property
-    def owner_id(self):
-        """Gets the owner_id of this ProjectPatch.  # noqa: E501
-
-
-        :return: The owner_id of this ProjectPatch.  # noqa: E501
-        :rtype: int
-        """
-        return self._owner_id
-
-    @owner_id.setter
-    def owner_id(self, owner_id):
-        """Sets the owner_id of this ProjectPatch.
-
-
-        :param owner_id: The owner_id of this ProjectPatch.  # noqa: E501
-        :type owner_id: int
-        """
-        if (self.local_vars_configuration.client_side_validation and
-                owner_id is not None and owner_id > 2147483647):  # noqa: E501
-            raise ValueError("Invalid value for `owner_id`, must be a value less than or equal to `2147483647`")  # noqa: E501
-        if (self.local_vars_configuration.client_side_validation and
-                owner_id is not None and owner_id < 1):  # noqa: E501
-            raise ValueError("Invalid value for `owner_id`, must be a value greater than or equal to `1`")  # noqa: E501
-
-        self._owner_id = owner_id
 
     def to_dict(self, serialize=False):
         """Returns the model properties as a dict"""

@@ -131,12 +131,6 @@ class CommitIn(object):
         """
         if self.local_vars_configuration.client_side_validation and algorithm_id is None:  # noqa: E501
             raise ValueError("Invalid value for `algorithm_id`, must not be `None`")  # noqa: E501
-        if (self.local_vars_configuration.client_side_validation and
-                algorithm_id is not None and algorithm_id > 2147483647):  # noqa: E501
-            raise ValueError("Invalid value for `algorithm_id`, must be a value less than or equal to `2147483647`")  # noqa: E501
-        if (self.local_vars_configuration.client_side_validation and
-                algorithm_id is not None and algorithm_id < 1):  # noqa: E501
-            raise ValueError("Invalid value for `algorithm_id`, must be a value greater than or equal to `1`")  # noqa: E501
 
         self._algorithm_id = algorithm_id
 

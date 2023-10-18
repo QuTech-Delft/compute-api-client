@@ -39,21 +39,21 @@ class Runtime(object):
         'id': 'int',
         'name': 'str',
         'location': 'str',
+        'runtime_type_id': 'int',
         'status': 'RuntimeStatus',
-        'last_heartbeat': 'datetime',
-        'runtime_type_id': 'int'
+        'last_heartbeat': 'datetime'
     }
 
     attribute_map = {
         'id': 'id',
         'name': 'name',
         'location': 'location',
+        'runtime_type_id': 'runtime_type_id',
         'status': 'status',
-        'last_heartbeat': 'last_heartbeat',
-        'runtime_type_id': 'runtime_type_id'
+        'last_heartbeat': 'last_heartbeat'
     }
 
-    def __init__(self, id=None, name=None, location=None, status=None, last_heartbeat=None, runtime_type_id=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, id=None, name=None, location=None, runtime_type_id=None, status=None, last_heartbeat=None, local_vars_configuration=None):  # noqa: E501
         """Runtime - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration.get_default_copy()
@@ -62,17 +62,17 @@ class Runtime(object):
         self._id = None
         self._name = None
         self._location = None
+        self._runtime_type_id = None
         self._status = None
         self._last_heartbeat = None
-        self._runtime_type_id = None
         self.discriminator = None
 
         self.id = id
         self.name = name
         self.location = location
+        self.runtime_type_id = runtime_type_id
         self.status = status
         self.last_heartbeat = last_heartbeat
-        self.runtime_type_id = runtime_type_id
 
     @property
     def id(self):
@@ -94,12 +94,6 @@ class Runtime(object):
         """
         if self.local_vars_configuration.client_side_validation and id is None:  # noqa: E501
             raise ValueError("Invalid value for `id`, must not be `None`")  # noqa: E501
-        if (self.local_vars_configuration.client_side_validation and
-                id is not None and id > 2147483647):  # noqa: E501
-            raise ValueError("Invalid value for `id`, must be a value less than or equal to `2147483647`")  # noqa: E501
-        if (self.local_vars_configuration.client_side_validation and
-                id is not None and id < 1):  # noqa: E501
-            raise ValueError("Invalid value for `id`, must be a value greater than or equal to `1`")  # noqa: E501
 
         self._id = id
 
@@ -156,10 +150,32 @@ class Runtime(object):
         self._location = location
 
     @property
+    def runtime_type_id(self):
+        """Gets the runtime_type_id of this Runtime.  # noqa: E501
+
+
+        :return: The runtime_type_id of this Runtime.  # noqa: E501
+        :rtype: int
+        """
+        return self._runtime_type_id
+
+    @runtime_type_id.setter
+    def runtime_type_id(self, runtime_type_id):
+        """Sets the runtime_type_id of this Runtime.
+
+
+        :param runtime_type_id: The runtime_type_id of this Runtime.  # noqa: E501
+        :type runtime_type_id: int
+        """
+        if self.local_vars_configuration.client_side_validation and runtime_type_id is None:  # noqa: E501
+            raise ValueError("Invalid value for `runtime_type_id`, must not be `None`")  # noqa: E501
+
+        self._runtime_type_id = runtime_type_id
+
+    @property
     def status(self):
         """Gets the status of this Runtime.  # noqa: E501
 
-        OFFLINE: offline<br/>IDLE: idle<br/>EXECUTING: executing<br/>CALIBRATING: calibrating  # noqa: E501
 
         :return: The status of this Runtime.  # noqa: E501
         :rtype: RuntimeStatus
@@ -170,16 +186,12 @@ class Runtime(object):
     def status(self, status):
         """Sets the status of this Runtime.
 
-        OFFLINE: offline<br/>IDLE: idle<br/>EXECUTING: executing<br/>CALIBRATING: calibrating  # noqa: E501
 
         :param status: The status of this Runtime.  # noqa: E501
         :type status: RuntimeStatus
         """
         if self.local_vars_configuration.client_side_validation and status is None:  # noqa: E501
             raise ValueError("Invalid value for `status`, must not be `None`")  # noqa: E501
-        if (self.local_vars_configuration.client_side_validation and
-                status is not None and len(status) > 11):
-            raise ValueError("Invalid value for `status`, length must be less than or equal to `11`")  # noqa: E501
 
         self._status = status
 
@@ -205,35 +217,6 @@ class Runtime(object):
             raise ValueError("Invalid value for `last_heartbeat`, must not be `None`")  # noqa: E501
 
         self._last_heartbeat = last_heartbeat
-
-    @property
-    def runtime_type_id(self):
-        """Gets the runtime_type_id of this Runtime.  # noqa: E501
-
-
-        :return: The runtime_type_id of this Runtime.  # noqa: E501
-        :rtype: int
-        """
-        return self._runtime_type_id
-
-    @runtime_type_id.setter
-    def runtime_type_id(self, runtime_type_id):
-        """Sets the runtime_type_id of this Runtime.
-
-
-        :param runtime_type_id: The runtime_type_id of this Runtime.  # noqa: E501
-        :type runtime_type_id: int
-        """
-        if self.local_vars_configuration.client_side_validation and runtime_type_id is None:  # noqa: E501
-            raise ValueError("Invalid value for `runtime_type_id`, must not be `None`")  # noqa: E501
-        if (self.local_vars_configuration.client_side_validation and
-                runtime_type_id is not None and runtime_type_id > 2147483647):  # noqa: E501
-            raise ValueError("Invalid value for `runtime_type_id`, must be a value less than or equal to `2147483647`")  # noqa: E501
-        if (self.local_vars_configuration.client_side_validation and
-                runtime_type_id is not None and runtime_type_id < 1):  # noqa: E501
-            raise ValueError("Invalid value for `runtime_type_id`, must be a value greater than or equal to `1`")  # noqa: E501
-
-        self._runtime_type_id = runtime_type_id
 
     def to_dict(self, serialize=False):
         """Returns the model properties as a dict"""

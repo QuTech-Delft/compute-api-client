@@ -10,9 +10,9 @@ Name | Type | Description | Notes
 **description** | **str** |  | 
 **image_id** | **str** |  | 
 **is_hardware** | **bool** |  | 
-**features** | **object** |  | [optional] 
-**default_compiler_config** | **object** |  | [optional] 
-**native_gateset** | **object** |  | [optional] 
+**features** | **list[str]** |  | 
+**default_compiler_config** | **object** |  | 
+**native_gateset** | **object** |  | 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

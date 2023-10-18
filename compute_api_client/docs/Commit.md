@@ -4,8 +4,8 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**created_on** | **datetime** |  | [readonly] 
 **id** | **int** |  | 
+**created_on** | **datetime** |  | 
 **hash** | **str** |  | 
 **description** | **str** |  | 
 **algorithm_id** | **int** |  | 

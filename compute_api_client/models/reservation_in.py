@@ -36,35 +36,58 @@ class ReservationIn(object):
                             and the value is json key in definition.
     """
     openapi_types = {
+        'member_id': 'int',
         'start_time': 'datetime',
         'end_time': 'datetime',
-        'member_id': 'int',
         'runtime_type_id': 'int'
     }
 
     attribute_map = {
+        'member_id': 'member_id',
         'start_time': 'start_time',
         'end_time': 'end_time',
-        'member_id': 'member_id',
         'runtime_type_id': 'runtime_type_id'
     }
 
-    def __init__(self, start_time=None, end_time=None, member_id=None, runtime_type_id=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, member_id=None, start_time=None, end_time=None, runtime_type_id=None, local_vars_configuration=None):  # noqa: E501
         """ReservationIn - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration.get_default_copy()
         self.local_vars_configuration = local_vars_configuration
 
+        self._member_id = None
         self._start_time = None
         self._end_time = None
-        self._member_id = None
         self._runtime_type_id = None
         self.discriminator = None
 
+        self.member_id = member_id
         self.start_time = start_time
         self.end_time = end_time
-        self.member_id = member_id
         self.runtime_type_id = runtime_type_id
+
+    @property
+    def member_id(self):
+        """Gets the member_id of this ReservationIn.  # noqa: E501
+
+
+        :return: The member_id of this ReservationIn.  # noqa: E501
+        :rtype: int
+        """
+        return self._member_id
+
+    @member_id.setter
+    def member_id(self, member_id):
+        """Sets the member_id of this ReservationIn.
+
+
+        :param member_id: The member_id of this ReservationIn.  # noqa: E501
+        :type member_id: int
+        """
+        if self.local_vars_configuration.client_side_validation and member_id is None:  # noqa: E501
+            raise ValueError("Invalid value for `member_id`, must not be `None`")  # noqa: E501
+
+        self._member_id = member_id
 
     @property
     def start_time(self):
@@ -113,35 +136,6 @@ class ReservationIn(object):
         self._end_time = end_time
 
     @property
-    def member_id(self):
-        """Gets the member_id of this ReservationIn.  # noqa: E501
-
-
-        :return: The member_id of this ReservationIn.  # noqa: E501
-        :rtype: int
-        """
-        return self._member_id
-
-    @member_id.setter
-    def member_id(self, member_id):
-        """Sets the member_id of this ReservationIn.
-
-
-        :param member_id: The member_id of this ReservationIn.  # noqa: E501
-        :type member_id: int
-        """
-        if self.local_vars_configuration.client_side_validation and member_id is None:  # noqa: E501
-            raise ValueError("Invalid value for `member_id`, must not be `None`")  # noqa: E501
-        if (self.local_vars_configuration.client_side_validation and
-                member_id is not None and member_id > 2147483647):  # noqa: E501
-            raise ValueError("Invalid value for `member_id`, must be a value less than or equal to `2147483647`")  # noqa: E501
-        if (self.local_vars_configuration.client_side_validation and
-                member_id is not None and member_id < 1):  # noqa: E501
-            raise ValueError("Invalid value for `member_id`, must be a value greater than or equal to `1`")  # noqa: E501
-
-        self._member_id = member_id
-
-    @property
     def runtime_type_id(self):
         """Gets the runtime_type_id of this ReservationIn.  # noqa: E501
 
@@ -161,12 +155,6 @@ class ReservationIn(object):
         """
         if self.local_vars_configuration.client_side_validation and runtime_type_id is None:  # noqa: E501
             raise ValueError("Invalid value for `runtime_type_id`, must not be `None`")  # noqa: E501
-        if (self.local_vars_configuration.client_side_validation and
-                runtime_type_id is not None and runtime_type_id > 2147483647):  # noqa: E501
-            raise ValueError("Invalid value for `runtime_type_id`, must be a value less than or equal to `2147483647`")  # noqa: E501
-        if (self.local_vars_configuration.client_side_validation and
-                runtime_type_id is not None and runtime_type_id < 1):  # noqa: E501
-            raise ValueError("Invalid value for `runtime_type_id`, must be a value greater than or equal to `1`")  # noqa: E501
 
         self._runtime_type_id = runtime_type_id
 

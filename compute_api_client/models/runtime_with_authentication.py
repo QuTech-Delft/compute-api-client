@@ -39,23 +39,23 @@ class RuntimeWithAuthentication(object):
         'id': 'int',
         'name': 'str',
         'location': 'str',
+        'runtime_type_id': 'int',
         'status': 'RuntimeStatus',
         'last_heartbeat': 'datetime',
-        'authentication_hash': 'str',
-        'runtime_type_id': 'int'
+        'authentication_hash': 'str'
     }
 
     attribute_map = {
         'id': 'id',
         'name': 'name',
         'location': 'location',
+        'runtime_type_id': 'runtime_type_id',
         'status': 'status',
         'last_heartbeat': 'last_heartbeat',
-        'authentication_hash': 'authentication_hash',
-        'runtime_type_id': 'runtime_type_id'
+        'authentication_hash': 'authentication_hash'
     }
 
-    def __init__(self, id=None, name=None, location=None, status=None, last_heartbeat=None, authentication_hash=None, runtime_type_id=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, id=None, name=None, location=None, runtime_type_id=None, status=None, last_heartbeat=None, authentication_hash=None, local_vars_configuration=None):  # noqa: E501
         """RuntimeWithAuthentication - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration.get_default_copy()
@@ -64,19 +64,19 @@ class RuntimeWithAuthentication(object):
         self._id = None
         self._name = None
         self._location = None
+        self._runtime_type_id = None
         self._status = None
         self._last_heartbeat = None
         self._authentication_hash = None
-        self._runtime_type_id = None
         self.discriminator = None
 
         self.id = id
         self.name = name
         self.location = location
+        self.runtime_type_id = runtime_type_id
         self.status = status
         self.last_heartbeat = last_heartbeat
         self.authentication_hash = authentication_hash
-        self.runtime_type_id = runtime_type_id
 
     @property
     def id(self):
@@ -98,12 +98,6 @@ class RuntimeWithAuthentication(object):
         """
         if self.local_vars_configuration.client_side_validation and id is None:  # noqa: E501
             raise ValueError("Invalid value for `id`, must not be `None`")  # noqa: E501
-        if (self.local_vars_configuration.client_side_validation and
-                id is not None and id > 2147483647):  # noqa: E501
-            raise ValueError("Invalid value for `id`, must be a value less than or equal to `2147483647`")  # noqa: E501
-        if (self.local_vars_configuration.client_side_validation and
-                id is not None and id < 1):  # noqa: E501
-            raise ValueError("Invalid value for `id`, must be a value greater than or equal to `1`")  # noqa: E501
 
         self._id = id
 
@@ -160,10 +154,32 @@ class RuntimeWithAuthentication(object):
         self._location = location
 
     @property
+    def runtime_type_id(self):
+        """Gets the runtime_type_id of this RuntimeWithAuthentication.  # noqa: E501
+
+
+        :return: The runtime_type_id of this RuntimeWithAuthentication.  # noqa: E501
+        :rtype: int
+        """
+        return self._runtime_type_id
+
+    @runtime_type_id.setter
+    def runtime_type_id(self, runtime_type_id):
+        """Sets the runtime_type_id of this RuntimeWithAuthentication.
+
+
+        :param runtime_type_id: The runtime_type_id of this RuntimeWithAuthentication.  # noqa: E501
+        :type runtime_type_id: int
+        """
+        if self.local_vars_configuration.client_side_validation and runtime_type_id is None:  # noqa: E501
+            raise ValueError("Invalid value for `runtime_type_id`, must not be `None`")  # noqa: E501
+
+        self._runtime_type_id = runtime_type_id
+
+    @property
     def status(self):
         """Gets the status of this RuntimeWithAuthentication.  # noqa: E501
 
-        OFFLINE: offline<br/>IDLE: idle<br/>EXECUTING: executing<br/>CALIBRATING: calibrating  # noqa: E501
 
         :return: The status of this RuntimeWithAuthentication.  # noqa: E501
         :rtype: RuntimeStatus
@@ -174,16 +190,12 @@ class RuntimeWithAuthentication(object):
     def status(self, status):
         """Sets the status of this RuntimeWithAuthentication.
 
-        OFFLINE: offline<br/>IDLE: idle<br/>EXECUTING: executing<br/>CALIBRATING: calibrating  # noqa: E501
 
         :param status: The status of this RuntimeWithAuthentication.  # noqa: E501
         :type status: RuntimeStatus
         """
         if self.local_vars_configuration.client_side_validation and status is None:  # noqa: E501
             raise ValueError("Invalid value for `status`, must not be `None`")  # noqa: E501
-        if (self.local_vars_configuration.client_side_validation and
-                status is not None and len(status) > 11):
-            raise ValueError("Invalid value for `status`, length must be less than or equal to `11`")  # noqa: E501
 
         self._status = status
 
@@ -235,35 +247,6 @@ class RuntimeWithAuthentication(object):
             raise ValueError("Invalid value for `authentication_hash`, length must be less than or equal to `32`")  # noqa: E501
 
         self._authentication_hash = authentication_hash
-
-    @property
-    def runtime_type_id(self):
-        """Gets the runtime_type_id of this RuntimeWithAuthentication.  # noqa: E501
-
-
-        :return: The runtime_type_id of this RuntimeWithAuthentication.  # noqa: E501
-        :rtype: int
-        """
-        return self._runtime_type_id
-
-    @runtime_type_id.setter
-    def runtime_type_id(self, runtime_type_id):
-        """Sets the runtime_type_id of this RuntimeWithAuthentication.
-
-
-        :param runtime_type_id: The runtime_type_id of this RuntimeWithAuthentication.  # noqa: E501
-        :type runtime_type_id: int
-        """
-        if self.local_vars_configuration.client_side_validation and runtime_type_id is None:  # noqa: E501
-            raise ValueError("Invalid value for `runtime_type_id`, must not be `None`")  # noqa: E501
-        if (self.local_vars_configuration.client_side_validation and
-                runtime_type_id is not None and runtime_type_id > 2147483647):  # noqa: E501
-            raise ValueError("Invalid value for `runtime_type_id`, must be a value less than or equal to `2147483647`")  # noqa: E501
-        if (self.local_vars_configuration.client_side_validation and
-                runtime_type_id is not None and runtime_type_id < 1):  # noqa: E501
-            raise ValueError("Invalid value for `runtime_type_id`, must be a value greater than or equal to `1`")  # noqa: E501
-
-        self._runtime_type_id = runtime_type_id
 
     def to_dict(self, serialize=False):
         """Returns the model properties as a dict"""

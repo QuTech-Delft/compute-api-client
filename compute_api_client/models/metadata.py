@@ -36,35 +36,81 @@ class Metadata(object):
                             and the value is json key in definition.
     """
     openapi_types = {
-        'created_on': 'datetime',
         'id': 'int',
-        'data': 'object',
-        'runtime_id': 'int'
+        'runtime_id': 'int',
+        'created_on': 'datetime',
+        'data': 'object'
     }
 
     attribute_map = {
-        'created_on': 'created_on',
         'id': 'id',
-        'data': 'data',
-        'runtime_id': 'runtime_id'
+        'runtime_id': 'runtime_id',
+        'created_on': 'created_on',
+        'data': 'data'
     }
 
-    def __init__(self, created_on=None, id=None, data=None, runtime_id=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, id=None, runtime_id=None, created_on=None, data=None, local_vars_configuration=None):  # noqa: E501
         """Metadata - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration.get_default_copy()
         self.local_vars_configuration = local_vars_configuration
 
-        self._created_on = None
         self._id = None
-        self._data = None
         self._runtime_id = None
+        self._created_on = None
+        self._data = None
         self.discriminator = None
 
-        self.created_on = created_on
         self.id = id
-        self.data = data
         self.runtime_id = runtime_id
+        self.created_on = created_on
+        self.data = data
+
+    @property
+    def id(self):
+        """Gets the id of this Metadata.  # noqa: E501
+
+
+        :return: The id of this Metadata.  # noqa: E501
+        :rtype: int
+        """
+        return self._id
+
+    @id.setter
+    def id(self, id):
+        """Sets the id of this Metadata.
+
+
+        :param id: The id of this Metadata.  # noqa: E501
+        :type id: int
+        """
+        if self.local_vars_configuration.client_side_validation and id is None:  # noqa: E501
+            raise ValueError("Invalid value for `id`, must not be `None`")  # noqa: E501
+
+        self._id = id
+
+    @property
+    def runtime_id(self):
+        """Gets the runtime_id of this Metadata.  # noqa: E501
+
+
+        :return: The runtime_id of this Metadata.  # noqa: E501
+        :rtype: int
+        """
+        return self._runtime_id
+
+    @runtime_id.setter
+    def runtime_id(self, runtime_id):
+        """Sets the runtime_id of this Metadata.
+
+
+        :param runtime_id: The runtime_id of this Metadata.  # noqa: E501
+        :type runtime_id: int
+        """
+        if self.local_vars_configuration.client_side_validation and runtime_id is None:  # noqa: E501
+            raise ValueError("Invalid value for `runtime_id`, must not be `None`")  # noqa: E501
+
+        self._runtime_id = runtime_id
 
     @property
     def created_on(self):
@@ -90,35 +136,6 @@ class Metadata(object):
         self._created_on = created_on
 
     @property
-    def id(self):
-        """Gets the id of this Metadata.  # noqa: E501
-
-
-        :return: The id of this Metadata.  # noqa: E501
-        :rtype: int
-        """
-        return self._id
-
-    @id.setter
-    def id(self, id):
-        """Sets the id of this Metadata.
-
-
-        :param id: The id of this Metadata.  # noqa: E501
-        :type id: int
-        """
-        if self.local_vars_configuration.client_side_validation and id is None:  # noqa: E501
-            raise ValueError("Invalid value for `id`, must not be `None`")  # noqa: E501
-        if (self.local_vars_configuration.client_side_validation and
-                id is not None and id > 2147483647):  # noqa: E501
-            raise ValueError("Invalid value for `id`, must be a value less than or equal to `2147483647`")  # noqa: E501
-        if (self.local_vars_configuration.client_side_validation and
-                id is not None and id < 1):  # noqa: E501
-            raise ValueError("Invalid value for `id`, must be a value greater than or equal to `1`")  # noqa: E501
-
-        self._id = id
-
-    @property
     def data(self):
         """Gets the data of this Metadata.  # noqa: E501
 
@@ -136,37 +153,10 @@ class Metadata(object):
         :param data: The data of this Metadata.  # noqa: E501
         :type data: object
         """
+        if self.local_vars_configuration.client_side_validation and data is None:  # noqa: E501
+            raise ValueError("Invalid value for `data`, must not be `None`")  # noqa: E501
 
         self._data = data
-
-    @property
-    def runtime_id(self):
-        """Gets the runtime_id of this Metadata.  # noqa: E501
-
-
-        :return: The runtime_id of this Metadata.  # noqa: E501
-        :rtype: int
-        """
-        return self._runtime_id
-
-    @runtime_id.setter
-    def runtime_id(self, runtime_id):
-        """Sets the runtime_id of this Metadata.
-
-
-        :param runtime_id: The runtime_id of this Metadata.  # noqa: E501
-        :type runtime_id: int
-        """
-        if self.local_vars_configuration.client_side_validation and runtime_id is None:  # noqa: E501
-            raise ValueError("Invalid value for `runtime_id`, must not be `None`")  # noqa: E501
-        if (self.local_vars_configuration.client_side_validation and
-                runtime_id is not None and runtime_id > 2147483647):  # noqa: E501
-            raise ValueError("Invalid value for `runtime_id`, must be a value less than or equal to `2147483647`")  # noqa: E501
-        if (self.local_vars_configuration.client_side_validation and
-                runtime_id is not None and runtime_id < 1):  # noqa: E501
-            raise ValueError("Invalid value for `runtime_id`, must be a value greater than or equal to `1`")  # noqa: E501
-
-        self._runtime_id = runtime_id
 
     def to_dict(self, serialize=False):
         """Returns the model properties as a dict"""

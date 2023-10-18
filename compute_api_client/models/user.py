@@ -55,7 +55,7 @@ class User(object):
         'is_confirmed': 'is_confirmed'
     }
 
-    def __init__(self, id=None, full_name=None, email=None, is_superuser=False, is_staff=False, is_active=False, is_confirmed=False, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, id=None, full_name=None, email=None, is_superuser=None, is_staff=None, is_active=None, is_confirmed=None, local_vars_configuration=None):  # noqa: E501
         """User - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration.get_default_copy()
@@ -73,14 +73,10 @@ class User(object):
         self.id = id
         self.full_name = full_name
         self.email = email
-        if is_superuser is not None:
-            self.is_superuser = is_superuser
-        if is_staff is not None:
-            self.is_staff = is_staff
-        if is_active is not None:
-            self.is_active = is_active
-        if is_confirmed is not None:
-            self.is_confirmed = is_confirmed
+        self.is_superuser = is_superuser
+        self.is_staff = is_staff
+        self.is_active = is_active
+        self.is_confirmed = is_confirmed
 
     @property
     def id(self):
@@ -102,12 +98,6 @@ class User(object):
         """
         if self.local_vars_configuration.client_side_validation and id is None:  # noqa: E501
             raise ValueError("Invalid value for `id`, must not be `None`")  # noqa: E501
-        if (self.local_vars_configuration.client_side_validation and
-                id is not None and id > 2147483647):  # noqa: E501
-            raise ValueError("Invalid value for `id`, must be a value less than or equal to `2147483647`")  # noqa: E501
-        if (self.local_vars_configuration.client_side_validation and
-                id is not None and id < 1):  # noqa: E501
-            raise ValueError("Invalid value for `id`, must be a value greater than or equal to `1`")  # noqa: E501
 
         self._id = id
 
@@ -181,6 +171,8 @@ class User(object):
         :param is_superuser: The is_superuser of this User.  # noqa: E501
         :type is_superuser: bool
         """
+        if self.local_vars_configuration.client_side_validation and is_superuser is None:  # noqa: E501
+            raise ValueError("Invalid value for `is_superuser`, must not be `None`")  # noqa: E501
 
         self._is_superuser = is_superuser
 
@@ -202,6 +194,8 @@ class User(object):
         :param is_staff: The is_staff of this User.  # noqa: E501
         :type is_staff: bool
         """
+        if self.local_vars_configuration.client_side_validation and is_staff is None:  # noqa: E501
+            raise ValueError("Invalid value for `is_staff`, must not be `None`")  # noqa: E501
 
         self._is_staff = is_staff
 
@@ -223,6 +217,8 @@ class User(object):
         :param is_active: The is_active of this User.  # noqa: E501
         :type is_active: bool
         """
+        if self.local_vars_configuration.client_side_validation and is_active is None:  # noqa: E501
+            raise ValueError("Invalid value for `is_active`, must not be `None`")  # noqa: E501
 
         self._is_active = is_active
 
@@ -244,6 +240,8 @@ class User(object):
         :param is_confirmed: The is_confirmed of this User.  # noqa: E501
         :type is_confirmed: bool
         """
+        if self.local_vars_configuration.client_side_validation and is_confirmed is None:  # noqa: E501
+            raise ValueError("Invalid value for `is_confirmed`, must not be `None`")  # noqa: E501
 
         self._is_confirmed = is_confirmed
 

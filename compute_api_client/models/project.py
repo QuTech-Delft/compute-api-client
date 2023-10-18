@@ -36,44 +36,66 @@ class Project(object):
                             and the value is json key in definition.
     """
     openapi_types = {
-        'created_on': 'datetime',
         'id': 'int',
+        'created_on': 'datetime',
+        'owner_id': 'int',
         'name': 'str',
         'description': 'str',
-        'starred': 'bool',
-        'owner_id': 'int'
+        'starred': 'bool'
     }
 
     attribute_map = {
-        'created_on': 'created_on',
         'id': 'id',
+        'created_on': 'created_on',
+        'owner_id': 'owner_id',
         'name': 'name',
         'description': 'description',
-        'starred': 'starred',
-        'owner_id': 'owner_id'
+        'starred': 'starred'
     }
 
-    def __init__(self, created_on=None, id=None, name=None, description=None, starred=False, owner_id=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, id=None, created_on=None, owner_id=None, name=None, description=None, starred=None, local_vars_configuration=None):  # noqa: E501
         """Project - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration.get_default_copy()
         self.local_vars_configuration = local_vars_configuration
 
-        self._created_on = None
         self._id = None
+        self._created_on = None
+        self._owner_id = None
         self._name = None
         self._description = None
         self._starred = None
-        self._owner_id = None
         self.discriminator = None
 
-        self.created_on = created_on
         self.id = id
+        self.created_on = created_on
+        self.owner_id = owner_id
         self.name = name
         self.description = description
-        if starred is not None:
-            self.starred = starred
-        self.owner_id = owner_id
+        self.starred = starred
+
+    @property
+    def id(self):
+        """Gets the id of this Project.  # noqa: E501
+
+
+        :return: The id of this Project.  # noqa: E501
+        :rtype: int
+        """
+        return self._id
+
+    @id.setter
+    def id(self, id):
+        """Sets the id of this Project.
+
+
+        :param id: The id of this Project.  # noqa: E501
+        :type id: int
+        """
+        if self.local_vars_configuration.client_side_validation and id is None:  # noqa: E501
+            raise ValueError("Invalid value for `id`, must not be `None`")  # noqa: E501
+
+        self._id = id
 
     @property
     def created_on(self):
@@ -99,33 +121,27 @@ class Project(object):
         self._created_on = created_on
 
     @property
-    def id(self):
-        """Gets the id of this Project.  # noqa: E501
+    def owner_id(self):
+        """Gets the owner_id of this Project.  # noqa: E501
 
 
-        :return: The id of this Project.  # noqa: E501
+        :return: The owner_id of this Project.  # noqa: E501
         :rtype: int
         """
-        return self._id
+        return self._owner_id
 
-    @id.setter
-    def id(self, id):
-        """Sets the id of this Project.
+    @owner_id.setter
+    def owner_id(self, owner_id):
+        """Sets the owner_id of this Project.
 
 
-        :param id: The id of this Project.  # noqa: E501
-        :type id: int
+        :param owner_id: The owner_id of this Project.  # noqa: E501
+        :type owner_id: int
         """
-        if self.local_vars_configuration.client_side_validation and id is None:  # noqa: E501
-            raise ValueError("Invalid value for `id`, must not be `None`")  # noqa: E501
-        if (self.local_vars_configuration.client_side_validation and
-                id is not None and id > 2147483647):  # noqa: E501
-            raise ValueError("Invalid value for `id`, must be a value less than or equal to `2147483647`")  # noqa: E501
-        if (self.local_vars_configuration.client_side_validation and
-                id is not None and id < 1):  # noqa: E501
-            raise ValueError("Invalid value for `id`, must be a value greater than or equal to `1`")  # noqa: E501
+        if self.local_vars_configuration.client_side_validation and owner_id is None:  # noqa: E501
+            raise ValueError("Invalid value for `owner_id`, must not be `None`")  # noqa: E501
 
-        self._id = id
+        self._owner_id = owner_id
 
     @property
     def name(self):
@@ -194,37 +210,10 @@ class Project(object):
         :param starred: The starred of this Project.  # noqa: E501
         :type starred: bool
         """
+        if self.local_vars_configuration.client_side_validation and starred is None:  # noqa: E501
+            raise ValueError("Invalid value for `starred`, must not be `None`")  # noqa: E501
 
         self._starred = starred
-
-    @property
-    def owner_id(self):
-        """Gets the owner_id of this Project.  # noqa: E501
-
-
-        :return: The owner_id of this Project.  # noqa: E501
-        :rtype: int
-        """
-        return self._owner_id
-
-    @owner_id.setter
-    def owner_id(self, owner_id):
-        """Sets the owner_id of this Project.
-
-
-        :param owner_id: The owner_id of this Project.  # noqa: E501
-        :type owner_id: int
-        """
-        if self.local_vars_configuration.client_side_validation and owner_id is None:  # noqa: E501
-            raise ValueError("Invalid value for `owner_id`, must not be `None`")  # noqa: E501
-        if (self.local_vars_configuration.client_side_validation and
-                owner_id is not None and owner_id > 2147483647):  # noqa: E501
-            raise ValueError("Invalid value for `owner_id`, must be a value less than or equal to `2147483647`")  # noqa: E501
-        if (self.local_vars_configuration.client_side_validation and
-                owner_id is not None and owner_id < 1):  # noqa: E501
-            raise ValueError("Invalid value for `owner_id`, must be a value greater than or equal to `1`")  # noqa: E501
-
-        self._owner_id = owner_id
 
     def to_dict(self, serialize=False):
         """Returns the model properties as a dict"""

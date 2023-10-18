@@ -36,45 +36,67 @@ class FileIn(object):
                             and the value is json key in definition.
     """
     openapi_types = {
+        'commit_id': 'int',
         'content': 'str',
+        'language_id': 'int',
         'compile_stage': 'CompileStage',
         'compile_properties': 'object',
-        'generated': 'bool',
-        'commit_id': 'int',
-        'language_id': 'int'
+        'generated': 'bool'
     }
 
     attribute_map = {
+        'commit_id': 'commit_id',
         'content': 'content',
+        'language_id': 'language_id',
         'compile_stage': 'compile_stage',
         'compile_properties': 'compile_properties',
-        'generated': 'generated',
-        'commit_id': 'commit_id',
-        'language_id': 'language_id'
+        'generated': 'generated'
     }
 
-    def __init__(self, content=None, compile_stage=None, compile_properties=None, generated=False, commit_id=None, language_id=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, commit_id=None, content=None, language_id=None, compile_stage=None, compile_properties=None, generated=False, local_vars_configuration=None):  # noqa: E501
         """FileIn - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration.get_default_copy()
         self.local_vars_configuration = local_vars_configuration
 
+        self._commit_id = None
         self._content = None
+        self._language_id = None
         self._compile_stage = None
         self._compile_properties = None
         self._generated = None
-        self._commit_id = None
-        self._language_id = None
         self.discriminator = None
 
+        self.commit_id = commit_id
         self.content = content
-        if compile_stage is not None:
-            self.compile_stage = compile_stage
+        self.language_id = language_id
+        self.compile_stage = compile_stage
         self.compile_properties = compile_properties
         if generated is not None:
             self.generated = generated
-        self.commit_id = commit_id
-        self.language_id = language_id
+
+    @property
+    def commit_id(self):
+        """Gets the commit_id of this FileIn.  # noqa: E501
+
+
+        :return: The commit_id of this FileIn.  # noqa: E501
+        :rtype: int
+        """
+        return self._commit_id
+
+    @commit_id.setter
+    def commit_id(self, commit_id):
+        """Sets the commit_id of this FileIn.
+
+
+        :param commit_id: The commit_id of this FileIn.  # noqa: E501
+        :type commit_id: int
+        """
+        if self.local_vars_configuration.client_side_validation and commit_id is None:  # noqa: E501
+            raise ValueError("Invalid value for `commit_id`, must not be `None`")  # noqa: E501
+
+        self._commit_id = commit_id
 
     @property
     def content(self):
@@ -100,10 +122,32 @@ class FileIn(object):
         self._content = content
 
     @property
+    def language_id(self):
+        """Gets the language_id of this FileIn.  # noqa: E501
+
+
+        :return: The language_id of this FileIn.  # noqa: E501
+        :rtype: int
+        """
+        return self._language_id
+
+    @language_id.setter
+    def language_id(self, language_id):
+        """Sets the language_id of this FileIn.
+
+
+        :param language_id: The language_id of this FileIn.  # noqa: E501
+        :type language_id: int
+        """
+        if self.local_vars_configuration.client_side_validation and language_id is None:  # noqa: E501
+            raise ValueError("Invalid value for `language_id`, must not be `None`")  # noqa: E501
+
+        self._language_id = language_id
+
+    @property
     def compile_stage(self):
         """Gets the compile_stage of this FileIn.  # noqa: E501
 
-        NONE: none<br/>MAPPED: mapped<br/>NATIVE_GATESET: native_gateset<br/>SCHEDULED: scheduled  # noqa: E501
 
         :return: The compile_stage of this FileIn.  # noqa: E501
         :rtype: CompileStage
@@ -114,14 +158,12 @@ class FileIn(object):
     def compile_stage(self, compile_stage):
         """Sets the compile_stage of this FileIn.
 
-        NONE: none<br/>MAPPED: mapped<br/>NATIVE_GATESET: native_gateset<br/>SCHEDULED: scheduled  # noqa: E501
 
         :param compile_stage: The compile_stage of this FileIn.  # noqa: E501
         :type compile_stage: CompileStage
         """
-        if (self.local_vars_configuration.client_side_validation and
-                compile_stage is not None and len(compile_stage) > 14):
-            raise ValueError("Invalid value for `compile_stage`, length must be less than or equal to `14`")  # noqa: E501
+        if self.local_vars_configuration.client_side_validation and compile_stage is None:  # noqa: E501
+            raise ValueError("Invalid value for `compile_stage`, must not be `None`")  # noqa: E501
 
         self._compile_stage = compile_stage
 
@@ -143,6 +185,8 @@ class FileIn(object):
         :param compile_properties: The compile_properties of this FileIn.  # noqa: E501
         :type compile_properties: object
         """
+        if self.local_vars_configuration.client_side_validation and compile_properties is None:  # noqa: E501
+            raise ValueError("Invalid value for `compile_properties`, must not be `None`")  # noqa: E501
 
         self._compile_properties = compile_properties
 
@@ -166,64 +210,6 @@ class FileIn(object):
         """
 
         self._generated = generated
-
-    @property
-    def commit_id(self):
-        """Gets the commit_id of this FileIn.  # noqa: E501
-
-
-        :return: The commit_id of this FileIn.  # noqa: E501
-        :rtype: int
-        """
-        return self._commit_id
-
-    @commit_id.setter
-    def commit_id(self, commit_id):
-        """Sets the commit_id of this FileIn.
-
-
-        :param commit_id: The commit_id of this FileIn.  # noqa: E501
-        :type commit_id: int
-        """
-        if self.local_vars_configuration.client_side_validation and commit_id is None:  # noqa: E501
-            raise ValueError("Invalid value for `commit_id`, must not be `None`")  # noqa: E501
-        if (self.local_vars_configuration.client_side_validation and
-                commit_id is not None and commit_id > 2147483647):  # noqa: E501
-            raise ValueError("Invalid value for `commit_id`, must be a value less than or equal to `2147483647`")  # noqa: E501
-        if (self.local_vars_configuration.client_side_validation and
-                commit_id is not None and commit_id < 1):  # noqa: E501
-            raise ValueError("Invalid value for `commit_id`, must be a value greater than or equal to `1`")  # noqa: E501
-
-        self._commit_id = commit_id
-
-    @property
-    def language_id(self):
-        """Gets the language_id of this FileIn.  # noqa: E501
-
-
-        :return: The language_id of this FileIn.  # noqa: E501
-        :rtype: int
-        """
-        return self._language_id
-
-    @language_id.setter
-    def language_id(self, language_id):
-        """Sets the language_id of this FileIn.
-
-
-        :param language_id: The language_id of this FileIn.  # noqa: E501
-        :type language_id: int
-        """
-        if self.local_vars_configuration.client_side_validation and language_id is None:  # noqa: E501
-            raise ValueError("Invalid value for `language_id`, must not be `None`")  # noqa: E501
-        if (self.local_vars_configuration.client_side_validation and
-                language_id is not None and language_id > 2147483647):  # noqa: E501
-            raise ValueError("Invalid value for `language_id`, must be a value less than or equal to `2147483647`")  # noqa: E501
-        if (self.local_vars_configuration.client_side_validation and
-                language_id is not None and language_id < 1):  # noqa: E501
-            raise ValueError("Invalid value for `language_id`, must be a value greater than or equal to `1`")  # noqa: E501
-
-        self._language_id = language_id
 
     def to_dict(self, serialize=False):
         """Returns the model properties as a dict"""

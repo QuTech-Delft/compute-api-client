@@ -49,7 +49,7 @@ class Team(object):
         'individual_user': 'individual_user'
     }
 
-    def __init__(self, id=None, name=None, slug=None, individual_user=False, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, id=None, name=None, slug=None, individual_user=None, local_vars_configuration=None):  # noqa: E501
         """Team - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration.get_default_copy()
@@ -64,8 +64,7 @@ class Team(object):
         self.id = id
         self.name = name
         self.slug = slug
-        if individual_user is not None:
-            self.individual_user = individual_user
+        self.individual_user = individual_user
 
     @property
     def id(self):
@@ -87,12 +86,6 @@ class Team(object):
         """
         if self.local_vars_configuration.client_side_validation and id is None:  # noqa: E501
             raise ValueError("Invalid value for `id`, must not be `None`")  # noqa: E501
-        if (self.local_vars_configuration.client_side_validation and
-                id is not None and id > 2147483647):  # noqa: E501
-            raise ValueError("Invalid value for `id`, must be a value less than or equal to `2147483647`")  # noqa: E501
-        if (self.local_vars_configuration.client_side_validation and
-                id is not None and id < 1):  # noqa: E501
-            raise ValueError("Invalid value for `id`, must be a value greater than or equal to `1`")  # noqa: E501
 
         self._id = id
 
@@ -166,6 +159,8 @@ class Team(object):
         :param individual_user: The individual_user of this Team.  # noqa: E501
         :type individual_user: bool
         """
+        if self.local_vars_configuration.client_side_validation and individual_user is None:  # noqa: E501
+            raise ValueError("Invalid value for `individual_user`, must not be `None`")  # noqa: E501
 
         self._individual_user = individual_user
 

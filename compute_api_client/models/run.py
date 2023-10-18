@@ -36,55 +36,81 @@ class Run(object):
                             and the value is json key in definition.
     """
     openapi_types = {
-        'created_on': 'datetime',
-        'queued_at': 'datetime',
-        'finished_at': 'datetime',
         'id': 'int',
+        'created_on': 'datetime',
+        'file_id': 'int',
         'algorithm_type': 'AlgorithmType',
         'status': 'RunStatus',
-        'number_of_shots': 'int',
         'batch_run_id': 'int',
-        'file_id': 'int'
+        'queued_at': 'datetime',
+        'finished_at': 'datetime',
+        'number_of_shots': 'int'
     }
 
     attribute_map = {
-        'created_on': 'created_on',
-        'queued_at': 'queued_at',
-        'finished_at': 'finished_at',
         'id': 'id',
+        'created_on': 'created_on',
+        'file_id': 'file_id',
         'algorithm_type': 'algorithm_type',
         'status': 'status',
-        'number_of_shots': 'number_of_shots',
         'batch_run_id': 'batch_run_id',
-        'file_id': 'file_id'
+        'queued_at': 'queued_at',
+        'finished_at': 'finished_at',
+        'number_of_shots': 'number_of_shots'
     }
 
-    def __init__(self, created_on=None, queued_at=None, finished_at=None, id=None, algorithm_type=None, status=None, number_of_shots=None, batch_run_id=None, file_id=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, id=None, created_on=None, file_id=None, algorithm_type=None, status=None, batch_run_id=None, queued_at=None, finished_at=None, number_of_shots=None, local_vars_configuration=None):  # noqa: E501
         """Run - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration.get_default_copy()
         self.local_vars_configuration = local_vars_configuration
 
-        self._created_on = None
-        self._queued_at = None
-        self._finished_at = None
         self._id = None
+        self._created_on = None
+        self._file_id = None
         self._algorithm_type = None
         self._status = None
-        self._number_of_shots = None
         self._batch_run_id = None
-        self._file_id = None
+        self._queued_at = None
+        self._finished_at = None
+        self._number_of_shots = None
         self.discriminator = None
 
-        self.created_on = created_on
-        self.queued_at = queued_at
-        self.finished_at = finished_at
         self.id = id
+        self.created_on = created_on
+        self.file_id = file_id
         self.algorithm_type = algorithm_type
         self.status = status
-        self.number_of_shots = number_of_shots
         self.batch_run_id = batch_run_id
-        self.file_id = file_id
+        if queued_at is not None:
+            self.queued_at = queued_at
+        if finished_at is not None:
+            self.finished_at = finished_at
+        if number_of_shots is not None:
+            self.number_of_shots = number_of_shots
+
+    @property
+    def id(self):
+        """Gets the id of this Run.  # noqa: E501
+
+
+        :return: The id of this Run.  # noqa: E501
+        :rtype: int
+        """
+        return self._id
+
+    @id.setter
+    def id(self, id):
+        """Sets the id of this Run.
+
+
+        :param id: The id of this Run.  # noqa: E501
+        :type id: int
+        """
+        if self.local_vars_configuration.client_side_validation and id is None:  # noqa: E501
+            raise ValueError("Invalid value for `id`, must not be `None`")  # noqa: E501
+
+        self._id = id
 
     @property
     def created_on(self):
@@ -108,6 +134,98 @@ class Run(object):
             raise ValueError("Invalid value for `created_on`, must not be `None`")  # noqa: E501
 
         self._created_on = created_on
+
+    @property
+    def file_id(self):
+        """Gets the file_id of this Run.  # noqa: E501
+
+
+        :return: The file_id of this Run.  # noqa: E501
+        :rtype: int
+        """
+        return self._file_id
+
+    @file_id.setter
+    def file_id(self, file_id):
+        """Sets the file_id of this Run.
+
+
+        :param file_id: The file_id of this Run.  # noqa: E501
+        :type file_id: int
+        """
+        if self.local_vars_configuration.client_side_validation and file_id is None:  # noqa: E501
+            raise ValueError("Invalid value for `file_id`, must not be `None`")  # noqa: E501
+
+        self._file_id = file_id
+
+    @property
+    def algorithm_type(self):
+        """Gets the algorithm_type of this Run.  # noqa: E501
+
+
+        :return: The algorithm_type of this Run.  # noqa: E501
+        :rtype: AlgorithmType
+        """
+        return self._algorithm_type
+
+    @algorithm_type.setter
+    def algorithm_type(self, algorithm_type):
+        """Sets the algorithm_type of this Run.
+
+
+        :param algorithm_type: The algorithm_type of this Run.  # noqa: E501
+        :type algorithm_type: AlgorithmType
+        """
+        if self.local_vars_configuration.client_side_validation and algorithm_type is None:  # noqa: E501
+            raise ValueError("Invalid value for `algorithm_type`, must not be `None`")  # noqa: E501
+
+        self._algorithm_type = algorithm_type
+
+    @property
+    def status(self):
+        """Gets the status of this Run.  # noqa: E501
+
+
+        :return: The status of this Run.  # noqa: E501
+        :rtype: RunStatus
+        """
+        return self._status
+
+    @status.setter
+    def status(self, status):
+        """Sets the status of this Run.
+
+
+        :param status: The status of this Run.  # noqa: E501
+        :type status: RunStatus
+        """
+        if self.local_vars_configuration.client_side_validation and status is None:  # noqa: E501
+            raise ValueError("Invalid value for `status`, must not be `None`")  # noqa: E501
+
+        self._status = status
+
+    @property
+    def batch_run_id(self):
+        """Gets the batch_run_id of this Run.  # noqa: E501
+
+
+        :return: The batch_run_id of this Run.  # noqa: E501
+        :rtype: int
+        """
+        return self._batch_run_id
+
+    @batch_run_id.setter
+    def batch_run_id(self, batch_run_id):
+        """Sets the batch_run_id of this Run.
+
+
+        :param batch_run_id: The batch_run_id of this Run.  # noqa: E501
+        :type batch_run_id: int
+        """
+        if self.local_vars_configuration.client_side_validation and batch_run_id is None:  # noqa: E501
+            raise ValueError("Invalid value for `batch_run_id`, must not be `None`")  # noqa: E501
+
+        self._batch_run_id = batch_run_id
 
     @property
     def queued_at(self):
@@ -152,91 +270,6 @@ class Run(object):
         self._finished_at = finished_at
 
     @property
-    def id(self):
-        """Gets the id of this Run.  # noqa: E501
-
-
-        :return: The id of this Run.  # noqa: E501
-        :rtype: int
-        """
-        return self._id
-
-    @id.setter
-    def id(self, id):
-        """Sets the id of this Run.
-
-
-        :param id: The id of this Run.  # noqa: E501
-        :type id: int
-        """
-        if self.local_vars_configuration.client_side_validation and id is None:  # noqa: E501
-            raise ValueError("Invalid value for `id`, must not be `None`")  # noqa: E501
-        if (self.local_vars_configuration.client_side_validation and
-                id is not None and id > 2147483647):  # noqa: E501
-            raise ValueError("Invalid value for `id`, must be a value less than or equal to `2147483647`")  # noqa: E501
-        if (self.local_vars_configuration.client_side_validation and
-                id is not None and id < 1):  # noqa: E501
-            raise ValueError("Invalid value for `id`, must be a value greater than or equal to `1`")  # noqa: E501
-
-        self._id = id
-
-    @property
-    def algorithm_type(self):
-        """Gets the algorithm_type of this Run.  # noqa: E501
-
-        HYBRID: hybrid<br/>QUANTUM: quantum  # noqa: E501
-
-        :return: The algorithm_type of this Run.  # noqa: E501
-        :rtype: AlgorithmType
-        """
-        return self._algorithm_type
-
-    @algorithm_type.setter
-    def algorithm_type(self, algorithm_type):
-        """Sets the algorithm_type of this Run.
-
-        HYBRID: hybrid<br/>QUANTUM: quantum  # noqa: E501
-
-        :param algorithm_type: The algorithm_type of this Run.  # noqa: E501
-        :type algorithm_type: AlgorithmType
-        """
-        if self.local_vars_configuration.client_side_validation and algorithm_type is None:  # noqa: E501
-            raise ValueError("Invalid value for `algorithm_type`, must not be `None`")  # noqa: E501
-        if (self.local_vars_configuration.client_side_validation and
-                algorithm_type is not None and len(algorithm_type) > 7):
-            raise ValueError("Invalid value for `algorithm_type`, length must be less than or equal to `7`")  # noqa: E501
-
-        self._algorithm_type = algorithm_type
-
-    @property
-    def status(self):
-        """Gets the status of this Run.  # noqa: E501
-
-        PLANNED: planned<br/>RUNNING: running<br/>COMPLETED: completed<br/>CANCELLED: cancelled<br/>FAILED: failed  # noqa: E501
-
-        :return: The status of this Run.  # noqa: E501
-        :rtype: RunStatus
-        """
-        return self._status
-
-    @status.setter
-    def status(self, status):
-        """Sets the status of this Run.
-
-        PLANNED: planned<br/>RUNNING: running<br/>COMPLETED: completed<br/>CANCELLED: cancelled<br/>FAILED: failed  # noqa: E501
-
-        :param status: The status of this Run.  # noqa: E501
-        :type status: RunStatus
-        """
-        if self.local_vars_configuration.client_side_validation and status is None:  # noqa: E501
-            raise ValueError("Invalid value for `status`, must not be `None`")  # noqa: E501
-        if (self.local_vars_configuration.client_side_validation and
-                status is not None and len(status) > 9):
-            raise ValueError("Invalid value for `status`, length must be less than or equal to `9`")  # noqa: E501
-
-        self._status = status
-
-    @property
     def number_of_shots(self):
         """Gets the number_of_shots of this Run.  # noqa: E501
 
@@ -254,72 +287,8 @@ class Run(object):
         :param number_of_shots: The number_of_shots of this Run.  # noqa: E501
         :type number_of_shots: int
         """
-        if (self.local_vars_configuration.client_side_validation and
-                number_of_shots is not None and number_of_shots > 2147483647):  # noqa: E501
-            raise ValueError("Invalid value for `number_of_shots`, must be a value less than or equal to `2147483647`")  # noqa: E501
-        if (self.local_vars_configuration.client_side_validation and
-                number_of_shots is not None and number_of_shots < -2147483648):  # noqa: E501
-            raise ValueError("Invalid value for `number_of_shots`, must be a value greater than or equal to `-2147483648`")  # noqa: E501
 
         self._number_of_shots = number_of_shots
-
-    @property
-    def batch_run_id(self):
-        """Gets the batch_run_id of this Run.  # noqa: E501
-
-
-        :return: The batch_run_id of this Run.  # noqa: E501
-        :rtype: int
-        """
-        return self._batch_run_id
-
-    @batch_run_id.setter
-    def batch_run_id(self, batch_run_id):
-        """Sets the batch_run_id of this Run.
-
-
-        :param batch_run_id: The batch_run_id of this Run.  # noqa: E501
-        :type batch_run_id: int
-        """
-        if self.local_vars_configuration.client_side_validation and batch_run_id is None:  # noqa: E501
-            raise ValueError("Invalid value for `batch_run_id`, must not be `None`")  # noqa: E501
-        if (self.local_vars_configuration.client_side_validation and
-                batch_run_id is not None and batch_run_id > 2147483647):  # noqa: E501
-            raise ValueError("Invalid value for `batch_run_id`, must be a value less than or equal to `2147483647`")  # noqa: E501
-        if (self.local_vars_configuration.client_side_validation and
-                batch_run_id is not None and batch_run_id < 1):  # noqa: E501
-            raise ValueError("Invalid value for `batch_run_id`, must be a value greater than or equal to `1`")  # noqa: E501
-
-        self._batch_run_id = batch_run_id
-
-    @property
-    def file_id(self):
-        """Gets the file_id of this Run.  # noqa: E501
-
-
-        :return: The file_id of this Run.  # noqa: E501
-        :rtype: int
-        """
-        return self._file_id
-
-    @file_id.setter
-    def file_id(self, file_id):
-        """Sets the file_id of this Run.
-
-
-        :param file_id: The file_id of this Run.  # noqa: E501
-        :type file_id: int
-        """
-        if self.local_vars_configuration.client_side_validation and file_id is None:  # noqa: E501
-            raise ValueError("Invalid value for `file_id`, must not be `None`")  # noqa: E501
-        if (self.local_vars_configuration.client_side_validation and
-                file_id is not None and file_id > 2147483647):  # noqa: E501
-            raise ValueError("Invalid value for `file_id`, must be a value less than or equal to `2147483647`")  # noqa: E501
-        if (self.local_vars_configuration.client_side_validation and
-                file_id is not None and file_id < 1):  # noqa: E501
-            raise ValueError("Invalid value for `file_id`, must be a value greater than or equal to `1`")  # noqa: E501
-
-        self._file_id = file_id
 
     def to_dict(self, serialize=False):
         """Returns the model properties as a dict"""
