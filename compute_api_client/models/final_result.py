@@ -38,18 +38,18 @@ class FinalResult(object):
     openapi_types = {
         'id': 'int',
         'created_on': 'datetime',
-        'run_id': 'int',
+        'job_id': 'int',
         'final_result': 'object'
     }
 
     attribute_map = {
         'id': 'id',
         'created_on': 'created_on',
-        'run_id': 'run_id',
+        'job_id': 'job_id',
         'final_result': 'final_result'
     }
 
-    def __init__(self, id=None, created_on=None, run_id=None, final_result=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, id=None, created_on=None, job_id=None, final_result=None, local_vars_configuration=None):  # noqa: E501
         """FinalResult - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration.get_default_copy()
@@ -57,13 +57,13 @@ class FinalResult(object):
 
         self._id = None
         self._created_on = None
-        self._run_id = None
+        self._job_id = None
         self._final_result = None
         self.discriminator = None
 
         self.id = id
         self.created_on = created_on
-        self.run_id = run_id
+        self.job_id = job_id
         self.final_result = final_result
 
     @property
@@ -113,27 +113,27 @@ class FinalResult(object):
         self._created_on = created_on
 
     @property
-    def run_id(self):
-        """Gets the run_id of this FinalResult.  # noqa: E501
+    def job_id(self):
+        """Gets the job_id of this FinalResult.  # noqa: E501
 
 
-        :return: The run_id of this FinalResult.  # noqa: E501
+        :return: The job_id of this FinalResult.  # noqa: E501
         :rtype: int
         """
-        return self._run_id
+        return self._job_id
 
-    @run_id.setter
-    def run_id(self, run_id):
-        """Sets the run_id of this FinalResult.
+    @job_id.setter
+    def job_id(self, job_id):
+        """Sets the job_id of this FinalResult.
 
 
-        :param run_id: The run_id of this FinalResult.  # noqa: E501
-        :type run_id: int
+        :param job_id: The job_id of this FinalResult.  # noqa: E501
+        :type job_id: int
         """
-        if self.local_vars_configuration.client_side_validation and run_id is None:  # noqa: E501
-            raise ValueError("Invalid value for `run_id`, must not be `None`")  # noqa: E501
+        if self.local_vars_configuration.client_side_validation and job_id is None:  # noqa: E501
+            raise ValueError("Invalid value for `job_id`, must not be `None`")  # noqa: E501
 
-        self._run_id = run_id
+        self._job_id = job_id
 
     @property
     def final_result(self):

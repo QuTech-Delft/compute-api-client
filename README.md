@@ -79,12 +79,17 @@ Class | Method | HTTP request | Description
 *AlgorithmsApi* | [**read_algorithm_algorithms_id_get**](compute_api_client/docs/AlgorithmsApi.md#read_algorithm_algorithms_id_get) | **GET** /algorithms/{id} | Retrieve algorithm
 *AlgorithmsApi* | [**read_algorithms_algorithms_get**](compute_api_client/docs/AlgorithmsApi.md#read_algorithms_algorithms_get) | **GET** /algorithms | List algorithms
 *AlgorithmsApi* | [**update_algorithm_algorithms_id_put**](compute_api_client/docs/AlgorithmsApi.md#update_algorithm_algorithms_id_put) | **PUT** /algorithms/{id} | Update algorithm
-*BatchRunsApi* | [**create_batch_run_batch_runs_post**](compute_api_client/docs/BatchRunsApi.md#create_batch_run_batch_runs_post) | **POST** /batch_runs | Create batch run
-*BatchRunsApi* | [**enqueue_batch_run_batch_runs_id_enqueue_patch**](compute_api_client/docs/BatchRunsApi.md#enqueue_batch_run_batch_runs_id_enqueue_patch) | **PATCH** /batch_runs/{id}/enqueue | Enqueue batch run for execution
-*BatchRunsApi* | [**finish_batch_run_batch_runs_id_finish_patch**](compute_api_client/docs/BatchRunsApi.md#finish_batch_run_batch_runs_id_finish_patch) | **PATCH** /batch_runs/{id}/finish | Finish batch run
-*BatchRunsApi* | [**peek_batch_run_batch_runs_peek_patch**](compute_api_client/docs/BatchRunsApi.md#peek_batch_run_batch_runs_peek_patch) | **PATCH** /batch_runs/peek | Peek batch run
-*BatchRunsApi* | [**pop_batch_run_batch_runs_pop_patch**](compute_api_client/docs/BatchRunsApi.md#pop_batch_run_batch_runs_pop_patch) | **PATCH** /batch_runs/pop | Take batch run
-*BatchRunsApi* | [**read_batch_runs_batch_runs_get**](compute_api_client/docs/BatchRunsApi.md#read_batch_runs_batch_runs_get) | **GET** /batch_runs | List batch runs
+*BackendApi* | [**create_backend_backends_post**](compute_api_client/docs/BackendApi.md#create_backend_backends_post) | **POST** /backends | Create backend
+*BackendApi* | [**read_backend_backends_id_get**](compute_api_client/docs/BackendApi.md#read_backend_backends_id_get) | **GET** /backends/{id} | Retrieve backend
+*BackendApi* | [**read_backends_backends_get**](compute_api_client/docs/BackendApi.md#read_backends_backends_get) | **GET** /backends | List backends
+*BackendTypesApi* | [**read_backend_type_backend_types_id_get**](compute_api_client/docs/BackendTypesApi.md#read_backend_type_backend_types_id_get) | **GET** /backend_types/{id} | Retrieve backend type
+*BackendTypesApi* | [**read_backend_types_backend_types_get**](compute_api_client/docs/BackendTypesApi.md#read_backend_types_backend_types_get) | **GET** /backend_types/ | List backend types
+*BatchJobsApi* | [**create_batch_job_batch_jobs_post**](compute_api_client/docs/BatchJobsApi.md#create_batch_job_batch_jobs_post) | **POST** /batch_jobs | Create batch job
+*BatchJobsApi* | [**enqueue_batch_job_batch_jobs_id_enqueue_patch**](compute_api_client/docs/BatchJobsApi.md#enqueue_batch_job_batch_jobs_id_enqueue_patch) | **PATCH** /batch_jobs/{id}/enqueue | Enqueue batch job for execution
+*BatchJobsApi* | [**finish_batch_job_batch_jobs_id_finish_patch**](compute_api_client/docs/BatchJobsApi.md#finish_batch_job_batch_jobs_id_finish_patch) | **PATCH** /batch_jobs/{id}/finish | Finish batch job
+*BatchJobsApi* | [**peek_batch_job_batch_jobs_peek_patch**](compute_api_client/docs/BatchJobsApi.md#peek_batch_job_batch_jobs_peek_patch) | **PATCH** /batch_jobs/peek | Peek batch job
+*BatchJobsApi* | [**pop_batch_job_batch_jobs_pop_patch**](compute_api_client/docs/BatchJobsApi.md#pop_batch_job_batch_jobs_pop_patch) | **PATCH** /batch_jobs/pop | Take batch job
+*BatchJobsApi* | [**read_batch_jobs_batch_jobs_get**](compute_api_client/docs/BatchJobsApi.md#read_batch_jobs_batch_jobs_get) | **GET** /batch_jobs | List batch jobs
 *CommitsApi* | [**create_commit_commits_post**](compute_api_client/docs/CommitsApi.md#create_commit_commits_post) | **POST** /commits | Create commit
 *CommitsApi* | [**delete_commit_commits_id_delete**](compute_api_client/docs/CommitsApi.md#delete_commit_commits_id_delete) | **DELETE** /commits/{id} | Destroy commit
 *CommitsApi* | [**read_commit_commits_id_get**](compute_api_client/docs/CommitsApi.md#read_commit_commits_id_get) | **GET** /commits/{id} | Get commit by ID
@@ -94,8 +99,13 @@ Class | Method | HTTP request | Description
 *FilesApi* | [**read_file_files_id_get**](compute_api_client/docs/FilesApi.md#read_file_files_id_get) | **GET** /files/{id} | Retrieve file
 *FilesApi* | [**read_files_files_get**](compute_api_client/docs/FilesApi.md#read_files_files_get) | **GET** /files | List files
 *FinalResultsApi* | [**create_final_result_final_results_post**](compute_api_client/docs/FinalResultsApi.md#create_final_result_final_results_post) | **POST** /final_results | Create final result
-*FinalResultsApi* | [**read_final_result_by_run_id_final_results_run_run_id_get**](compute_api_client/docs/FinalResultsApi.md#read_final_result_by_run_id_final_results_run_run_id_get) | **GET** /final_results/run/{run_id} | Retrieve final result by run ID
+*FinalResultsApi* | [**read_final_result_by_job_id_final_results_job_job_id_get**](compute_api_client/docs/FinalResultsApi.md#read_final_result_by_job_id_final_results_job_job_id_get) | **GET** /final_results/job/{job_id} | Retrieve final result by job ID
 *FinalResultsApi* | [**read_final_result_final_results_id_get**](compute_api_client/docs/FinalResultsApi.md#read_final_result_final_results_id_get) | **GET** /final_results/{id} | Retrieve final result
+*JobsApi* | [**create_job_jobs_post**](compute_api_client/docs/JobsApi.md#create_job_jobs_post) | **POST** /jobs | Create job
+*JobsApi* | [**delete_job_jobs_id_delete**](compute_api_client/docs/JobsApi.md#delete_job_jobs_id_delete) | **DELETE** /jobs/{id} | Destroy job
+*JobsApi* | [**read_job_jobs_id_get**](compute_api_client/docs/JobsApi.md#read_job_jobs_id_get) | **GET** /jobs/{id} | Retrieve job
+*JobsApi* | [**read_jobs_jobs_get**](compute_api_client/docs/JobsApi.md#read_jobs_jobs_get) | **GET** /jobs | List jobs
+*JobsApi* | [**start_job_jobs_id_start_patch**](compute_api_client/docs/JobsApi.md#start_job_jobs_id_start_patch) | **PATCH** /jobs/{id}/start | Start job
 *LanguagesApi* | [**read_language_languages_id_get**](compute_api_client/docs/LanguagesApi.md#read_language_languages_id_get) | **GET** /languages/{id} | Retrieve language
 *LanguagesApi* | [**read_languages_languages_get**](compute_api_client/docs/LanguagesApi.md#read_languages_languages_get) | **GET** /languages | List languages
 *MembersApi* | [**create_member_members_post**](compute_api_client/docs/MembersApi.md#create_member_members_post) | **POST** /members | Create member
@@ -103,7 +113,7 @@ Class | Method | HTTP request | Description
 *MembersApi* | [**read_member_members_id_get**](compute_api_client/docs/MembersApi.md#read_member_members_id_get) | **GET** /members/{id} | Retrieve member
 *MembersApi* | [**read_members_members_get**](compute_api_client/docs/MembersApi.md#read_members_members_get) | **GET** /members | List members
 *MetadataApi* | [**create_metadata_metadata_post**](compute_api_client/docs/MetadataApi.md#create_metadata_metadata_post) | **POST** /metadata | Create metadata
-*MetadataApi* | [**read_metadata_by_runtime_id_metadata_runtime_runtime_id_get**](compute_api_client/docs/MetadataApi.md#read_metadata_by_runtime_id_metadata_runtime_runtime_id_get) | **GET** /metadata/runtime/{runtime_id} | Retrieve metadata by runtime ID
+*MetadataApi* | [**read_metadata_by_backend_id_metadata_backend_backend_id_get**](compute_api_client/docs/MetadataApi.md#read_metadata_by_backend_id_metadata_backend_backend_id_get) | **GET** /metadata/backend/{backend_id} | Retrieve metadata by backend ID
 *MetadataApi* | [**read_metadata_metadata_id_get**](compute_api_client/docs/MetadataApi.md#read_metadata_metadata_id_get) | **GET** /metadata/{id} | Get metadata by ID
 *PermissionsApi* | [**read_permission_group_permission_groups_id_get**](compute_api_client/docs/PermissionsApi.md#read_permission_group_permission_groups_id_get) | **GET** /permission_groups/{id} | Retrieve permission groups
 *PermissionsApi* | [**read_permission_groups_permission_groups_get**](compute_api_client/docs/PermissionsApi.md#read_permission_groups_permission_groups_get) | **GET** /permission_groups/ | List permission groups
@@ -121,17 +131,7 @@ Class | Method | HTTP request | Description
 *ReservationsApi* | [**terminate_reservation_reservations_id_terminate_patch**](compute_api_client/docs/ReservationsApi.md#terminate_reservation_reservations_id_terminate_patch) | **PATCH** /reservations/{id}/terminate | Terminate reservation
 *ResultsApi* | [**create_result_results_post**](compute_api_client/docs/ResultsApi.md#create_result_results_post) | **POST** /results | Create result
 *ResultsApi* | [**read_result_results_id_get**](compute_api_client/docs/ResultsApi.md#read_result_results_id_get) | **GET** /results/{id} | Retrieve result
-*ResultsApi* | [**read_results_by_run_id_results_run_run_id_get**](compute_api_client/docs/ResultsApi.md#read_results_by_run_id_results_run_run_id_get) | **GET** /results/run/{run_id} | Retrieve result
-*RunsApi* | [**create_run_runs_post**](compute_api_client/docs/RunsApi.md#create_run_runs_post) | **POST** /runs | Create run
-*RunsApi* | [**delete_run_runs_id_delete**](compute_api_client/docs/RunsApi.md#delete_run_runs_id_delete) | **DELETE** /runs/{id} | Destroy run
-*RunsApi* | [**read_run_runs_id_get**](compute_api_client/docs/RunsApi.md#read_run_runs_id_get) | **GET** /runs/{id} | Retrieve run
-*RunsApi* | [**read_runs_runs_get**](compute_api_client/docs/RunsApi.md#read_runs_runs_get) | **GET** /runs | List runs
-*RunsApi* | [**start_run_runs_id_start_patch**](compute_api_client/docs/RunsApi.md#start_run_runs_id_start_patch) | **PATCH** /runs/{id}/start | Start run
-*RuntimeApi* | [**create_runtime_runtimes_post**](compute_api_client/docs/RuntimeApi.md#create_runtime_runtimes_post) | **POST** /runtimes | Create runtime
-*RuntimeApi* | [**read_runtime_runtimes_id_get**](compute_api_client/docs/RuntimeApi.md#read_runtime_runtimes_id_get) | **GET** /runtimes/{id} | Retrieve runtime
-*RuntimeApi* | [**read_runtimes_runtimes_get**](compute_api_client/docs/RuntimeApi.md#read_runtimes_runtimes_get) | **GET** /runtimes | List runtimes
-*RuntimeTypesApi* | [**read_runtime_type_runtime_types_id_get**](compute_api_client/docs/RuntimeTypesApi.md#read_runtime_type_runtime_types_id_get) | **GET** /runtime_types/{id} | Retrieve runtime type
-*RuntimeTypesApi* | [**read_runtime_types_runtime_types_get**](compute_api_client/docs/RuntimeTypesApi.md#read_runtime_types_runtime_types_get) | **GET** /runtime_types/ | List runtime types
+*ResultsApi* | [**read_results_by_job_id_results_job_job_id_get**](compute_api_client/docs/ResultsApi.md#read_results_by_job_id_results_job_job_id_get) | **GET** /results/job/{job_id} | Retrieve result
 *TeamsApi* | [**read_team_teams_id_get**](compute_api_client/docs/TeamsApi.md#read_team_teams_id_get) | **GET** /teams/{id} | Retrieve teams
 *TeamsApi* | [**read_teams_teams_get**](compute_api_client/docs/TeamsApi.md#read_teams_teams_get) | **GET** /teams/ | List teams
 *TransactionsApi* | [**read_transaction_transactions_id_get**](compute_api_client/docs/TransactionsApi.md#read_transaction_transactions_id_get) | **GET** /transactions/{id} | Retrieve transactions
@@ -147,9 +147,13 @@ Class | Method | HTTP request | Description
  - [Algorithm](compute_api_client/docs/Algorithm.md)
  - [AlgorithmIn](compute_api_client/docs/AlgorithmIn.md)
  - [AlgorithmType](compute_api_client/docs/AlgorithmType.md)
- - [BatchRun](compute_api_client/docs/BatchRun.md)
- - [BatchRunIn](compute_api_client/docs/BatchRunIn.md)
- - [BatchRunStatus](compute_api_client/docs/BatchRunStatus.md)
+ - [Backend](compute_api_client/docs/Backend.md)
+ - [BackendStatus](compute_api_client/docs/BackendStatus.md)
+ - [BackendType](compute_api_client/docs/BackendType.md)
+ - [BackendWithAuthentication](compute_api_client/docs/BackendWithAuthentication.md)
+ - [BatchJob](compute_api_client/docs/BatchJob.md)
+ - [BatchJobIn](compute_api_client/docs/BatchJobIn.md)
+ - [BatchJobStatus](compute_api_client/docs/BatchJobStatus.md)
  - [Commit](compute_api_client/docs/Commit.md)
  - [CommitIn](compute_api_client/docs/CommitIn.md)
  - [CompileStage](compute_api_client/docs/CompileStage.md)
@@ -160,6 +164,9 @@ Class | Method | HTTP request | Description
  - [FinalResultIn](compute_api_client/docs/FinalResultIn.md)
  - [HTTPNotFoundError](compute_api_client/docs/HTTPNotFoundError.md)
  - [HTTPValidationError](compute_api_client/docs/HTTPValidationError.md)
+ - [Job](compute_api_client/docs/Job.md)
+ - [JobIn](compute_api_client/docs/JobIn.md)
+ - [JobStatus](compute_api_client/docs/JobStatus.md)
  - [Language](compute_api_client/docs/Language.md)
  - [LocationInner](compute_api_client/docs/LocationInner.md)
  - [Member](compute_api_client/docs/Member.md)
@@ -176,13 +183,6 @@ Class | Method | HTTP request | Description
  - [Result](compute_api_client/docs/Result.md)
  - [ResultIn](compute_api_client/docs/ResultIn.md)
  - [Role](compute_api_client/docs/Role.md)
- - [Run](compute_api_client/docs/Run.md)
- - [RunIn](compute_api_client/docs/RunIn.md)
- - [RunStatus](compute_api_client/docs/RunStatus.md)
- - [Runtime](compute_api_client/docs/Runtime.md)
- - [RuntimeStatus](compute_api_client/docs/RuntimeStatus.md)
- - [RuntimeType](compute_api_client/docs/RuntimeType.md)
- - [RuntimeWithAuthentication](compute_api_client/docs/RuntimeWithAuthentication.md)
  - [ShareType](compute_api_client/docs/ShareType.md)
  - [Team](compute_api_client/docs/Team.md)
  - [Transaction](compute_api_client/docs/Transaction.md)
@@ -201,7 +201,7 @@ Class | Method | HTTP request | Description
 - **Location**: HTTP header
 
 
-## runtime
+## backend
 
 - **Type**: API key
 - **API key parameter name**: Authorization

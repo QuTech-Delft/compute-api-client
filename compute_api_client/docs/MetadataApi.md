@@ -5,7 +5,7 @@ All URIs are relative to *http://localhost*
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**create_metadata_metadata_post**](MetadataApi.md#create_metadata_metadata_post) | **POST** /metadata | Create metadata
-[**read_metadata_by_runtime_id_metadata_runtime_runtime_id_get**](MetadataApi.md#read_metadata_by_runtime_id_metadata_runtime_runtime_id_get) | **GET** /metadata/runtime/{runtime_id} | Retrieve metadata by runtime ID
+[**read_metadata_by_backend_id_metadata_backend_backend_id_get**](MetadataApi.md#read_metadata_by_backend_id_metadata_backend_backend_id_get) | **GET** /metadata/backend/{backend_id} | Retrieve metadata by backend ID
 [**read_metadata_metadata_id_get**](MetadataApi.md#read_metadata_metadata_id_get) | **GET** /metadata/{id} | Get metadata by ID
 
 
@@ -83,12 +83,12 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **read_metadata_by_runtime_id_metadata_runtime_runtime_id_get**
-> list[Metadata] read_metadata_by_runtime_id_metadata_runtime_runtime_id_get(runtime_id)
+# **read_metadata_by_backend_id_metadata_backend_backend_id_get**
+> list[Metadata] read_metadata_by_backend_id_metadata_backend_backend_id_get(backend_id)
 
-Retrieve metadata by runtime ID
+Retrieve metadata by backend ID
 
-Get metadata by run ID.
+Get metadata by job ID.
 
 ### Example
 
@@ -120,21 +120,21 @@ configuration.api_key['user'] = 'YOUR_API_KEY'
 with compute_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = compute_api_client.MetadataApi(api_client)
-    runtime_id = 56 # int | 
+    backend_id = 56 # int | 
 
     try:
-        # Retrieve metadata by runtime ID
-        api_response = api_instance.read_metadata_by_runtime_id_metadata_runtime_runtime_id_get(runtime_id)
+        # Retrieve metadata by backend ID
+        api_response = api_instance.read_metadata_by_backend_id_metadata_backend_backend_id_get(backend_id)
         pprint(api_response)
     except ApiException as e:
-        print("Exception when calling MetadataApi->read_metadata_by_runtime_id_metadata_runtime_runtime_id_get: %s\n" % e)
+        print("Exception when calling MetadataApi->read_metadata_by_backend_id_metadata_backend_backend_id_get: %s\n" % e)
 ```
 
 ### Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **runtime_id** | **int**|  | 
+ **backend_id** | **int**|  | 
 
 ### Return type
 

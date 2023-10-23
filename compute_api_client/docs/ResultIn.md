@@ -4,7 +4,7 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**run_id** | **int** |  | 
+**job_id** | **int** |  | 
 **metadata_id** | **int** |  | [optional] 
 **number_of_qubits** | **int** |  | 
 **execution_time_in_seconds** | **float** |  | 

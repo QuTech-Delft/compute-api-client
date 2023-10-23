@@ -6,7 +6,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **id** | **int** |  | 
 **domain** | [**Domain**](Domain.md) |  | [optional] 
-**run** | **int** |  | [optional] 
+**job** | **int** |  | [optional] 
 **team_id** | **int** |  | 
 **user_id** | **int** |  | [optional] 
 **change** | **int** |  | 

@@ -36,7 +36,7 @@ class ResultIn(object):
                             and the value is json key in definition.
     """
     openapi_types = {
-        'run_id': 'int',
+        'job_id': 'int',
         'metadata_id': 'int',
         'number_of_qubits': 'int',
         'execution_time_in_seconds': 'float',
@@ -46,7 +46,7 @@ class ResultIn(object):
     }
 
     attribute_map = {
-        'run_id': 'run_id',
+        'job_id': 'job_id',
         'metadata_id': 'metadata_id',
         'number_of_qubits': 'number_of_qubits',
         'execution_time_in_seconds': 'execution_time_in_seconds',
@@ -55,13 +55,13 @@ class ResultIn(object):
         'results': 'results'
     }
 
-    def __init__(self, run_id=None, metadata_id=None, number_of_qubits=None, execution_time_in_seconds=None, shots_requested=None, shots_done=None, results=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, job_id=None, metadata_id=None, number_of_qubits=None, execution_time_in_seconds=None, shots_requested=None, shots_done=None, results=None, local_vars_configuration=None):  # noqa: E501
         """ResultIn - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration.get_default_copy()
         self.local_vars_configuration = local_vars_configuration
 
-        self._run_id = None
+        self._job_id = None
         self._metadata_id = None
         self._number_of_qubits = None
         self._execution_time_in_seconds = None
@@ -70,7 +70,7 @@ class ResultIn(object):
         self._results = None
         self.discriminator = None
 
-        self.run_id = run_id
+        self.job_id = job_id
         if metadata_id is not None:
             self.metadata_id = metadata_id
         self.number_of_qubits = number_of_qubits
@@ -83,27 +83,27 @@ class ResultIn(object):
             self.results = results
 
     @property
-    def run_id(self):
-        """Gets the run_id of this ResultIn.  # noqa: E501
+    def job_id(self):
+        """Gets the job_id of this ResultIn.  # noqa: E501
 
 
-        :return: The run_id of this ResultIn.  # noqa: E501
+        :return: The job_id of this ResultIn.  # noqa: E501
         :rtype: int
         """
-        return self._run_id
+        return self._job_id
 
-    @run_id.setter
-    def run_id(self, run_id):
-        """Sets the run_id of this ResultIn.
+    @job_id.setter
+    def job_id(self, job_id):
+        """Sets the job_id of this ResultIn.
 
 
-        :param run_id: The run_id of this ResultIn.  # noqa: E501
-        :type run_id: int
+        :param job_id: The job_id of this ResultIn.  # noqa: E501
+        :type job_id: int
         """
-        if self.local_vars_configuration.client_side_validation and run_id is None:  # noqa: E501
-            raise ValueError("Invalid value for `run_id`, must not be `None`")  # noqa: E501
+        if self.local_vars_configuration.client_side_validation and job_id is None:  # noqa: E501
+            raise ValueError("Invalid value for `job_id`, must not be `None`")  # noqa: E501
 
-        self._run_id = run_id
+        self._job_id = job_id
 
     @property
     def metadata_id(self):

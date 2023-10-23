@@ -38,7 +38,7 @@ class Result(object):
     openapi_types = {
         'id': 'int',
         'created_on': 'datetime',
-        'run_id': 'int',
+        'job_id': 'int',
         'metadata_id': 'int',
         'number_of_qubits': 'int',
         'execution_time_in_seconds': 'float',
@@ -50,7 +50,7 @@ class Result(object):
     attribute_map = {
         'id': 'id',
         'created_on': 'created_on',
-        'run_id': 'run_id',
+        'job_id': 'job_id',
         'metadata_id': 'metadata_id',
         'number_of_qubits': 'number_of_qubits',
         'execution_time_in_seconds': 'execution_time_in_seconds',
@@ -59,7 +59,7 @@ class Result(object):
         'results': 'results'
     }
 
-    def __init__(self, id=None, created_on=None, run_id=None, metadata_id=None, number_of_qubits=None, execution_time_in_seconds=None, shots_requested=None, shots_done=None, results=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, id=None, created_on=None, job_id=None, metadata_id=None, number_of_qubits=None, execution_time_in_seconds=None, shots_requested=None, shots_done=None, results=None, local_vars_configuration=None):  # noqa: E501
         """Result - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration.get_default_copy()
@@ -67,7 +67,7 @@ class Result(object):
 
         self._id = None
         self._created_on = None
-        self._run_id = None
+        self._job_id = None
         self._metadata_id = None
         self._number_of_qubits = None
         self._execution_time_in_seconds = None
@@ -78,7 +78,7 @@ class Result(object):
 
         self.id = id
         self.created_on = created_on
-        self.run_id = run_id
+        self.job_id = job_id
         self.metadata_id = metadata_id
         self.number_of_qubits = number_of_qubits
         self.execution_time_in_seconds = execution_time_in_seconds
@@ -136,27 +136,27 @@ class Result(object):
         self._created_on = created_on
 
     @property
-    def run_id(self):
-        """Gets the run_id of this Result.  # noqa: E501
+    def job_id(self):
+        """Gets the job_id of this Result.  # noqa: E501
 
 
-        :return: The run_id of this Result.  # noqa: E501
+        :return: The job_id of this Result.  # noqa: E501
         :rtype: int
         """
-        return self._run_id
+        return self._job_id
 
-    @run_id.setter
-    def run_id(self, run_id):
-        """Sets the run_id of this Result.
+    @job_id.setter
+    def job_id(self, job_id):
+        """Sets the job_id of this Result.
 
 
-        :param run_id: The run_id of this Result.  # noqa: E501
-        :type run_id: int
+        :param job_id: The job_id of this Result.  # noqa: E501
+        :type job_id: int
         """
-        if self.local_vars_configuration.client_side_validation and run_id is None:  # noqa: E501
-            raise ValueError("Invalid value for `run_id`, must not be `None`")  # noqa: E501
+        if self.local_vars_configuration.client_side_validation and job_id is None:  # noqa: E501
+            raise ValueError("Invalid value for `job_id`, must not be `None`")  # noqa: E501
 
-        self._run_id = run_id
+        self._job_id = job_id
 
     @property
     def metadata_id(self):

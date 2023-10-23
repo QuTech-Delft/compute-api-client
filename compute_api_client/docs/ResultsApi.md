@@ -6,7 +6,7 @@ Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**create_result_results_post**](ResultsApi.md#create_result_results_post) | **POST** /results | Create result
 [**read_result_results_id_get**](ResultsApi.md#read_result_results_id_get) | **GET** /results/{id} | Retrieve result
-[**read_results_by_run_id_results_run_run_id_get**](ResultsApi.md#read_results_by_run_id_results_run_run_id_get) | **GET** /results/run/{run_id} | Retrieve result
+[**read_results_by_job_id_results_job_job_id_get**](ResultsApi.md#read_results_by_job_id_results_job_job_id_get) | **GET** /results/job/{job_id} | Retrieve result
 
 
 # **create_result_results_post**
@@ -18,7 +18,7 @@ Create new result.
 
 ### Example
 
-* Api Key Authentication (runtime):
+* Api Key Authentication (backend):
 ```python
 from __future__ import print_function
 import time
@@ -36,11 +36,11 @@ configuration = compute_api_client.Configuration(
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
 
-# Configure API key authorization: runtime
-configuration.api_key['runtime'] = 'YOUR_API_KEY'
+# Configure API key authorization: backend
+configuration.api_key['backend'] = 'YOUR_API_KEY'
 
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['runtime'] = 'Bearer'
+# configuration.api_key_prefix['backend'] = 'Bearer'
 
 # Enter a context with an instance of the API client
 with compute_api_client.ApiClient(configuration) as api_client:
@@ -68,7 +68,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[runtime](../README.md#runtime)
+[backend](../README.md#backend)
 
 ### HTTP request headers
 
@@ -158,8 +158,8 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **read_results_by_run_id_results_run_run_id_get**
-> list[Result] read_results_by_run_id_results_run_run_id_get(run_id)
+# **read_results_by_job_id_results_job_job_id_get**
+> list[Result] read_results_by_job_id_results_job_job_id_get(job_id)
 
 Retrieve result
 
@@ -195,21 +195,21 @@ configuration.api_key['user'] = 'YOUR_API_KEY'
 with compute_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = compute_api_client.ResultsApi(api_client)
-    run_id = 56 # int | 
+    job_id = 56 # int | 
 
     try:
         # Retrieve result
-        api_response = api_instance.read_results_by_run_id_results_run_run_id_get(run_id)
+        api_response = api_instance.read_results_by_job_id_results_job_job_id_get(job_id)
         pprint(api_response)
     except ApiException as e:
-        print("Exception when calling ResultsApi->read_results_by_run_id_results_run_run_id_get: %s\n" % e)
+        print("Exception when calling ResultsApi->read_results_by_job_id_results_job_job_id_get: %s\n" % e)
 ```
 
 ### Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **run_id** | **int**|  | 
+ **job_id** | **int**|  | 
 
 ### Return type
 

@@ -6,7 +6,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **id** | **int** |  | 
 **created_on** | **datetime** |  | 
-**run_id** | **int** |  | 
+**job_id** | **int** |  | 
 **metadata_id** | **int** |  | 
 **number_of_qubits** | **int** |  | 
 **execution_time_in_seconds** | **float** |  | 

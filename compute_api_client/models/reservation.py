@@ -40,8 +40,8 @@ class Reservation(object):
         'member_id': 'int',
         'start_time': 'datetime',
         'end_time': 'datetime',
-        'runtime_type_id': 'int',
-        'runtime_id': 'int',
+        'backend_type_id': 'int',
+        'backend_id': 'int',
         'is_terminated': 'bool'
     }
 
@@ -50,12 +50,12 @@ class Reservation(object):
         'member_id': 'member_id',
         'start_time': 'start_time',
         'end_time': 'end_time',
-        'runtime_type_id': 'runtime_type_id',
-        'runtime_id': 'runtime_id',
+        'backend_type_id': 'backend_type_id',
+        'backend_id': 'backend_id',
         'is_terminated': 'is_terminated'
     }
 
-    def __init__(self, id=None, member_id=None, start_time=None, end_time=None, runtime_type_id=None, runtime_id=None, is_terminated=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, id=None, member_id=None, start_time=None, end_time=None, backend_type_id=None, backend_id=None, is_terminated=None, local_vars_configuration=None):  # noqa: E501
         """Reservation - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration.get_default_copy()
@@ -65,8 +65,8 @@ class Reservation(object):
         self._member_id = None
         self._start_time = None
         self._end_time = None
-        self._runtime_type_id = None
-        self._runtime_id = None
+        self._backend_type_id = None
+        self._backend_id = None
         self._is_terminated = None
         self.discriminator = None
 
@@ -74,9 +74,9 @@ class Reservation(object):
         self.member_id = member_id
         self.start_time = start_time
         self.end_time = end_time
-        self.runtime_type_id = runtime_type_id
-        if runtime_id is not None:
-            self.runtime_id = runtime_id
+        self.backend_type_id = backend_type_id
+        if backend_id is not None:
+            self.backend_id = backend_id
         self.is_terminated = is_terminated
 
     @property
@@ -172,48 +172,48 @@ class Reservation(object):
         self._end_time = end_time
 
     @property
-    def runtime_type_id(self):
-        """Gets the runtime_type_id of this Reservation.  # noqa: E501
+    def backend_type_id(self):
+        """Gets the backend_type_id of this Reservation.  # noqa: E501
 
 
-        :return: The runtime_type_id of this Reservation.  # noqa: E501
+        :return: The backend_type_id of this Reservation.  # noqa: E501
         :rtype: int
         """
-        return self._runtime_type_id
+        return self._backend_type_id
 
-    @runtime_type_id.setter
-    def runtime_type_id(self, runtime_type_id):
-        """Sets the runtime_type_id of this Reservation.
+    @backend_type_id.setter
+    def backend_type_id(self, backend_type_id):
+        """Sets the backend_type_id of this Reservation.
 
 
-        :param runtime_type_id: The runtime_type_id of this Reservation.  # noqa: E501
-        :type runtime_type_id: int
+        :param backend_type_id: The backend_type_id of this Reservation.  # noqa: E501
+        :type backend_type_id: int
         """
-        if self.local_vars_configuration.client_side_validation and runtime_type_id is None:  # noqa: E501
-            raise ValueError("Invalid value for `runtime_type_id`, must not be `None`")  # noqa: E501
+        if self.local_vars_configuration.client_side_validation and backend_type_id is None:  # noqa: E501
+            raise ValueError("Invalid value for `backend_type_id`, must not be `None`")  # noqa: E501
 
-        self._runtime_type_id = runtime_type_id
+        self._backend_type_id = backend_type_id
 
     @property
-    def runtime_id(self):
-        """Gets the runtime_id of this Reservation.  # noqa: E501
+    def backend_id(self):
+        """Gets the backend_id of this Reservation.  # noqa: E501
 
 
-        :return: The runtime_id of this Reservation.  # noqa: E501
+        :return: The backend_id of this Reservation.  # noqa: E501
         :rtype: int
         """
-        return self._runtime_id
+        return self._backend_id
 
-    @runtime_id.setter
-    def runtime_id(self, runtime_id):
-        """Sets the runtime_id of this Reservation.
+    @backend_id.setter
+    def backend_id(self, backend_id):
+        """Sets the backend_id of this Reservation.
 
 
-        :param runtime_id: The runtime_id of this Reservation.  # noqa: E501
-        :type runtime_id: int
+        :param backend_id: The backend_id of this Reservation.  # noqa: E501
+        :type backend_id: int
         """
 
-        self._runtime_id = runtime_id
+        self._backend_id = backend_id
 
     @property
     def is_terminated(self):

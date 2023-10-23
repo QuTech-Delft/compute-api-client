@@ -36,50 +36,50 @@ class MetadataIn(object):
                             and the value is json key in definition.
     """
     openapi_types = {
-        'runtime_id': 'int',
+        'backend_id': 'int',
         'data': 'object'
     }
 
     attribute_map = {
-        'runtime_id': 'runtime_id',
+        'backend_id': 'backend_id',
         'data': 'data'
     }
 
-    def __init__(self, runtime_id=None, data=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, backend_id=None, data=None, local_vars_configuration=None):  # noqa: E501
         """MetadataIn - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration.get_default_copy()
         self.local_vars_configuration = local_vars_configuration
 
-        self._runtime_id = None
+        self._backend_id = None
         self._data = None
         self.discriminator = None
 
-        self.runtime_id = runtime_id
+        self.backend_id = backend_id
         self.data = data
 
     @property
-    def runtime_id(self):
-        """Gets the runtime_id of this MetadataIn.  # noqa: E501
+    def backend_id(self):
+        """Gets the backend_id of this MetadataIn.  # noqa: E501
 
 
-        :return: The runtime_id of this MetadataIn.  # noqa: E501
+        :return: The backend_id of this MetadataIn.  # noqa: E501
         :rtype: int
         """
-        return self._runtime_id
+        return self._backend_id
 
-    @runtime_id.setter
-    def runtime_id(self, runtime_id):
-        """Sets the runtime_id of this MetadataIn.
+    @backend_id.setter
+    def backend_id(self, backend_id):
+        """Sets the backend_id of this MetadataIn.
 
 
-        :param runtime_id: The runtime_id of this MetadataIn.  # noqa: E501
-        :type runtime_id: int
+        :param backend_id: The backend_id of this MetadataIn.  # noqa: E501
+        :type backend_id: int
         """
-        if self.local_vars_configuration.client_side_validation and runtime_id is None:  # noqa: E501
-            raise ValueError("Invalid value for `runtime_id`, must not be `None`")  # noqa: E501
+        if self.local_vars_configuration.client_side_validation and backend_id is None:  # noqa: E501
+            raise ValueError("Invalid value for `backend_id`, must not be `None`")  # noqa: E501
 
-        self._runtime_id = runtime_id
+        self._backend_id = backend_id
 
     @property
     def data(self):

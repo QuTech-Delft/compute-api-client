@@ -167,7 +167,7 @@ Get file by ID.
 
 ### Example
 
-* Api Key Authentication (runtime):
+* Api Key Authentication (backend):
 ```python
 from __future__ import print_function
 import time
@@ -185,11 +185,11 @@ configuration = compute_api_client.Configuration(
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
 
-# Configure API key authorization: runtime
-configuration.api_key['runtime'] = 'YOUR_API_KEY'
+# Configure API key authorization: backend
+configuration.api_key['backend'] = 'YOUR_API_KEY'
 
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['runtime'] = 'Bearer'
+# configuration.api_key_prefix['backend'] = 'Bearer'
 
 # Configure API key authorization: user
 configuration.api_key['user'] = 'YOUR_API_KEY'
@@ -229,11 +229,11 @@ configuration = compute_api_client.Configuration(
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
 
-# Configure API key authorization: runtime
-configuration.api_key['runtime'] = 'YOUR_API_KEY'
+# Configure API key authorization: backend
+configuration.api_key['backend'] = 'YOUR_API_KEY'
 
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['runtime'] = 'Bearer'
+# configuration.api_key_prefix['backend'] = 'Bearer'
 
 # Configure API key authorization: user
 configuration.api_key['user'] = 'YOUR_API_KEY'
@@ -267,7 +267,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[runtime](../README.md#runtime), [user](../README.md#user)
+[backend](../README.md#backend), [user](../README.md#user)
 
 ### HTTP request headers
 

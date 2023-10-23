@@ -182,18 +182,18 @@ class MetadataApi(object):
             collection_formats=collection_formats,
             _request_auth=local_var_params.get('_request_auth'))
 
-    def read_metadata_by_runtime_id_metadata_runtime_runtime_id_get(self, runtime_id, **kwargs):  # noqa: E501
-        """Retrieve metadata by runtime ID  # noqa: E501
+    def read_metadata_by_backend_id_metadata_backend_backend_id_get(self, backend_id, **kwargs):  # noqa: E501
+        """Retrieve metadata by backend ID  # noqa: E501
 
-        Get metadata by run ID.  # noqa: E501
+        Get metadata by job ID.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
-        >>> thread = api.read_metadata_by_runtime_id_metadata_runtime_runtime_id_get(runtime_id, async_req=True)
+        >>> thread = api.read_metadata_by_backend_id_metadata_backend_backend_id_get(backend_id, async_req=True)
         >>> result = thread.get()
 
-        :param runtime_id: (required)
-        :type runtime_id: int
+        :param backend_id: (required)
+        :type backend_id: int
         :param async_req: Whether to execute the request asynchronously.
         :type async_req: bool, optional
         :param _preload_content: if False, the urllib3.HTTPResponse object will
@@ -210,20 +210,20 @@ class MetadataApi(object):
         :rtype: list[Metadata]
         """
         kwargs['_return_http_data_only'] = True
-        return self.read_metadata_by_runtime_id_metadata_runtime_runtime_id_get_with_http_info(runtime_id, **kwargs)  # noqa: E501
+        return self.read_metadata_by_backend_id_metadata_backend_backend_id_get_with_http_info(backend_id, **kwargs)  # noqa: E501
 
-    def read_metadata_by_runtime_id_metadata_runtime_runtime_id_get_with_http_info(self, runtime_id, **kwargs):  # noqa: E501
-        """Retrieve metadata by runtime ID  # noqa: E501
+    def read_metadata_by_backend_id_metadata_backend_backend_id_get_with_http_info(self, backend_id, **kwargs):  # noqa: E501
+        """Retrieve metadata by backend ID  # noqa: E501
 
-        Get metadata by run ID.  # noqa: E501
+        Get metadata by job ID.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
-        >>> thread = api.read_metadata_by_runtime_id_metadata_runtime_runtime_id_get_with_http_info(runtime_id, async_req=True)
+        >>> thread = api.read_metadata_by_backend_id_metadata_backend_backend_id_get_with_http_info(backend_id, async_req=True)
         >>> result = thread.get()
 
-        :param runtime_id: (required)
-        :type runtime_id: int
+        :param backend_id: (required)
+        :type backend_id: int
         :param async_req: Whether to execute the request asynchronously.
         :type async_req: bool, optional
         :param _return_http_data_only: response data without head status code
@@ -251,7 +251,7 @@ class MetadataApi(object):
         local_var_params = locals()
 
         all_params = [
-            'runtime_id'
+            'backend_id'
         ]
         all_params.extend(
             [
@@ -269,19 +269,19 @@ class MetadataApi(object):
             if key not in all_params:
                 raise ApiTypeError(
                     "Got an unexpected keyword argument '%s'"
-                    " to method read_metadata_by_runtime_id_metadata_runtime_runtime_id_get" % key
+                    " to method read_metadata_by_backend_id_metadata_backend_backend_id_get" % key
                 )
             local_var_params[key] = val
         del local_var_params['kwargs']
-        # verify the required parameter 'runtime_id' is set
-        if self.api_client.client_side_validation and local_var_params.get('runtime_id') is None:  # noqa: E501
-            raise ApiValueError("Missing the required parameter `runtime_id` when calling `read_metadata_by_runtime_id_metadata_runtime_runtime_id_get`")  # noqa: E501
+        # verify the required parameter 'backend_id' is set
+        if self.api_client.client_side_validation and local_var_params.get('backend_id') is None:  # noqa: E501
+            raise ApiValueError("Missing the required parameter `backend_id` when calling `read_metadata_by_backend_id_metadata_backend_backend_id_get`")  # noqa: E501
 
         collection_formats = {}
 
         path_params = {}
-        if 'runtime_id' in local_var_params:
-            path_params['runtime_id'] = local_var_params['runtime_id']  # noqa: E501
+        if 'backend_id' in local_var_params:
+            path_params['backend_id'] = local_var_params['backend_id']  # noqa: E501
 
         query_params = []
 
@@ -304,7 +304,7 @@ class MetadataApi(object):
         }
 
         return self.api_client.call_api(
-            '/metadata/runtime/{runtime_id}', 'GET',
+            '/metadata/backend/{backend_id}', 'GET',
             path_params,
             query_params,
             header_params,

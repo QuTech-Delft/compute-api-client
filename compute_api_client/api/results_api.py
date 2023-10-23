@@ -158,7 +158,7 @@ class ResultsApi(object):
                 header_params['Content-Type'] = content_types_list
 
         # Authentication setting
-        auth_settings = ['runtime']  # noqa: E501
+        auth_settings = ['backend']  # noqa: E501
 
         response_types_map = {
             201: "Result",
@@ -321,18 +321,18 @@ class ResultsApi(object):
             collection_formats=collection_formats,
             _request_auth=local_var_params.get('_request_auth'))
 
-    def read_results_by_run_id_results_run_run_id_get(self, run_id, **kwargs):  # noqa: E501
+    def read_results_by_job_id_results_job_job_id_get(self, job_id, **kwargs):  # noqa: E501
         """Retrieve result  # noqa: E501
 
         Get result by ID.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
-        >>> thread = api.read_results_by_run_id_results_run_run_id_get(run_id, async_req=True)
+        >>> thread = api.read_results_by_job_id_results_job_job_id_get(job_id, async_req=True)
         >>> result = thread.get()
 
-        :param run_id: (required)
-        :type run_id: int
+        :param job_id: (required)
+        :type job_id: int
         :param async_req: Whether to execute the request asynchronously.
         :type async_req: bool, optional
         :param _preload_content: if False, the urllib3.HTTPResponse object will
@@ -349,20 +349,20 @@ class ResultsApi(object):
         :rtype: list[Result]
         """
         kwargs['_return_http_data_only'] = True
-        return self.read_results_by_run_id_results_run_run_id_get_with_http_info(run_id, **kwargs)  # noqa: E501
+        return self.read_results_by_job_id_results_job_job_id_get_with_http_info(job_id, **kwargs)  # noqa: E501
 
-    def read_results_by_run_id_results_run_run_id_get_with_http_info(self, run_id, **kwargs):  # noqa: E501
+    def read_results_by_job_id_results_job_job_id_get_with_http_info(self, job_id, **kwargs):  # noqa: E501
         """Retrieve result  # noqa: E501
 
         Get result by ID.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
-        >>> thread = api.read_results_by_run_id_results_run_run_id_get_with_http_info(run_id, async_req=True)
+        >>> thread = api.read_results_by_job_id_results_job_job_id_get_with_http_info(job_id, async_req=True)
         >>> result = thread.get()
 
-        :param run_id: (required)
-        :type run_id: int
+        :param job_id: (required)
+        :type job_id: int
         :param async_req: Whether to execute the request asynchronously.
         :type async_req: bool, optional
         :param _return_http_data_only: response data without head status code
@@ -390,7 +390,7 @@ class ResultsApi(object):
         local_var_params = locals()
 
         all_params = [
-            'run_id'
+            'job_id'
         ]
         all_params.extend(
             [
@@ -408,19 +408,19 @@ class ResultsApi(object):
             if key not in all_params:
                 raise ApiTypeError(
                     "Got an unexpected keyword argument '%s'"
-                    " to method read_results_by_run_id_results_run_run_id_get" % key
+                    " to method read_results_by_job_id_results_job_job_id_get" % key
                 )
             local_var_params[key] = val
         del local_var_params['kwargs']
-        # verify the required parameter 'run_id' is set
-        if self.api_client.client_side_validation and local_var_params.get('run_id') is None:  # noqa: E501
-            raise ApiValueError("Missing the required parameter `run_id` when calling `read_results_by_run_id_results_run_run_id_get`")  # noqa: E501
+        # verify the required parameter 'job_id' is set
+        if self.api_client.client_side_validation and local_var_params.get('job_id') is None:  # noqa: E501
+            raise ApiValueError("Missing the required parameter `job_id` when calling `read_results_by_job_id_results_job_job_id_get`")  # noqa: E501
 
         collection_formats = {}
 
         path_params = {}
-        if 'run_id' in local_var_params:
-            path_params['run_id'] = local_var_params['run_id']  # noqa: E501
+        if 'job_id' in local_var_params:
+            path_params['job_id'] = local_var_params['job_id']  # noqa: E501
 
         query_params = []
 
@@ -444,7 +444,7 @@ class ResultsApi(object):
         }
 
         return self.api_client.call_api(
-            '/results/run/{run_id}', 'GET',
+            '/results/job/{job_id}', 'GET',
             path_params,
             query_params,
             header_params,

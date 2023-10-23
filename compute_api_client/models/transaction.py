@@ -38,7 +38,7 @@ class Transaction(object):
     openapi_types = {
         'id': 'int',
         'domain': 'Domain',
-        'run': 'int',
+        'job': 'int',
         'team_id': 'int',
         'user_id': 'int',
         'change': 'int',
@@ -48,14 +48,14 @@ class Transaction(object):
     attribute_map = {
         'id': 'id',
         'domain': 'domain',
-        'run': 'run',
+        'job': 'job',
         'team_id': 'team_id',
         'user_id': 'user_id',
         'change': 'change',
         'timestamp': 'timestamp'
     }
 
-    def __init__(self, id=None, domain=None, run=None, team_id=None, user_id=None, change=None, timestamp=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, id=None, domain=None, job=None, team_id=None, user_id=None, change=None, timestamp=None, local_vars_configuration=None):  # noqa: E501
         """Transaction - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration.get_default_copy()
@@ -63,7 +63,7 @@ class Transaction(object):
 
         self._id = None
         self._domain = None
-        self._run = None
+        self._job = None
         self._team_id = None
         self._user_id = None
         self._change = None
@@ -73,8 +73,8 @@ class Transaction(object):
         self.id = id
         if domain is not None:
             self.domain = domain
-        if run is not None:
-            self.run = run
+        if job is not None:
+            self.job = job
         self.team_id = team_id
         if user_id is not None:
             self.user_id = user_id
@@ -126,25 +126,25 @@ class Transaction(object):
         self._domain = domain
 
     @property
-    def run(self):
-        """Gets the run of this Transaction.  # noqa: E501
+    def job(self):
+        """Gets the job of this Transaction.  # noqa: E501
 
 
-        :return: The run of this Transaction.  # noqa: E501
+        :return: The job of this Transaction.  # noqa: E501
         :rtype: int
         """
-        return self._run
+        return self._job
 
-    @run.setter
-    def run(self, run):
-        """Sets the run of this Transaction.
+    @job.setter
+    def job(self, job):
+        """Sets the job of this Transaction.
 
 
-        :param run: The run of this Transaction.  # noqa: E501
-        :type run: int
+        :param job: The job of this Transaction.  # noqa: E501
+        :type job: int
         """
 
-        self._run = run
+        self._job = job
 
     @property
     def team_id(self):

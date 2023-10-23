@@ -37,32 +37,32 @@ class Metadata(object):
     """
     openapi_types = {
         'id': 'int',
-        'runtime_id': 'int',
+        'backend_id': 'int',
         'created_on': 'datetime',
         'data': 'object'
     }
 
     attribute_map = {
         'id': 'id',
-        'runtime_id': 'runtime_id',
+        'backend_id': 'backend_id',
         'created_on': 'created_on',
         'data': 'data'
     }
 
-    def __init__(self, id=None, runtime_id=None, created_on=None, data=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, id=None, backend_id=None, created_on=None, data=None, local_vars_configuration=None):  # noqa: E501
         """Metadata - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration.get_default_copy()
         self.local_vars_configuration = local_vars_configuration
 
         self._id = None
-        self._runtime_id = None
+        self._backend_id = None
         self._created_on = None
         self._data = None
         self.discriminator = None
 
         self.id = id
-        self.runtime_id = runtime_id
+        self.backend_id = backend_id
         self.created_on = created_on
         self.data = data
 
@@ -90,27 +90,27 @@ class Metadata(object):
         self._id = id
 
     @property
-    def runtime_id(self):
-        """Gets the runtime_id of this Metadata.  # noqa: E501
+    def backend_id(self):
+        """Gets the backend_id of this Metadata.  # noqa: E501
 
 
-        :return: The runtime_id of this Metadata.  # noqa: E501
+        :return: The backend_id of this Metadata.  # noqa: E501
         :rtype: int
         """
-        return self._runtime_id
+        return self._backend_id
 
-    @runtime_id.setter
-    def runtime_id(self, runtime_id):
-        """Sets the runtime_id of this Metadata.
+    @backend_id.setter
+    def backend_id(self, backend_id):
+        """Sets the backend_id of this Metadata.
 
 
-        :param runtime_id: The runtime_id of this Metadata.  # noqa: E501
-        :type runtime_id: int
+        :param backend_id: The backend_id of this Metadata.  # noqa: E501
+        :type backend_id: int
         """
-        if self.local_vars_configuration.client_side_validation and runtime_id is None:  # noqa: E501
-            raise ValueError("Invalid value for `runtime_id`, must not be `None`")  # noqa: E501
+        if self.local_vars_configuration.client_side_validation and backend_id is None:  # noqa: E501
+            raise ValueError("Invalid value for `backend_id`, must not be `None`")  # noqa: E501
 
-        self._runtime_id = runtime_id
+        self._backend_id = backend_id
 
     @property
     def created_on(self):

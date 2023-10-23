@@ -395,13 +395,13 @@ conf = compute_api_client.Configuration(
                     'user',
                 ),
             }
-        if 'runtime' in self.api_key:
-            auth['runtime'] = {
+        if 'backend' in self.api_key:
+            auth['backend'] = {
                 'type': 'api_key',
                 'in': 'header',
                 'key': 'Authorization',
                 'value': self.get_api_key_with_prefix(
-                    'runtime',
+                    'backend',
                 ),
             }
         return auth
