@@ -82,6 +82,7 @@ Class | Method | HTTP request | Description
 *BackendApi* | [**create_backend_backends_post**](compute_api_client/docs/BackendApi.md#create_backend_backends_post) | **POST** /backends | Create backend
 *BackendApi* | [**read_backend_backends_id_get**](compute_api_client/docs/BackendApi.md#read_backend_backends_id_get) | **GET** /backends/{id} | Retrieve backend
 *BackendApi* | [**read_backends_backends_get**](compute_api_client/docs/BackendApi.md#read_backends_backends_get) | **GET** /backends | List backends
+*BackendApi* | [**update_backend_backends_id_patch**](compute_api_client/docs/BackendApi.md#update_backend_backends_id_patch) | **PATCH** /backends/{id} | Update backend
 *BackendTypesApi* | [**read_backend_type_backend_types_id_get**](compute_api_client/docs/BackendTypesApi.md#read_backend_type_backend_types_id_get) | **GET** /backend_types/{id} | Retrieve backend type
 *BackendTypesApi* | [**read_backend_types_backend_types_get**](compute_api_client/docs/BackendTypesApi.md#read_backend_types_backend_types_get) | **GET** /backend_types/ | List backend types
 *BatchJobsApi* | [**create_batch_job_batch_jobs_post**](compute_api_client/docs/BatchJobsApi.md#create_batch_job_batch_jobs_post) | **POST** /batch_jobs | Create batch job
@@ -148,6 +149,7 @@ Class | Method | HTTP request | Description
  - [AlgorithmIn](compute_api_client/docs/AlgorithmIn.md)
  - [AlgorithmType](compute_api_client/docs/AlgorithmType.md)
  - [Backend](compute_api_client/docs/Backend.md)
+ - [BackendPatch](compute_api_client/docs/BackendPatch.md)
  - [BackendStatus](compute_api_client/docs/BackendStatus.md)
  - [BackendType](compute_api_client/docs/BackendType.md)
  - [BackendWithAuthentication](compute_api_client/docs/BackendWithAuthentication.md)

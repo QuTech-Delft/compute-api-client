@@ -18,6 +18,7 @@ from compute_api_client.models.algorithm import Algorithm
 from compute_api_client.models.algorithm_in import AlgorithmIn
 from compute_api_client.models.algorithm_type import AlgorithmType
 from compute_api_client.models.backend import Backend
+from compute_api_client.models.backend_patch import BackendPatch
 from compute_api_client.models.backend_status import BackendStatus
 from compute_api_client.models.backend_type import BackendType
 from compute_api_client.models.backend_with_authentication import BackendWithAuthentication
