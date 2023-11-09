@@ -466,6 +466,18 @@ class AlgorithmsApi(object):
         >>> thread = api.read_algorithms_algorithms_get(async_req=True)
         >>> result = thread.get()
 
+        :param id:
+        :type id: int
+        :param project_id:
+        :type project_id: int
+        :param type:
+        :type type: AlgorithmType
+        :param shared:
+        :type shared: ShareType
+        :param link__isnull:
+        :type link__isnull: bool
+        :param link:
+        :type link: str
         :param async_req: Whether to execute the request asynchronously.
         :type async_req: bool, optional
         :param _preload_content: if False, the urllib3.HTTPResponse object will
@@ -494,6 +506,18 @@ class AlgorithmsApi(object):
         >>> thread = api.read_algorithms_algorithms_get_with_http_info(async_req=True)
         >>> result = thread.get()
 
+        :param id:
+        :type id: int
+        :param project_id:
+        :type project_id: int
+        :param type:
+        :type type: AlgorithmType
+        :param shared:
+        :type shared: ShareType
+        :param link__isnull:
+        :type link__isnull: bool
+        :param link:
+        :type link: str
         :param async_req: Whether to execute the request asynchronously.
         :type async_req: bool, optional
         :param _return_http_data_only: response data without head status code
@@ -521,6 +545,12 @@ class AlgorithmsApi(object):
         local_var_params = locals()
 
         all_params = [
+            'id',
+            'project_id',
+            'type',
+            'shared',
+            'link__isnull',
+            'link'
         ]
         all_params.extend(
             [
@@ -548,6 +578,18 @@ class AlgorithmsApi(object):
         path_params = {}
 
         query_params = []
+        if local_var_params.get('id') is not None:  # noqa: E501
+            query_params.append(('id', local_var_params['id']))  # noqa: E501
+        if local_var_params.get('project_id') is not None:  # noqa: E501
+            query_params.append(('project_id', local_var_params['project_id']))  # noqa: E501
+        if local_var_params.get('type') is not None:  # noqa: E501
+            query_params.append(('type', local_var_params['type']))  # noqa: E501
+        if local_var_params.get('shared') is not None:  # noqa: E501
+            query_params.append(('shared', local_var_params['shared']))  # noqa: E501
+        if local_var_params.get('link__isnull') is not None:  # noqa: E501
+            query_params.append(('link__isnull', local_var_params['link__isnull']))  # noqa: E501
+        if local_var_params.get('link') is not None:  # noqa: E501
+            query_params.append(('link', local_var_params['link']))  # noqa: E501
 
         header_params = dict(local_var_params.get('_headers', {}))
 
@@ -564,6 +606,7 @@ class AlgorithmsApi(object):
 
         response_types_map = {
             200: "list[Algorithm]",
+            422: "HTTPValidationError",
         }
 
         return self.api_client.call_api(

@@ -187,6 +187,12 @@ class LanguagesApi(object):
 
         :param q:
         :type q: str
+        :param id:
+        :type id: int
+        :param name:
+        :type name: str
+        :param version:
+        :type version: str
         :param async_req: Whether to execute the request asynchronously.
         :type async_req: bool, optional
         :param _preload_content: if False, the urllib3.HTTPResponse object will
@@ -217,6 +223,12 @@ class LanguagesApi(object):
 
         :param q:
         :type q: str
+        :param id:
+        :type id: int
+        :param name:
+        :type name: str
+        :param version:
+        :type version: str
         :param async_req: Whether to execute the request asynchronously.
         :type async_req: bool, optional
         :param _return_http_data_only: response data without head status code
@@ -244,7 +256,10 @@ class LanguagesApi(object):
         local_var_params = locals()
 
         all_params = [
-            'q'
+            'q',
+            'id',
+            'name',
+            'version'
         ]
         all_params.extend(
             [
@@ -274,6 +289,12 @@ class LanguagesApi(object):
         query_params = []
         if local_var_params.get('q') is not None:  # noqa: E501
             query_params.append(('q', local_var_params['q']))  # noqa: E501
+        if local_var_params.get('id') is not None:  # noqa: E501
+            query_params.append(('id', local_var_params['id']))  # noqa: E501
+        if local_var_params.get('name') is not None:  # noqa: E501
+            query_params.append(('name', local_var_params['name']))  # noqa: E501
+        if local_var_params.get('version') is not None:  # noqa: E501
+            query_params.append(('version', local_var_params['version']))  # noqa: E501
 
         header_params = dict(local_var_params.get('_headers', {}))
 

@@ -185,6 +185,20 @@ class BackendTypesApi(object):
         >>> thread = api.read_backend_types_backend_types_get(async_req=True)
         >>> result = thread.get()
 
+        :param id:
+        :type id: int
+        :param name:
+        :type name: str
+        :param infrastructure:
+        :type infrastructure: str
+        :param description:
+        :type description: str
+        :param image_id:
+        :type image_id: str
+        :param is_hardware:
+        :type is_hardware: bool
+        :param body_read_backend_types_backend_types_get:
+        :type body_read_backend_types_backend_types_get: BodyReadBackendTypesBackendTypesGet
         :param async_req: Whether to execute the request asynchronously.
         :type async_req: bool, optional
         :param _preload_content: if False, the urllib3.HTTPResponse object will
@@ -213,6 +227,20 @@ class BackendTypesApi(object):
         >>> thread = api.read_backend_types_backend_types_get_with_http_info(async_req=True)
         >>> result = thread.get()
 
+        :param id:
+        :type id: int
+        :param name:
+        :type name: str
+        :param infrastructure:
+        :type infrastructure: str
+        :param description:
+        :type description: str
+        :param image_id:
+        :type image_id: str
+        :param is_hardware:
+        :type is_hardware: bool
+        :param body_read_backend_types_backend_types_get:
+        :type body_read_backend_types_backend_types_get: BodyReadBackendTypesBackendTypesGet
         :param async_req: Whether to execute the request asynchronously.
         :type async_req: bool, optional
         :param _return_http_data_only: response data without head status code
@@ -240,6 +268,13 @@ class BackendTypesApi(object):
         local_var_params = locals()
 
         all_params = [
+            'id',
+            'name',
+            'infrastructure',
+            'description',
+            'image_id',
+            'is_hardware',
+            'body_read_backend_types_backend_types_get'
         ]
         all_params.extend(
             [
@@ -267,6 +302,18 @@ class BackendTypesApi(object):
         path_params = {}
 
         query_params = []
+        if local_var_params.get('id') is not None:  # noqa: E501
+            query_params.append(('id', local_var_params['id']))  # noqa: E501
+        if local_var_params.get('name') is not None:  # noqa: E501
+            query_params.append(('name', local_var_params['name']))  # noqa: E501
+        if local_var_params.get('infrastructure') is not None:  # noqa: E501
+            query_params.append(('infrastructure', local_var_params['infrastructure']))  # noqa: E501
+        if local_var_params.get('description') is not None:  # noqa: E501
+            query_params.append(('description', local_var_params['description']))  # noqa: E501
+        if local_var_params.get('image_id') is not None:  # noqa: E501
+            query_params.append(('image_id', local_var_params['image_id']))  # noqa: E501
+        if local_var_params.get('is_hardware') is not None:  # noqa: E501
+            query_params.append(('is_hardware', local_var_params['is_hardware']))  # noqa: E501
 
         header_params = dict(local_var_params.get('_headers', {}))
 
@@ -274,15 +321,26 @@ class BackendTypesApi(object):
         local_var_files = {}
 
         body_params = None
+        if 'body_read_backend_types_backend_types_get' in local_var_params:
+            body_params = local_var_params['body_read_backend_types_backend_types_get']
         # HTTP header `Accept`
         header_params['Accept'] = self.api_client.select_header_accept(
             ['application/json'])  # noqa: E501
+
+        # HTTP header `Content-Type`
+        content_types_list = local_var_params.get('_content_type',
+            self.api_client.select_header_content_type(
+                ['application/json'],
+                'GET', body_params))  # noqa: E501
+        if content_types_list:
+                header_params['Content-Type'] = content_types_list
 
         # Authentication setting
         auth_settings = ['user']  # noqa: E501
 
         response_types_map = {
             200: "list[BackendType]",
+            422: "HTTPValidationError",
         }
 
         return self.api_client.call_api(

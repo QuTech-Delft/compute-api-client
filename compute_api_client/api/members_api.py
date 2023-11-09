@@ -466,6 +466,16 @@ class MembersApi(object):
         >>> thread = api.read_members_members_get(async_req=True)
         >>> result = thread.get()
 
+        :param id:
+        :type id: int
+        :param team_id:
+        :type team_id: int
+        :param user_id:
+        :type user_id: int
+        :param role:
+        :type role: Role
+        :param is_active:
+        :type is_active: bool
         :param async_req: Whether to execute the request asynchronously.
         :type async_req: bool, optional
         :param _preload_content: if False, the urllib3.HTTPResponse object will
@@ -494,6 +504,16 @@ class MembersApi(object):
         >>> thread = api.read_members_members_get_with_http_info(async_req=True)
         >>> result = thread.get()
 
+        :param id:
+        :type id: int
+        :param team_id:
+        :type team_id: int
+        :param user_id:
+        :type user_id: int
+        :param role:
+        :type role: Role
+        :param is_active:
+        :type is_active: bool
         :param async_req: Whether to execute the request asynchronously.
         :type async_req: bool, optional
         :param _return_http_data_only: response data without head status code
@@ -521,6 +541,11 @@ class MembersApi(object):
         local_var_params = locals()
 
         all_params = [
+            'id',
+            'team_id',
+            'user_id',
+            'role',
+            'is_active'
         ]
         all_params.extend(
             [
@@ -548,6 +573,16 @@ class MembersApi(object):
         path_params = {}
 
         query_params = []
+        if local_var_params.get('id') is not None:  # noqa: E501
+            query_params.append(('id', local_var_params['id']))  # noqa: E501
+        if local_var_params.get('team_id') is not None:  # noqa: E501
+            query_params.append(('team_id', local_var_params['team_id']))  # noqa: E501
+        if local_var_params.get('user_id') is not None:  # noqa: E501
+            query_params.append(('user_id', local_var_params['user_id']))  # noqa: E501
+        if local_var_params.get('role') is not None:  # noqa: E501
+            query_params.append(('role', local_var_params['role']))  # noqa: E501
+        if local_var_params.get('is_active') is not None:  # noqa: E501
+            query_params.append(('is_active', local_var_params['is_active']))  # noqa: E501
 
         header_params = dict(local_var_params.get('_headers', {}))
 
@@ -564,6 +599,7 @@ class MembersApi(object):
 
         response_types_map = {
             200: "list[Member]",
+            422: "HTTPValidationError",
         }
 
         return self.api_client.call_api(

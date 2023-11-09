@@ -466,6 +466,30 @@ class JobsApi(object):
         >>> thread = api.read_jobs_jobs_get(async_req=True)
         >>> result = thread.get()
 
+        :param id:
+        :type id: int
+        :param created_on:
+        :type created_on: datetime
+        :param file_id:
+        :type file_id: int
+        :param algorithm_type:
+        :type algorithm_type: AlgorithmType
+        :param status:
+        :type status: JobStatus
+        :param batch_job_id:
+        :type batch_job_id: int
+        :param queued_at__isnull:
+        :type queued_at__isnull: bool
+        :param queued_at:
+        :type queued_at: datetime
+        :param finished_at__isnull:
+        :type finished_at__isnull: bool
+        :param finished_at:
+        :type finished_at: datetime
+        :param number_of_shots__isnull:
+        :type number_of_shots__isnull: bool
+        :param number_of_shots:
+        :type number_of_shots: int
         :param async_req: Whether to execute the request asynchronously.
         :type async_req: bool, optional
         :param _preload_content: if False, the urllib3.HTTPResponse object will
@@ -494,6 +518,30 @@ class JobsApi(object):
         >>> thread = api.read_jobs_jobs_get_with_http_info(async_req=True)
         >>> result = thread.get()
 
+        :param id:
+        :type id: int
+        :param created_on:
+        :type created_on: datetime
+        :param file_id:
+        :type file_id: int
+        :param algorithm_type:
+        :type algorithm_type: AlgorithmType
+        :param status:
+        :type status: JobStatus
+        :param batch_job_id:
+        :type batch_job_id: int
+        :param queued_at__isnull:
+        :type queued_at__isnull: bool
+        :param queued_at:
+        :type queued_at: datetime
+        :param finished_at__isnull:
+        :type finished_at__isnull: bool
+        :param finished_at:
+        :type finished_at: datetime
+        :param number_of_shots__isnull:
+        :type number_of_shots__isnull: bool
+        :param number_of_shots:
+        :type number_of_shots: int
         :param async_req: Whether to execute the request asynchronously.
         :type async_req: bool, optional
         :param _return_http_data_only: response data without head status code
@@ -521,6 +569,18 @@ class JobsApi(object):
         local_var_params = locals()
 
         all_params = [
+            'id',
+            'created_on',
+            'file_id',
+            'algorithm_type',
+            'status',
+            'batch_job_id',
+            'queued_at__isnull',
+            'queued_at',
+            'finished_at__isnull',
+            'finished_at',
+            'number_of_shots__isnull',
+            'number_of_shots'
         ]
         all_params.extend(
             [
@@ -548,6 +608,30 @@ class JobsApi(object):
         path_params = {}
 
         query_params = []
+        if local_var_params.get('id') is not None:  # noqa: E501
+            query_params.append(('id', local_var_params['id']))  # noqa: E501
+        if local_var_params.get('created_on') is not None:  # noqa: E501
+            query_params.append(('created_on', local_var_params['created_on']))  # noqa: E501
+        if local_var_params.get('file_id') is not None:  # noqa: E501
+            query_params.append(('file_id', local_var_params['file_id']))  # noqa: E501
+        if local_var_params.get('algorithm_type') is not None:  # noqa: E501
+            query_params.append(('algorithm_type', local_var_params['algorithm_type']))  # noqa: E501
+        if local_var_params.get('status') is not None:  # noqa: E501
+            query_params.append(('status', local_var_params['status']))  # noqa: E501
+        if local_var_params.get('batch_job_id') is not None:  # noqa: E501
+            query_params.append(('batch_job_id', local_var_params['batch_job_id']))  # noqa: E501
+        if local_var_params.get('queued_at__isnull') is not None:  # noqa: E501
+            query_params.append(('queued_at__isnull', local_var_params['queued_at__isnull']))  # noqa: E501
+        if local_var_params.get('queued_at') is not None:  # noqa: E501
+            query_params.append(('queued_at', local_var_params['queued_at']))  # noqa: E501
+        if local_var_params.get('finished_at__isnull') is not None:  # noqa: E501
+            query_params.append(('finished_at__isnull', local_var_params['finished_at__isnull']))  # noqa: E501
+        if local_var_params.get('finished_at') is not None:  # noqa: E501
+            query_params.append(('finished_at', local_var_params['finished_at']))  # noqa: E501
+        if local_var_params.get('number_of_shots__isnull') is not None:  # noqa: E501
+            query_params.append(('number_of_shots__isnull', local_var_params['number_of_shots__isnull']))  # noqa: E501
+        if local_var_params.get('number_of_shots') is not None:  # noqa: E501
+            query_params.append(('number_of_shots', local_var_params['number_of_shots']))  # noqa: E501
 
         header_params = dict(local_var_params.get('_headers', {}))
 
@@ -564,6 +648,7 @@ class JobsApi(object):
 
         response_types_map = {
             200: "list[Job]",
+            422: "HTTPValidationError",
         }
 
         return self.api_client.call_api(

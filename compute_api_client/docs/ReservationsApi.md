@@ -160,7 +160,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **read_reservations_reservations_get**
-> list[Reservation] read_reservations_reservations_get()
+> list[Reservation] read_reservations_reservations_get(id=id, member_id=member_id, start_time=start_time, end_time=end_time, backend_type_id=backend_type_id, backend_id__isnull=backend_id__isnull, backend_id=backend_id, is_terminated=is_terminated)
 
 List reservations
 
@@ -196,17 +196,35 @@ configuration.api_key['user'] = 'YOUR_API_KEY'
 with compute_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = compute_api_client.ReservationsApi(api_client)
-    
+    id = 56 # int |  (optional)
+member_id = 56 # int |  (optional)
+start_time = '2013-10-20T19:20:30+01:00' # datetime |  (optional)
+end_time = '2013-10-20T19:20:30+01:00' # datetime |  (optional)
+backend_type_id = 56 # int |  (optional)
+backend_id__isnull = True # bool |  (optional)
+backend_id = 56 # int |  (optional)
+is_terminated = True # bool |  (optional)
+
     try:
         # List reservations
-        api_response = api_instance.read_reservations_reservations_get()
+        api_response = api_instance.read_reservations_reservations_get(id=id, member_id=member_id, start_time=start_time, end_time=end_time, backend_type_id=backend_type_id, backend_id__isnull=backend_id__isnull, backend_id=backend_id, is_terminated=is_terminated)
         pprint(api_response)
     except ApiException as e:
         print("Exception when calling ReservationsApi->read_reservations_reservations_get: %s\n" % e)
 ```
 
 ### Parameters
-This endpoint does not need any parameter.
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **id** | **int**|  | [optional] 
+ **member_id** | **int**|  | [optional] 
+ **start_time** | **datetime**|  | [optional] 
+ **end_time** | **datetime**|  | [optional] 
+ **backend_type_id** | **int**|  | [optional] 
+ **backend_id__isnull** | **bool**|  | [optional] 
+ **backend_id** | **int**|  | [optional] 
+ **is_terminated** | **bool**|  | [optional] 
 
 ### Return type
 
@@ -225,6 +243,7 @@ This endpoint does not need any parameter.
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Successful Response |  -  |
+**422** | Validation Error |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 

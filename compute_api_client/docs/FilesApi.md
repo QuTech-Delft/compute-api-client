@@ -284,7 +284,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **read_files_files_get**
-> list[File] read_files_files_get()
+> list[File] read_files_files_get(id=id, commit_id=commit_id, content=content, language_id=language_id, compile_stage=compile_stage, generated=generated, body=body)
 
 List files
 
@@ -320,17 +320,33 @@ configuration.api_key['user'] = 'YOUR_API_KEY'
 with compute_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = compute_api_client.FilesApi(api_client)
-    
+    id = 56 # int |  (optional)
+commit_id = 56 # int |  (optional)
+content = 'content_example' # str |  (optional)
+language_id = 56 # int |  (optional)
+compile_stage = compute_api_client.CompileStage() # CompileStage |  (optional)
+generated = True # bool |  (optional)
+body = None # object |  (optional)
+
     try:
         # List files
-        api_response = api_instance.read_files_files_get()
+        api_response = api_instance.read_files_files_get(id=id, commit_id=commit_id, content=content, language_id=language_id, compile_stage=compile_stage, generated=generated, body=body)
         pprint(api_response)
     except ApiException as e:
         print("Exception when calling FilesApi->read_files_files_get: %s\n" % e)
 ```
 
 ### Parameters
-This endpoint does not need any parameter.
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **id** | **int**|  | [optional] 
+ **commit_id** | **int**|  | [optional] 
+ **content** | **str**|  | [optional] 
+ **language_id** | **int**|  | [optional] 
+ **compile_stage** | [**CompileStage**](.md)|  | [optional] 
+ **generated** | **bool**|  | [optional] 
+ **body** | **object**|  | [optional] 
 
 ### Return type
 
@@ -342,13 +358,14 @@ This endpoint does not need any parameter.
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Successful Response |  -  |
+**422** | Validation Error |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 

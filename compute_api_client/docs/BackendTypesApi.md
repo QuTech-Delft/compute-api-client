@@ -84,7 +84,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **read_backend_types_backend_types_get**
-> list[BackendType] read_backend_types_backend_types_get()
+> list[BackendType] read_backend_types_backend_types_get(id=id, name=name, infrastructure=infrastructure, description=description, image_id=image_id, is_hardware=is_hardware, body_read_backend_types_backend_types_get=body_read_backend_types_backend_types_get)
 
 List backend types
 
@@ -120,17 +120,33 @@ configuration.api_key['user'] = 'YOUR_API_KEY'
 with compute_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = compute_api_client.BackendTypesApi(api_client)
-    
+    id = 56 # int |  (optional)
+name = 'name_example' # str |  (optional)
+infrastructure = 'infrastructure_example' # str |  (optional)
+description = 'description_example' # str |  (optional)
+image_id = 'image_id_example' # str |  (optional)
+is_hardware = True # bool |  (optional)
+body_read_backend_types_backend_types_get = compute_api_client.BodyReadBackendTypesBackendTypesGet() # BodyReadBackendTypesBackendTypesGet |  (optional)
+
     try:
         # List backend types
-        api_response = api_instance.read_backend_types_backend_types_get()
+        api_response = api_instance.read_backend_types_backend_types_get(id=id, name=name, infrastructure=infrastructure, description=description, image_id=image_id, is_hardware=is_hardware, body_read_backend_types_backend_types_get=body_read_backend_types_backend_types_get)
         pprint(api_response)
     except ApiException as e:
         print("Exception when calling BackendTypesApi->read_backend_types_backend_types_get: %s\n" % e)
 ```
 
 ### Parameters
-This endpoint does not need any parameter.
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **id** | **int**|  | [optional] 
+ **name** | **str**|  | [optional] 
+ **infrastructure** | **str**|  | [optional] 
+ **description** | **str**|  | [optional] 
+ **image_id** | **str**|  | [optional] 
+ **is_hardware** | **bool**|  | [optional] 
+ **body_read_backend_types_backend_types_get** | [**BodyReadBackendTypesBackendTypesGet**](BodyReadBackendTypesBackendTypesGet.md)|  | [optional] 
 
 ### Return type
 
@@ -142,13 +158,14 @@ This endpoint does not need any parameter.
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Successful Response |  -  |
+**422** | Validation Error |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 

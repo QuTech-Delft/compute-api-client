@@ -744,6 +744,36 @@ class BatchJobsApi(object):
         >>> thread = api.read_batch_jobs_batch_jobs_get(async_req=True)
         >>> result = thread.get()
 
+        :param id:
+        :type id: int
+        :param created_on:
+        :type created_on: datetime
+        :param status:
+        :type status: BatchJobStatus
+        :param reserved_at__isnull:
+        :type reserved_at__isnull: bool
+        :param reserved_at:
+        :type reserved_at: datetime
+        :param user_id:
+        :type user_id: int
+        :param backend_type_id:
+        :type backend_type_id: int
+        :param backend_id__isnull:
+        :type backend_id__isnull: bool
+        :param backend_id:
+        :type backend_id: int
+        :param queued_at__isnull:
+        :type queued_at__isnull: bool
+        :param queued_at:
+        :type queued_at: datetime
+        :param finished_at__isnull:
+        :type finished_at__isnull: bool
+        :param finished_at:
+        :type finished_at: datetime
+        :param aggregated_algorithm_type:
+        :type aggregated_algorithm_type: AlgorithmType
+        :param request_body:
+        :type request_body: list[int]
         :param async_req: Whether to execute the request asynchronously.
         :type async_req: bool, optional
         :param _preload_content: if False, the urllib3.HTTPResponse object will
@@ -772,6 +802,36 @@ class BatchJobsApi(object):
         >>> thread = api.read_batch_jobs_batch_jobs_get_with_http_info(async_req=True)
         >>> result = thread.get()
 
+        :param id:
+        :type id: int
+        :param created_on:
+        :type created_on: datetime
+        :param status:
+        :type status: BatchJobStatus
+        :param reserved_at__isnull:
+        :type reserved_at__isnull: bool
+        :param reserved_at:
+        :type reserved_at: datetime
+        :param user_id:
+        :type user_id: int
+        :param backend_type_id:
+        :type backend_type_id: int
+        :param backend_id__isnull:
+        :type backend_id__isnull: bool
+        :param backend_id:
+        :type backend_id: int
+        :param queued_at__isnull:
+        :type queued_at__isnull: bool
+        :param queued_at:
+        :type queued_at: datetime
+        :param finished_at__isnull:
+        :type finished_at__isnull: bool
+        :param finished_at:
+        :type finished_at: datetime
+        :param aggregated_algorithm_type:
+        :type aggregated_algorithm_type: AlgorithmType
+        :param request_body:
+        :type request_body: list[int]
         :param async_req: Whether to execute the request asynchronously.
         :type async_req: bool, optional
         :param _return_http_data_only: response data without head status code
@@ -799,6 +859,21 @@ class BatchJobsApi(object):
         local_var_params = locals()
 
         all_params = [
+            'id',
+            'created_on',
+            'status',
+            'reserved_at__isnull',
+            'reserved_at',
+            'user_id',
+            'backend_type_id',
+            'backend_id__isnull',
+            'backend_id',
+            'queued_at__isnull',
+            'queued_at',
+            'finished_at__isnull',
+            'finished_at',
+            'aggregated_algorithm_type',
+            'request_body'
         ]
         all_params.extend(
             [
@@ -826,6 +901,34 @@ class BatchJobsApi(object):
         path_params = {}
 
         query_params = []
+        if local_var_params.get('id') is not None:  # noqa: E501
+            query_params.append(('id', local_var_params['id']))  # noqa: E501
+        if local_var_params.get('created_on') is not None:  # noqa: E501
+            query_params.append(('created_on', local_var_params['created_on']))  # noqa: E501
+        if local_var_params.get('status') is not None:  # noqa: E501
+            query_params.append(('status', local_var_params['status']))  # noqa: E501
+        if local_var_params.get('reserved_at__isnull') is not None:  # noqa: E501
+            query_params.append(('reserved_at__isnull', local_var_params['reserved_at__isnull']))  # noqa: E501
+        if local_var_params.get('reserved_at') is not None:  # noqa: E501
+            query_params.append(('reserved_at', local_var_params['reserved_at']))  # noqa: E501
+        if local_var_params.get('user_id') is not None:  # noqa: E501
+            query_params.append(('user_id', local_var_params['user_id']))  # noqa: E501
+        if local_var_params.get('backend_type_id') is not None:  # noqa: E501
+            query_params.append(('backend_type_id', local_var_params['backend_type_id']))  # noqa: E501
+        if local_var_params.get('backend_id__isnull') is not None:  # noqa: E501
+            query_params.append(('backend_id__isnull', local_var_params['backend_id__isnull']))  # noqa: E501
+        if local_var_params.get('backend_id') is not None:  # noqa: E501
+            query_params.append(('backend_id', local_var_params['backend_id']))  # noqa: E501
+        if local_var_params.get('queued_at__isnull') is not None:  # noqa: E501
+            query_params.append(('queued_at__isnull', local_var_params['queued_at__isnull']))  # noqa: E501
+        if local_var_params.get('queued_at') is not None:  # noqa: E501
+            query_params.append(('queued_at', local_var_params['queued_at']))  # noqa: E501
+        if local_var_params.get('finished_at__isnull') is not None:  # noqa: E501
+            query_params.append(('finished_at__isnull', local_var_params['finished_at__isnull']))  # noqa: E501
+        if local_var_params.get('finished_at') is not None:  # noqa: E501
+            query_params.append(('finished_at', local_var_params['finished_at']))  # noqa: E501
+        if local_var_params.get('aggregated_algorithm_type') is not None:  # noqa: E501
+            query_params.append(('aggregated_algorithm_type', local_var_params['aggregated_algorithm_type']))  # noqa: E501
 
         header_params = dict(local_var_params.get('_headers', {}))
 
@@ -833,15 +936,26 @@ class BatchJobsApi(object):
         local_var_files = {}
 
         body_params = None
+        if 'request_body' in local_var_params:
+            body_params = local_var_params['request_body']
         # HTTP header `Accept`
         header_params['Accept'] = self.api_client.select_header_accept(
             ['application/json'])  # noqa: E501
+
+        # HTTP header `Content-Type`
+        content_types_list = local_var_params.get('_content_type',
+            self.api_client.select_header_content_type(
+                ['application/json'],
+                'GET', body_params))  # noqa: E501
+        if content_types_list:
+                header_params['Content-Type'] = content_types_list
 
         # Authentication setting
         auth_settings = ['user']  # noqa: E501
 
         response_types_map = {
             200: "list[BatchJob]",
+            422: "HTTPValidationError",
         }
 
         return self.api_client.call_api(

@@ -235,7 +235,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **read_jobs_jobs_get**
-> list[Job] read_jobs_jobs_get()
+> list[Job] read_jobs_jobs_get(id=id, created_on=created_on, file_id=file_id, algorithm_type=algorithm_type, status=status, batch_job_id=batch_job_id, queued_at__isnull=queued_at__isnull, queued_at=queued_at, finished_at__isnull=finished_at__isnull, finished_at=finished_at, number_of_shots__isnull=number_of_shots__isnull, number_of_shots=number_of_shots)
 
 List jobs
 
@@ -271,17 +271,43 @@ configuration.api_key['user'] = 'YOUR_API_KEY'
 with compute_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = compute_api_client.JobsApi(api_client)
-    
+    id = 56 # int |  (optional)
+created_on = '2013-10-20T19:20:30+01:00' # datetime |  (optional)
+file_id = 56 # int |  (optional)
+algorithm_type = compute_api_client.AlgorithmType() # AlgorithmType |  (optional)
+status = compute_api_client.JobStatus() # JobStatus |  (optional)
+batch_job_id = 56 # int |  (optional)
+queued_at__isnull = True # bool |  (optional)
+queued_at = '2013-10-20T19:20:30+01:00' # datetime |  (optional)
+finished_at__isnull = True # bool |  (optional)
+finished_at = '2013-10-20T19:20:30+01:00' # datetime |  (optional)
+number_of_shots__isnull = True # bool |  (optional)
+number_of_shots = 56 # int |  (optional)
+
     try:
         # List jobs
-        api_response = api_instance.read_jobs_jobs_get()
+        api_response = api_instance.read_jobs_jobs_get(id=id, created_on=created_on, file_id=file_id, algorithm_type=algorithm_type, status=status, batch_job_id=batch_job_id, queued_at__isnull=queued_at__isnull, queued_at=queued_at, finished_at__isnull=finished_at__isnull, finished_at=finished_at, number_of_shots__isnull=number_of_shots__isnull, number_of_shots=number_of_shots)
         pprint(api_response)
     except ApiException as e:
         print("Exception when calling JobsApi->read_jobs_jobs_get: %s\n" % e)
 ```
 
 ### Parameters
-This endpoint does not need any parameter.
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **id** | **int**|  | [optional] 
+ **created_on** | **datetime**|  | [optional] 
+ **file_id** | **int**|  | [optional] 
+ **algorithm_type** | [**AlgorithmType**](.md)|  | [optional] 
+ **status** | [**JobStatus**](.md)|  | [optional] 
+ **batch_job_id** | **int**|  | [optional] 
+ **queued_at__isnull** | **bool**|  | [optional] 
+ **queued_at** | **datetime**|  | [optional] 
+ **finished_at__isnull** | **bool**|  | [optional] 
+ **finished_at** | **datetime**|  | [optional] 
+ **number_of_shots__isnull** | **bool**|  | [optional] 
+ **number_of_shots** | **int**|  | [optional] 
 
 ### Return type
 
@@ -300,6 +326,7 @@ This endpoint does not need any parameter.
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Successful Response |  -  |
+**422** | Validation Error |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 

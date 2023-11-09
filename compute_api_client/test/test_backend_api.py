@@ -49,6 +49,13 @@ class TestBackendApi(unittest.TestCase):
         """
         pass
 
+    def test_update_backend_backends_id_patch(self):
+        """Test case for update_backend_backends_id_patch
+
+        Update backend  # noqa: E501
+        """
+        pass
+
 
 if __name__ == '__main__':
     unittest.main()

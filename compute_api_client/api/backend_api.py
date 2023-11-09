@@ -331,6 +331,18 @@ class BackendApi(object):
         >>> thread = api.read_backends_backends_get(async_req=True)
         >>> result = thread.get()
 
+        :param id:
+        :type id: int
+        :param name:
+        :type name: str
+        :param location:
+        :type location: str
+        :param backend_type_id:
+        :type backend_type_id: int
+        :param status:
+        :type status: BackendStatus
+        :param last_heartbeat:
+        :type last_heartbeat: datetime
         :param async_req: Whether to execute the request asynchronously.
         :type async_req: bool, optional
         :param _preload_content: if False, the urllib3.HTTPResponse object will
@@ -359,6 +371,18 @@ class BackendApi(object):
         >>> thread = api.read_backends_backends_get_with_http_info(async_req=True)
         >>> result = thread.get()
 
+        :param id:
+        :type id: int
+        :param name:
+        :type name: str
+        :param location:
+        :type location: str
+        :param backend_type_id:
+        :type backend_type_id: int
+        :param status:
+        :type status: BackendStatus
+        :param last_heartbeat:
+        :type last_heartbeat: datetime
         :param async_req: Whether to execute the request asynchronously.
         :type async_req: bool, optional
         :param _return_http_data_only: response data without head status code
@@ -386,6 +410,12 @@ class BackendApi(object):
         local_var_params = locals()
 
         all_params = [
+            'id',
+            'name',
+            'location',
+            'backend_type_id',
+            'status',
+            'last_heartbeat'
         ]
         all_params.extend(
             [
@@ -413,6 +443,18 @@ class BackendApi(object):
         path_params = {}
 
         query_params = []
+        if local_var_params.get('id') is not None:  # noqa: E501
+            query_params.append(('id', local_var_params['id']))  # noqa: E501
+        if local_var_params.get('name') is not None:  # noqa: E501
+            query_params.append(('name', local_var_params['name']))  # noqa: E501
+        if local_var_params.get('location') is not None:  # noqa: E501
+            query_params.append(('location', local_var_params['location']))  # noqa: E501
+        if local_var_params.get('backend_type_id') is not None:  # noqa: E501
+            query_params.append(('backend_type_id', local_var_params['backend_type_id']))  # noqa: E501
+        if local_var_params.get('status') is not None:  # noqa: E501
+            query_params.append(('status', local_var_params['status']))  # noqa: E501
+        if local_var_params.get('last_heartbeat') is not None:  # noqa: E501
+            query_params.append(('last_heartbeat', local_var_params['last_heartbeat']))  # noqa: E501
 
         header_params = dict(local_var_params.get('_headers', {}))
 
@@ -429,6 +471,7 @@ class BackendApi(object):
 
         response_types_map = {
             200: "list[Backend]",
+            422: "HTTPValidationError",
         }
 
         return self.api_client.call_api(

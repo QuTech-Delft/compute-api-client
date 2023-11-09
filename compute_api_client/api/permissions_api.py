@@ -185,6 +185,10 @@ class PermissionsApi(object):
         >>> thread = api.read_permission_groups_permission_groups_get(async_req=True)
         >>> result = thread.get()
 
+        :param id:
+        :type id: int
+        :param name:
+        :type name: str
         :param async_req: Whether to execute the request asynchronously.
         :type async_req: bool, optional
         :param _preload_content: if False, the urllib3.HTTPResponse object will
@@ -213,6 +217,10 @@ class PermissionsApi(object):
         >>> thread = api.read_permission_groups_permission_groups_get_with_http_info(async_req=True)
         >>> result = thread.get()
 
+        :param id:
+        :type id: int
+        :param name:
+        :type name: str
         :param async_req: Whether to execute the request asynchronously.
         :type async_req: bool, optional
         :param _return_http_data_only: response data without head status code
@@ -240,6 +248,8 @@ class PermissionsApi(object):
         local_var_params = locals()
 
         all_params = [
+            'id',
+            'name'
         ]
         all_params.extend(
             [
@@ -267,6 +277,10 @@ class PermissionsApi(object):
         path_params = {}
 
         query_params = []
+        if local_var_params.get('id') is not None:  # noqa: E501
+            query_params.append(('id', local_var_params['id']))  # noqa: E501
+        if local_var_params.get('name') is not None:  # noqa: E501
+            query_params.append(('name', local_var_params['name']))  # noqa: E501
 
         header_params = dict(local_var_params.get('_headers', {}))
 
@@ -283,6 +297,7 @@ class PermissionsApi(object):
 
         response_types_map = {
             200: "list[PermissionGroup]",
+            422: "HTTPValidationError",
         }
 
         return self.api_client.call_api(
@@ -451,6 +466,12 @@ class PermissionsApi(object):
         >>> thread = api.read_permissions_permissions_get(async_req=True)
         >>> result = thread.get()
 
+        :param id:
+        :type id: int
+        :param permission:
+        :type permission: str
+        :param name:
+        :type name: str
         :param async_req: Whether to execute the request asynchronously.
         :type async_req: bool, optional
         :param _preload_content: if False, the urllib3.HTTPResponse object will
@@ -479,6 +500,12 @@ class PermissionsApi(object):
         >>> thread = api.read_permissions_permissions_get_with_http_info(async_req=True)
         >>> result = thread.get()
 
+        :param id:
+        :type id: int
+        :param permission:
+        :type permission: str
+        :param name:
+        :type name: str
         :param async_req: Whether to execute the request asynchronously.
         :type async_req: bool, optional
         :param _return_http_data_only: response data without head status code
@@ -506,6 +533,9 @@ class PermissionsApi(object):
         local_var_params = locals()
 
         all_params = [
+            'id',
+            'permission',
+            'name'
         ]
         all_params.extend(
             [
@@ -533,6 +563,12 @@ class PermissionsApi(object):
         path_params = {}
 
         query_params = []
+        if local_var_params.get('id') is not None:  # noqa: E501
+            query_params.append(('id', local_var_params['id']))  # noqa: E501
+        if local_var_params.get('permission') is not None:  # noqa: E501
+            query_params.append(('permission', local_var_params['permission']))  # noqa: E501
+        if local_var_params.get('name') is not None:  # noqa: E501
+            query_params.append(('name', local_var_params['name']))  # noqa: E501
 
         header_params = dict(local_var_params.get('_headers', {}))
 
@@ -549,6 +585,7 @@ class PermissionsApi(object):
 
         response_types_map = {
             200: "list[Permission]",
+            422: "HTTPValidationError",
         }
 
         return self.api_client.call_api(

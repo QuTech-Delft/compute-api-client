@@ -466,6 +466,20 @@ class FilesApi(object):
         >>> thread = api.read_files_files_get(async_req=True)
         >>> result = thread.get()
 
+        :param id:
+        :type id: int
+        :param commit_id:
+        :type commit_id: int
+        :param content:
+        :type content: str
+        :param language_id:
+        :type language_id: int
+        :param compile_stage:
+        :type compile_stage: CompileStage
+        :param generated:
+        :type generated: bool
+        :param body:
+        :type body: object
         :param async_req: Whether to execute the request asynchronously.
         :type async_req: bool, optional
         :param _preload_content: if False, the urllib3.HTTPResponse object will
@@ -494,6 +508,20 @@ class FilesApi(object):
         >>> thread = api.read_files_files_get_with_http_info(async_req=True)
         >>> result = thread.get()
 
+        :param id:
+        :type id: int
+        :param commit_id:
+        :type commit_id: int
+        :param content:
+        :type content: str
+        :param language_id:
+        :type language_id: int
+        :param compile_stage:
+        :type compile_stage: CompileStage
+        :param generated:
+        :type generated: bool
+        :param body:
+        :type body: object
         :param async_req: Whether to execute the request asynchronously.
         :type async_req: bool, optional
         :param _return_http_data_only: response data without head status code
@@ -521,6 +549,13 @@ class FilesApi(object):
         local_var_params = locals()
 
         all_params = [
+            'id',
+            'commit_id',
+            'content',
+            'language_id',
+            'compile_stage',
+            'generated',
+            'body'
         ]
         all_params.extend(
             [
@@ -548,6 +583,18 @@ class FilesApi(object):
         path_params = {}
 
         query_params = []
+        if local_var_params.get('id') is not None:  # noqa: E501
+            query_params.append(('id', local_var_params['id']))  # noqa: E501
+        if local_var_params.get('commit_id') is not None:  # noqa: E501
+            query_params.append(('commit_id', local_var_params['commit_id']))  # noqa: E501
+        if local_var_params.get('content') is not None:  # noqa: E501
+            query_params.append(('content', local_var_params['content']))  # noqa: E501
+        if local_var_params.get('language_id') is not None:  # noqa: E501
+            query_params.append(('language_id', local_var_params['language_id']))  # noqa: E501
+        if local_var_params.get('compile_stage') is not None:  # noqa: E501
+            query_params.append(('compile_stage', local_var_params['compile_stage']))  # noqa: E501
+        if local_var_params.get('generated') is not None:  # noqa: E501
+            query_params.append(('generated', local_var_params['generated']))  # noqa: E501
 
         header_params = dict(local_var_params.get('_headers', {}))
 
@@ -555,15 +602,26 @@ class FilesApi(object):
         local_var_files = {}
 
         body_params = None
+        if 'body' in local_var_params:
+            body_params = local_var_params['body']
         # HTTP header `Accept`
         header_params['Accept'] = self.api_client.select_header_accept(
             ['application/json'])  # noqa: E501
+
+        # HTTP header `Content-Type`
+        content_types_list = local_var_params.get('_content_type',
+            self.api_client.select_header_content_type(
+                ['application/json'],
+                'GET', body_params))  # noqa: E501
+        if content_types_list:
+                header_params['Content-Type'] = content_types_list
 
         # Authentication setting
         auth_settings = ['user']  # noqa: E501
 
         response_types_map = {
             200: "list[File]",
+            422: "HTTPValidationError",
         }
 
         return self.api_client.call_api(

@@ -156,6 +156,7 @@ Class | Method | HTTP request | Description
  - [BatchJob](compute_api_client/docs/BatchJob.md)
  - [BatchJobIn](compute_api_client/docs/BatchJobIn.md)
  - [BatchJobStatus](compute_api_client/docs/BatchJobStatus.md)
+ - [BodyReadBackendTypesBackendTypesGet](compute_api_client/docs/BodyReadBackendTypesBackendTypesGet.md)
  - [Commit](compute_api_client/docs/Commit.md)
  - [CommitIn](compute_api_client/docs/CommitIn.md)
  - [CompileStage](compute_api_client/docs/CompileStage.md)

@@ -234,7 +234,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **read_users_users_get**
-> list[User] read_users_users_get()
+> list[User] read_users_users_get(id=id, full_name=full_name, email=email, is_superuser=is_superuser, is_staff=is_staff, is_active=is_active, is_confirmed=is_confirmed)
 
 List users
 
@@ -270,17 +270,33 @@ configuration.api_key['user'] = 'YOUR_API_KEY'
 with compute_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = compute_api_client.UsersApi(api_client)
-    
+    id = 56 # int |  (optional)
+full_name = 'full_name_example' # str |  (optional)
+email = 'email_example' # str |  (optional)
+is_superuser = True # bool |  (optional)
+is_staff = True # bool |  (optional)
+is_active = True # bool |  (optional)
+is_confirmed = True # bool |  (optional)
+
     try:
         # List users
-        api_response = api_instance.read_users_users_get()
+        api_response = api_instance.read_users_users_get(id=id, full_name=full_name, email=email, is_superuser=is_superuser, is_staff=is_staff, is_active=is_active, is_confirmed=is_confirmed)
         pprint(api_response)
     except ApiException as e:
         print("Exception when calling UsersApi->read_users_users_get: %s\n" % e)
 ```
 
 ### Parameters
-This endpoint does not need any parameter.
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **id** | **int**|  | [optional] 
+ **full_name** | **str**|  | [optional] 
+ **email** | **str**|  | [optional] 
+ **is_superuser** | **bool**|  | [optional] 
+ **is_staff** | **bool**|  | [optional] 
+ **is_active** | **bool**|  | [optional] 
+ **is_confirmed** | **bool**|  | [optional] 
 
 ### Return type
 
@@ -299,6 +315,7 @@ This endpoint does not need any parameter.
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Successful Response |  -  |
+**422** | Validation Error |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 

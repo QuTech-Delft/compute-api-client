@@ -284,7 +284,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **read_commits_commits_get**
-> list[Commit] read_commits_commits_get()
+> list[Commit] read_commits_commits_get(id=id, created_on=created_on, hash=hash, description=description, algorithm_id=algorithm_id)
 
 List commits
 
@@ -320,17 +320,29 @@ configuration.api_key['user'] = 'YOUR_API_KEY'
 with compute_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = compute_api_client.CommitsApi(api_client)
-    
+    id = 56 # int |  (optional)
+created_on = '2013-10-20T19:20:30+01:00' # datetime |  (optional)
+hash = 'hash_example' # str |  (optional)
+description = 'description_example' # str |  (optional)
+algorithm_id = 56 # int |  (optional)
+
     try:
         # List commits
-        api_response = api_instance.read_commits_commits_get()
+        api_response = api_instance.read_commits_commits_get(id=id, created_on=created_on, hash=hash, description=description, algorithm_id=algorithm_id)
         pprint(api_response)
     except ApiException as e:
         print("Exception when calling CommitsApi->read_commits_commits_get: %s\n" % e)
 ```
 
 ### Parameters
-This endpoint does not need any parameter.
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **id** | **int**|  | [optional] 
+ **created_on** | **datetime**|  | [optional] 
+ **hash** | **str**|  | [optional] 
+ **description** | **str**|  | [optional] 
+ **algorithm_id** | **int**|  | [optional] 
 
 ### Return type
 
@@ -349,6 +361,7 @@ This endpoint does not need any parameter.
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Successful Response |  -  |
+**422** | Validation Error |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 

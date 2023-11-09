@@ -185,6 +185,26 @@ class TransactionsApi(object):
         >>> thread = api.read_transactions_transactions_get(async_req=True)
         >>> result = thread.get()
 
+        :param id:
+        :type id: int
+        :param domain__isnull:
+        :type domain__isnull: bool
+        :param domain:
+        :type domain: Domain
+        :param job__isnull:
+        :type job__isnull: bool
+        :param job:
+        :type job: int
+        :param team_id:
+        :type team_id: int
+        :param user_id__isnull:
+        :type user_id__isnull: bool
+        :param user_id:
+        :type user_id: int
+        :param change:
+        :type change: int
+        :param timestamp:
+        :type timestamp: datetime
         :param async_req: Whether to execute the request asynchronously.
         :type async_req: bool, optional
         :param _preload_content: if False, the urllib3.HTTPResponse object will
@@ -213,6 +233,26 @@ class TransactionsApi(object):
         >>> thread = api.read_transactions_transactions_get_with_http_info(async_req=True)
         >>> result = thread.get()
 
+        :param id:
+        :type id: int
+        :param domain__isnull:
+        :type domain__isnull: bool
+        :param domain:
+        :type domain: Domain
+        :param job__isnull:
+        :type job__isnull: bool
+        :param job:
+        :type job: int
+        :param team_id:
+        :type team_id: int
+        :param user_id__isnull:
+        :type user_id__isnull: bool
+        :param user_id:
+        :type user_id: int
+        :param change:
+        :type change: int
+        :param timestamp:
+        :type timestamp: datetime
         :param async_req: Whether to execute the request asynchronously.
         :type async_req: bool, optional
         :param _return_http_data_only: response data without head status code
@@ -240,6 +280,16 @@ class TransactionsApi(object):
         local_var_params = locals()
 
         all_params = [
+            'id',
+            'domain__isnull',
+            'domain',
+            'job__isnull',
+            'job',
+            'team_id',
+            'user_id__isnull',
+            'user_id',
+            'change',
+            'timestamp'
         ]
         all_params.extend(
             [
@@ -267,6 +317,26 @@ class TransactionsApi(object):
         path_params = {}
 
         query_params = []
+        if local_var_params.get('id') is not None:  # noqa: E501
+            query_params.append(('id', local_var_params['id']))  # noqa: E501
+        if local_var_params.get('domain__isnull') is not None:  # noqa: E501
+            query_params.append(('domain__isnull', local_var_params['domain__isnull']))  # noqa: E501
+        if local_var_params.get('domain') is not None:  # noqa: E501
+            query_params.append(('domain', local_var_params['domain']))  # noqa: E501
+        if local_var_params.get('job__isnull') is not None:  # noqa: E501
+            query_params.append(('job__isnull', local_var_params['job__isnull']))  # noqa: E501
+        if local_var_params.get('job') is not None:  # noqa: E501
+            query_params.append(('job', local_var_params['job']))  # noqa: E501
+        if local_var_params.get('team_id') is not None:  # noqa: E501
+            query_params.append(('team_id', local_var_params['team_id']))  # noqa: E501
+        if local_var_params.get('user_id__isnull') is not None:  # noqa: E501
+            query_params.append(('user_id__isnull', local_var_params['user_id__isnull']))  # noqa: E501
+        if local_var_params.get('user_id') is not None:  # noqa: E501
+            query_params.append(('user_id', local_var_params['user_id']))  # noqa: E501
+        if local_var_params.get('change') is not None:  # noqa: E501
+            query_params.append(('change', local_var_params['change']))  # noqa: E501
+        if local_var_params.get('timestamp') is not None:  # noqa: E501
+            query_params.append(('timestamp', local_var_params['timestamp']))  # noqa: E501
 
         header_params = dict(local_var_params.get('_headers', {}))
 
@@ -283,6 +353,7 @@ class TransactionsApi(object):
 
         response_types_map = {
             200: "list[Transaction]",
+            422: "HTTPValidationError",
         }
 
         return self.api_client.call_api(

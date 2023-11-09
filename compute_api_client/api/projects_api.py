@@ -623,6 +623,18 @@ class ProjectsApi(object):
         >>> thread = api.read_projects_projects_get(async_req=True)
         >>> result = thread.get()
 
+        :param id:
+        :type id: int
+        :param created_on:
+        :type created_on: datetime
+        :param owner_id:
+        :type owner_id: int
+        :param name:
+        :type name: str
+        :param description:
+        :type description: str
+        :param starred:
+        :type starred: bool
         :param async_req: Whether to execute the request asynchronously.
         :type async_req: bool, optional
         :param _preload_content: if False, the urllib3.HTTPResponse object will
@@ -651,6 +663,18 @@ class ProjectsApi(object):
         >>> thread = api.read_projects_projects_get_with_http_info(async_req=True)
         >>> result = thread.get()
 
+        :param id:
+        :type id: int
+        :param created_on:
+        :type created_on: datetime
+        :param owner_id:
+        :type owner_id: int
+        :param name:
+        :type name: str
+        :param description:
+        :type description: str
+        :param starred:
+        :type starred: bool
         :param async_req: Whether to execute the request asynchronously.
         :type async_req: bool, optional
         :param _return_http_data_only: response data without head status code
@@ -678,6 +702,12 @@ class ProjectsApi(object):
         local_var_params = locals()
 
         all_params = [
+            'id',
+            'created_on',
+            'owner_id',
+            'name',
+            'description',
+            'starred'
         ]
         all_params.extend(
             [
@@ -705,6 +735,18 @@ class ProjectsApi(object):
         path_params = {}
 
         query_params = []
+        if local_var_params.get('id') is not None:  # noqa: E501
+            query_params.append(('id', local_var_params['id']))  # noqa: E501
+        if local_var_params.get('created_on') is not None:  # noqa: E501
+            query_params.append(('created_on', local_var_params['created_on']))  # noqa: E501
+        if local_var_params.get('owner_id') is not None:  # noqa: E501
+            query_params.append(('owner_id', local_var_params['owner_id']))  # noqa: E501
+        if local_var_params.get('name') is not None:  # noqa: E501
+            query_params.append(('name', local_var_params['name']))  # noqa: E501
+        if local_var_params.get('description') is not None:  # noqa: E501
+            query_params.append(('description', local_var_params['description']))  # noqa: E501
+        if local_var_params.get('starred') is not None:  # noqa: E501
+            query_params.append(('starred', local_var_params['starred']))  # noqa: E501
 
         header_params = dict(local_var_params.get('_headers', {}))
 
@@ -721,6 +763,7 @@ class ProjectsApi(object):
 
         response_types_map = {
             200: "list[Project]",
+            422: "HTTPValidationError",
         }
 
         return self.api_client.call_api(

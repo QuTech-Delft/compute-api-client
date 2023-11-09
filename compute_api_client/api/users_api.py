@@ -466,6 +466,20 @@ class UsersApi(object):
         >>> thread = api.read_users_users_get(async_req=True)
         >>> result = thread.get()
 
+        :param id:
+        :type id: int
+        :param full_name:
+        :type full_name: str
+        :param email:
+        :type email: str
+        :param is_superuser:
+        :type is_superuser: bool
+        :param is_staff:
+        :type is_staff: bool
+        :param is_active:
+        :type is_active: bool
+        :param is_confirmed:
+        :type is_confirmed: bool
         :param async_req: Whether to execute the request asynchronously.
         :type async_req: bool, optional
         :param _preload_content: if False, the urllib3.HTTPResponse object will
@@ -494,6 +508,20 @@ class UsersApi(object):
         >>> thread = api.read_users_users_get_with_http_info(async_req=True)
         >>> result = thread.get()
 
+        :param id:
+        :type id: int
+        :param full_name:
+        :type full_name: str
+        :param email:
+        :type email: str
+        :param is_superuser:
+        :type is_superuser: bool
+        :param is_staff:
+        :type is_staff: bool
+        :param is_active:
+        :type is_active: bool
+        :param is_confirmed:
+        :type is_confirmed: bool
         :param async_req: Whether to execute the request asynchronously.
         :type async_req: bool, optional
         :param _return_http_data_only: response data without head status code
@@ -521,6 +549,13 @@ class UsersApi(object):
         local_var_params = locals()
 
         all_params = [
+            'id',
+            'full_name',
+            'email',
+            'is_superuser',
+            'is_staff',
+            'is_active',
+            'is_confirmed'
         ]
         all_params.extend(
             [
@@ -548,6 +583,20 @@ class UsersApi(object):
         path_params = {}
 
         query_params = []
+        if local_var_params.get('id') is not None:  # noqa: E501
+            query_params.append(('id', local_var_params['id']))  # noqa: E501
+        if local_var_params.get('full_name') is not None:  # noqa: E501
+            query_params.append(('full_name', local_var_params['full_name']))  # noqa: E501
+        if local_var_params.get('email') is not None:  # noqa: E501
+            query_params.append(('email', local_var_params['email']))  # noqa: E501
+        if local_var_params.get('is_superuser') is not None:  # noqa: E501
+            query_params.append(('is_superuser', local_var_params['is_superuser']))  # noqa: E501
+        if local_var_params.get('is_staff') is not None:  # noqa: E501
+            query_params.append(('is_staff', local_var_params['is_staff']))  # noqa: E501
+        if local_var_params.get('is_active') is not None:  # noqa: E501
+            query_params.append(('is_active', local_var_params['is_active']))  # noqa: E501
+        if local_var_params.get('is_confirmed') is not None:  # noqa: E501
+            query_params.append(('is_confirmed', local_var_params['is_confirmed']))  # noqa: E501
 
         header_params = dict(local_var_params.get('_headers', {}))
 
@@ -564,6 +613,7 @@ class UsersApi(object):
 
         response_types_map = {
             200: "list[User]",
+            422: "HTTPValidationError",
         }
 
         return self.api_client.call_api(

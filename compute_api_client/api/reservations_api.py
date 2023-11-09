@@ -331,6 +331,22 @@ class ReservationsApi(object):
         >>> thread = api.read_reservations_reservations_get(async_req=True)
         >>> result = thread.get()
 
+        :param id:
+        :type id: int
+        :param member_id:
+        :type member_id: int
+        :param start_time:
+        :type start_time: datetime
+        :param end_time:
+        :type end_time: datetime
+        :param backend_type_id:
+        :type backend_type_id: int
+        :param backend_id__isnull:
+        :type backend_id__isnull: bool
+        :param backend_id:
+        :type backend_id: int
+        :param is_terminated:
+        :type is_terminated: bool
         :param async_req: Whether to execute the request asynchronously.
         :type async_req: bool, optional
         :param _preload_content: if False, the urllib3.HTTPResponse object will
@@ -359,6 +375,22 @@ class ReservationsApi(object):
         >>> thread = api.read_reservations_reservations_get_with_http_info(async_req=True)
         >>> result = thread.get()
 
+        :param id:
+        :type id: int
+        :param member_id:
+        :type member_id: int
+        :param start_time:
+        :type start_time: datetime
+        :param end_time:
+        :type end_time: datetime
+        :param backend_type_id:
+        :type backend_type_id: int
+        :param backend_id__isnull:
+        :type backend_id__isnull: bool
+        :param backend_id:
+        :type backend_id: int
+        :param is_terminated:
+        :type is_terminated: bool
         :param async_req: Whether to execute the request asynchronously.
         :type async_req: bool, optional
         :param _return_http_data_only: response data without head status code
@@ -386,6 +418,14 @@ class ReservationsApi(object):
         local_var_params = locals()
 
         all_params = [
+            'id',
+            'member_id',
+            'start_time',
+            'end_time',
+            'backend_type_id',
+            'backend_id__isnull',
+            'backend_id',
+            'is_terminated'
         ]
         all_params.extend(
             [
@@ -413,6 +453,22 @@ class ReservationsApi(object):
         path_params = {}
 
         query_params = []
+        if local_var_params.get('id') is not None:  # noqa: E501
+            query_params.append(('id', local_var_params['id']))  # noqa: E501
+        if local_var_params.get('member_id') is not None:  # noqa: E501
+            query_params.append(('member_id', local_var_params['member_id']))  # noqa: E501
+        if local_var_params.get('start_time') is not None:  # noqa: E501
+            query_params.append(('start_time', local_var_params['start_time']))  # noqa: E501
+        if local_var_params.get('end_time') is not None:  # noqa: E501
+            query_params.append(('end_time', local_var_params['end_time']))  # noqa: E501
+        if local_var_params.get('backend_type_id') is not None:  # noqa: E501
+            query_params.append(('backend_type_id', local_var_params['backend_type_id']))  # noqa: E501
+        if local_var_params.get('backend_id__isnull') is not None:  # noqa: E501
+            query_params.append(('backend_id__isnull', local_var_params['backend_id__isnull']))  # noqa: E501
+        if local_var_params.get('backend_id') is not None:  # noqa: E501
+            query_params.append(('backend_id', local_var_params['backend_id']))  # noqa: E501
+        if local_var_params.get('is_terminated') is not None:  # noqa: E501
+            query_params.append(('is_terminated', local_var_params['is_terminated']))  # noqa: E501
 
         header_params = dict(local_var_params.get('_headers', {}))
 
@@ -429,6 +485,7 @@ class ReservationsApi(object):
 
         response_types_map = {
             200: "list[Reservation]",
+            422: "HTTPValidationError",
         }
 
         return self.api_client.call_api(
