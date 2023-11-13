@@ -35,7 +35,6 @@ compute_api_client/docs/BatchJob.md
 compute_api_client/docs/BatchJobIn.md
 compute_api_client/docs/BatchJobStatus.md
 compute_api_client/docs/BatchJobsApi.md
-compute_api_client/docs/BodyReadBackendTypesBackendTypesGet.md
 compute_api_client/docs/Commit.md
 compute_api_client/docs/CommitIn.md
 compute_api_client/docs/CommitsApi.md
@@ -98,7 +97,6 @@ compute_api_client/models/backend_with_authentication.py
 compute_api_client/models/batch_job.py
 compute_api_client/models/batch_job_in.py
 compute_api_client/models/batch_job_status.py
-compute_api_client/models/body_read_backend_types_backend_types_get.py
 compute_api_client/models/commit.py
 compute_api_client/models/commit_in.py
 compute_api_client/models/compile_stage.py

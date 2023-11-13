@@ -774,8 +774,6 @@ class BatchJobsApi(object):
         :type finished_at: datetime
         :param aggregated_algorithm_type:
         :type aggregated_algorithm_type: AlgorithmType
-        :param request_body:
-        :type request_body: list[int]
         :param async_req: Whether to execute the request asynchronously.
         :type async_req: bool, optional
         :param _preload_content: if False, the urllib3.HTTPResponse object will
@@ -834,8 +832,6 @@ class BatchJobsApi(object):
         :type finished_at: datetime
         :param aggregated_algorithm_type:
         :type aggregated_algorithm_type: AlgorithmType
-        :param request_body:
-        :type request_body: list[int]
         :param async_req: Whether to execute the request asynchronously.
         :type async_req: bool, optional
         :param _return_http_data_only: response data without head status code
@@ -877,8 +873,7 @@ class BatchJobsApi(object):
             'queued_at',
             'finished_at__isnull',
             'finished_at',
-            'aggregated_algorithm_type',
-            'request_body'
+            'aggregated_algorithm_type'
         ]
         all_params.extend(
             [
@@ -943,19 +938,9 @@ class BatchJobsApi(object):
         local_var_files = {}
 
         body_params = None
-        if 'request_body' in local_var_params:
-            body_params = local_var_params['request_body']
         # HTTP header `Accept`
         header_params['Accept'] = self.api_client.select_header_accept(
             ['application/json'])  # noqa: E501
-
-        # HTTP header `Content-Type`
-        content_types_list = local_var_params.get('_content_type',
-            self.api_client.select_header_content_type(
-                ['application/json'],
-                'GET', body_params))  # noqa: E501
-        if content_types_list:
-                header_params['Content-Type'] = content_types_list
 
         # Authentication setting
         auth_settings = ['user']  # noqa: E501

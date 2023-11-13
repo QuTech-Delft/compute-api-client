@@ -199,8 +199,6 @@ class BackendTypesApi(object):
         :type image_id: str
         :param is_hardware:
         :type is_hardware: bool
-        :param body_read_backend_types_backend_types_get:
-        :type body_read_backend_types_backend_types_get: BodyReadBackendTypesBackendTypesGet
         :param async_req: Whether to execute the request asynchronously.
         :type async_req: bool, optional
         :param _preload_content: if False, the urllib3.HTTPResponse object will
@@ -243,8 +241,6 @@ class BackendTypesApi(object):
         :type image_id: str
         :param is_hardware:
         :type is_hardware: bool
-        :param body_read_backend_types_backend_types_get:
-        :type body_read_backend_types_backend_types_get: BodyReadBackendTypesBackendTypesGet
         :param async_req: Whether to execute the request asynchronously.
         :type async_req: bool, optional
         :param _return_http_data_only: response data without head status code
@@ -278,8 +274,7 @@ class BackendTypesApi(object):
             'infrastructure',
             'description',
             'image_id',
-            'is_hardware',
-            'body_read_backend_types_backend_types_get'
+            'is_hardware'
         ]
         all_params.extend(
             [
@@ -328,19 +323,9 @@ class BackendTypesApi(object):
         local_var_files = {}
 
         body_params = None
-        if 'body_read_backend_types_backend_types_get' in local_var_params:
-            body_params = local_var_params['body_read_backend_types_backend_types_get']
         # HTTP header `Accept`
         header_params['Accept'] = self.api_client.select_header_accept(
             ['application/json'])  # noqa: E501
-
-        # HTTP header `Content-Type`
-        content_types_list = local_var_params.get('_content_type',
-            self.api_client.select_header_content_type(
-                ['application/json'],
-                'GET', body_params))  # noqa: E501
-        if content_types_list:
-                header_params['Content-Type'] = content_types_list
 
         # Authentication setting
         auth_settings = ['user']  # noqa: E501

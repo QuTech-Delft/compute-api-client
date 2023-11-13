@@ -284,7 +284,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **read_files_files_get**
-> list[File] read_files_files_get(latest=latest, id=id, commit_id=commit_id, content=content, language_id=language_id, compile_stage=compile_stage, generated=generated, body=body)
+> list[File] read_files_files_get(latest=latest, id=id, commit_id=commit_id, content=content, language_id=language_id, compile_stage=compile_stage, generated=generated)
 
 List files
 
@@ -327,11 +327,10 @@ content = 'content_example' # str |  (optional)
 language_id = 56 # int |  (optional)
 compile_stage = compute_api_client.CompileStage() # CompileStage |  (optional)
 generated = True # bool |  (optional)
-body = None # object |  (optional)
 
     try:
         # List files
-        api_response = api_instance.read_files_files_get(latest=latest, id=id, commit_id=commit_id, content=content, language_id=language_id, compile_stage=compile_stage, generated=generated, body=body)
+        api_response = api_instance.read_files_files_get(latest=latest, id=id, commit_id=commit_id, content=content, language_id=language_id, compile_stage=compile_stage, generated=generated)
         pprint(api_response)
     except ApiException as e:
         print("Exception when calling FilesApi->read_files_files_get: %s\n" % e)
@@ -348,7 +347,6 @@ Name | Type | Description  | Notes
  **language_id** | **int**|  | [optional] 
  **compile_stage** | [**CompileStage**](.md)|  | [optional] 
  **generated** | **bool**|  | [optional] 
- **body** | **object**|  | [optional] 
 
 ### Return type
 
@@ -360,7 +358,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 ### HTTP response details

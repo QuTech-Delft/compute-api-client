@@ -480,8 +480,6 @@ class FilesApi(object):
         :type compile_stage: CompileStage
         :param generated:
         :type generated: bool
-        :param body:
-        :type body: object
         :param async_req: Whether to execute the request asynchronously.
         :type async_req: bool, optional
         :param _preload_content: if False, the urllib3.HTTPResponse object will
@@ -524,8 +522,6 @@ class FilesApi(object):
         :type compile_stage: CompileStage
         :param generated:
         :type generated: bool
-        :param body:
-        :type body: object
         :param async_req: Whether to execute the request asynchronously.
         :type async_req: bool, optional
         :param _return_http_data_only: response data without head status code
@@ -559,8 +555,7 @@ class FilesApi(object):
             'content',
             'language_id',
             'compile_stage',
-            'generated',
-            'body'
+            'generated'
         ]
         all_params.extend(
             [
@@ -609,19 +604,9 @@ class FilesApi(object):
         local_var_files = {}
 
         body_params = None
-        if 'body' in local_var_params:
-            body_params = local_var_params['body']
         # HTTP header `Accept`
         header_params['Accept'] = self.api_client.select_header_accept(
             ['application/json'])  # noqa: E501
-
-        # HTTP header `Content-Type`
-        content_types_list = local_var_params.get('_content_type',
-            self.api_client.select_header_content_type(
-                ['application/json'],
-                'GET', body_params))  # noqa: E501
-        if content_types_list:
-                header_params['Content-Type'] = content_types_list
 
         # Authentication setting
         auth_settings = ['user']  # noqa: E501
