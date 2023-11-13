@@ -234,7 +234,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **read_members_members_get**
-> list[Member] read_members_members_get(id=id, team_id=team_id, user_id=user_id, role=role, is_active=is_active)
+> list[Member] read_members_members_get(latest=latest, id=id, team_id=team_id, user_id=user_id, role=role, is_active=is_active)
 
 List members
 
@@ -270,7 +270,8 @@ configuration.api_key['user'] = 'YOUR_API_KEY'
 with compute_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = compute_api_client.MembersApi(api_client)
-    id = 56 # int |  (optional)
+    latest = True # bool |  (optional)
+id = 56 # int |  (optional)
 team_id = 56 # int |  (optional)
 user_id = 56 # int |  (optional)
 role = compute_api_client.Role() # Role |  (optional)
@@ -278,7 +279,7 @@ is_active = True # bool |  (optional)
 
     try:
         # List members
-        api_response = api_instance.read_members_members_get(id=id, team_id=team_id, user_id=user_id, role=role, is_active=is_active)
+        api_response = api_instance.read_members_members_get(latest=latest, id=id, team_id=team_id, user_id=user_id, role=role, is_active=is_active)
         pprint(api_response)
     except ApiException as e:
         print("Exception when calling MembersApi->read_members_members_get: %s\n" % e)
@@ -288,6 +289,7 @@ is_active = True # bool |  (optional)
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **latest** | **bool**|  | [optional] 
  **id** | **int**|  | [optional] 
  **team_id** | **int**|  | [optional] 
  **user_id** | **int**|  | [optional] 

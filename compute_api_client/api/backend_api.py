@@ -331,6 +331,8 @@ class BackendApi(object):
         >>> thread = api.read_backends_backends_get(async_req=True)
         >>> result = thread.get()
 
+        :param latest:
+        :type latest: bool
         :param id:
         :type id: int
         :param name:
@@ -371,6 +373,8 @@ class BackendApi(object):
         >>> thread = api.read_backends_backends_get_with_http_info(async_req=True)
         >>> result = thread.get()
 
+        :param latest:
+        :type latest: bool
         :param id:
         :type id: int
         :param name:
@@ -410,6 +414,7 @@ class BackendApi(object):
         local_var_params = locals()
 
         all_params = [
+            'latest',
             'id',
             'name',
             'location',
@@ -443,6 +448,8 @@ class BackendApi(object):
         path_params = {}
 
         query_params = []
+        if local_var_params.get('latest') is not None:  # noqa: E501
+            query_params.append(('latest', local_var_params['latest']))  # noqa: E501
         if local_var_params.get('id') is not None:  # noqa: E501
             query_params.append(('id', local_var_params['id']))  # noqa: E501
         if local_var_params.get('name') is not None:  # noqa: E501

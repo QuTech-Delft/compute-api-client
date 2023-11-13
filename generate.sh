@@ -40,5 +40,8 @@ else
 
     sed -i -e "s/^version =.*/version = \"${version}\"/" pyproject.toml
 
+    cd ../dispatcher/
+    poetry lock --no-update
+
     echo "Success!"
 fi

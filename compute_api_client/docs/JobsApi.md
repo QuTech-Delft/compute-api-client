@@ -235,7 +235,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **read_jobs_jobs_get**
-> list[Job] read_jobs_jobs_get(id=id, created_on=created_on, file_id=file_id, algorithm_type=algorithm_type, status=status, batch_job_id=batch_job_id, queued_at__isnull=queued_at__isnull, queued_at=queued_at, finished_at__isnull=finished_at__isnull, finished_at=finished_at, number_of_shots__isnull=number_of_shots__isnull, number_of_shots=number_of_shots)
+> list[Job] read_jobs_jobs_get(latest=latest, id=id, created_on=created_on, file_id=file_id, algorithm_type=algorithm_type, status=status, batch_job_id=batch_job_id, queued_at__isnull=queued_at__isnull, queued_at=queued_at, finished_at__isnull=finished_at__isnull, finished_at=finished_at, number_of_shots__isnull=number_of_shots__isnull, number_of_shots=number_of_shots)
 
 List jobs
 
@@ -271,7 +271,8 @@ configuration.api_key['user'] = 'YOUR_API_KEY'
 with compute_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = compute_api_client.JobsApi(api_client)
-    id = 56 # int |  (optional)
+    latest = True # bool |  (optional)
+id = 56 # int |  (optional)
 created_on = '2013-10-20T19:20:30+01:00' # datetime |  (optional)
 file_id = 56 # int |  (optional)
 algorithm_type = compute_api_client.AlgorithmType() # AlgorithmType |  (optional)
@@ -286,7 +287,7 @@ number_of_shots = 56 # int |  (optional)
 
     try:
         # List jobs
-        api_response = api_instance.read_jobs_jobs_get(id=id, created_on=created_on, file_id=file_id, algorithm_type=algorithm_type, status=status, batch_job_id=batch_job_id, queued_at__isnull=queued_at__isnull, queued_at=queued_at, finished_at__isnull=finished_at__isnull, finished_at=finished_at, number_of_shots__isnull=number_of_shots__isnull, number_of_shots=number_of_shots)
+        api_response = api_instance.read_jobs_jobs_get(latest=latest, id=id, created_on=created_on, file_id=file_id, algorithm_type=algorithm_type, status=status, batch_job_id=batch_job_id, queued_at__isnull=queued_at__isnull, queued_at=queued_at, finished_at__isnull=finished_at__isnull, finished_at=finished_at, number_of_shots__isnull=number_of_shots__isnull, number_of_shots=number_of_shots)
         pprint(api_response)
     except ApiException as e:
         print("Exception when calling JobsApi->read_jobs_jobs_get: %s\n" % e)
@@ -296,6 +297,7 @@ number_of_shots = 56 # int |  (optional)
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **latest** | **bool**|  | [optional] 
  **id** | **int**|  | [optional] 
  **created_on** | **datetime**|  | [optional] 
  **file_id** | **int**|  | [optional] 

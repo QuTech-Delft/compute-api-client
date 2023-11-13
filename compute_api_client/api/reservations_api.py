@@ -331,6 +331,8 @@ class ReservationsApi(object):
         >>> thread = api.read_reservations_reservations_get(async_req=True)
         >>> result = thread.get()
 
+        :param latest:
+        :type latest: bool
         :param id:
         :type id: int
         :param member_id:
@@ -375,6 +377,8 @@ class ReservationsApi(object):
         >>> thread = api.read_reservations_reservations_get_with_http_info(async_req=True)
         >>> result = thread.get()
 
+        :param latest:
+        :type latest: bool
         :param id:
         :type id: int
         :param member_id:
@@ -418,6 +422,7 @@ class ReservationsApi(object):
         local_var_params = locals()
 
         all_params = [
+            'latest',
             'id',
             'member_id',
             'start_time',
@@ -453,6 +458,8 @@ class ReservationsApi(object):
         path_params = {}
 
         query_params = []
+        if local_var_params.get('latest') is not None:  # noqa: E501
+            query_params.append(('latest', local_var_params['latest']))  # noqa: E501
         if local_var_params.get('id') is not None:  # noqa: E501
             query_params.append(('id', local_var_params['id']))  # noqa: E501
         if local_var_params.get('member_id') is not None:  # noqa: E501

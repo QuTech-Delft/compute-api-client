@@ -84,7 +84,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **read_transactions_transactions_get**
-> list[Transaction] read_transactions_transactions_get(id=id, domain__isnull=domain__isnull, domain=domain, job__isnull=job__isnull, job=job, team_id=team_id, user_id__isnull=user_id__isnull, user_id=user_id, change=change, timestamp=timestamp)
+> list[Transaction] read_transactions_transactions_get(latest=latest, id=id, domain__isnull=domain__isnull, domain=domain, job__isnull=job__isnull, job=job, team_id=team_id, user_id__isnull=user_id__isnull, user_id=user_id, change=change, timestamp=timestamp)
 
 List transactions
 
@@ -120,7 +120,8 @@ configuration.api_key['user'] = 'YOUR_API_KEY'
 with compute_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = compute_api_client.TransactionsApi(api_client)
-    id = 56 # int |  (optional)
+    latest = True # bool |  (optional)
+id = 56 # int |  (optional)
 domain__isnull = True # bool |  (optional)
 domain = compute_api_client.Domain() # Domain |  (optional)
 job__isnull = True # bool |  (optional)
@@ -133,7 +134,7 @@ timestamp = '2013-10-20T19:20:30+01:00' # datetime |  (optional)
 
     try:
         # List transactions
-        api_response = api_instance.read_transactions_transactions_get(id=id, domain__isnull=domain__isnull, domain=domain, job__isnull=job__isnull, job=job, team_id=team_id, user_id__isnull=user_id__isnull, user_id=user_id, change=change, timestamp=timestamp)
+        api_response = api_instance.read_transactions_transactions_get(latest=latest, id=id, domain__isnull=domain__isnull, domain=domain, job__isnull=job__isnull, job=job, team_id=team_id, user_id__isnull=user_id__isnull, user_id=user_id, change=change, timestamp=timestamp)
         pprint(api_response)
     except ApiException as e:
         print("Exception when calling TransactionsApi->read_transactions_transactions_get: %s\n" % e)
@@ -143,6 +144,7 @@ timestamp = '2013-10-20T19:20:30+01:00' # datetime |  (optional)
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **latest** | **bool**|  | [optional] 
  **id** | **int**|  | [optional] 
  **domain__isnull** | **bool**|  | [optional] 
  **domain** | [**Domain**](.md)|  | [optional] 

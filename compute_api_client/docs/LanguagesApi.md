@@ -84,7 +84,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **read_languages_languages_get**
-> list[Language] read_languages_languages_get(q=q, id=id, name=name, version=version)
+> list[Language] read_languages_languages_get(q=q, latest=latest, id=id, name=name, version=version)
 
 List languages
 
@@ -121,13 +121,14 @@ with compute_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = compute_api_client.LanguagesApi(api_client)
     q = 'q_example' # str |  (optional)
+latest = True # bool |  (optional)
 id = 56 # int |  (optional)
 name = 'name_example' # str |  (optional)
 version = 'version_example' # str |  (optional)
 
     try:
         # List languages
-        api_response = api_instance.read_languages_languages_get(q=q, id=id, name=name, version=version)
+        api_response = api_instance.read_languages_languages_get(q=q, latest=latest, id=id, name=name, version=version)
         pprint(api_response)
     except ApiException as e:
         print("Exception when calling LanguagesApi->read_languages_languages_get: %s\n" % e)
@@ -138,6 +139,7 @@ version = 'version_example' # str |  (optional)
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **q** | **str**|  | [optional] 
+ **latest** | **bool**|  | [optional] 
  **id** | **int**|  | [optional] 
  **name** | **str**|  | [optional] 
  **version** | **str**|  | [optional] 

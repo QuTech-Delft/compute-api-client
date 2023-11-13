@@ -466,6 +466,8 @@ class MembersApi(object):
         >>> thread = api.read_members_members_get(async_req=True)
         >>> result = thread.get()
 
+        :param latest:
+        :type latest: bool
         :param id:
         :type id: int
         :param team_id:
@@ -504,6 +506,8 @@ class MembersApi(object):
         >>> thread = api.read_members_members_get_with_http_info(async_req=True)
         >>> result = thread.get()
 
+        :param latest:
+        :type latest: bool
         :param id:
         :type id: int
         :param team_id:
@@ -541,6 +545,7 @@ class MembersApi(object):
         local_var_params = locals()
 
         all_params = [
+            'latest',
             'id',
             'team_id',
             'user_id',
@@ -573,6 +578,8 @@ class MembersApi(object):
         path_params = {}
 
         query_params = []
+        if local_var_params.get('latest') is not None:  # noqa: E501
+            query_params.append(('latest', local_var_params['latest']))  # noqa: E501
         if local_var_params.get('id') is not None:  # noqa: E501
             query_params.append(('id', local_var_params['id']))  # noqa: E501
         if local_var_params.get('team_id') is not None:  # noqa: E501

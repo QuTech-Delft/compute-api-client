@@ -160,7 +160,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **read_backends_backends_get**
-> list[Backend] read_backends_backends_get(id=id, name=name, location=location, backend_type_id=backend_type_id, status=status, last_heartbeat=last_heartbeat)
+> list[Backend] read_backends_backends_get(latest=latest, id=id, name=name, location=location, backend_type_id=backend_type_id, status=status, last_heartbeat=last_heartbeat)
 
 List backends
 
@@ -196,7 +196,8 @@ configuration.api_key['user'] = 'YOUR_API_KEY'
 with compute_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = compute_api_client.BackendApi(api_client)
-    id = 56 # int |  (optional)
+    latest = True # bool |  (optional)
+id = 56 # int |  (optional)
 name = 'name_example' # str |  (optional)
 location = 'location_example' # str |  (optional)
 backend_type_id = 56 # int |  (optional)
@@ -205,7 +206,7 @@ last_heartbeat = '2013-10-20T19:20:30+01:00' # datetime |  (optional)
 
     try:
         # List backends
-        api_response = api_instance.read_backends_backends_get(id=id, name=name, location=location, backend_type_id=backend_type_id, status=status, last_heartbeat=last_heartbeat)
+        api_response = api_instance.read_backends_backends_get(latest=latest, id=id, name=name, location=location, backend_type_id=backend_type_id, status=status, last_heartbeat=last_heartbeat)
         pprint(api_response)
     except ApiException as e:
         print("Exception when calling BackendApi->read_backends_backends_get: %s\n" % e)
@@ -215,6 +216,7 @@ last_heartbeat = '2013-10-20T19:20:30+01:00' # datetime |  (optional)
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **latest** | **bool**|  | [optional] 
  **id** | **int**|  | [optional] 
  **name** | **str**|  | [optional] 
  **location** | **str**|  | [optional] 

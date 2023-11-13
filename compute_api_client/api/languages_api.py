@@ -187,6 +187,8 @@ class LanguagesApi(object):
 
         :param q:
         :type q: str
+        :param latest:
+        :type latest: bool
         :param id:
         :type id: int
         :param name:
@@ -223,6 +225,8 @@ class LanguagesApi(object):
 
         :param q:
         :type q: str
+        :param latest:
+        :type latest: bool
         :param id:
         :type id: int
         :param name:
@@ -257,6 +261,7 @@ class LanguagesApi(object):
 
         all_params = [
             'q',
+            'latest',
             'id',
             'name',
             'version'
@@ -289,6 +294,8 @@ class LanguagesApi(object):
         query_params = []
         if local_var_params.get('q') is not None:  # noqa: E501
             query_params.append(('q', local_var_params['q']))  # noqa: E501
+        if local_var_params.get('latest') is not None:  # noqa: E501
+            query_params.append(('latest', local_var_params['latest']))  # noqa: E501
         if local_var_params.get('id') is not None:  # noqa: E501
             query_params.append(('id', local_var_params['id']))  # noqa: E501
         if local_var_params.get('name') is not None:  # noqa: E501

@@ -431,7 +431,7 @@ This endpoint does not need any parameter.
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **read_batch_jobs_batch_jobs_get**
-> list[BatchJob] read_batch_jobs_batch_jobs_get(id=id, created_on=created_on, status=status, reserved_at__isnull=reserved_at__isnull, reserved_at=reserved_at, user_id=user_id, backend_type_id=backend_type_id, backend_id__isnull=backend_id__isnull, backend_id=backend_id, queued_at__isnull=queued_at__isnull, queued_at=queued_at, finished_at__isnull=finished_at__isnull, finished_at=finished_at, aggregated_algorithm_type=aggregated_algorithm_type, request_body=request_body)
+> list[BatchJob] read_batch_jobs_batch_jobs_get(latest=latest, id=id, created_on=created_on, status=status, reserved_at__isnull=reserved_at__isnull, reserved_at=reserved_at, user_id=user_id, backend_type_id=backend_type_id, backend_id__isnull=backend_id__isnull, backend_id=backend_id, queued_at__isnull=queued_at__isnull, queued_at=queued_at, finished_at__isnull=finished_at__isnull, finished_at=finished_at, aggregated_algorithm_type=aggregated_algorithm_type, request_body=request_body)
 
 List batch jobs
 
@@ -467,7 +467,8 @@ configuration.api_key['user'] = 'YOUR_API_KEY'
 with compute_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = compute_api_client.BatchJobsApi(api_client)
-    id = 56 # int |  (optional)
+    latest = True # bool |  (optional)
+id = 56 # int |  (optional)
 created_on = '2013-10-20T19:20:30+01:00' # datetime |  (optional)
 status = compute_api_client.BatchJobStatus() # BatchJobStatus |  (optional)
 reserved_at__isnull = True # bool |  (optional)
@@ -485,7 +486,7 @@ request_body = [56] # list[int] |  (optional)
 
     try:
         # List batch jobs
-        api_response = api_instance.read_batch_jobs_batch_jobs_get(id=id, created_on=created_on, status=status, reserved_at__isnull=reserved_at__isnull, reserved_at=reserved_at, user_id=user_id, backend_type_id=backend_type_id, backend_id__isnull=backend_id__isnull, backend_id=backend_id, queued_at__isnull=queued_at__isnull, queued_at=queued_at, finished_at__isnull=finished_at__isnull, finished_at=finished_at, aggregated_algorithm_type=aggregated_algorithm_type, request_body=request_body)
+        api_response = api_instance.read_batch_jobs_batch_jobs_get(latest=latest, id=id, created_on=created_on, status=status, reserved_at__isnull=reserved_at__isnull, reserved_at=reserved_at, user_id=user_id, backend_type_id=backend_type_id, backend_id__isnull=backend_id__isnull, backend_id=backend_id, queued_at__isnull=queued_at__isnull, queued_at=queued_at, finished_at__isnull=finished_at__isnull, finished_at=finished_at, aggregated_algorithm_type=aggregated_algorithm_type, request_body=request_body)
         pprint(api_response)
     except ApiException as e:
         print("Exception when calling BatchJobsApi->read_batch_jobs_batch_jobs_get: %s\n" % e)
@@ -495,6 +496,7 @@ request_body = [56] # list[int] |  (optional)
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **latest** | **bool**|  | [optional] 
  **id** | **int**|  | [optional] 
  **created_on** | **datetime**|  | [optional] 
  **status** | [**BatchJobStatus**](.md)|  | [optional] 

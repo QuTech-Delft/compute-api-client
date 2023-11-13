@@ -466,6 +466,8 @@ class JobsApi(object):
         >>> thread = api.read_jobs_jobs_get(async_req=True)
         >>> result = thread.get()
 
+        :param latest:
+        :type latest: bool
         :param id:
         :type id: int
         :param created_on:
@@ -518,6 +520,8 @@ class JobsApi(object):
         >>> thread = api.read_jobs_jobs_get_with_http_info(async_req=True)
         >>> result = thread.get()
 
+        :param latest:
+        :type latest: bool
         :param id:
         :type id: int
         :param created_on:
@@ -569,6 +573,7 @@ class JobsApi(object):
         local_var_params = locals()
 
         all_params = [
+            'latest',
             'id',
             'created_on',
             'file_id',
@@ -608,6 +613,8 @@ class JobsApi(object):
         path_params = {}
 
         query_params = []
+        if local_var_params.get('latest') is not None:  # noqa: E501
+            query_params.append(('latest', local_var_params['latest']))  # noqa: E501
         if local_var_params.get('id') is not None:  # noqa: E501
             query_params.append(('id', local_var_params['id']))  # noqa: E501
         if local_var_params.get('created_on') is not None:  # noqa: E501

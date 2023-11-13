@@ -313,7 +313,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **read_projects_projects_get**
-> list[Project] read_projects_projects_get(id=id, created_on=created_on, owner_id=owner_id, name=name, description=description, starred=starred)
+> list[Project] read_projects_projects_get(latest=latest, id=id, created_on=created_on, owner_id=owner_id, name=name, description=description, starred=starred)
 
 List projects
 
@@ -349,7 +349,8 @@ configuration.api_key['user'] = 'YOUR_API_KEY'
 with compute_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = compute_api_client.ProjectsApi(api_client)
-    id = 56 # int |  (optional)
+    latest = True # bool |  (optional)
+id = 56 # int |  (optional)
 created_on = '2013-10-20T19:20:30+01:00' # datetime |  (optional)
 owner_id = 56 # int |  (optional)
 name = 'name_example' # str |  (optional)
@@ -358,7 +359,7 @@ starred = True # bool |  (optional)
 
     try:
         # List projects
-        api_response = api_instance.read_projects_projects_get(id=id, created_on=created_on, owner_id=owner_id, name=name, description=description, starred=starred)
+        api_response = api_instance.read_projects_projects_get(latest=latest, id=id, created_on=created_on, owner_id=owner_id, name=name, description=description, starred=starred)
         pprint(api_response)
     except ApiException as e:
         print("Exception when calling ProjectsApi->read_projects_projects_get: %s\n" % e)
@@ -368,6 +369,7 @@ starred = True # bool |  (optional)
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **latest** | **bool**|  | [optional] 
  **id** | **int**|  | [optional] 
  **created_on** | **datetime**|  | [optional] 
  **owner_id** | **int**|  | [optional] 

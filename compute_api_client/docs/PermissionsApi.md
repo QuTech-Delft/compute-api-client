@@ -86,7 +86,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **read_permission_groups_permission_groups_get**
-> list[PermissionGroup] read_permission_groups_permission_groups_get(id=id, name=name)
+> list[PermissionGroup] read_permission_groups_permission_groups_get(latest=latest, id=id, name=name)
 
 List permission groups
 
@@ -122,12 +122,13 @@ configuration.api_key['user'] = 'YOUR_API_KEY'
 with compute_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = compute_api_client.PermissionsApi(api_client)
-    id = 56 # int |  (optional)
+    latest = True # bool |  (optional)
+id = 56 # int |  (optional)
 name = 'name_example' # str |  (optional)
 
     try:
         # List permission groups
-        api_response = api_instance.read_permission_groups_permission_groups_get(id=id, name=name)
+        api_response = api_instance.read_permission_groups_permission_groups_get(latest=latest, id=id, name=name)
         pprint(api_response)
     except ApiException as e:
         print("Exception when calling PermissionsApi->read_permission_groups_permission_groups_get: %s\n" % e)
@@ -137,6 +138,7 @@ name = 'name_example' # str |  (optional)
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **latest** | **bool**|  | [optional] 
  **id** | **int**|  | [optional] 
  **name** | **str**|  | [optional] 
 
@@ -237,7 +239,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **read_permissions_permissions_get**
-> list[Permission] read_permissions_permissions_get(id=id, permission=permission, name=name)
+> list[Permission] read_permissions_permissions_get(latest=latest, id=id, permission=permission, name=name)
 
 List permissions
 
@@ -273,13 +275,14 @@ configuration.api_key['user'] = 'YOUR_API_KEY'
 with compute_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = compute_api_client.PermissionsApi(api_client)
-    id = 56 # int |  (optional)
+    latest = True # bool |  (optional)
+id = 56 # int |  (optional)
 permission = 'permission_example' # str |  (optional)
 name = 'name_example' # str |  (optional)
 
     try:
         # List permissions
-        api_response = api_instance.read_permissions_permissions_get(id=id, permission=permission, name=name)
+        api_response = api_instance.read_permissions_permissions_get(latest=latest, id=id, permission=permission, name=name)
         pprint(api_response)
     except ApiException as e:
         print("Exception when calling PermissionsApi->read_permissions_permissions_get: %s\n" % e)
@@ -289,6 +292,7 @@ name = 'name_example' # str |  (optional)
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **latest** | **bool**|  | [optional] 
  **id** | **int**|  | [optional] 
  **permission** | **str**|  | [optional] 
  **name** | **str**|  | [optional] 

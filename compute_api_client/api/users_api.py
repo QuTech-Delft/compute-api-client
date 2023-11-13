@@ -466,6 +466,8 @@ class UsersApi(object):
         >>> thread = api.read_users_users_get(async_req=True)
         >>> result = thread.get()
 
+        :param latest:
+        :type latest: bool
         :param id:
         :type id: int
         :param full_name:
@@ -508,6 +510,8 @@ class UsersApi(object):
         >>> thread = api.read_users_users_get_with_http_info(async_req=True)
         >>> result = thread.get()
 
+        :param latest:
+        :type latest: bool
         :param id:
         :type id: int
         :param full_name:
@@ -549,6 +553,7 @@ class UsersApi(object):
         local_var_params = locals()
 
         all_params = [
+            'latest',
             'id',
             'full_name',
             'email',
@@ -583,6 +588,8 @@ class UsersApi(object):
         path_params = {}
 
         query_params = []
+        if local_var_params.get('latest') is not None:  # noqa: E501
+            query_params.append(('latest', local_var_params['latest']))  # noqa: E501
         if local_var_params.get('id') is not None:  # noqa: E501
             query_params.append(('id', local_var_params['id']))  # noqa: E501
         if local_var_params.get('full_name') is not None:  # noqa: E501

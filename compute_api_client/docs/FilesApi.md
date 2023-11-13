@@ -284,7 +284,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **read_files_files_get**
-> list[File] read_files_files_get(id=id, commit_id=commit_id, content=content, language_id=language_id, compile_stage=compile_stage, generated=generated, body=body)
+> list[File] read_files_files_get(latest=latest, id=id, commit_id=commit_id, content=content, language_id=language_id, compile_stage=compile_stage, generated=generated, body=body)
 
 List files
 
@@ -320,7 +320,8 @@ configuration.api_key['user'] = 'YOUR_API_KEY'
 with compute_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = compute_api_client.FilesApi(api_client)
-    id = 56 # int |  (optional)
+    latest = True # bool |  (optional)
+id = 56 # int |  (optional)
 commit_id = 56 # int |  (optional)
 content = 'content_example' # str |  (optional)
 language_id = 56 # int |  (optional)
@@ -330,7 +331,7 @@ body = None # object |  (optional)
 
     try:
         # List files
-        api_response = api_instance.read_files_files_get(id=id, commit_id=commit_id, content=content, language_id=language_id, compile_stage=compile_stage, generated=generated, body=body)
+        api_response = api_instance.read_files_files_get(latest=latest, id=id, commit_id=commit_id, content=content, language_id=language_id, compile_stage=compile_stage, generated=generated, body=body)
         pprint(api_response)
     except ApiException as e:
         print("Exception when calling FilesApi->read_files_files_get: %s\n" % e)
@@ -340,6 +341,7 @@ body = None # object |  (optional)
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **latest** | **bool**|  | [optional] 
  **id** | **int**|  | [optional] 
  **commit_id** | **int**|  | [optional] 
  **content** | **str**|  | [optional] 

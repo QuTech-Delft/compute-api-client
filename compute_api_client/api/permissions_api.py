@@ -185,6 +185,8 @@ class PermissionsApi(object):
         >>> thread = api.read_permission_groups_permission_groups_get(async_req=True)
         >>> result = thread.get()
 
+        :param latest:
+        :type latest: bool
         :param id:
         :type id: int
         :param name:
@@ -217,6 +219,8 @@ class PermissionsApi(object):
         >>> thread = api.read_permission_groups_permission_groups_get_with_http_info(async_req=True)
         >>> result = thread.get()
 
+        :param latest:
+        :type latest: bool
         :param id:
         :type id: int
         :param name:
@@ -248,6 +252,7 @@ class PermissionsApi(object):
         local_var_params = locals()
 
         all_params = [
+            'latest',
             'id',
             'name'
         ]
@@ -277,6 +282,8 @@ class PermissionsApi(object):
         path_params = {}
 
         query_params = []
+        if local_var_params.get('latest') is not None:  # noqa: E501
+            query_params.append(('latest', local_var_params['latest']))  # noqa: E501
         if local_var_params.get('id') is not None:  # noqa: E501
             query_params.append(('id', local_var_params['id']))  # noqa: E501
         if local_var_params.get('name') is not None:  # noqa: E501
@@ -466,6 +473,8 @@ class PermissionsApi(object):
         >>> thread = api.read_permissions_permissions_get(async_req=True)
         >>> result = thread.get()
 
+        :param latest:
+        :type latest: bool
         :param id:
         :type id: int
         :param permission:
@@ -500,6 +509,8 @@ class PermissionsApi(object):
         >>> thread = api.read_permissions_permissions_get_with_http_info(async_req=True)
         >>> result = thread.get()
 
+        :param latest:
+        :type latest: bool
         :param id:
         :type id: int
         :param permission:
@@ -533,6 +544,7 @@ class PermissionsApi(object):
         local_var_params = locals()
 
         all_params = [
+            'latest',
             'id',
             'permission',
             'name'
@@ -563,6 +575,8 @@ class PermissionsApi(object):
         path_params = {}
 
         query_params = []
+        if local_var_params.get('latest') is not None:  # noqa: E501
+            query_params.append(('latest', local_var_params['latest']))  # noqa: E501
         if local_var_params.get('id') is not None:  # noqa: E501
             query_params.append(('id', local_var_params['id']))  # noqa: E501
         if local_var_params.get('permission') is not None:  # noqa: E501

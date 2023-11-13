@@ -84,7 +84,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **read_teams_teams_get**
-> list[Team] read_teams_teams_get(id=id, name=name, slug=slug, individual_user=individual_user)
+> list[Team] read_teams_teams_get(latest=latest, id=id, name=name, slug=slug, individual_user=individual_user)
 
 List teams
 
@@ -120,14 +120,15 @@ configuration.api_key['user'] = 'YOUR_API_KEY'
 with compute_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = compute_api_client.TeamsApi(api_client)
-    id = 56 # int |  (optional)
+    latest = True # bool |  (optional)
+id = 56 # int |  (optional)
 name = 'name_example' # str |  (optional)
 slug = 'slug_example' # str |  (optional)
 individual_user = True # bool |  (optional)
 
     try:
         # List teams
-        api_response = api_instance.read_teams_teams_get(id=id, name=name, slug=slug, individual_user=individual_user)
+        api_response = api_instance.read_teams_teams_get(latest=latest, id=id, name=name, slug=slug, individual_user=individual_user)
         pprint(api_response)
     except ApiException as e:
         print("Exception when calling TeamsApi->read_teams_teams_get: %s\n" % e)
@@ -137,6 +138,7 @@ individual_user = True # bool |  (optional)
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **latest** | **bool**|  | [optional] 
  **id** | **int**|  | [optional] 
  **name** | **str**|  | [optional] 
  **slug** | **str**|  | [optional] 
