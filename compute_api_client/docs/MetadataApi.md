@@ -18,7 +18,7 @@ Create new metadata.
 
 ### Example
 
-* Api Key Authentication (user):
+* Api Key Authentication (backend):
 ```python
 from __future__ import print_function
 import time
@@ -36,11 +36,11 @@ configuration = compute_api_client.Configuration(
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
 
-# Configure API key authorization: user
-configuration.api_key['user'] = 'YOUR_API_KEY'
+# Configure API key authorization: backend
+configuration.api_key['backend'] = 'YOUR_API_KEY'
 
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['user'] = 'Bearer'
+# configuration.api_key_prefix['backend'] = 'Bearer'
 
 # Enter a context with an instance of the API client
 with compute_api_client.ApiClient(configuration) as api_client:
@@ -68,7 +68,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[user](../README.md#user)
+[backend](../README.md#backend)
 
 ### HTTP request headers
 
