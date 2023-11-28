@@ -39,11 +39,11 @@ class BatchJob(object):
         'id': 'int',
         'created_on': 'datetime',
         'status': 'BatchJobStatus',
+        'reserved_at': 'datetime',
         'user_id': 'int',
         'backend_type_id': 'int',
         'backend_id': 'int',
         'queued_at': 'datetime',
-        'reserved_at': 'datetime',
         'finished_at': 'datetime',
         'job_ids': 'list[int]',
         'aggregated_algorithm_type': 'AlgorithmType'
@@ -53,17 +53,17 @@ class BatchJob(object):
         'id': 'id',
         'created_on': 'created_on',
         'status': 'status',
+        'reserved_at': 'reserved_at',
         'user_id': 'user_id',
         'backend_type_id': 'backend_type_id',
         'backend_id': 'backend_id',
         'queued_at': 'queued_at',
-        'reserved_at': 'reserved_at',
         'finished_at': 'finished_at',
         'job_ids': 'job_ids',
         'aggregated_algorithm_type': 'aggregated_algorithm_type'
     }
 
-    def __init__(self, id=None, created_on=None, status=None, user_id=None, backend_type_id=None, backend_id=None, queued_at=None, reserved_at=None, finished_at=None, job_ids=None, aggregated_algorithm_type=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, id=None, created_on=None, status=None, reserved_at=None, user_id=None, backend_type_id=None, backend_id=None, queued_at=None, finished_at=None, job_ids=None, aggregated_algorithm_type=None, local_vars_configuration=None):  # noqa: E501
         """BatchJob - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration.get_default_copy()
@@ -72,11 +72,11 @@ class BatchJob(object):
         self._id = None
         self._created_on = None
         self._status = None
+        self._reserved_at = None
         self._user_id = None
         self._backend_type_id = None
         self._backend_id = None
         self._queued_at = None
-        self._reserved_at = None
         self._finished_at = None
         self._job_ids = None
         self._aggregated_algorithm_type = None
@@ -85,14 +85,14 @@ class BatchJob(object):
         self.id = id
         self.created_on = created_on
         self.status = status
+        if reserved_at is not None:
+            self.reserved_at = reserved_at
         self.user_id = user_id
         self.backend_type_id = backend_type_id
         if backend_id is not None:
             self.backend_id = backend_id
         if queued_at is not None:
             self.queued_at = queued_at
-        if reserved_at is not None:
-            self.reserved_at = reserved_at
         if finished_at is not None:
             self.finished_at = finished_at
         self.job_ids = job_ids
@@ -166,6 +166,27 @@ class BatchJob(object):
             raise ValueError("Invalid value for `status`, must not be `None`")  # noqa: E501
 
         self._status = status
+
+    @property
+    def reserved_at(self):
+        """Gets the reserved_at of this BatchJob.  # noqa: E501
+
+
+        :return: The reserved_at of this BatchJob.  # noqa: E501
+        :rtype: datetime
+        """
+        return self._reserved_at
+
+    @reserved_at.setter
+    def reserved_at(self, reserved_at):
+        """Sets the reserved_at of this BatchJob.
+
+
+        :param reserved_at: The reserved_at of this BatchJob.  # noqa: E501
+        :type reserved_at: datetime
+        """
+
+        self._reserved_at = reserved_at
 
     @property
     def user_id(self):
@@ -254,27 +275,6 @@ class BatchJob(object):
         """
 
         self._queued_at = queued_at
-
-    @property
-    def reserved_at(self):
-        """Gets the reserved_at of this BatchJob.  # noqa: E501
-
-
-        :return: The reserved_at of this BatchJob.  # noqa: E501
-        :rtype: datetime
-        """
-        return self._reserved_at
-
-    @reserved_at.setter
-    def reserved_at(self, reserved_at):
-        """Sets the reserved_at of this BatchJob.
-
-
-        :param reserved_at: The reserved_at of this BatchJob.  # noqa: E501
-        :type reserved_at: datetime
-        """
-
-        self._reserved_at = reserved_at
 
     @property
     def finished_at(self):
