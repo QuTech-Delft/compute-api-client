@@ -752,10 +752,6 @@ class BatchJobsApi(object):
         :type created_on: datetime
         :param status:
         :type status: BatchJobStatus
-        :param reserved_at__isnull:
-        :type reserved_at__isnull: bool
-        :param reserved_at:
-        :type reserved_at: datetime
         :param user_id:
         :type user_id: int
         :param backend_type_id:
@@ -768,6 +764,10 @@ class BatchJobsApi(object):
         :type queued_at__isnull: bool
         :param queued_at:
         :type queued_at: datetime
+        :param reserved_at__isnull:
+        :type reserved_at__isnull: bool
+        :param reserved_at:
+        :type reserved_at: datetime
         :param finished_at__isnull:
         :type finished_at__isnull: bool
         :param finished_at:
@@ -810,10 +810,6 @@ class BatchJobsApi(object):
         :type created_on: datetime
         :param status:
         :type status: BatchJobStatus
-        :param reserved_at__isnull:
-        :type reserved_at__isnull: bool
-        :param reserved_at:
-        :type reserved_at: datetime
         :param user_id:
         :type user_id: int
         :param backend_type_id:
@@ -826,6 +822,10 @@ class BatchJobsApi(object):
         :type queued_at__isnull: bool
         :param queued_at:
         :type queued_at: datetime
+        :param reserved_at__isnull:
+        :type reserved_at__isnull: bool
+        :param reserved_at:
+        :type reserved_at: datetime
         :param finished_at__isnull:
         :type finished_at__isnull: bool
         :param finished_at:
@@ -863,14 +863,14 @@ class BatchJobsApi(object):
             'id',
             'created_on',
             'status',
-            'reserved_at__isnull',
-            'reserved_at',
             'user_id',
             'backend_type_id',
             'backend_id__isnull',
             'backend_id',
             'queued_at__isnull',
             'queued_at',
+            'reserved_at__isnull',
+            'reserved_at',
             'finished_at__isnull',
             'finished_at',
             'aggregated_algorithm_type'
@@ -909,10 +909,6 @@ class BatchJobsApi(object):
             query_params.append(('created_on', local_var_params['created_on']))  # noqa: E501
         if local_var_params.get('status') is not None:  # noqa: E501
             query_params.append(('status', local_var_params['status']))  # noqa: E501
-        if local_var_params.get('reserved_at__isnull') is not None:  # noqa: E501
-            query_params.append(('reserved_at__isnull', local_var_params['reserved_at__isnull']))  # noqa: E501
-        if local_var_params.get('reserved_at') is not None:  # noqa: E501
-            query_params.append(('reserved_at', local_var_params['reserved_at']))  # noqa: E501
         if local_var_params.get('user_id') is not None:  # noqa: E501
             query_params.append(('user_id', local_var_params['user_id']))  # noqa: E501
         if local_var_params.get('backend_type_id') is not None:  # noqa: E501
@@ -925,6 +921,10 @@ class BatchJobsApi(object):
             query_params.append(('queued_at__isnull', local_var_params['queued_at__isnull']))  # noqa: E501
         if local_var_params.get('queued_at') is not None:  # noqa: E501
             query_params.append(('queued_at', local_var_params['queued_at']))  # noqa: E501
+        if local_var_params.get('reserved_at__isnull') is not None:  # noqa: E501
+            query_params.append(('reserved_at__isnull', local_var_params['reserved_at__isnull']))  # noqa: E501
+        if local_var_params.get('reserved_at') is not None:  # noqa: E501
+            query_params.append(('reserved_at', local_var_params['reserved_at']))  # noqa: E501
         if local_var_params.get('finished_at__isnull') is not None:  # noqa: E501
             query_params.append(('finished_at__isnull', local_var_params['finished_at__isnull']))  # noqa: E501
         if local_var_params.get('finished_at') is not None:  # noqa: E501
