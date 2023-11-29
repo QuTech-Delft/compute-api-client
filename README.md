@@ -106,7 +106,7 @@ Class | Method | HTTP request | Description
 *JobsApi* | [**delete_job_jobs_id_delete**](compute_api_client/docs/JobsApi.md#delete_job_jobs_id_delete) | **DELETE** /jobs/{id} | Destroy job
 *JobsApi* | [**read_job_jobs_id_get**](compute_api_client/docs/JobsApi.md#read_job_jobs_id_get) | **GET** /jobs/{id} | Retrieve job
 *JobsApi* | [**read_jobs_jobs_get**](compute_api_client/docs/JobsApi.md#read_jobs_jobs_get) | **GET** /jobs | List jobs
-*JobsApi* | [**start_job_jobs_id_start_patch**](compute_api_client/docs/JobsApi.md#start_job_jobs_id_start_patch) | **PATCH** /jobs/{id}/start | Start job
+*JobsApi* | [**update_job_status_jobs_id_patch**](compute_api_client/docs/JobsApi.md#update_job_status_jobs_id_patch) | **PATCH** /jobs/{id} | Update Job Status
 *LanguagesApi* | [**read_language_languages_id_get**](compute_api_client/docs/LanguagesApi.md#read_language_languages_id_get) | **GET** /languages/{id} | Retrieve language
 *LanguagesApi* | [**read_languages_languages_get**](compute_api_client/docs/LanguagesApi.md#read_languages_languages_get) | **GET** /languages | List languages
 *MembersApi* | [**create_member_members_post**](compute_api_client/docs/MembersApi.md#create_member_members_post) | **POST** /members | Create member
@@ -168,6 +168,7 @@ Class | Method | HTTP request | Description
  - [HTTPValidationError](compute_api_client/docs/HTTPValidationError.md)
  - [Job](compute_api_client/docs/Job.md)
  - [JobIn](compute_api_client/docs/JobIn.md)
+ - [JobPatch](compute_api_client/docs/JobPatch.md)
  - [JobStatus](compute_api_client/docs/JobStatus.md)
  - [Language](compute_api_client/docs/Language.md)
  - [LocationInner](compute_api_client/docs/LocationInner.md)

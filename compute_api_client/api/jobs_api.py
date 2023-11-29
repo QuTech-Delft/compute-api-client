@@ -675,18 +675,20 @@ class JobsApi(object):
             collection_formats=collection_formats,
             _request_auth=local_var_params.get('_request_auth'))
 
-    def start_job_jobs_id_start_patch(self, id, **kwargs):  # noqa: E501
-        """Start job  # noqa: E501
+    def update_job_status_jobs_id_patch(self, id, job_patch, **kwargs):  # noqa: E501
+        """Update Job Status  # noqa: E501
 
-        Start a job.  # noqa: E501
+        Update status of a job.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
-        >>> thread = api.start_job_jobs_id_start_patch(id, async_req=True)
+        >>> thread = api.update_job_status_jobs_id_patch(id, job_patch, async_req=True)
         >>> result = thread.get()
 
         :param id: (required)
         :type id: int
+        :param job_patch: (required)
+        :type job_patch: JobPatch
         :param async_req: Whether to execute the request asynchronously.
         :type async_req: bool, optional
         :param _preload_content: if False, the urllib3.HTTPResponse object will
@@ -703,20 +705,22 @@ class JobsApi(object):
         :rtype: Job
         """
         kwargs['_return_http_data_only'] = True
-        return self.start_job_jobs_id_start_patch_with_http_info(id, **kwargs)  # noqa: E501
+        return self.update_job_status_jobs_id_patch_with_http_info(id, job_patch, **kwargs)  # noqa: E501
 
-    def start_job_jobs_id_start_patch_with_http_info(self, id, **kwargs):  # noqa: E501
-        """Start job  # noqa: E501
+    def update_job_status_jobs_id_patch_with_http_info(self, id, job_patch, **kwargs):  # noqa: E501
+        """Update Job Status  # noqa: E501
 
-        Start a job.  # noqa: E501
+        Update status of a job.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
-        >>> thread = api.start_job_jobs_id_start_patch_with_http_info(id, async_req=True)
+        >>> thread = api.update_job_status_jobs_id_patch_with_http_info(id, job_patch, async_req=True)
         >>> result = thread.get()
 
         :param id: (required)
         :type id: int
+        :param job_patch: (required)
+        :type job_patch: JobPatch
         :param async_req: Whether to execute the request asynchronously.
         :type async_req: bool, optional
         :param _return_http_data_only: response data without head status code
@@ -744,7 +748,8 @@ class JobsApi(object):
         local_var_params = locals()
 
         all_params = [
-            'id'
+            'id',
+            'job_patch'
         ]
         all_params.extend(
             [
@@ -762,13 +767,16 @@ class JobsApi(object):
             if key not in all_params:
                 raise ApiTypeError(
                     "Got an unexpected keyword argument '%s'"
-                    " to method start_job_jobs_id_start_patch" % key
+                    " to method update_job_status_jobs_id_patch" % key
                 )
             local_var_params[key] = val
         del local_var_params['kwargs']
         # verify the required parameter 'id' is set
         if self.api_client.client_side_validation and local_var_params.get('id') is None:  # noqa: E501
-            raise ApiValueError("Missing the required parameter `id` when calling `start_job_jobs_id_start_patch`")  # noqa: E501
+            raise ApiValueError("Missing the required parameter `id` when calling `update_job_status_jobs_id_patch`")  # noqa: E501
+        # verify the required parameter 'job_patch' is set
+        if self.api_client.client_side_validation and local_var_params.get('job_patch') is None:  # noqa: E501
+            raise ApiValueError("Missing the required parameter `job_patch` when calling `update_job_status_jobs_id_patch`")  # noqa: E501
 
         collection_formats = {}
 
@@ -784,9 +792,19 @@ class JobsApi(object):
         local_var_files = {}
 
         body_params = None
+        if 'job_patch' in local_var_params:
+            body_params = local_var_params['job_patch']
         # HTTP header `Accept`
         header_params['Accept'] = self.api_client.select_header_accept(
             ['application/json'])  # noqa: E501
+
+        # HTTP header `Content-Type`
+        content_types_list = local_var_params.get('_content_type',
+            self.api_client.select_header_content_type(
+                ['application/json'],
+                'PATCH', body_params))  # noqa: E501
+        if content_types_list:
+                header_params['Content-Type'] = content_types_list
 
         # Authentication setting
         auth_settings = ['backend', 'user']  # noqa: E501
@@ -798,7 +816,7 @@ class JobsApi(object):
         }
 
         return self.api_client.call_api(
-            '/jobs/{id}/start', 'PATCH',
+            '/jobs/{id}', 'PATCH',
             path_params,
             query_params,
             header_params,

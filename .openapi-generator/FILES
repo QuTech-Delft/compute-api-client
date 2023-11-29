@@ -50,6 +50,7 @@ compute_api_client/docs/HTTPNotFoundError.md
 compute_api_client/docs/HTTPValidationError.md
 compute_api_client/docs/Job.md
 compute_api_client/docs/JobIn.md
+compute_api_client/docs/JobPatch.md
 compute_api_client/docs/JobStatus.md
 compute_api_client/docs/JobsApi.md
 compute_api_client/docs/Language.md
@@ -109,6 +110,7 @@ compute_api_client/models/http_not_found_error.py
 compute_api_client/models/http_validation_error.py
 compute_api_client/models/job.py
 compute_api_client/models/job_in.py
+compute_api_client/models/job_patch.py
 compute_api_client/models/job_status.py
 compute_api_client/models/language.py
 compute_api_client/models/location_inner.py

@@ -40,7 +40,12 @@ else
 
     sed -i -e "s/^version =.*/version = \"${version}\"/" pyproject.toml
 
+    echo "Updating dispatcher dependencies"
     cd ../dispatcher/
+    poetry lock --no-update
+
+    echo "Updating integration test dependencies"
+    cd ../../../tests/integration/
     poetry lock --no-update
 
     echo "Success!"

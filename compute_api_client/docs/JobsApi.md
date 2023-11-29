@@ -8,7 +8,7 @@ Method | HTTP request | Description
 [**delete_job_jobs_id_delete**](JobsApi.md#delete_job_jobs_id_delete) | **DELETE** /jobs/{id} | Destroy job
 [**read_job_jobs_id_get**](JobsApi.md#read_job_jobs_id_get) | **GET** /jobs/{id} | Retrieve job
 [**read_jobs_jobs_get**](JobsApi.md#read_jobs_jobs_get) | **GET** /jobs | List jobs
-[**start_job_jobs_id_start_patch**](JobsApi.md#start_job_jobs_id_start_patch) | **PATCH** /jobs/{id}/start | Start job
+[**update_job_status_jobs_id_patch**](JobsApi.md#update_job_status_jobs_id_patch) | **PATCH** /jobs/{id} | Update Job Status
 
 
 # **create_job_jobs_post**
@@ -332,12 +332,12 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **start_job_jobs_id_start_patch**
-> Job start_job_jobs_id_start_patch(id)
+# **update_job_status_jobs_id_patch**
+> Job update_job_status_jobs_id_patch(id, job_patch)
 
-Start job
+Update Job Status
 
-Start a job.
+Update status of a job.
 
 ### Example
 
@@ -376,13 +376,14 @@ with compute_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = compute_api_client.JobsApi(api_client)
     id = 56 # int | 
+job_patch = compute_api_client.JobPatch() # JobPatch | 
 
     try:
-        # Start job
-        api_response = api_instance.start_job_jobs_id_start_patch(id)
+        # Update Job Status
+        api_response = api_instance.update_job_status_jobs_id_patch(id, job_patch)
         pprint(api_response)
     except ApiException as e:
-        print("Exception when calling JobsApi->start_job_jobs_id_start_patch: %s\n" % e)
+        print("Exception when calling JobsApi->update_job_status_jobs_id_patch: %s\n" % e)
 ```
 
 * Api Key Authentication (user):
@@ -420,13 +421,14 @@ with compute_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = compute_api_client.JobsApi(api_client)
     id = 56 # int | 
+job_patch = compute_api_client.JobPatch() # JobPatch | 
 
     try:
-        # Start job
-        api_response = api_instance.start_job_jobs_id_start_patch(id)
+        # Update Job Status
+        api_response = api_instance.update_job_status_jobs_id_patch(id, job_patch)
         pprint(api_response)
     except ApiException as e:
-        print("Exception when calling JobsApi->start_job_jobs_id_start_patch: %s\n" % e)
+        print("Exception when calling JobsApi->update_job_status_jobs_id_patch: %s\n" % e)
 ```
 
 ### Parameters
@@ -434,6 +436,7 @@ with compute_api_client.ApiClient(configuration) as api_client:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **int**|  | 
+ **job_patch** | [**JobPatch**](JobPatch.md)|  | 
 
 ### Return type
 
@@ -445,7 +448,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 ### HTTP response details
