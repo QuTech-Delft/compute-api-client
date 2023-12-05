@@ -4,13 +4,13 @@ All URIs are relative to *http://localhost*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**create_metadata_metadata_post**](MetadataApi.md#create_metadata_metadata_post) | **POST** /metadata | Create metadata
+[**create_metadata_self_metadata_post**](MetadataApi.md#create_metadata_self_metadata_post) | **POST** /metadata | Create metadata
 [**read_metadata_by_backend_id_metadata_backend_backend_id_get**](MetadataApi.md#read_metadata_by_backend_id_metadata_backend_backend_id_get) | **GET** /metadata/backend/{backend_id} | Retrieve metadata by backend ID
 [**read_metadata_metadata_id_get**](MetadataApi.md#read_metadata_metadata_id_get) | **GET** /metadata/{id} | Get metadata by ID
 
 
-# **create_metadata_metadata_post**
-> Metadata create_metadata_metadata_post(metadata_in)
+# **create_metadata_self_metadata_post**
+> Metadata create_metadata_self_metadata_post(metadata_in)
 
 Create metadata
 
@@ -50,10 +50,10 @@ with compute_api_client.ApiClient(configuration) as api_client:
 
     try:
         # Create metadata
-        api_response = api_instance.create_metadata_metadata_post(metadata_in)
+        api_response = api_instance.create_metadata_self_metadata_post(metadata_in)
         pprint(api_response)
     except ApiException as e:
-        print("Exception when calling MetadataApi->create_metadata_metadata_post: %s\n" % e)
+        print("Exception when calling MetadataApi->create_metadata_self_metadata_post: %s\n" % e)
 ```
 
 ### Parameters

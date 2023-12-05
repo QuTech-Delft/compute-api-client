@@ -36,14 +36,14 @@ class MetadataApi(object):
             api_client = ApiClient()
         self.api_client = api_client
 
-    def create_metadata_metadata_post(self, metadata_in, **kwargs):  # noqa: E501
+    def create_metadata_self_metadata_post(self, metadata_in, **kwargs):  # noqa: E501
         """Create metadata  # noqa: E501
 
         Create new metadata.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
-        >>> thread = api.create_metadata_metadata_post(metadata_in, async_req=True)
+        >>> thread = api.create_metadata_self_metadata_post(metadata_in, async_req=True)
         >>> result = thread.get()
 
         :param metadata_in: (required)
@@ -64,16 +64,16 @@ class MetadataApi(object):
         :rtype: Metadata
         """
         kwargs['_return_http_data_only'] = True
-        return self.create_metadata_metadata_post_with_http_info(metadata_in, **kwargs)  # noqa: E501
+        return self.create_metadata_self_metadata_post_with_http_info(metadata_in, **kwargs)  # noqa: E501
 
-    def create_metadata_metadata_post_with_http_info(self, metadata_in, **kwargs):  # noqa: E501
+    def create_metadata_self_metadata_post_with_http_info(self, metadata_in, **kwargs):  # noqa: E501
         """Create metadata  # noqa: E501
 
         Create new metadata.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
-        >>> thread = api.create_metadata_metadata_post_with_http_info(metadata_in, async_req=True)
+        >>> thread = api.create_metadata_self_metadata_post_with_http_info(metadata_in, async_req=True)
         >>> result = thread.get()
 
         :param metadata_in: (required)
@@ -123,13 +123,13 @@ class MetadataApi(object):
             if key not in all_params:
                 raise ApiTypeError(
                     "Got an unexpected keyword argument '%s'"
-                    " to method create_metadata_metadata_post" % key
+                    " to method create_metadata_self_metadata_post" % key
                 )
             local_var_params[key] = val
         del local_var_params['kwargs']
         # verify the required parameter 'metadata_in' is set
         if self.api_client.client_side_validation and local_var_params.get('metadata_in') is None:  # noqa: E501
-            raise ApiValueError("Missing the required parameter `metadata_in` when calling `create_metadata_metadata_post`")  # noqa: E501
+            raise ApiValueError("Missing the required parameter `metadata_in` when calling `create_metadata_self_metadata_post`")  # noqa: E501
 
         collection_formats = {}
 

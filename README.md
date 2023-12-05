@@ -81,8 +81,9 @@ Class | Method | HTTP request | Description
 *AlgorithmsApi* | [**update_algorithm_algorithms_id_put**](compute_api_client/docs/AlgorithmsApi.md#update_algorithm_algorithms_id_put) | **PUT** /algorithms/{id} | Update algorithm
 *BackendApi* | [**create_backend_backends_post**](compute_api_client/docs/BackendApi.md#create_backend_backends_post) | **POST** /backends | Create backend
 *BackendApi* | [**read_backend_backends_id_get**](compute_api_client/docs/BackendApi.md#read_backend_backends_id_get) | **GET** /backends/{id} | Retrieve backend
+*BackendApi* | [**read_backend_self_backends_me_get**](compute_api_client/docs/BackendApi.md#read_backend_self_backends_me_get) | **GET** /backends/me | Retrieve backend
 *BackendApi* | [**read_backends_backends_get**](compute_api_client/docs/BackendApi.md#read_backends_backends_get) | **GET** /backends | List backends
-*BackendApi* | [**update_backend_backends_id_patch**](compute_api_client/docs/BackendApi.md#update_backend_backends_id_patch) | **PATCH** /backends/{id} | Update backend
+*BackendApi* | [**update_backend_self_backends_me_patch**](compute_api_client/docs/BackendApi.md#update_backend_self_backends_me_patch) | **PATCH** /backends/me | Update backend
 *BackendTypesApi* | [**read_backend_type_backend_types_id_get**](compute_api_client/docs/BackendTypesApi.md#read_backend_type_backend_types_id_get) | **GET** /backend_types/{id} | Retrieve backend type
 *BackendTypesApi* | [**read_backend_types_backend_types_get**](compute_api_client/docs/BackendTypesApi.md#read_backend_types_backend_types_get) | **GET** /backend_types/ | List backend types
 *BatchJobsApi* | [**create_batch_job_batch_jobs_post**](compute_api_client/docs/BatchJobsApi.md#create_batch_job_batch_jobs_post) | **POST** /batch_jobs | Create batch job
@@ -113,7 +114,7 @@ Class | Method | HTTP request | Description
 *MembersApi* | [**delete_member_members_id_delete**](compute_api_client/docs/MembersApi.md#delete_member_members_id_delete) | **DELETE** /members/{id} | Destroy member
 *MembersApi* | [**read_member_members_id_get**](compute_api_client/docs/MembersApi.md#read_member_members_id_get) | **GET** /members/{id} | Retrieve member
 *MembersApi* | [**read_members_members_get**](compute_api_client/docs/MembersApi.md#read_members_members_get) | **GET** /members | List members
-*MetadataApi* | [**create_metadata_metadata_post**](compute_api_client/docs/MetadataApi.md#create_metadata_metadata_post) | **POST** /metadata | Create metadata
+*MetadataApi* | [**create_metadata_self_metadata_post**](compute_api_client/docs/MetadataApi.md#create_metadata_self_metadata_post) | **POST** /metadata | Create metadata
 *MetadataApi* | [**read_metadata_by_backend_id_metadata_backend_backend_id_get**](compute_api_client/docs/MetadataApi.md#read_metadata_by_backend_id_metadata_backend_backend_id_get) | **GET** /metadata/backend/{backend_id} | Retrieve metadata by backend ID
 *MetadataApi* | [**read_metadata_metadata_id_get**](compute_api_client/docs/MetadataApi.md#read_metadata_metadata_id_get) | **GET** /metadata/{id} | Get metadata by ID
 *PermissionsApi* | [**read_permission_group_permission_groups_id_get**](compute_api_client/docs/PermissionsApi.md#read_permission_group_permission_groups_id_get) | **GET** /permission_groups/{id} | Retrieve permission groups

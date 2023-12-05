@@ -55,7 +55,8 @@ class MetadataIn(object):
         self._data = None
         self.discriminator = None
 
-        self.backend_id = backend_id
+        if backend_id is not None:
+            self.backend_id = backend_id
         self.data = data
 
     @property
@@ -76,8 +77,6 @@ class MetadataIn(object):
         :param backend_id: The backend_id of this MetadataIn.  # noqa: E501
         :type backend_id: int
         """
-        if self.local_vars_configuration.client_side_validation and backend_id is None:  # noqa: E501
-            raise ValueError("Invalid value for `backend_id`, must not be `None`")  # noqa: E501
 
         self._backend_id = backend_id
 

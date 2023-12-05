@@ -6,8 +6,9 @@ Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**create_backend_backends_post**](BackendApi.md#create_backend_backends_post) | **POST** /backends | Create backend
 [**read_backend_backends_id_get**](BackendApi.md#read_backend_backends_id_get) | **GET** /backends/{id} | Retrieve backend
+[**read_backend_self_backends_me_get**](BackendApi.md#read_backend_self_backends_me_get) | **GET** /backends/me | Retrieve backend
 [**read_backends_backends_get**](BackendApi.md#read_backends_backends_get) | **GET** /backends | List backends
-[**update_backend_backends_id_patch**](BackendApi.md#update_backend_backends_id_patch) | **PATCH** /backends/{id} | Update backend
+[**update_backend_self_backends_me_patch**](BackendApi.md#update_backend_self_backends_me_patch) | **PATCH** /backends/me | Update backend
 
 
 # **create_backend_backends_post**
@@ -159,6 +160,75 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+# **read_backend_self_backends_me_get**
+> Backend read_backend_self_backends_me_get()
+
+Retrieve backend
+
+Read backend.
+
+### Example
+
+* Api Key Authentication (backend):
+```python
+from __future__ import print_function
+import time
+import compute_api_client
+from compute_api_client.rest import ApiException
+from pprint import pprint
+# Defining the host is optional and defaults to http://localhost
+# See configuration.py for a list of all supported configuration parameters.
+configuration = compute_api_client.Configuration(
+    host = "http://localhost"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: backend
+configuration.api_key['backend'] = 'YOUR_API_KEY'
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['backend'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+with compute_api_client.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = compute_api_client.BackendApi(api_client)
+    
+    try:
+        # Retrieve backend
+        api_response = api_instance.read_backend_self_backends_me_get()
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling BackendApi->read_backend_self_backends_me_get: %s\n" % e)
+```
+
+### Parameters
+This endpoint does not need any parameter.
+
+### Return type
+
+[**Backend**](Backend.md)
+
+### Authorization
+
+[backend](../README.md#backend)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Successful Response |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 # **read_backends_backends_get**
 > list[Backend] read_backends_backends_get(latest=latest, id=id, name=name, location=location, backend_type_id=backend_type_id, status=status, last_heartbeat=last_heartbeat)
 
@@ -245,8 +315,8 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **update_backend_backends_id_patch**
-> Backend update_backend_backends_id_patch(id, backend_patch)
+# **update_backend_self_backends_me_patch**
+> Backend update_backend_self_backends_me_patch(backend_patch)
 
 Update backend
 
@@ -282,22 +352,20 @@ configuration.api_key['backend'] = 'YOUR_API_KEY'
 with compute_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = compute_api_client.BackendApi(api_client)
-    id = 56 # int | 
-backend_patch = compute_api_client.BackendPatch() # BackendPatch | 
+    backend_patch = compute_api_client.BackendPatch() # BackendPatch | 
 
     try:
         # Update backend
-        api_response = api_instance.update_backend_backends_id_patch(id, backend_patch)
+        api_response = api_instance.update_backend_self_backends_me_patch(backend_patch)
         pprint(api_response)
     except ApiException as e:
-        print("Exception when calling BackendApi->update_backend_backends_id_patch: %s\n" % e)
+        print("Exception when calling BackendApi->update_backend_self_backends_me_patch: %s\n" % e)
 ```
 
 ### Parameters
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **int**|  | 
  **backend_patch** | [**BackendPatch**](BackendPatch.md)|  | 
 
 ### Return type
