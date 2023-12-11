@@ -431,7 +431,7 @@ This endpoint does not need any parameter.
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **read_batch_jobs_batch_jobs_get**
-> list[BatchJob] read_batch_jobs_batch_jobs_get(latest=latest, id=id, created_on=created_on, status=status, reserved_at__isnull=reserved_at__isnull, reserved_at=reserved_at, user_id=user_id, backend_type_id=backend_type_id, backend_id__isnull=backend_id__isnull, backend_id=backend_id, queued_at__isnull=queued_at__isnull, queued_at=queued_at, finished_at__isnull=finished_at__isnull, finished_at=finished_at, aggregated_algorithm_type=aggregated_algorithm_type)
+> list[BatchJob] read_batch_jobs_batch_jobs_get(latest=latest, id=id, created_on=created_on, status=status, user_id=user_id, backend_type_id=backend_type_id, backend_id__isnull=backend_id__isnull, backend_id=backend_id, queued_at__isnull=queued_at__isnull, queued_at=queued_at, reserved_at__isnull=reserved_at__isnull, reserved_at=reserved_at, finished_at__isnull=finished_at__isnull, finished_at=finished_at, aggregated_algorithm_type=aggregated_algorithm_type)
 
 List batch jobs
 
@@ -471,21 +471,21 @@ with compute_api_client.ApiClient(configuration) as api_client:
 id = 56 # int |  (optional)
 created_on = '2013-10-20T19:20:30+01:00' # datetime |  (optional)
 status = compute_api_client.BatchJobStatus() # BatchJobStatus |  (optional)
-reserved_at__isnull = True # bool |  (optional)
-reserved_at = '2013-10-20T19:20:30+01:00' # datetime |  (optional)
 user_id = 56 # int |  (optional)
 backend_type_id = 56 # int |  (optional)
 backend_id__isnull = True # bool |  (optional)
 backend_id = 56 # int |  (optional)
 queued_at__isnull = True # bool |  (optional)
 queued_at = '2013-10-20T19:20:30+01:00' # datetime |  (optional)
+reserved_at__isnull = True # bool |  (optional)
+reserved_at = '2013-10-20T19:20:30+01:00' # datetime |  (optional)
 finished_at__isnull = True # bool |  (optional)
 finished_at = '2013-10-20T19:20:30+01:00' # datetime |  (optional)
 aggregated_algorithm_type = compute_api_client.AlgorithmType() # AlgorithmType |  (optional)
 
     try:
         # List batch jobs
-        api_response = api_instance.read_batch_jobs_batch_jobs_get(latest=latest, id=id, created_on=created_on, status=status, reserved_at__isnull=reserved_at__isnull, reserved_at=reserved_at, user_id=user_id, backend_type_id=backend_type_id, backend_id__isnull=backend_id__isnull, backend_id=backend_id, queued_at__isnull=queued_at__isnull, queued_at=queued_at, finished_at__isnull=finished_at__isnull, finished_at=finished_at, aggregated_algorithm_type=aggregated_algorithm_type)
+        api_response = api_instance.read_batch_jobs_batch_jobs_get(latest=latest, id=id, created_on=created_on, status=status, user_id=user_id, backend_type_id=backend_type_id, backend_id__isnull=backend_id__isnull, backend_id=backend_id, queued_at__isnull=queued_at__isnull, queued_at=queued_at, reserved_at__isnull=reserved_at__isnull, reserved_at=reserved_at, finished_at__isnull=finished_at__isnull, finished_at=finished_at, aggregated_algorithm_type=aggregated_algorithm_type)
         pprint(api_response)
     except ApiException as e:
         print("Exception when calling BatchJobsApi->read_batch_jobs_batch_jobs_get: %s\n" % e)
@@ -499,14 +499,14 @@ Name | Type | Description  | Notes
  **id** | **int**|  | [optional] 
  **created_on** | **datetime**|  | [optional] 
  **status** | [**BatchJobStatus**](.md)|  | [optional] 
- **reserved_at__isnull** | **bool**|  | [optional] 
- **reserved_at** | **datetime**|  | [optional] 
  **user_id** | **int**|  | [optional] 
  **backend_type_id** | **int**|  | [optional] 
  **backend_id__isnull** | **bool**|  | [optional] 
  **backend_id** | **int**|  | [optional] 
  **queued_at__isnull** | **bool**|  | [optional] 
  **queued_at** | **datetime**|  | [optional] 
+ **reserved_at__isnull** | **bool**|  | [optional] 
+ **reserved_at** | **datetime**|  | [optional] 
  **finished_at__isnull** | **bool**|  | [optional] 
  **finished_at** | **datetime**|  | [optional] 
  **aggregated_algorithm_type** | [**AlgorithmType**](.md)|  | [optional] 
