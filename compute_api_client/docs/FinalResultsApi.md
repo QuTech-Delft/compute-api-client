@@ -19,56 +19,16 @@ Create new final result.
 ### Example
 
 * Api Key Authentication (backend):
-```python
-from __future__ import print_function
-import time
-import compute_api_client
-from compute_api_client.rest import ApiException
-from pprint import pprint
-# Defining the host is optional and defaults to http://localhost
-# See configuration.py for a list of all supported configuration parameters.
-configuration = compute_api_client.Configuration(
-    host = "http://localhost"
-)
-
-# The client must configure the authentication and authorization parameters
-# in accordance with the API server security policy.
-# Examples for each auth method are provided below, use the example that
-# satisfies your auth use case.
-
-# Configure API key authorization: backend
-configuration.api_key['backend'] = 'YOUR_API_KEY'
-
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['backend'] = 'Bearer'
-
-# Configure API key authorization: user
-configuration.api_key['user'] = 'YOUR_API_KEY'
-
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['user'] = 'Bearer'
-
-# Enter a context with an instance of the API client
-with compute_api_client.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
-    api_instance = compute_api_client.FinalResultsApi(api_client)
-    final_result_in = compute_api_client.FinalResultIn() # FinalResultIn | 
-
-    try:
-        # Create final result
-        api_response = api_instance.create_final_result_final_results_post(final_result_in)
-        pprint(api_response)
-    except ApiException as e:
-        print("Exception when calling FinalResultsApi->create_final_result_final_results_post: %s\n" % e)
-```
-
 * Api Key Authentication (user):
 ```python
-from __future__ import print_function
 import time
+import os
 import compute_api_client
+from compute_api_client.models.final_result import FinalResult
+from compute_api_client.models.final_result_in import FinalResultIn
 from compute_api_client.rest import ApiException
 from pprint import pprint
+
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
 configuration = compute_api_client.Configuration(
@@ -81,30 +41,33 @@ configuration = compute_api_client.Configuration(
 # satisfies your auth use case.
 
 # Configure API key authorization: backend
-configuration.api_key['backend'] = 'YOUR_API_KEY'
+configuration.api_key['backend'] = os.environ["API_KEY"]
 
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['backend'] = 'Bearer'
 
 # Configure API key authorization: user
-configuration.api_key['user'] = 'YOUR_API_KEY'
+configuration.api_key['user'] = os.environ["API_KEY"]
 
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['user'] = 'Bearer'
 
 # Enter a context with an instance of the API client
-with compute_api_client.ApiClient(configuration) as api_client:
+async with compute_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = compute_api_client.FinalResultsApi(api_client)
     final_result_in = compute_api_client.FinalResultIn() # FinalResultIn | 
 
     try:
         # Create final result
-        api_response = api_instance.create_final_result_final_results_post(final_result_in)
+        api_response = await api_instance.create_final_result_final_results_post(final_result_in)
+        print("The response of FinalResultsApi->create_final_result_final_results_post:\n")
         pprint(api_response)
-    except ApiException as e:
+    except Exception as e:
         print("Exception when calling FinalResultsApi->create_final_result_final_results_post: %s\n" % e)
 ```
+
+
 
 ### Parameters
 
@@ -144,11 +107,13 @@ Get final result by job ID.
 
 * Api Key Authentication (user):
 ```python
-from __future__ import print_function
 import time
+import os
 import compute_api_client
+from compute_api_client.models.final_result import FinalResult
 from compute_api_client.rest import ApiException
 from pprint import pprint
+
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
 configuration = compute_api_client.Configuration(
@@ -161,24 +126,27 @@ configuration = compute_api_client.Configuration(
 # satisfies your auth use case.
 
 # Configure API key authorization: user
-configuration.api_key['user'] = 'YOUR_API_KEY'
+configuration.api_key['user'] = os.environ["API_KEY"]
 
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['user'] = 'Bearer'
 
 # Enter a context with an instance of the API client
-with compute_api_client.ApiClient(configuration) as api_client:
+async with compute_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = compute_api_client.FinalResultsApi(api_client)
     job_id = 56 # int | 
 
     try:
         # Retrieve final result by job ID
-        api_response = api_instance.read_final_result_by_job_id_final_results_job_job_id_get(job_id)
+        api_response = await api_instance.read_final_result_by_job_id_final_results_job_job_id_get(job_id)
+        print("The response of FinalResultsApi->read_final_result_by_job_id_final_results_job_job_id_get:\n")
         pprint(api_response)
-    except ApiException as e:
+    except Exception as e:
         print("Exception when calling FinalResultsApi->read_final_result_by_job_id_final_results_job_job_id_get: %s\n" % e)
 ```
+
+
 
 ### Parameters
 
@@ -218,11 +186,13 @@ Get final result by ID.
 
 * Api Key Authentication (user):
 ```python
-from __future__ import print_function
 import time
+import os
 import compute_api_client
+from compute_api_client.models.final_result import FinalResult
 from compute_api_client.rest import ApiException
 from pprint import pprint
+
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
 configuration = compute_api_client.Configuration(
@@ -235,24 +205,27 @@ configuration = compute_api_client.Configuration(
 # satisfies your auth use case.
 
 # Configure API key authorization: user
-configuration.api_key['user'] = 'YOUR_API_KEY'
+configuration.api_key['user'] = os.environ["API_KEY"]
 
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['user'] = 'Bearer'
 
 # Enter a context with an instance of the API client
-with compute_api_client.ApiClient(configuration) as api_client:
+async with compute_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = compute_api_client.FinalResultsApi(api_client)
     id = 56 # int | 
 
     try:
         # Retrieve final result
-        api_response = api_instance.read_final_result_final_results_id_get(id)
+        api_response = await api_instance.read_final_result_final_results_id_get(id)
+        print("The response of FinalResultsApi->read_final_result_final_results_id_get:\n")
         pprint(api_response)
-    except ApiException as e:
+    except Exception as e:
         print("Exception when calling FinalResultsApi->read_final_result_final_results_id_get: %s\n" % e)
 ```
+
+
 
 ### Parameters
 

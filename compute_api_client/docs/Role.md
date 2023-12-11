@@ -1,6 +1,5 @@
 # Role
 
-An enumeration.
 
 ## Properties
 Name | Type | Description | Notes

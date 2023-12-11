@@ -19,6 +19,7 @@ compute_api_client/api/teams_api.py
 compute_api_client/api/transactions_api.py
 compute_api_client/api/users_api.py
 compute_api_client/api_client.py
+compute_api_client/api_response.py
 compute_api_client/configuration.py
 compute_api_client/docs/Algorithm.md
 compute_api_client/docs/AlgorithmIn.md

@@ -20,11 +20,14 @@ Create new metadata.
 
 * Api Key Authentication (backend):
 ```python
-from __future__ import print_function
 import time
+import os
 import compute_api_client
+from compute_api_client.models.metadata import Metadata
+from compute_api_client.models.metadata_in import MetadataIn
 from compute_api_client.rest import ApiException
 from pprint import pprint
+
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
 configuration = compute_api_client.Configuration(
@@ -37,24 +40,27 @@ configuration = compute_api_client.Configuration(
 # satisfies your auth use case.
 
 # Configure API key authorization: backend
-configuration.api_key['backend'] = 'YOUR_API_KEY'
+configuration.api_key['backend'] = os.environ["API_KEY"]
 
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['backend'] = 'Bearer'
 
 # Enter a context with an instance of the API client
-with compute_api_client.ApiClient(configuration) as api_client:
+async with compute_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = compute_api_client.MetadataApi(api_client)
     metadata_in = compute_api_client.MetadataIn() # MetadataIn | 
 
     try:
         # Create metadata
-        api_response = api_instance.create_metadata_self_metadata_post(metadata_in)
+        api_response = await api_instance.create_metadata_self_metadata_post(metadata_in)
+        print("The response of MetadataApi->create_metadata_self_metadata_post:\n")
         pprint(api_response)
-    except ApiException as e:
+    except Exception as e:
         print("Exception when calling MetadataApi->create_metadata_self_metadata_post: %s\n" % e)
 ```
+
+
 
 ### Parameters
 
@@ -84,7 +90,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **read_metadata_by_backend_id_metadata_backend_backend_id_get**
-> list[Metadata] read_metadata_by_backend_id_metadata_backend_backend_id_get(backend_id)
+> List[Metadata] read_metadata_by_backend_id_metadata_backend_backend_id_get(backend_id)
 
 Retrieve metadata by backend ID
 
@@ -94,11 +100,13 @@ Get metadata by job ID.
 
 * Api Key Authentication (user):
 ```python
-from __future__ import print_function
 import time
+import os
 import compute_api_client
+from compute_api_client.models.metadata import Metadata
 from compute_api_client.rest import ApiException
 from pprint import pprint
+
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
 configuration = compute_api_client.Configuration(
@@ -111,24 +119,27 @@ configuration = compute_api_client.Configuration(
 # satisfies your auth use case.
 
 # Configure API key authorization: user
-configuration.api_key['user'] = 'YOUR_API_KEY'
+configuration.api_key['user'] = os.environ["API_KEY"]
 
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['user'] = 'Bearer'
 
 # Enter a context with an instance of the API client
-with compute_api_client.ApiClient(configuration) as api_client:
+async with compute_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = compute_api_client.MetadataApi(api_client)
     backend_id = 56 # int | 
 
     try:
         # Retrieve metadata by backend ID
-        api_response = api_instance.read_metadata_by_backend_id_metadata_backend_backend_id_get(backend_id)
+        api_response = await api_instance.read_metadata_by_backend_id_metadata_backend_backend_id_get(backend_id)
+        print("The response of MetadataApi->read_metadata_by_backend_id_metadata_backend_backend_id_get:\n")
         pprint(api_response)
-    except ApiException as e:
+    except Exception as e:
         print("Exception when calling MetadataApi->read_metadata_by_backend_id_metadata_backend_backend_id_get: %s\n" % e)
 ```
+
+
 
 ### Parameters
 
@@ -138,7 +149,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**list[Metadata]**](Metadata.md)
+[**List[Metadata]**](Metadata.md)
 
 ### Authorization
 
@@ -168,11 +179,13 @@ Get metadata by ID.
 
 * Api Key Authentication (user):
 ```python
-from __future__ import print_function
 import time
+import os
 import compute_api_client
+from compute_api_client.models.metadata import Metadata
 from compute_api_client.rest import ApiException
 from pprint import pprint
+
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
 configuration = compute_api_client.Configuration(
@@ -185,24 +198,27 @@ configuration = compute_api_client.Configuration(
 # satisfies your auth use case.
 
 # Configure API key authorization: user
-configuration.api_key['user'] = 'YOUR_API_KEY'
+configuration.api_key['user'] = os.environ["API_KEY"]
 
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['user'] = 'Bearer'
 
 # Enter a context with an instance of the API client
-with compute_api_client.ApiClient(configuration) as api_client:
+async with compute_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = compute_api_client.MetadataApi(api_client)
     id = 56 # int | 
 
     try:
         # Get metadata by ID
-        api_response = api_instance.read_metadata_metadata_id_get(id)
+        api_response = await api_instance.read_metadata_metadata_id_get(id)
+        print("The response of MetadataApi->read_metadata_metadata_id_get:\n")
         pprint(api_response)
-    except ApiException as e:
+    except Exception as e:
         print("Exception when calling MetadataApi->read_metadata_metadata_id_get: %s\n" % e)
 ```
+
+
 
 ### Parameters
 

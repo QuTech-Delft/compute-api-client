@@ -1,5 +1,3 @@
-from __future__ import absolute_import
-
 # flake8: noqa
 
 # import apis into api package
@@ -21,3 +19,4 @@ from compute_api_client.api.results_api import ResultsApi
 from compute_api_client.api.teams_api import TeamsApi
 from compute_api_client.api.transactions_api import TransactionsApi
 from compute_api_client.api.users_api import UsersApi
+

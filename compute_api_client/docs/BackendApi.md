@@ -22,11 +22,14 @@ Create new backend.
 
 * Api Key Authentication (user):
 ```python
-from __future__ import print_function
 import time
+import os
 import compute_api_client
+from compute_api_client.models.backend import Backend
+from compute_api_client.models.backend_with_authentication import BackendWithAuthentication
 from compute_api_client.rest import ApiException
 from pprint import pprint
+
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
 configuration = compute_api_client.Configuration(
@@ -39,24 +42,27 @@ configuration = compute_api_client.Configuration(
 # satisfies your auth use case.
 
 # Configure API key authorization: user
-configuration.api_key['user'] = 'YOUR_API_KEY'
+configuration.api_key['user'] = os.environ["API_KEY"]
 
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['user'] = 'Bearer'
 
 # Enter a context with an instance of the API client
-with compute_api_client.ApiClient(configuration) as api_client:
+async with compute_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = compute_api_client.BackendApi(api_client)
     backend = compute_api_client.Backend() # Backend | 
 
     try:
         # Create backend
-        api_response = api_instance.create_backend_backends_post(backend)
+        api_response = await api_instance.create_backend_backends_post(backend)
+        print("The response of BackendApi->create_backend_backends_post:\n")
         pprint(api_response)
-    except ApiException as e:
+    except Exception as e:
         print("Exception when calling BackendApi->create_backend_backends_post: %s\n" % e)
 ```
+
+
 
 ### Parameters
 
@@ -96,11 +102,13 @@ Get backend by ID.
 
 * Api Key Authentication (user):
 ```python
-from __future__ import print_function
 import time
+import os
 import compute_api_client
+from compute_api_client.models.backend import Backend
 from compute_api_client.rest import ApiException
 from pprint import pprint
+
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
 configuration = compute_api_client.Configuration(
@@ -113,24 +121,27 @@ configuration = compute_api_client.Configuration(
 # satisfies your auth use case.
 
 # Configure API key authorization: user
-configuration.api_key['user'] = 'YOUR_API_KEY'
+configuration.api_key['user'] = os.environ["API_KEY"]
 
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['user'] = 'Bearer'
 
 # Enter a context with an instance of the API client
-with compute_api_client.ApiClient(configuration) as api_client:
+async with compute_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = compute_api_client.BackendApi(api_client)
     id = 56 # int | 
 
     try:
         # Retrieve backend
-        api_response = api_instance.read_backend_backends_id_get(id)
+        api_response = await api_instance.read_backend_backends_id_get(id)
+        print("The response of BackendApi->read_backend_backends_id_get:\n")
         pprint(api_response)
-    except ApiException as e:
+    except Exception as e:
         print("Exception when calling BackendApi->read_backend_backends_id_get: %s\n" % e)
 ```
+
+
 
 ### Parameters
 
@@ -171,11 +182,13 @@ Read backend.
 
 * Api Key Authentication (backend):
 ```python
-from __future__ import print_function
 import time
+import os
 import compute_api_client
+from compute_api_client.models.backend import Backend
 from compute_api_client.rest import ApiException
 from pprint import pprint
+
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
 configuration = compute_api_client.Configuration(
@@ -188,23 +201,26 @@ configuration = compute_api_client.Configuration(
 # satisfies your auth use case.
 
 # Configure API key authorization: backend
-configuration.api_key['backend'] = 'YOUR_API_KEY'
+configuration.api_key['backend'] = os.environ["API_KEY"]
 
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['backend'] = 'Bearer'
 
 # Enter a context with an instance of the API client
-with compute_api_client.ApiClient(configuration) as api_client:
+async with compute_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = compute_api_client.BackendApi(api_client)
-    
+
     try:
         # Retrieve backend
-        api_response = api_instance.read_backend_self_backends_me_get()
+        api_response = await api_instance.read_backend_self_backends_me_get()
+        print("The response of BackendApi->read_backend_self_backends_me_get:\n")
         pprint(api_response)
-    except ApiException as e:
+    except Exception as e:
         print("Exception when calling BackendApi->read_backend_self_backends_me_get: %s\n" % e)
 ```
+
+
 
 ### Parameters
 This endpoint does not need any parameter.
@@ -230,7 +246,7 @@ This endpoint does not need any parameter.
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **read_backends_backends_get**
-> list[Backend] read_backends_backends_get(latest=latest, id=id, name=name, location=location, backend_type_id=backend_type_id, status=status, last_heartbeat=last_heartbeat)
+> List[Backend] read_backends_backends_get(latest=latest, id=id, name=name, location=location, backend_type_id=backend_type_id, status=status, last_heartbeat=last_heartbeat)
 
 List backends
 
@@ -240,11 +256,14 @@ Read backends.
 
 * Api Key Authentication (user):
 ```python
-from __future__ import print_function
 import time
+import os
 import compute_api_client
+from compute_api_client.models.backend import Backend
+from compute_api_client.models.backend_status import BackendStatus
 from compute_api_client.rest import ApiException
 from pprint import pprint
+
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
 configuration = compute_api_client.Configuration(
@@ -257,30 +276,33 @@ configuration = compute_api_client.Configuration(
 # satisfies your auth use case.
 
 # Configure API key authorization: user
-configuration.api_key['user'] = 'YOUR_API_KEY'
+configuration.api_key['user'] = os.environ["API_KEY"]
 
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['user'] = 'Bearer'
 
 # Enter a context with an instance of the API client
-with compute_api_client.ApiClient(configuration) as api_client:
+async with compute_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = compute_api_client.BackendApi(api_client)
     latest = True # bool |  (optional)
-id = 56 # int |  (optional)
-name = 'name_example' # str |  (optional)
-location = 'location_example' # str |  (optional)
-backend_type_id = 56 # int |  (optional)
-status = compute_api_client.BackendStatus() # BackendStatus |  (optional)
-last_heartbeat = '2013-10-20T19:20:30+01:00' # datetime |  (optional)
+    id = 56 # int |  (optional)
+    name = 'name_example' # str |  (optional)
+    location = 'location_example' # str |  (optional)
+    backend_type_id = 56 # int |  (optional)
+    status = compute_api_client.BackendStatus() # BackendStatus |  (optional)
+    last_heartbeat = '2013-10-20T19:20:30+01:00' # datetime |  (optional)
 
     try:
         # List backends
-        api_response = api_instance.read_backends_backends_get(latest=latest, id=id, name=name, location=location, backend_type_id=backend_type_id, status=status, last_heartbeat=last_heartbeat)
+        api_response = await api_instance.read_backends_backends_get(latest=latest, id=id, name=name, location=location, backend_type_id=backend_type_id, status=status, last_heartbeat=last_heartbeat)
+        print("The response of BackendApi->read_backends_backends_get:\n")
         pprint(api_response)
-    except ApiException as e:
+    except Exception as e:
         print("Exception when calling BackendApi->read_backends_backends_get: %s\n" % e)
 ```
+
+
 
 ### Parameters
 
@@ -296,7 +318,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**list[Backend]**](Backend.md)
+[**List[Backend]**](Backend.md)
 
 ### Authorization
 
@@ -326,11 +348,14 @@ Update backend.
 
 * Api Key Authentication (backend):
 ```python
-from __future__ import print_function
 import time
+import os
 import compute_api_client
+from compute_api_client.models.backend import Backend
+from compute_api_client.models.backend_patch import BackendPatch
 from compute_api_client.rest import ApiException
 from pprint import pprint
+
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
 configuration = compute_api_client.Configuration(
@@ -343,24 +368,27 @@ configuration = compute_api_client.Configuration(
 # satisfies your auth use case.
 
 # Configure API key authorization: backend
-configuration.api_key['backend'] = 'YOUR_API_KEY'
+configuration.api_key['backend'] = os.environ["API_KEY"]
 
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['backend'] = 'Bearer'
 
 # Enter a context with an instance of the API client
-with compute_api_client.ApiClient(configuration) as api_client:
+async with compute_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = compute_api_client.BackendApi(api_client)
     backend_patch = compute_api_client.BackendPatch() # BackendPatch | 
 
     try:
         # Update backend
-        api_response = api_instance.update_backend_self_backends_me_patch(backend_patch)
+        api_response = await api_instance.update_backend_self_backends_me_patch(backend_patch)
+        print("The response of BackendApi->update_backend_self_backends_me_patch:\n")
         pprint(api_response)
-    except ApiException as e:
+    except Exception as e:
         print("Exception when calling BackendApi->update_backend_self_backends_me_patch: %s\n" % e)
 ```
+
+
 
 ### Parameters
 

@@ -20,11 +20,14 @@ Create new result.
 
 * Api Key Authentication (backend):
 ```python
-from __future__ import print_function
 import time
+import os
 import compute_api_client
+from compute_api_client.models.result import Result
+from compute_api_client.models.result_in import ResultIn
 from compute_api_client.rest import ApiException
 from pprint import pprint
+
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
 configuration = compute_api_client.Configuration(
@@ -37,24 +40,27 @@ configuration = compute_api_client.Configuration(
 # satisfies your auth use case.
 
 # Configure API key authorization: backend
-configuration.api_key['backend'] = 'YOUR_API_KEY'
+configuration.api_key['backend'] = os.environ["API_KEY"]
 
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['backend'] = 'Bearer'
 
 # Enter a context with an instance of the API client
-with compute_api_client.ApiClient(configuration) as api_client:
+async with compute_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = compute_api_client.ResultsApi(api_client)
     result_in = compute_api_client.ResultIn() # ResultIn | 
 
     try:
         # Create result
-        api_response = api_instance.create_result_results_post(result_in)
+        api_response = await api_instance.create_result_results_post(result_in)
+        print("The response of ResultsApi->create_result_results_post:\n")
         pprint(api_response)
-    except ApiException as e:
+    except Exception as e:
         print("Exception when calling ResultsApi->create_result_results_post: %s\n" % e)
 ```
+
+
 
 ### Parameters
 
@@ -94,11 +100,13 @@ Get result by ID.
 
 * Api Key Authentication (user):
 ```python
-from __future__ import print_function
 import time
+import os
 import compute_api_client
+from compute_api_client.models.result import Result
 from compute_api_client.rest import ApiException
 from pprint import pprint
+
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
 configuration = compute_api_client.Configuration(
@@ -111,24 +119,27 @@ configuration = compute_api_client.Configuration(
 # satisfies your auth use case.
 
 # Configure API key authorization: user
-configuration.api_key['user'] = 'YOUR_API_KEY'
+configuration.api_key['user'] = os.environ["API_KEY"]
 
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['user'] = 'Bearer'
 
 # Enter a context with an instance of the API client
-with compute_api_client.ApiClient(configuration) as api_client:
+async with compute_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = compute_api_client.ResultsApi(api_client)
     id = 56 # int | 
 
     try:
         # Retrieve result
-        api_response = api_instance.read_result_results_id_get(id)
+        api_response = await api_instance.read_result_results_id_get(id)
+        print("The response of ResultsApi->read_result_results_id_get:\n")
         pprint(api_response)
-    except ApiException as e:
+    except Exception as e:
         print("Exception when calling ResultsApi->read_result_results_id_get: %s\n" % e)
 ```
+
+
 
 ### Parameters
 
@@ -159,7 +170,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **read_results_by_job_id_results_job_job_id_get**
-> list[Result] read_results_by_job_id_results_job_job_id_get(job_id)
+> List[Result] read_results_by_job_id_results_job_job_id_get(job_id)
 
 Retrieve result
 
@@ -169,11 +180,13 @@ Get result by ID.
 
 * Api Key Authentication (user):
 ```python
-from __future__ import print_function
 import time
+import os
 import compute_api_client
+from compute_api_client.models.result import Result
 from compute_api_client.rest import ApiException
 from pprint import pprint
+
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
 configuration = compute_api_client.Configuration(
@@ -186,24 +199,27 @@ configuration = compute_api_client.Configuration(
 # satisfies your auth use case.
 
 # Configure API key authorization: user
-configuration.api_key['user'] = 'YOUR_API_KEY'
+configuration.api_key['user'] = os.environ["API_KEY"]
 
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['user'] = 'Bearer'
 
 # Enter a context with an instance of the API client
-with compute_api_client.ApiClient(configuration) as api_client:
+async with compute_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = compute_api_client.ResultsApi(api_client)
     job_id = 56 # int | 
 
     try:
         # Retrieve result
-        api_response = api_instance.read_results_by_job_id_results_job_job_id_get(job_id)
+        api_response = await api_instance.read_results_by_job_id_results_job_job_id_get(job_id)
+        print("The response of ResultsApi->read_results_by_job_id_results_job_job_id_get:\n")
         pprint(api_response)
-    except ApiException as e:
+    except Exception as e:
         print("Exception when calling ResultsApi->read_results_by_job_id_results_job_job_id_get: %s\n" % e)
 ```
+
+
 
 ### Parameters
 
@@ -213,7 +229,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**list[Result]**](Result.md)
+[**List[Result]**](Result.md)
 
 ### Authorization
 

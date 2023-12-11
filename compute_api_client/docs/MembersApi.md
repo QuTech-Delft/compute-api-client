@@ -21,11 +21,14 @@ Create new member.
 
 * Api Key Authentication (user):
 ```python
-from __future__ import print_function
 import time
+import os
 import compute_api_client
+from compute_api_client.models.member import Member
+from compute_api_client.models.member_in import MemberIn
 from compute_api_client.rest import ApiException
 from pprint import pprint
+
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
 configuration = compute_api_client.Configuration(
@@ -38,24 +41,27 @@ configuration = compute_api_client.Configuration(
 # satisfies your auth use case.
 
 # Configure API key authorization: user
-configuration.api_key['user'] = 'YOUR_API_KEY'
+configuration.api_key['user'] = os.environ["API_KEY"]
 
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['user'] = 'Bearer'
 
 # Enter a context with an instance of the API client
-with compute_api_client.ApiClient(configuration) as api_client:
+async with compute_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = compute_api_client.MembersApi(api_client)
     member_in = compute_api_client.MemberIn() # MemberIn | 
 
     try:
         # Create member
-        api_response = api_instance.create_member_members_post(member_in)
+        api_response = await api_instance.create_member_members_post(member_in)
+        print("The response of MembersApi->create_member_members_post:\n")
         pprint(api_response)
-    except ApiException as e:
+    except Exception as e:
         print("Exception when calling MembersApi->create_member_members_post: %s\n" % e)
 ```
+
+
 
 ### Parameters
 
@@ -95,11 +101,12 @@ Delete a member.
 
 * Api Key Authentication (user):
 ```python
-from __future__ import print_function
 import time
+import os
 import compute_api_client
 from compute_api_client.rest import ApiException
 from pprint import pprint
+
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
 configuration = compute_api_client.Configuration(
@@ -112,23 +119,25 @@ configuration = compute_api_client.Configuration(
 # satisfies your auth use case.
 
 # Configure API key authorization: user
-configuration.api_key['user'] = 'YOUR_API_KEY'
+configuration.api_key['user'] = os.environ["API_KEY"]
 
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['user'] = 'Bearer'
 
 # Enter a context with an instance of the API client
-with compute_api_client.ApiClient(configuration) as api_client:
+async with compute_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = compute_api_client.MembersApi(api_client)
     id = 56 # int | 
 
     try:
         # Destroy member
-        api_instance.delete_member_members_id_delete(id)
-    except ApiException as e:
+        await api_instance.delete_member_members_id_delete(id)
+    except Exception as e:
         print("Exception when calling MembersApi->delete_member_members_id_delete: %s\n" % e)
 ```
+
+
 
 ### Parameters
 
@@ -169,11 +178,13 @@ Get member by ID.
 
 * Api Key Authentication (user):
 ```python
-from __future__ import print_function
 import time
+import os
 import compute_api_client
+from compute_api_client.models.member import Member
 from compute_api_client.rest import ApiException
 from pprint import pprint
+
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
 configuration = compute_api_client.Configuration(
@@ -186,24 +197,27 @@ configuration = compute_api_client.Configuration(
 # satisfies your auth use case.
 
 # Configure API key authorization: user
-configuration.api_key['user'] = 'YOUR_API_KEY'
+configuration.api_key['user'] = os.environ["API_KEY"]
 
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['user'] = 'Bearer'
 
 # Enter a context with an instance of the API client
-with compute_api_client.ApiClient(configuration) as api_client:
+async with compute_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = compute_api_client.MembersApi(api_client)
     id = 56 # int | 
 
     try:
         # Retrieve member
-        api_response = api_instance.read_member_members_id_get(id)
+        api_response = await api_instance.read_member_members_id_get(id)
+        print("The response of MembersApi->read_member_members_id_get:\n")
         pprint(api_response)
-    except ApiException as e:
+    except Exception as e:
         print("Exception when calling MembersApi->read_member_members_id_get: %s\n" % e)
 ```
+
+
 
 ### Parameters
 
@@ -234,7 +248,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **read_members_members_get**
-> list[Member] read_members_members_get(latest=latest, id=id, team_id=team_id, user_id=user_id, role=role, is_active=is_active)
+> List[Member] read_members_members_get(latest=latest, id=id, team_id=team_id, user_id=user_id, role=role, is_active=is_active)
 
 List members
 
@@ -244,11 +258,14 @@ Read members.
 
 * Api Key Authentication (user):
 ```python
-from __future__ import print_function
 import time
+import os
 import compute_api_client
+from compute_api_client.models.member import Member
+from compute_api_client.models.role import Role
 from compute_api_client.rest import ApiException
 from pprint import pprint
+
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
 configuration = compute_api_client.Configuration(
@@ -261,29 +278,32 @@ configuration = compute_api_client.Configuration(
 # satisfies your auth use case.
 
 # Configure API key authorization: user
-configuration.api_key['user'] = 'YOUR_API_KEY'
+configuration.api_key['user'] = os.environ["API_KEY"]
 
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['user'] = 'Bearer'
 
 # Enter a context with an instance of the API client
-with compute_api_client.ApiClient(configuration) as api_client:
+async with compute_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = compute_api_client.MembersApi(api_client)
     latest = True # bool |  (optional)
-id = 56 # int |  (optional)
-team_id = 56 # int |  (optional)
-user_id = 56 # int |  (optional)
-role = compute_api_client.Role() # Role |  (optional)
-is_active = True # bool |  (optional)
+    id = 56 # int |  (optional)
+    team_id = 56 # int |  (optional)
+    user_id = 56 # int |  (optional)
+    role = compute_api_client.Role() # Role |  (optional)
+    is_active = True # bool |  (optional)
 
     try:
         # List members
-        api_response = api_instance.read_members_members_get(latest=latest, id=id, team_id=team_id, user_id=user_id, role=role, is_active=is_active)
+        api_response = await api_instance.read_members_members_get(latest=latest, id=id, team_id=team_id, user_id=user_id, role=role, is_active=is_active)
+        print("The response of MembersApi->read_members_members_get:\n")
         pprint(api_response)
-    except ApiException as e:
+    except Exception as e:
         print("Exception when calling MembersApi->read_members_members_get: %s\n" % e)
 ```
+
+
 
 ### Parameters
 
@@ -298,7 +318,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**list[Member]**](Member.md)
+[**List[Member]**](Member.md)
 
 ### Authorization
 

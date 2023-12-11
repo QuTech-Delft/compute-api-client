@@ -23,11 +23,14 @@ Create new project.
 
 * Api Key Authentication (user):
 ```python
-from __future__ import print_function
 import time
+import os
 import compute_api_client
+from compute_api_client.models.project import Project
+from compute_api_client.models.project_in import ProjectIn
 from compute_api_client.rest import ApiException
 from pprint import pprint
+
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
 configuration = compute_api_client.Configuration(
@@ -40,24 +43,27 @@ configuration = compute_api_client.Configuration(
 # satisfies your auth use case.
 
 # Configure API key authorization: user
-configuration.api_key['user'] = 'YOUR_API_KEY'
+configuration.api_key['user'] = os.environ["API_KEY"]
 
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['user'] = 'Bearer'
 
 # Enter a context with an instance of the API client
-with compute_api_client.ApiClient(configuration) as api_client:
+async with compute_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = compute_api_client.ProjectsApi(api_client)
     project_in = compute_api_client.ProjectIn() # ProjectIn | 
 
     try:
         # Create project
-        api_response = api_instance.create_project_projects_post(project_in)
+        api_response = await api_instance.create_project_projects_post(project_in)
+        print("The response of ProjectsApi->create_project_projects_post:\n")
         pprint(api_response)
-    except ApiException as e:
+    except Exception as e:
         print("Exception when calling ProjectsApi->create_project_projects_post: %s\n" % e)
 ```
+
+
 
 ### Parameters
 
@@ -97,11 +103,12 @@ Delete a project.
 
 * Api Key Authentication (user):
 ```python
-from __future__ import print_function
 import time
+import os
 import compute_api_client
 from compute_api_client.rest import ApiException
 from pprint import pprint
+
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
 configuration = compute_api_client.Configuration(
@@ -114,23 +121,25 @@ configuration = compute_api_client.Configuration(
 # satisfies your auth use case.
 
 # Configure API key authorization: user
-configuration.api_key['user'] = 'YOUR_API_KEY'
+configuration.api_key['user'] = os.environ["API_KEY"]
 
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['user'] = 'Bearer'
 
 # Enter a context with an instance of the API client
-with compute_api_client.ApiClient(configuration) as api_client:
+async with compute_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = compute_api_client.ProjectsApi(api_client)
     id = 56 # int | 
 
     try:
         # Destroy project
-        api_instance.delete_project_projects_id_delete(id)
-    except ApiException as e:
+        await api_instance.delete_project_projects_id_delete(id)
+    except Exception as e:
         print("Exception when calling ProjectsApi->delete_project_projects_id_delete: %s\n" % e)
 ```
+
+
 
 ### Parameters
 
@@ -171,11 +180,14 @@ Partially update a project.
 
 * Api Key Authentication (user):
 ```python
-from __future__ import print_function
 import time
+import os
 import compute_api_client
+from compute_api_client.models.project import Project
+from compute_api_client.models.project_patch import ProjectPatch
 from compute_api_client.rest import ApiException
 from pprint import pprint
+
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
 configuration = compute_api_client.Configuration(
@@ -188,25 +200,28 @@ configuration = compute_api_client.Configuration(
 # satisfies your auth use case.
 
 # Configure API key authorization: user
-configuration.api_key['user'] = 'YOUR_API_KEY'
+configuration.api_key['user'] = os.environ["API_KEY"]
 
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['user'] = 'Bearer'
 
 # Enter a context with an instance of the API client
-with compute_api_client.ApiClient(configuration) as api_client:
+async with compute_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = compute_api_client.ProjectsApi(api_client)
     id = 56 # int | 
-project_patch = compute_api_client.ProjectPatch() # ProjectPatch | 
+    project_patch = compute_api_client.ProjectPatch() # ProjectPatch | 
 
     try:
         # Partially update project
-        api_response = api_instance.partial_update_project_projects_id_patch(id, project_patch)
+        api_response = await api_instance.partial_update_project_projects_id_patch(id, project_patch)
+        print("The response of ProjectsApi->partial_update_project_projects_id_patch:\n")
         pprint(api_response)
-    except ApiException as e:
+    except Exception as e:
         print("Exception when calling ProjectsApi->partial_update_project_projects_id_patch: %s\n" % e)
 ```
+
+
 
 ### Parameters
 
@@ -248,11 +263,13 @@ Get project by ID.
 
 * Api Key Authentication (user):
 ```python
-from __future__ import print_function
 import time
+import os
 import compute_api_client
+from compute_api_client.models.project import Project
 from compute_api_client.rest import ApiException
 from pprint import pprint
+
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
 configuration = compute_api_client.Configuration(
@@ -265,24 +282,27 @@ configuration = compute_api_client.Configuration(
 # satisfies your auth use case.
 
 # Configure API key authorization: user
-configuration.api_key['user'] = 'YOUR_API_KEY'
+configuration.api_key['user'] = os.environ["API_KEY"]
 
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['user'] = 'Bearer'
 
 # Enter a context with an instance of the API client
-with compute_api_client.ApiClient(configuration) as api_client:
+async with compute_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = compute_api_client.ProjectsApi(api_client)
     id = 56 # int | 
 
     try:
         # Retrieve project
-        api_response = api_instance.read_project_projects_id_get(id)
+        api_response = await api_instance.read_project_projects_id_get(id)
+        print("The response of ProjectsApi->read_project_projects_id_get:\n")
         pprint(api_response)
-    except ApiException as e:
+    except Exception as e:
         print("Exception when calling ProjectsApi->read_project_projects_id_get: %s\n" % e)
 ```
+
+
 
 ### Parameters
 
@@ -313,7 +333,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **read_projects_projects_get**
-> list[Project] read_projects_projects_get(latest=latest, id=id, created_on=created_on, owner_id=owner_id, name=name, description=description, starred=starred)
+> List[Project] read_projects_projects_get(latest=latest, id=id, created_on=created_on, owner_id=owner_id, name=name, description=description, starred=starred)
 
 List projects
 
@@ -323,11 +343,13 @@ List projects.
 
 * Api Key Authentication (user):
 ```python
-from __future__ import print_function
 import time
+import os
 import compute_api_client
+from compute_api_client.models.project import Project
 from compute_api_client.rest import ApiException
 from pprint import pprint
+
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
 configuration = compute_api_client.Configuration(
@@ -340,30 +362,33 @@ configuration = compute_api_client.Configuration(
 # satisfies your auth use case.
 
 # Configure API key authorization: user
-configuration.api_key['user'] = 'YOUR_API_KEY'
+configuration.api_key['user'] = os.environ["API_KEY"]
 
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['user'] = 'Bearer'
 
 # Enter a context with an instance of the API client
-with compute_api_client.ApiClient(configuration) as api_client:
+async with compute_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = compute_api_client.ProjectsApi(api_client)
     latest = True # bool |  (optional)
-id = 56 # int |  (optional)
-created_on = '2013-10-20T19:20:30+01:00' # datetime |  (optional)
-owner_id = 56 # int |  (optional)
-name = 'name_example' # str |  (optional)
-description = 'description_example' # str |  (optional)
-starred = True # bool |  (optional)
+    id = 56 # int |  (optional)
+    created_on = '2013-10-20T19:20:30+01:00' # datetime |  (optional)
+    owner_id = 56 # int |  (optional)
+    name = 'name_example' # str |  (optional)
+    description = 'description_example' # str |  (optional)
+    starred = True # bool |  (optional)
 
     try:
         # List projects
-        api_response = api_instance.read_projects_projects_get(latest=latest, id=id, created_on=created_on, owner_id=owner_id, name=name, description=description, starred=starred)
+        api_response = await api_instance.read_projects_projects_get(latest=latest, id=id, created_on=created_on, owner_id=owner_id, name=name, description=description, starred=starred)
+        print("The response of ProjectsApi->read_projects_projects_get:\n")
         pprint(api_response)
-    except ApiException as e:
+    except Exception as e:
         print("Exception when calling ProjectsApi->read_projects_projects_get: %s\n" % e)
 ```
+
+
 
 ### Parameters
 
@@ -379,7 +404,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**list[Project]**](Project.md)
+[**List[Project]**](Project.md)
 
 ### Authorization
 
@@ -409,11 +434,14 @@ Update a project.
 
 * Api Key Authentication (user):
 ```python
-from __future__ import print_function
 import time
+import os
 import compute_api_client
+from compute_api_client.models.project import Project
+from compute_api_client.models.project_in import ProjectIn
 from compute_api_client.rest import ApiException
 from pprint import pprint
+
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
 configuration = compute_api_client.Configuration(
@@ -426,25 +454,28 @@ configuration = compute_api_client.Configuration(
 # satisfies your auth use case.
 
 # Configure API key authorization: user
-configuration.api_key['user'] = 'YOUR_API_KEY'
+configuration.api_key['user'] = os.environ["API_KEY"]
 
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['user'] = 'Bearer'
 
 # Enter a context with an instance of the API client
-with compute_api_client.ApiClient(configuration) as api_client:
+async with compute_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = compute_api_client.ProjectsApi(api_client)
     id = 56 # int | 
-project_in = compute_api_client.ProjectIn() # ProjectIn | 
+    project_in = compute_api_client.ProjectIn() # ProjectIn | 
 
     try:
         # Update project
-        api_response = api_instance.update_project_projects_id_put(id, project_in)
+        api_response = await api_instance.update_project_projects_id_put(id, project_in)
+        print("The response of ProjectsApi->update_project_projects_id_put:\n")
         pprint(api_response)
-    except ApiException as e:
+    except Exception as e:
         print("Exception when calling ProjectsApi->update_project_projects_id_put: %s\n" % e)
 ```
+
+
 
 ### Parameters
 

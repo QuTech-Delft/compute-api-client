@@ -4,14 +4,13 @@ set -e
 
 check=$1
 
-export OPENAPI_GENERATOR_VERSION=6.4.0
+export OPENAPI_GENERATOR_VERSION=7.1.0
 
 openapi-generator-cli generate \
     --input-spec http://localhost:8000/openapi.json \
-    --generator-name python-legacy \
+    --generator-name python \
     --config config.json \
-    --library asyncio \
-    --type-mappings enum=Enum
+    --library asyncio
 
     mv compute_api_client_README.md README.md
 

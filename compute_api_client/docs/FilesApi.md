@@ -21,11 +21,14 @@ Create new file.
 
 * Api Key Authentication (user):
 ```python
-from __future__ import print_function
 import time
+import os
 import compute_api_client
+from compute_api_client.models.file import File
+from compute_api_client.models.file_in import FileIn
 from compute_api_client.rest import ApiException
 from pprint import pprint
+
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
 configuration = compute_api_client.Configuration(
@@ -38,24 +41,27 @@ configuration = compute_api_client.Configuration(
 # satisfies your auth use case.
 
 # Configure API key authorization: user
-configuration.api_key['user'] = 'YOUR_API_KEY'
+configuration.api_key['user'] = os.environ["API_KEY"]
 
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['user'] = 'Bearer'
 
 # Enter a context with an instance of the API client
-with compute_api_client.ApiClient(configuration) as api_client:
+async with compute_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = compute_api_client.FilesApi(api_client)
     file_in = compute_api_client.FileIn() # FileIn | 
 
     try:
         # Create file
-        api_response = api_instance.create_file_files_post(file_in)
+        api_response = await api_instance.create_file_files_post(file_in)
+        print("The response of FilesApi->create_file_files_post:\n")
         pprint(api_response)
-    except ApiException as e:
+    except Exception as e:
         print("Exception when calling FilesApi->create_file_files_post: %s\n" % e)
 ```
+
+
 
 ### Parameters
 
@@ -95,11 +101,12 @@ Delete a file.
 
 * Api Key Authentication (user):
 ```python
-from __future__ import print_function
 import time
+import os
 import compute_api_client
 from compute_api_client.rest import ApiException
 from pprint import pprint
+
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
 configuration = compute_api_client.Configuration(
@@ -112,23 +119,25 @@ configuration = compute_api_client.Configuration(
 # satisfies your auth use case.
 
 # Configure API key authorization: user
-configuration.api_key['user'] = 'YOUR_API_KEY'
+configuration.api_key['user'] = os.environ["API_KEY"]
 
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['user'] = 'Bearer'
 
 # Enter a context with an instance of the API client
-with compute_api_client.ApiClient(configuration) as api_client:
+async with compute_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = compute_api_client.FilesApi(api_client)
     id = 56 # int | 
 
     try:
         # Destroy file
-        api_instance.delete_file_files_id_delete(id)
-    except ApiException as e:
+        await api_instance.delete_file_files_id_delete(id)
+    except Exception as e:
         print("Exception when calling FilesApi->delete_file_files_id_delete: %s\n" % e)
 ```
+
+
 
 ### Parameters
 
@@ -168,56 +177,15 @@ Get file by ID.
 ### Example
 
 * Api Key Authentication (backend):
-```python
-from __future__ import print_function
-import time
-import compute_api_client
-from compute_api_client.rest import ApiException
-from pprint import pprint
-# Defining the host is optional and defaults to http://localhost
-# See configuration.py for a list of all supported configuration parameters.
-configuration = compute_api_client.Configuration(
-    host = "http://localhost"
-)
-
-# The client must configure the authentication and authorization parameters
-# in accordance with the API server security policy.
-# Examples for each auth method are provided below, use the example that
-# satisfies your auth use case.
-
-# Configure API key authorization: backend
-configuration.api_key['backend'] = 'YOUR_API_KEY'
-
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['backend'] = 'Bearer'
-
-# Configure API key authorization: user
-configuration.api_key['user'] = 'YOUR_API_KEY'
-
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['user'] = 'Bearer'
-
-# Enter a context with an instance of the API client
-with compute_api_client.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
-    api_instance = compute_api_client.FilesApi(api_client)
-    id = 56 # int | 
-
-    try:
-        # Retrieve file
-        api_response = api_instance.read_file_files_id_get(id)
-        pprint(api_response)
-    except ApiException as e:
-        print("Exception when calling FilesApi->read_file_files_id_get: %s\n" % e)
-```
-
 * Api Key Authentication (user):
 ```python
-from __future__ import print_function
 import time
+import os
 import compute_api_client
+from compute_api_client.models.file import File
 from compute_api_client.rest import ApiException
 from pprint import pprint
+
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
 configuration = compute_api_client.Configuration(
@@ -230,30 +198,33 @@ configuration = compute_api_client.Configuration(
 # satisfies your auth use case.
 
 # Configure API key authorization: backend
-configuration.api_key['backend'] = 'YOUR_API_KEY'
+configuration.api_key['backend'] = os.environ["API_KEY"]
 
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['backend'] = 'Bearer'
 
 # Configure API key authorization: user
-configuration.api_key['user'] = 'YOUR_API_KEY'
+configuration.api_key['user'] = os.environ["API_KEY"]
 
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['user'] = 'Bearer'
 
 # Enter a context with an instance of the API client
-with compute_api_client.ApiClient(configuration) as api_client:
+async with compute_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = compute_api_client.FilesApi(api_client)
     id = 56 # int | 
 
     try:
         # Retrieve file
-        api_response = api_instance.read_file_files_id_get(id)
+        api_response = await api_instance.read_file_files_id_get(id)
+        print("The response of FilesApi->read_file_files_id_get:\n")
         pprint(api_response)
-    except ApiException as e:
+    except Exception as e:
         print("Exception when calling FilesApi->read_file_files_id_get: %s\n" % e)
 ```
+
+
 
 ### Parameters
 
@@ -284,7 +255,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **read_files_files_get**
-> list[File] read_files_files_get(latest=latest, id=id, commit_id=commit_id, content=content, language_id=language_id, compile_stage=compile_stage, generated=generated)
+> List[File] read_files_files_get(latest=latest, id=id, commit_id=commit_id, content=content, language_id=language_id, compile_stage=compile_stage, generated=generated)
 
 List files
 
@@ -294,11 +265,14 @@ List files.
 
 * Api Key Authentication (user):
 ```python
-from __future__ import print_function
 import time
+import os
 import compute_api_client
+from compute_api_client.models.compile_stage import CompileStage
+from compute_api_client.models.file import File
 from compute_api_client.rest import ApiException
 from pprint import pprint
+
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
 configuration = compute_api_client.Configuration(
@@ -311,30 +285,33 @@ configuration = compute_api_client.Configuration(
 # satisfies your auth use case.
 
 # Configure API key authorization: user
-configuration.api_key['user'] = 'YOUR_API_KEY'
+configuration.api_key['user'] = os.environ["API_KEY"]
 
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['user'] = 'Bearer'
 
 # Enter a context with an instance of the API client
-with compute_api_client.ApiClient(configuration) as api_client:
+async with compute_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = compute_api_client.FilesApi(api_client)
     latest = True # bool |  (optional)
-id = 56 # int |  (optional)
-commit_id = 56 # int |  (optional)
-content = 'content_example' # str |  (optional)
-language_id = 56 # int |  (optional)
-compile_stage = compute_api_client.CompileStage() # CompileStage |  (optional)
-generated = True # bool |  (optional)
+    id = 56 # int |  (optional)
+    commit_id = 56 # int |  (optional)
+    content = 'content_example' # str |  (optional)
+    language_id = 56 # int |  (optional)
+    compile_stage = compute_api_client.CompileStage() # CompileStage |  (optional)
+    generated = True # bool |  (optional)
 
     try:
         # List files
-        api_response = api_instance.read_files_files_get(latest=latest, id=id, commit_id=commit_id, content=content, language_id=language_id, compile_stage=compile_stage, generated=generated)
+        api_response = await api_instance.read_files_files_get(latest=latest, id=id, commit_id=commit_id, content=content, language_id=language_id, compile_stage=compile_stage, generated=generated)
+        print("The response of FilesApi->read_files_files_get:\n")
         pprint(api_response)
-    except ApiException as e:
+    except Exception as e:
         print("Exception when calling FilesApi->read_files_files_get: %s\n" % e)
 ```
+
+
 
 ### Parameters
 
@@ -350,7 +327,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**list[File]**](File.md)
+[**List[File]**](File.md)
 
 ### Authorization
 
