@@ -8,6 +8,7 @@ Name | Type | Description | Notes
 **type** | [**AlgorithmType**](AlgorithmType.md) |  | 
 **shared** | [**ShareType**](ShareType.md) |  | 
 **link** | **str** |  | [optional] 
+**name** | **str** |  | [optional] 
 
 ## Example
 
