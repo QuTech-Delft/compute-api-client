@@ -177,6 +177,7 @@ Get job by ID.
 
 ### Example
 
+* Api Key Authentication (backend):
 * Api Key Authentication (user):
 ```python
 import time
@@ -196,6 +197,12 @@ configuration = compute_api_client.Configuration(
 # in accordance with the API server security policy.
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
+
+# Configure API key authorization: backend
+configuration.api_key['backend'] = os.environ["API_KEY"]
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['backend'] = 'Bearer'
 
 # Configure API key authorization: user
 configuration.api_key['user'] = os.environ["API_KEY"]
@@ -232,7 +239,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[user](../README.md#user)
+[backend](../README.md#backend), [user](../README.md#user)
 
 ### HTTP request headers
 
@@ -257,6 +264,7 @@ List jobs.
 
 ### Example
 
+* Api Key Authentication (backend):
 * Api Key Authentication (user):
 ```python
 import time
@@ -278,6 +286,12 @@ configuration = compute_api_client.Configuration(
 # in accordance with the API server security policy.
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
+
+# Configure API key authorization: backend
+configuration.api_key['backend'] = os.environ["API_KEY"]
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['backend'] = 'Bearer'
 
 # Configure API key authorization: user
 configuration.api_key['user'] = os.environ["API_KEY"]
@@ -338,7 +352,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[user](../README.md#user)
+[backend](../README.md#backend), [user](../README.md#user)
 
 ### HTTP request headers
 

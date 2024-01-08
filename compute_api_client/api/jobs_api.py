@@ -837,6 +837,7 @@ class JobsApi:
 
         # authentication setting
         _auth_settings: List[str] = [
+            'backend', 
             'user'
         ]
 
@@ -1335,6 +1336,7 @@ class JobsApi:
 
         # authentication setting
         _auth_settings: List[str] = [
+            'backend', 
             'user'
         ]
 

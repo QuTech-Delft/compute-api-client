@@ -10,6 +10,7 @@ Method | HTTP request | Description
 [**peek_batch_job_batch_jobs_peek_patch**](BatchJobsApi.md#peek_batch_job_batch_jobs_peek_patch) | **PATCH** /batch_jobs/peek | Peek batch job
 [**pop_batch_job_batch_jobs_pop_patch**](BatchJobsApi.md#pop_batch_job_batch_jobs_pop_patch) | **PATCH** /batch_jobs/pop | Take batch job
 [**read_batch_jobs_batch_jobs_get**](BatchJobsApi.md#read_batch_jobs_batch_jobs_get) | **GET** /batch_jobs | List batch jobs
+[**unpop_batch_job_batch_jobs_unpop_patch**](BatchJobsApi.md#unpop_batch_job_batch_jobs_unpop_patch) | **PATCH** /batch_jobs/unpop | Take batch job
 
 
 # **create_batch_job_batch_jobs_post**
@@ -343,7 +344,7 @@ Name | Type | Description  | Notes
 
 Take batch job
 
-Claim batch job by ID.
+Claim batch job.
 
 ### Example
 
@@ -519,6 +520,81 @@ Name | Type | Description  | Notes
 |-------------|-------------|------------------|
 **200** | Successful Response |  -  |
 **422** | Validation Error |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **unpop_batch_job_batch_jobs_unpop_patch**
+> BatchJob unpop_batch_job_batch_jobs_unpop_patch()
+
+Take batch job
+
+Unclaim batch job.
+
+### Example
+
+* Api Key Authentication (backend):
+```python
+import time
+import os
+import compute_api_client
+from compute_api_client.models.batch_job import BatchJob
+from compute_api_client.rest import ApiException
+from pprint import pprint
+
+# Defining the host is optional and defaults to http://localhost
+# See configuration.py for a list of all supported configuration parameters.
+configuration = compute_api_client.Configuration(
+    host = "http://localhost"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: backend
+configuration.api_key['backend'] = os.environ["API_KEY"]
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['backend'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+async with compute_api_client.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = compute_api_client.BatchJobsApi(api_client)
+
+    try:
+        # Take batch job
+        api_response = await api_instance.unpop_batch_job_batch_jobs_unpop_patch()
+        print("The response of BatchJobsApi->unpop_batch_job_batch_jobs_unpop_patch:\n")
+        pprint(api_response)
+    except Exception as e:
+        print("Exception when calling BatchJobsApi->unpop_batch_job_batch_jobs_unpop_patch: %s\n" % e)
+```
+
+
+
+### Parameters
+This endpoint does not need any parameter.
+
+### Return type
+
+[**BatchJob**](BatchJob.md)
+
+### Authorization
+
+[backend](../README.md#backend)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Successful Response |  -  |
+**404** | Not Found |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
