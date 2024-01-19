@@ -4,7 +4,6 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**hash** | **str** |  | 
 **description** | **str** |  | 
 **algorithm_id** | **int** |  | 
 

@@ -20,8 +20,6 @@ import json
 
 from typing import Any, ClassVar, Dict, List
 from pydantic import BaseModel, StrictInt, StrictStr
-from pydantic import Field
-from typing_extensions import Annotated
 try:
     from typing import Self
 except ImportError:
@@ -31,10 +29,9 @@ class CommitIn(BaseModel):
     """
     CommitIn
     """ # noqa: E501
-    hash: Annotated[str, Field(strict=True, max_length=32)]
     description: StrictStr
     algorithm_id: StrictInt
-    __properties: ClassVar[List[str]] = ["hash", "description", "algorithm_id"]
+    __properties: ClassVar[List[str]] = ["description", "algorithm_id"]
 
     model_config = {
         "populate_by_name": True,
@@ -84,7 +81,6 @@ class CommitIn(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
-            "hash": obj.get("hash"),
             "description": obj.get("description"),
             "algorithm_id": obj.get("algorithm_id")
         })
