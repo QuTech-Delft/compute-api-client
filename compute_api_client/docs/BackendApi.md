@@ -246,7 +246,7 @@ This endpoint does not need any parameter.
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **read_backends_backends_get**
-> List[Backend] read_backends_backends_get(latest=latest, id=id, name=name, location=location, backend_type_id=backend_type_id, status=status, last_heartbeat=last_heartbeat)
+> List[Backend] read_backends_backends_get(latest=latest, sort_by=sort_by, page_number=page_number, items_per_page=items_per_page, id=id, name=name, location=location, backend_type_id=backend_type_id, status=status, last_heartbeat=last_heartbeat)
 
 List backends
 
@@ -286,6 +286,9 @@ async with compute_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = compute_api_client.BackendApi(api_client)
     latest = True # bool |  (optional)
+    sort_by = 'sort_by_example' # str |  (optional)
+    page_number = 56 # int |  (optional)
+    items_per_page = 56 # int |  (optional)
     id = 56 # int |  (optional)
     name = 'name_example' # str |  (optional)
     location = 'location_example' # str |  (optional)
@@ -295,7 +298,7 @@ async with compute_api_client.ApiClient(configuration) as api_client:
 
     try:
         # List backends
-        api_response = await api_instance.read_backends_backends_get(latest=latest, id=id, name=name, location=location, backend_type_id=backend_type_id, status=status, last_heartbeat=last_heartbeat)
+        api_response = await api_instance.read_backends_backends_get(latest=latest, sort_by=sort_by, page_number=page_number, items_per_page=items_per_page, id=id, name=name, location=location, backend_type_id=backend_type_id, status=status, last_heartbeat=last_heartbeat)
         print("The response of BackendApi->read_backends_backends_get:\n")
         pprint(api_response)
     except Exception as e:
@@ -309,6 +312,9 @@ async with compute_api_client.ApiClient(configuration) as api_client:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **latest** | **bool**|  | [optional] 
+ **sort_by** | **str**|  | [optional] 
+ **page_number** | **int**|  | [optional] 
+ **items_per_page** | **int**|  | [optional] 
  **id** | **int**|  | [optional] 
  **name** | **str**|  | [optional] 
  **location** | **str**|  | [optional] 

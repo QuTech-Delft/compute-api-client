@@ -255,7 +255,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **read_commits_commits_get**
-> List[Commit] read_commits_commits_get(latest=latest, id=id, created_on=created_on, hash=hash, description=description, algorithm_id=algorithm_id)
+> List[Commit] read_commits_commits_get(latest=latest, sort_by=sort_by, page_number=page_number, items_per_page=items_per_page, id=id, created_on=created_on, hash=hash, description=description, algorithm_id=algorithm_id)
 
 List commits
 
@@ -294,6 +294,9 @@ async with compute_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = compute_api_client.CommitsApi(api_client)
     latest = True # bool |  (optional)
+    sort_by = 'sort_by_example' # str |  (optional)
+    page_number = 56 # int |  (optional)
+    items_per_page = 56 # int |  (optional)
     id = 56 # int |  (optional)
     created_on = '2013-10-20T19:20:30+01:00' # datetime |  (optional)
     hash = 'hash_example' # str |  (optional)
@@ -302,7 +305,7 @@ async with compute_api_client.ApiClient(configuration) as api_client:
 
     try:
         # List commits
-        api_response = await api_instance.read_commits_commits_get(latest=latest, id=id, created_on=created_on, hash=hash, description=description, algorithm_id=algorithm_id)
+        api_response = await api_instance.read_commits_commits_get(latest=latest, sort_by=sort_by, page_number=page_number, items_per_page=items_per_page, id=id, created_on=created_on, hash=hash, description=description, algorithm_id=algorithm_id)
         print("The response of CommitsApi->read_commits_commits_get:\n")
         pprint(api_response)
     except Exception as e:
@@ -316,6 +319,9 @@ async with compute_api_client.ApiClient(configuration) as api_client:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **latest** | **bool**|  | [optional] 
+ **sort_by** | **str**|  | [optional] 
+ **page_number** | **int**|  | [optional] 
+ **items_per_page** | **int**|  | [optional] 
  **id** | **int**|  | [optional] 
  **created_on** | **datetime**|  | [optional] 
  **hash** | **str**|  | [optional] 

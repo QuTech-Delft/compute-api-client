@@ -89,7 +89,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **read_backend_types_backend_types_get**
-> List[BackendType] read_backend_types_backend_types_get(latest=latest, id=id, name=name, infrastructure=infrastructure, description=description, image_id=image_id, is_hardware=is_hardware)
+> List[BackendType] read_backend_types_backend_types_get(latest=latest, sort_by=sort_by, page_number=page_number, items_per_page=items_per_page, id=id, name=name, infrastructure=infrastructure, description=description, image_id=image_id, is_hardware=is_hardware)
 
 List backend types
 
@@ -128,6 +128,9 @@ async with compute_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = compute_api_client.BackendTypesApi(api_client)
     latest = True # bool |  (optional)
+    sort_by = 'sort_by_example' # str |  (optional)
+    page_number = 56 # int |  (optional)
+    items_per_page = 56 # int |  (optional)
     id = 56 # int |  (optional)
     name = 'name_example' # str |  (optional)
     infrastructure = 'infrastructure_example' # str |  (optional)
@@ -137,7 +140,7 @@ async with compute_api_client.ApiClient(configuration) as api_client:
 
     try:
         # List backend types
-        api_response = await api_instance.read_backend_types_backend_types_get(latest=latest, id=id, name=name, infrastructure=infrastructure, description=description, image_id=image_id, is_hardware=is_hardware)
+        api_response = await api_instance.read_backend_types_backend_types_get(latest=latest, sort_by=sort_by, page_number=page_number, items_per_page=items_per_page, id=id, name=name, infrastructure=infrastructure, description=description, image_id=image_id, is_hardware=is_hardware)
         print("The response of BackendTypesApi->read_backend_types_backend_types_get:\n")
         pprint(api_response)
     except Exception as e:
@@ -151,6 +154,9 @@ async with compute_api_client.ApiClient(configuration) as api_client:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **latest** | **bool**|  | [optional] 
+ **sort_by** | **str**|  | [optional] 
+ **page_number** | **int**|  | [optional] 
+ **items_per_page** | **int**|  | [optional] 
  **id** | **int**|  | [optional] 
  **name** | **str**|  | [optional] 
  **infrastructure** | **str**|  | [optional] 

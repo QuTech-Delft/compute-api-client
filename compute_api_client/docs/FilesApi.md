@@ -255,7 +255,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **read_files_files_get**
-> List[File] read_files_files_get(latest=latest, id=id, commit_id=commit_id, content=content, language_id=language_id, compile_stage=compile_stage, generated=generated)
+> List[File] read_files_files_get(latest=latest, sort_by=sort_by, page_number=page_number, items_per_page=items_per_page, id=id, commit_id=commit_id, content=content, language_id=language_id, compile_stage=compile_stage, generated=generated)
 
 List files
 
@@ -295,6 +295,9 @@ async with compute_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = compute_api_client.FilesApi(api_client)
     latest = True # bool |  (optional)
+    sort_by = 'sort_by_example' # str |  (optional)
+    page_number = 56 # int |  (optional)
+    items_per_page = 56 # int |  (optional)
     id = 56 # int |  (optional)
     commit_id = 56 # int |  (optional)
     content = 'content_example' # str |  (optional)
@@ -304,7 +307,7 @@ async with compute_api_client.ApiClient(configuration) as api_client:
 
     try:
         # List files
-        api_response = await api_instance.read_files_files_get(latest=latest, id=id, commit_id=commit_id, content=content, language_id=language_id, compile_stage=compile_stage, generated=generated)
+        api_response = await api_instance.read_files_files_get(latest=latest, sort_by=sort_by, page_number=page_number, items_per_page=items_per_page, id=id, commit_id=commit_id, content=content, language_id=language_id, compile_stage=compile_stage, generated=generated)
         print("The response of FilesApi->read_files_files_get:\n")
         pprint(api_response)
     except Exception as e:
@@ -318,6 +321,9 @@ async with compute_api_client.ApiClient(configuration) as api_client:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **latest** | **bool**|  | [optional] 
+ **sort_by** | **str**|  | [optional] 
+ **page_number** | **int**|  | [optional] 
+ **items_per_page** | **int**|  | [optional] 
  **id** | **int**|  | [optional] 
  **commit_id** | **int**|  | [optional] 
  **content** | **str**|  | [optional] 

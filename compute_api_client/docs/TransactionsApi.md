@@ -89,7 +89,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **read_transactions_transactions_get**
-> List[Transaction] read_transactions_transactions_get(latest=latest, id=id, domain__isnull=domain__isnull, domain=domain, job__isnull=job__isnull, job=job, team_id=team_id, user_id__isnull=user_id__isnull, user_id=user_id, change=change, timestamp=timestamp)
+> List[Transaction] read_transactions_transactions_get(latest=latest, sort_by=sort_by, page_number=page_number, items_per_page=items_per_page, id=id, domain__isnull=domain__isnull, domain=domain, job__isnull=job__isnull, job=job, team_id=team_id, user_id__isnull=user_id__isnull, user_id=user_id, change=change, timestamp=timestamp)
 
 List transactions
 
@@ -129,6 +129,9 @@ async with compute_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = compute_api_client.TransactionsApi(api_client)
     latest = True # bool |  (optional)
+    sort_by = 'sort_by_example' # str |  (optional)
+    page_number = 56 # int |  (optional)
+    items_per_page = 56 # int |  (optional)
     id = 56 # int |  (optional)
     domain__isnull = True # bool |  (optional)
     domain = compute_api_client.Domain() # Domain |  (optional)
@@ -142,7 +145,7 @@ async with compute_api_client.ApiClient(configuration) as api_client:
 
     try:
         # List transactions
-        api_response = await api_instance.read_transactions_transactions_get(latest=latest, id=id, domain__isnull=domain__isnull, domain=domain, job__isnull=job__isnull, job=job, team_id=team_id, user_id__isnull=user_id__isnull, user_id=user_id, change=change, timestamp=timestamp)
+        api_response = await api_instance.read_transactions_transactions_get(latest=latest, sort_by=sort_by, page_number=page_number, items_per_page=items_per_page, id=id, domain__isnull=domain__isnull, domain=domain, job__isnull=job__isnull, job=job, team_id=team_id, user_id__isnull=user_id__isnull, user_id=user_id, change=change, timestamp=timestamp)
         print("The response of TransactionsApi->read_transactions_transactions_get:\n")
         pprint(api_response)
     except Exception as e:
@@ -156,6 +159,9 @@ async with compute_api_client.ApiClient(configuration) as api_client:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **latest** | **bool**|  | [optional] 
+ **sort_by** | **str**|  | [optional] 
+ **page_number** | **int**|  | [optional] 
+ **items_per_page** | **int**|  | [optional] 
  **id** | **int**|  | [optional] 
  **domain__isnull** | **bool**|  | [optional] 
  **domain** | [**Domain**](.md)|  | [optional] 

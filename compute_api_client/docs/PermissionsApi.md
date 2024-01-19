@@ -91,7 +91,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **read_permission_groups_permission_groups_get**
-> List[PermissionGroup] read_permission_groups_permission_groups_get(latest=latest, id=id, name=name)
+> List[PermissionGroup] read_permission_groups_permission_groups_get(latest=latest, sort_by=sort_by, page_number=page_number, items_per_page=items_per_page, id=id, name=name)
 
 List permission groups
 
@@ -130,12 +130,15 @@ async with compute_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = compute_api_client.PermissionsApi(api_client)
     latest = True # bool |  (optional)
+    sort_by = 'sort_by_example' # str |  (optional)
+    page_number = 56 # int |  (optional)
+    items_per_page = 56 # int |  (optional)
     id = 56 # int |  (optional)
     name = 'name_example' # str |  (optional)
 
     try:
         # List permission groups
-        api_response = await api_instance.read_permission_groups_permission_groups_get(latest=latest, id=id, name=name)
+        api_response = await api_instance.read_permission_groups_permission_groups_get(latest=latest, sort_by=sort_by, page_number=page_number, items_per_page=items_per_page, id=id, name=name)
         print("The response of PermissionsApi->read_permission_groups_permission_groups_get:\n")
         pprint(api_response)
     except Exception as e:
@@ -149,6 +152,9 @@ async with compute_api_client.ApiClient(configuration) as api_client:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **latest** | **bool**|  | [optional] 
+ **sort_by** | **str**|  | [optional] 
+ **page_number** | **int**|  | [optional] 
+ **items_per_page** | **int**|  | [optional] 
  **id** | **int**|  | [optional] 
  **name** | **str**|  | [optional] 
 
@@ -254,7 +260,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **read_permissions_permissions_get**
-> List[Permission] read_permissions_permissions_get(latest=latest, id=id, permission=permission, name=name)
+> List[Permission] read_permissions_permissions_get(latest=latest, sort_by=sort_by, page_number=page_number, items_per_page=items_per_page, id=id, permission=permission, name=name)
 
 List permissions
 
@@ -293,13 +299,16 @@ async with compute_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = compute_api_client.PermissionsApi(api_client)
     latest = True # bool |  (optional)
+    sort_by = 'sort_by_example' # str |  (optional)
+    page_number = 56 # int |  (optional)
+    items_per_page = 56 # int |  (optional)
     id = 56 # int |  (optional)
     permission = 'permission_example' # str |  (optional)
     name = 'name_example' # str |  (optional)
 
     try:
         # List permissions
-        api_response = await api_instance.read_permissions_permissions_get(latest=latest, id=id, permission=permission, name=name)
+        api_response = await api_instance.read_permissions_permissions_get(latest=latest, sort_by=sort_by, page_number=page_number, items_per_page=items_per_page, id=id, permission=permission, name=name)
         print("The response of PermissionsApi->read_permissions_permissions_get:\n")
         pprint(api_response)
     except Exception as e:
@@ -313,6 +322,9 @@ async with compute_api_client.ApiClient(configuration) as api_client:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **latest** | **bool**|  | [optional] 
+ **sort_by** | **str**|  | [optional] 
+ **page_number** | **int**|  | [optional] 
+ **items_per_page** | **int**|  | [optional] 
  **id** | **int**|  | [optional] 
  **permission** | **str**|  | [optional] 
  **name** | **str**|  | [optional] 

@@ -89,7 +89,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **read_teams_teams_get**
-> List[Team] read_teams_teams_get(latest=latest, id=id, name=name, slug=slug, individual_user=individual_user)
+> List[Team] read_teams_teams_get(latest=latest, sort_by=sort_by, page_number=page_number, items_per_page=items_per_page, id=id, name=name, slug=slug, individual_user=individual_user)
 
 List teams
 
@@ -128,6 +128,9 @@ async with compute_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = compute_api_client.TeamsApi(api_client)
     latest = True # bool |  (optional)
+    sort_by = 'sort_by_example' # str |  (optional)
+    page_number = 56 # int |  (optional)
+    items_per_page = 56 # int |  (optional)
     id = 56 # int |  (optional)
     name = 'name_example' # str |  (optional)
     slug = 'slug_example' # str |  (optional)
@@ -135,7 +138,7 @@ async with compute_api_client.ApiClient(configuration) as api_client:
 
     try:
         # List teams
-        api_response = await api_instance.read_teams_teams_get(latest=latest, id=id, name=name, slug=slug, individual_user=individual_user)
+        api_response = await api_instance.read_teams_teams_get(latest=latest, sort_by=sort_by, page_number=page_number, items_per_page=items_per_page, id=id, name=name, slug=slug, individual_user=individual_user)
         print("The response of TeamsApi->read_teams_teams_get:\n")
         pprint(api_response)
     except Exception as e:
@@ -149,6 +152,9 @@ async with compute_api_client.ApiClient(configuration) as api_client:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **latest** | **bool**|  | [optional] 
+ **sort_by** | **str**|  | [optional] 
+ **page_number** | **int**|  | [optional] 
+ **items_per_page** | **int**|  | [optional] 
  **id** | **int**|  | [optional] 
  **name** | **str**|  | [optional] 
  **slug** | **str**|  | [optional] 
