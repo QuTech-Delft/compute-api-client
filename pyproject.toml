@@ -28,7 +28,7 @@ python-dateutil = "^2.8.2"
 urllib3 = "^1.25.3"
 
 [tool.poetry.group.dev.dependencies]
-pytest = {extras = ["toml"], version = "^7.2.0"}
+pytest = {extras = ["toml"], version = "^8.0.0"}
 
 [build-system]
 requires = ["poetry-core>=1.0.0"]
