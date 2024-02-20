@@ -89,7 +89,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **read_backend_types_backend_types_get**
-> List[BackendType] read_backend_types_backend_types_get(latest=latest, sort_by=sort_by, page_number=page_number, items_per_page=items_per_page, id=id, name=name, infrastructure=infrastructure, description=description, image_id=image_id, is_hardware=is_hardware)
+> List[BackendType] read_backend_types_backend_types_get(latest=latest, sort_by=sort_by, page_number=page_number, items_per_page=items_per_page, id=id, name=name, infrastructure=infrastructure, description=description, image_id=image_id, is_hardware=is_hardware, status=status)
 
 List backend types
 
@@ -102,6 +102,7 @@ Read backend types.
 import time
 import os
 import compute_api_client
+from compute_api_client.models.backend_status import BackendStatus
 from compute_api_client.models.backend_type import BackendType
 from compute_api_client.rest import ApiException
 from pprint import pprint
@@ -137,10 +138,11 @@ async with compute_api_client.ApiClient(configuration) as api_client:
     description = 'description_example' # str |  (optional)
     image_id = 'image_id_example' # str |  (optional)
     is_hardware = True # bool |  (optional)
+    status = compute_api_client.BackendStatus() # BackendStatus |  (optional)
 
     try:
         # List backend types
-        api_response = await api_instance.read_backend_types_backend_types_get(latest=latest, sort_by=sort_by, page_number=page_number, items_per_page=items_per_page, id=id, name=name, infrastructure=infrastructure, description=description, image_id=image_id, is_hardware=is_hardware)
+        api_response = await api_instance.read_backend_types_backend_types_get(latest=latest, sort_by=sort_by, page_number=page_number, items_per_page=items_per_page, id=id, name=name, infrastructure=infrastructure, description=description, image_id=image_id, is_hardware=is_hardware, status=status)
         print("The response of BackendTypesApi->read_backend_types_backend_types_get:\n")
         pprint(api_response)
     except Exception as e:
@@ -163,6 +165,7 @@ Name | Type | Description  | Notes
  **description** | **str**|  | [optional] 
  **image_id** | **str**|  | [optional] 
  **is_hardware** | **bool**|  | [optional] 
+ **status** | [**BackendStatus**](.md)|  | [optional] 
 
 ### Return type
 

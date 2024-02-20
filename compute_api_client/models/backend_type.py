@@ -22,6 +22,7 @@ from typing import Any, ClassVar, Dict, List, Union
 from pydantic import BaseModel, StrictBool, StrictInt, StrictStr
 from pydantic import Field
 from typing_extensions import Annotated
+from compute_api_client.models.backend_status import BackendStatus
 try:
     from typing import Self
 except ImportError:
@@ -40,7 +41,8 @@ class BackendType(BaseModel):
     features: List[StrictStr]
     default_compiler_config: Union[str, Any]
     native_gateset: Union[str, Any]
-    __properties: ClassVar[List[str]] = ["id", "name", "infrastructure", "description", "image_id", "is_hardware", "features", "default_compiler_config", "native_gateset"]
+    status: BackendStatus
+    __properties: ClassVar[List[str]] = ["id", "name", "infrastructure", "description", "image_id", "is_hardware", "features", "default_compiler_config", "native_gateset", "status"]
 
     model_config = {
         "populate_by_name": True,
@@ -98,7 +100,8 @@ class BackendType(BaseModel):
             "is_hardware": obj.get("is_hardware"),
             "features": obj.get("features"),
             "default_compiler_config": obj.get("default_compiler_config"),
-            "native_gateset": obj.get("native_gateset")
+            "native_gateset": obj.get("native_gateset"),
+            "status": obj.get("status")
         })
         return _obj
 

@@ -13,6 +13,7 @@ Name | Type | Description | Notes
 **features** | **List[str]** |  | 
 **default_compiler_config** | **object** |  | 
 **native_gateset** | **object** |  | 
+**status** | [**BackendStatus**](BackendStatus.md) |  | 
 
 ## Example
 

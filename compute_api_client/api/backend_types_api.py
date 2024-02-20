@@ -27,6 +27,7 @@ from pydantic import StrictBool, StrictInt, StrictStr
 
 from typing import List, Optional
 
+from compute_api_client.models.backend_status import BackendStatus
 from compute_api_client.models.backend_type import BackendType
 
 from compute_api_client.api_client import ApiClient
@@ -328,6 +329,7 @@ class BackendTypesApi:
         description: Optional[StrictStr] = None,
         image_id: Optional[StrictStr] = None,
         is_hardware: Optional[StrictBool] = None,
+        status: Optional[BackendStatus] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -365,6 +367,8 @@ class BackendTypesApi:
         :type image_id: str
         :param is_hardware:
         :type is_hardware: bool
+        :param status:
+        :type status: BackendStatus
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -398,6 +402,7 @@ class BackendTypesApi:
             description=description,
             image_id=image_id,
             is_hardware=is_hardware,
+            status=status,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -433,6 +438,7 @@ class BackendTypesApi:
         description: Optional[StrictStr] = None,
         image_id: Optional[StrictStr] = None,
         is_hardware: Optional[StrictBool] = None,
+        status: Optional[BackendStatus] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -470,6 +476,8 @@ class BackendTypesApi:
         :type image_id: str
         :param is_hardware:
         :type is_hardware: bool
+        :param status:
+        :type status: BackendStatus
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -503,6 +511,7 @@ class BackendTypesApi:
             description=description,
             image_id=image_id,
             is_hardware=is_hardware,
+            status=status,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -538,6 +547,7 @@ class BackendTypesApi:
         description: Optional[StrictStr] = None,
         image_id: Optional[StrictStr] = None,
         is_hardware: Optional[StrictBool] = None,
+        status: Optional[BackendStatus] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -575,6 +585,8 @@ class BackendTypesApi:
         :type image_id: str
         :param is_hardware:
         :type is_hardware: bool
+        :param status:
+        :type status: BackendStatus
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -608,6 +620,7 @@ class BackendTypesApi:
             description=description,
             image_id=image_id,
             is_hardware=is_hardware,
+            status=status,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -638,6 +651,7 @@ class BackendTypesApi:
         description,
         image_id,
         is_hardware,
+        status,
         _request_auth,
         _content_type,
         _headers,
@@ -698,6 +712,10 @@ class BackendTypesApi:
         if is_hardware is not None:
             
             _query_params.append(('is_hardware', is_hardware))
+            
+        if status is not None:
+            
+            _query_params.append(('status', status.value))
             
         # process the header parameters
         # process the form parameters
