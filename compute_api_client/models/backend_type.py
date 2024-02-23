@@ -42,7 +42,9 @@ class BackendType(BaseModel):
     default_compiler_config: Union[str, Any]
     native_gateset: Union[str, Any]
     status: BackendStatus
-    __properties: ClassVar[List[str]] = ["id", "name", "infrastructure", "description", "image_id", "is_hardware", "features", "default_compiler_config", "native_gateset", "status"]
+    default_number_of_shots: StrictInt
+    max_number_of_shots: StrictInt
+    __properties: ClassVar[List[str]] = ["id", "name", "infrastructure", "description", "image_id", "is_hardware", "features", "default_compiler_config", "native_gateset", "status", "default_number_of_shots", "max_number_of_shots"]
 
     model_config = {
         "populate_by_name": True,
@@ -101,7 +103,9 @@ class BackendType(BaseModel):
             "features": obj.get("features"),
             "default_compiler_config": obj.get("default_compiler_config"),
             "native_gateset": obj.get("native_gateset"),
-            "status": obj.get("status")
+            "status": obj.get("status"),
+            "default_number_of_shots": obj.get("default_number_of_shots"),
+            "max_number_of_shots": obj.get("max_number_of_shots")
         })
         return _obj
 

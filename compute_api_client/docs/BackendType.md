@@ -14,6 +14,8 @@ Name | Type | Description | Notes
 **default_compiler_config** | **object** |  | 
 **native_gateset** | **object** |  | 
 **status** | [**BackendStatus**](BackendStatus.md) |  | 
+**default_number_of_shots** | **int** |  | 
+**max_number_of_shots** | **int** |  | 
 
 ## Example
 

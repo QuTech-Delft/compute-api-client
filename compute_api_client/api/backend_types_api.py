@@ -330,6 +330,8 @@ class BackendTypesApi:
         image_id: Optional[StrictStr] = None,
         is_hardware: Optional[StrictBool] = None,
         status: Optional[BackendStatus] = None,
+        default_number_of_shots: Optional[StrictInt] = None,
+        max_number_of_shots: Optional[StrictInt] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -369,6 +371,10 @@ class BackendTypesApi:
         :type is_hardware: bool
         :param status:
         :type status: BackendStatus
+        :param default_number_of_shots:
+        :type default_number_of_shots: int
+        :param max_number_of_shots:
+        :type max_number_of_shots: int
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -403,6 +409,8 @@ class BackendTypesApi:
             image_id=image_id,
             is_hardware=is_hardware,
             status=status,
+            default_number_of_shots=default_number_of_shots,
+            max_number_of_shots=max_number_of_shots,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -439,6 +447,8 @@ class BackendTypesApi:
         image_id: Optional[StrictStr] = None,
         is_hardware: Optional[StrictBool] = None,
         status: Optional[BackendStatus] = None,
+        default_number_of_shots: Optional[StrictInt] = None,
+        max_number_of_shots: Optional[StrictInt] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -478,6 +488,10 @@ class BackendTypesApi:
         :type is_hardware: bool
         :param status:
         :type status: BackendStatus
+        :param default_number_of_shots:
+        :type default_number_of_shots: int
+        :param max_number_of_shots:
+        :type max_number_of_shots: int
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -512,6 +526,8 @@ class BackendTypesApi:
             image_id=image_id,
             is_hardware=is_hardware,
             status=status,
+            default_number_of_shots=default_number_of_shots,
+            max_number_of_shots=max_number_of_shots,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -548,6 +564,8 @@ class BackendTypesApi:
         image_id: Optional[StrictStr] = None,
         is_hardware: Optional[StrictBool] = None,
         status: Optional[BackendStatus] = None,
+        default_number_of_shots: Optional[StrictInt] = None,
+        max_number_of_shots: Optional[StrictInt] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -587,6 +605,10 @@ class BackendTypesApi:
         :type is_hardware: bool
         :param status:
         :type status: BackendStatus
+        :param default_number_of_shots:
+        :type default_number_of_shots: int
+        :param max_number_of_shots:
+        :type max_number_of_shots: int
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -621,6 +643,8 @@ class BackendTypesApi:
             image_id=image_id,
             is_hardware=is_hardware,
             status=status,
+            default_number_of_shots=default_number_of_shots,
+            max_number_of_shots=max_number_of_shots,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -652,6 +676,8 @@ class BackendTypesApi:
         image_id,
         is_hardware,
         status,
+        default_number_of_shots,
+        max_number_of_shots,
         _request_auth,
         _content_type,
         _headers,
@@ -716,6 +742,14 @@ class BackendTypesApi:
         if status is not None:
             
             _query_params.append(('status', status.value))
+            
+        if default_number_of_shots is not None:
+            
+            _query_params.append(('default_number_of_shots', default_number_of_shots))
+            
+        if max_number_of_shots is not None:
+            
+            _query_params.append(('max_number_of_shots', max_number_of_shots))
             
         # process the header parameters
         # process the form parameters

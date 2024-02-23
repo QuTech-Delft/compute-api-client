@@ -89,7 +89,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **read_backend_types_backend_types_get**
-> List[BackendType] read_backend_types_backend_types_get(latest=latest, sort_by=sort_by, page_number=page_number, items_per_page=items_per_page, id=id, name=name, infrastructure=infrastructure, description=description, image_id=image_id, is_hardware=is_hardware, status=status)
+> List[BackendType] read_backend_types_backend_types_get(latest=latest, sort_by=sort_by, page_number=page_number, items_per_page=items_per_page, id=id, name=name, infrastructure=infrastructure, description=description, image_id=image_id, is_hardware=is_hardware, status=status, default_number_of_shots=default_number_of_shots, max_number_of_shots=max_number_of_shots)
 
 List backend types
 
@@ -139,10 +139,12 @@ async with compute_api_client.ApiClient(configuration) as api_client:
     image_id = 'image_id_example' # str |  (optional)
     is_hardware = True # bool |  (optional)
     status = compute_api_client.BackendStatus() # BackendStatus |  (optional)
+    default_number_of_shots = 56 # int |  (optional)
+    max_number_of_shots = 56 # int |  (optional)
 
     try:
         # List backend types
-        api_response = await api_instance.read_backend_types_backend_types_get(latest=latest, sort_by=sort_by, page_number=page_number, items_per_page=items_per_page, id=id, name=name, infrastructure=infrastructure, description=description, image_id=image_id, is_hardware=is_hardware, status=status)
+        api_response = await api_instance.read_backend_types_backend_types_get(latest=latest, sort_by=sort_by, page_number=page_number, items_per_page=items_per_page, id=id, name=name, infrastructure=infrastructure, description=description, image_id=image_id, is_hardware=is_hardware, status=status, default_number_of_shots=default_number_of_shots, max_number_of_shots=max_number_of_shots)
         print("The response of BackendTypesApi->read_backend_types_backend_types_get:\n")
         pprint(api_response)
     except Exception as e:
@@ -166,6 +168,8 @@ Name | Type | Description  | Notes
  **image_id** | **str**|  | [optional] 
  **is_hardware** | **bool**|  | [optional] 
  **status** | [**BackendStatus**](.md)|  | [optional] 
+ **default_number_of_shots** | **int**|  | [optional] 
+ **max_number_of_shots** | **int**|  | [optional] 
 
 ### Return type
 
