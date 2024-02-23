@@ -5,7 +5,6 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **file_id** | **int** |  | 
-**status** | [**JobStatus**](JobStatus.md) |  | [optional] 
 **batch_job_id** | **int** |  | 
 **number_of_shots** | **int** |  | [optional] 
 

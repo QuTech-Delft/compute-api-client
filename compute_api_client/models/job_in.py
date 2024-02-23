@@ -20,7 +20,6 @@ import json
 
 from typing import Any, ClassVar, Dict, List, Optional
 from pydantic import BaseModel, StrictInt
-from compute_api_client.models.job_status import JobStatus
 try:
     from typing import Self
 except ImportError:
@@ -31,10 +30,9 @@ class JobIn(BaseModel):
     JobIn
     """ # noqa: E501
     file_id: StrictInt
-    status: Optional[JobStatus] = None
     batch_job_id: StrictInt
     number_of_shots: Optional[StrictInt] = None
-    __properties: ClassVar[List[str]] = ["file_id", "status", "batch_job_id", "number_of_shots"]
+    __properties: ClassVar[List[str]] = ["file_id", "batch_job_id", "number_of_shots"]
 
     model_config = {
         "populate_by_name": True,
@@ -90,7 +88,6 @@ class JobIn(BaseModel):
 
         _obj = cls.model_validate({
             "file_id": obj.get("file_id"),
-            "status": obj.get("status"),
             "batch_job_id": obj.get("batch_job_id"),
             "number_of_shots": obj.get("number_of_shots")
         })
