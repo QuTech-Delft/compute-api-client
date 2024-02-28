@@ -309,6 +309,7 @@ class BatchJobsApi:
 
         # authentication setting
         _auth_settings: List[str] = [
+            'user_bearer', 
             'user'
         ]
 
@@ -577,6 +578,7 @@ class BatchJobsApi:
 
         # authentication setting
         _auth_settings: List[str] = [
+            'user_bearer', 
             'user'
         ]
 
@@ -845,6 +847,7 @@ class BatchJobsApi:
 
         # authentication setting
         _auth_settings: List[str] = [
+            'user_bearer', 
             'backend', 
             'user'
         ]
@@ -1967,6 +1970,7 @@ class BatchJobsApi:
 
         # authentication setting
         _auth_settings: List[str] = [
+            'user_bearer', 
             'user'
         ]
 

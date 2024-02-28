@@ -19,6 +19,7 @@ Get permission group by ID.
 
 ### Example
 
+* Api Key Authentication (user_bearer):
 * Api Key Authentication (user):
 ```python
 import time
@@ -38,6 +39,12 @@ configuration = compute_api_client.Configuration(
 # in accordance with the API server security policy.
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
+
+# Configure API key authorization: user_bearer
+configuration.api_key['user_bearer'] = os.environ["API_KEY"]
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['user_bearer'] = 'Bearer'
 
 # Configure API key authorization: user
 configuration.api_key['user'] = os.environ["API_KEY"]
@@ -74,7 +81,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[user](../README.md#user)
+[user_bearer](../README.md#user_bearer), [user](../README.md#user)
 
 ### HTTP request headers
 
@@ -99,6 +106,7 @@ Read permissions groups.
 
 ### Example
 
+* Api Key Authentication (user_bearer):
 * Api Key Authentication (user):
 ```python
 import time
@@ -118,6 +126,12 @@ configuration = compute_api_client.Configuration(
 # in accordance with the API server security policy.
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
+
+# Configure API key authorization: user_bearer
+configuration.api_key['user_bearer'] = os.environ["API_KEY"]
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['user_bearer'] = 'Bearer'
 
 # Configure API key authorization: user
 configuration.api_key['user'] = os.environ["API_KEY"]
@@ -164,7 +178,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[user](../README.md#user)
+[user_bearer](../README.md#user_bearer), [user](../README.md#user)
 
 ### HTTP request headers
 
@@ -188,6 +202,7 @@ Get permission by ID.
 
 ### Example
 
+* Api Key Authentication (user_bearer):
 * Api Key Authentication (user):
 ```python
 import time
@@ -207,6 +222,12 @@ configuration = compute_api_client.Configuration(
 # in accordance with the API server security policy.
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
+
+# Configure API key authorization: user_bearer
+configuration.api_key['user_bearer'] = os.environ["API_KEY"]
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['user_bearer'] = 'Bearer'
 
 # Configure API key authorization: user
 configuration.api_key['user'] = os.environ["API_KEY"]
@@ -243,7 +264,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[user](../README.md#user)
+[user_bearer](../README.md#user_bearer), [user](../README.md#user)
 
 ### HTTP request headers
 
@@ -268,6 +289,7 @@ Read permissions.
 
 ### Example
 
+* Api Key Authentication (user_bearer):
 * Api Key Authentication (user):
 ```python
 import time
@@ -287,6 +309,12 @@ configuration = compute_api_client.Configuration(
 # in accordance with the API server security policy.
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
+
+# Configure API key authorization: user_bearer
+configuration.api_key['user_bearer'] = os.environ["API_KEY"]
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['user_bearer'] = 'Bearer'
 
 # Configure API key authorization: user
 configuration.api_key['user'] = os.environ["API_KEY"]
@@ -335,7 +363,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[user](../README.md#user)
+[user_bearer](../README.md#user_bearer), [user](../README.md#user)
 
 ### HTTP request headers
 

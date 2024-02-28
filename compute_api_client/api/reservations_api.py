@@ -307,6 +307,7 @@ class ReservationsApi:
 
         # authentication setting
         _auth_settings: List[str] = [
+            'user_bearer', 
             'user'
         ]
 
@@ -575,6 +576,7 @@ class ReservationsApi:
 
         # authentication setting
         _auth_settings: List[str] = [
+            'user_bearer', 
             'user'
         ]
 
@@ -1047,6 +1049,7 @@ class ReservationsApi:
 
         # authentication setting
         _auth_settings: List[str] = [
+            'user_bearer', 
             'user'
         ]
 
@@ -1315,6 +1318,7 @@ class ReservationsApi:
 
         # authentication setting
         _auth_settings: List[str] = [
+            'user_bearer', 
             'user'
         ]
 

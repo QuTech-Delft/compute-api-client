@@ -308,6 +308,7 @@ class ProjectsApi:
 
         # authentication setting
         _auth_settings: List[str] = [
+            'user_bearer', 
             'user'
         ]
 
@@ -567,6 +568,7 @@ class ProjectsApi:
 
         # authentication setting
         _auth_settings: List[str] = [
+            'user_bearer', 
             'user'
         ]
 
@@ -863,6 +865,7 @@ class ProjectsApi:
 
         # authentication setting
         _auth_settings: List[str] = [
+            'user_bearer', 
             'user'
         ]
 
@@ -1131,6 +1134,7 @@ class ProjectsApi:
 
         # authentication setting
         _auth_settings: List[str] = [
+            'user_bearer', 
             'user'
         ]
 
@@ -1560,6 +1564,7 @@ class ProjectsApi:
 
         # authentication setting
         _auth_settings: List[str] = [
+            'user_bearer', 
             'user'
         ]
 
@@ -1856,6 +1861,7 @@ class ProjectsApi:
 
         # authentication setting
         _auth_settings: List[str] = [
+            'user_bearer', 
             'user'
         ]
 

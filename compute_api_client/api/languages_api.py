@@ -294,6 +294,7 @@ class LanguagesApi:
 
         # authentication setting
         _auth_settings: List[str] = [
+            'user_bearer', 
             'user'
         ]
 
@@ -680,6 +681,7 @@ class LanguagesApi:
 
         # authentication setting
         _auth_settings: List[str] = [
+            'user_bearer', 
             'user'
         ]
 
