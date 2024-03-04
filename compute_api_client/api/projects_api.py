@@ -23,6 +23,8 @@ try:
 except ImportError:
     from typing_extensions import Annotated
 
+from pydantic import Field
+from typing_extensions import Annotated
 from datetime import datetime
 
 from pydantic import StrictBool, StrictInt, StrictStr
@@ -1159,6 +1161,7 @@ class ProjectsApi:
     @validate_call
     async def read_projects_projects_get(
         self,
+        search: Annotated[Optional[StrictStr], Field(description="Substring search for project names or description")] = None,
         latest: Optional[StrictBool] = None,
         sort_by: Optional[StrictStr] = None,
         page_number: Optional[StrictInt] = None,
@@ -1184,8 +1187,10 @@ class ProjectsApi:
     ) -> List[Project]:
         """List projects
 
-        List projects.
+        List projects.  If the search parameter is provided, the list is filtered based on the condition that either the project name OR description contains the specified substring. The filter considers exact matches for other parameters provided. The final result is the logical AND of the substring match condition and any other provided exact match conditions.
 
+        :param search: Substring search for project names or description
+        :type search: str
         :param latest:
         :type latest: bool
         :param sort_by:
@@ -1229,6 +1234,7 @@ class ProjectsApi:
         """ # noqa: E501
 
         _param = self._read_projects_projects_get_serialize(
+            search=search,
             latest=latest,
             sort_by=sort_by,
             page_number=page_number,
@@ -1264,6 +1270,7 @@ class ProjectsApi:
     @validate_call
     async def read_projects_projects_get_with_http_info(
         self,
+        search: Annotated[Optional[StrictStr], Field(description="Substring search for project names or description")] = None,
         latest: Optional[StrictBool] = None,
         sort_by: Optional[StrictStr] = None,
         page_number: Optional[StrictInt] = None,
@@ -1289,8 +1296,10 @@ class ProjectsApi:
     ) -> ApiResponse[List[Project]]:
         """List projects
 
-        List projects.
+        List projects.  If the search parameter is provided, the list is filtered based on the condition that either the project name OR description contains the specified substring. The filter considers exact matches for other parameters provided. The final result is the logical AND of the substring match condition and any other provided exact match conditions.
 
+        :param search: Substring search for project names or description
+        :type search: str
         :param latest:
         :type latest: bool
         :param sort_by:
@@ -1334,6 +1343,7 @@ class ProjectsApi:
         """ # noqa: E501
 
         _param = self._read_projects_projects_get_serialize(
+            search=search,
             latest=latest,
             sort_by=sort_by,
             page_number=page_number,
@@ -1369,6 +1379,7 @@ class ProjectsApi:
     @validate_call
     async def read_projects_projects_get_without_preload_content(
         self,
+        search: Annotated[Optional[StrictStr], Field(description="Substring search for project names or description")] = None,
         latest: Optional[StrictBool] = None,
         sort_by: Optional[StrictStr] = None,
         page_number: Optional[StrictInt] = None,
@@ -1394,8 +1405,10 @@ class ProjectsApi:
     ) -> RESTResponseType:
         """List projects
 
-        List projects.
+        List projects.  If the search parameter is provided, the list is filtered based on the condition that either the project name OR description contains the specified substring. The filter considers exact matches for other parameters provided. The final result is the logical AND of the substring match condition and any other provided exact match conditions.
 
+        :param search: Substring search for project names or description
+        :type search: str
         :param latest:
         :type latest: bool
         :param sort_by:
@@ -1439,6 +1452,7 @@ class ProjectsApi:
         """ # noqa: E501
 
         _param = self._read_projects_projects_get_serialize(
+            search=search,
             latest=latest,
             sort_by=sort_by,
             page_number=page_number,
@@ -1469,6 +1483,7 @@ class ProjectsApi:
 
     def _read_projects_projects_get_serialize(
         self,
+        search,
         latest,
         sort_by,
         page_number,
@@ -1500,6 +1515,10 @@ class ProjectsApi:
 
         # process the path parameters
         # process the query parameters
+        if search is not None:
+            
+            _query_params.append(('search', search))
+            
         if latest is not None:
             
             _query_params.append(('latest', latest))

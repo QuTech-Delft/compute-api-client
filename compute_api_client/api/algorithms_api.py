@@ -23,6 +23,8 @@ try:
 except ImportError:
     from typing_extensions import Annotated
 
+from pydantic import Field
+from typing_extensions import Annotated
 from pydantic import StrictBool, StrictInt, StrictStr
 
 from typing import List, Optional
@@ -862,6 +864,7 @@ class AlgorithmsApi:
     @validate_call
     async def read_algorithms_algorithms_get(
         self,
+        search: Annotated[Optional[StrictStr], Field(description="Substring search for algorithm names")] = None,
         latest: Optional[StrictBool] = None,
         sort_by: Optional[StrictStr] = None,
         page_number: Optional[StrictInt] = None,
@@ -891,6 +894,8 @@ class AlgorithmsApi:
 
         List algorithms.
 
+        :param search: Substring search for algorithm names
+        :type search: str
         :param latest:
         :type latest: bool
         :param sort_by:
@@ -938,6 +943,7 @@ class AlgorithmsApi:
         """ # noqa: E501
 
         _param = self._read_algorithms_algorithms_get_serialize(
+            search=search,
             latest=latest,
             sort_by=sort_by,
             page_number=page_number,
@@ -975,6 +981,7 @@ class AlgorithmsApi:
     @validate_call
     async def read_algorithms_algorithms_get_with_http_info(
         self,
+        search: Annotated[Optional[StrictStr], Field(description="Substring search for algorithm names")] = None,
         latest: Optional[StrictBool] = None,
         sort_by: Optional[StrictStr] = None,
         page_number: Optional[StrictInt] = None,
@@ -1004,6 +1011,8 @@ class AlgorithmsApi:
 
         List algorithms.
 
+        :param search: Substring search for algorithm names
+        :type search: str
         :param latest:
         :type latest: bool
         :param sort_by:
@@ -1051,6 +1060,7 @@ class AlgorithmsApi:
         """ # noqa: E501
 
         _param = self._read_algorithms_algorithms_get_serialize(
+            search=search,
             latest=latest,
             sort_by=sort_by,
             page_number=page_number,
@@ -1088,6 +1098,7 @@ class AlgorithmsApi:
     @validate_call
     async def read_algorithms_algorithms_get_without_preload_content(
         self,
+        search: Annotated[Optional[StrictStr], Field(description="Substring search for algorithm names")] = None,
         latest: Optional[StrictBool] = None,
         sort_by: Optional[StrictStr] = None,
         page_number: Optional[StrictInt] = None,
@@ -1117,6 +1128,8 @@ class AlgorithmsApi:
 
         List algorithms.
 
+        :param search: Substring search for algorithm names
+        :type search: str
         :param latest:
         :type latest: bool
         :param sort_by:
@@ -1164,6 +1177,7 @@ class AlgorithmsApi:
         """ # noqa: E501
 
         _param = self._read_algorithms_algorithms_get_serialize(
+            search=search,
             latest=latest,
             sort_by=sort_by,
             page_number=page_number,
@@ -1196,6 +1210,7 @@ class AlgorithmsApi:
 
     def _read_algorithms_algorithms_get_serialize(
         self,
+        search,
         latest,
         sort_by,
         page_number,
@@ -1229,6 +1244,10 @@ class AlgorithmsApi:
 
         # process the path parameters
         # process the query parameters
+        if search is not None:
+            
+            _query_params.append(('search', search))
+            
         if latest is not None:
             
             _query_params.append(('latest', latest))

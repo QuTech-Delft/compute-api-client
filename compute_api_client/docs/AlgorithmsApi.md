@@ -277,7 +277,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **read_algorithms_algorithms_get**
-> List[Algorithm] read_algorithms_algorithms_get(latest=latest, sort_by=sort_by, page_number=page_number, items_per_page=items_per_page, id=id, project_id=project_id, type=type, shared=shared, link__isnull=link__isnull, link=link, name__isnull=name__isnull, name=name)
+> List[Algorithm] read_algorithms_algorithms_get(search=search, latest=latest, sort_by=sort_by, page_number=page_number, items_per_page=items_per_page, id=id, project_id=project_id, type=type, shared=shared, link__isnull=link__isnull, link=link, name__isnull=name__isnull, name=name)
 
 List algorithms
 
@@ -324,6 +324,7 @@ configuration.api_key['user'] = os.environ["API_KEY"]
 async with compute_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = compute_api_client.AlgorithmsApi(api_client)
+    search = 'search_example' # str | Substring search for algorithm names (optional)
     latest = True # bool |  (optional)
     sort_by = 'sort_by_example' # str |  (optional)
     page_number = 56 # int |  (optional)
@@ -339,7 +340,7 @@ async with compute_api_client.ApiClient(configuration) as api_client:
 
     try:
         # List algorithms
-        api_response = await api_instance.read_algorithms_algorithms_get(latest=latest, sort_by=sort_by, page_number=page_number, items_per_page=items_per_page, id=id, project_id=project_id, type=type, shared=shared, link__isnull=link__isnull, link=link, name__isnull=name__isnull, name=name)
+        api_response = await api_instance.read_algorithms_algorithms_get(search=search, latest=latest, sort_by=sort_by, page_number=page_number, items_per_page=items_per_page, id=id, project_id=project_id, type=type, shared=shared, link__isnull=link__isnull, link=link, name__isnull=name__isnull, name=name)
         print("The response of AlgorithmsApi->read_algorithms_algorithms_get:\n")
         pprint(api_response)
     except Exception as e:
@@ -352,6 +353,7 @@ async with compute_api_client.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **search** | **str**| Substring search for algorithm names | [optional] 
  **latest** | **bool**|  | [optional] 
  **sort_by** | **str**|  | [optional] 
  **page_number** | **int**|  | [optional] 

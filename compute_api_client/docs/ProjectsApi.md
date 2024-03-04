@@ -361,11 +361,11 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **read_projects_projects_get**
-> List[Project] read_projects_projects_get(latest=latest, sort_by=sort_by, page_number=page_number, items_per_page=items_per_page, id=id, created_on=created_on, owner_id=owner_id, name=name, description=description, starred=starred)
+> List[Project] read_projects_projects_get(search=search, latest=latest, sort_by=sort_by, page_number=page_number, items_per_page=items_per_page, id=id, created_on=created_on, owner_id=owner_id, name=name, description=description, starred=starred)
 
 List projects
 
-List projects.
+List projects.  If the search parameter is provided, the list is filtered based on the condition that either the project name OR description contains the specified substring. The filter considers exact matches for other parameters provided. The final result is the logical AND of the substring match condition and any other provided exact match conditions.
 
 ### Example
 
@@ -406,6 +406,7 @@ configuration.api_key['user'] = os.environ["API_KEY"]
 async with compute_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = compute_api_client.ProjectsApi(api_client)
+    search = 'search_example' # str | Substring search for project names or description (optional)
     latest = True # bool |  (optional)
     sort_by = 'sort_by_example' # str |  (optional)
     page_number = 56 # int |  (optional)
@@ -419,7 +420,7 @@ async with compute_api_client.ApiClient(configuration) as api_client:
 
     try:
         # List projects
-        api_response = await api_instance.read_projects_projects_get(latest=latest, sort_by=sort_by, page_number=page_number, items_per_page=items_per_page, id=id, created_on=created_on, owner_id=owner_id, name=name, description=description, starred=starred)
+        api_response = await api_instance.read_projects_projects_get(search=search, latest=latest, sort_by=sort_by, page_number=page_number, items_per_page=items_per_page, id=id, created_on=created_on, owner_id=owner_id, name=name, description=description, starred=starred)
         print("The response of ProjectsApi->read_projects_projects_get:\n")
         pprint(api_response)
     except Exception as e:
@@ -432,6 +433,7 @@ async with compute_api_client.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **search** | **str**| Substring search for project names or description | [optional] 
  **latest** | **bool**|  | [optional] 
  **sort_by** | **str**|  | [optional] 
  **page_number** | **int**|  | [optional] 
