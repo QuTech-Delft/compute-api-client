@@ -38,7 +38,8 @@ class User(BaseModel):
     is_staff: StrictBool
     is_active: StrictBool
     is_confirmed: StrictBool
-    __properties: ClassVar[List[str]] = ["id", "full_name", "email", "is_superuser", "is_staff", "is_active", "is_confirmed"]
+    oidc_sub: Annotated[str, Field(strict=True, max_length=256)]
+    __properties: ClassVar[List[str]] = ["id", "full_name", "email", "is_superuser", "is_staff", "is_active", "is_confirmed", "oidc_sub"]
 
     model_config = {
         "populate_by_name": True,
@@ -94,7 +95,8 @@ class User(BaseModel):
             "is_superuser": obj.get("is_superuser"),
             "is_staff": obj.get("is_staff"),
             "is_active": obj.get("is_active"),
-            "is_confirmed": obj.get("is_confirmed")
+            "is_confirmed": obj.get("is_confirmed"),
+            "oidc_sub": obj.get("oidc_sub")
         })
         return _obj
 

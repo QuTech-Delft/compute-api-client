@@ -870,6 +870,7 @@ class UsersApi:
         is_staff: Optional[StrictBool] = None,
         is_active: Optional[StrictBool] = None,
         is_confirmed: Optional[StrictBool] = None,
+        oidc_sub: Optional[StrictStr] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -909,6 +910,8 @@ class UsersApi:
         :type is_active: bool
         :param is_confirmed:
         :type is_confirmed: bool
+        :param oidc_sub:
+        :type oidc_sub: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -943,6 +946,7 @@ class UsersApi:
             is_staff=is_staff,
             is_active=is_active,
             is_confirmed=is_confirmed,
+            oidc_sub=oidc_sub,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -979,6 +983,7 @@ class UsersApi:
         is_staff: Optional[StrictBool] = None,
         is_active: Optional[StrictBool] = None,
         is_confirmed: Optional[StrictBool] = None,
+        oidc_sub: Optional[StrictStr] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -1018,6 +1023,8 @@ class UsersApi:
         :type is_active: bool
         :param is_confirmed:
         :type is_confirmed: bool
+        :param oidc_sub:
+        :type oidc_sub: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -1052,6 +1059,7 @@ class UsersApi:
             is_staff=is_staff,
             is_active=is_active,
             is_confirmed=is_confirmed,
+            oidc_sub=oidc_sub,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -1088,6 +1096,7 @@ class UsersApi:
         is_staff: Optional[StrictBool] = None,
         is_active: Optional[StrictBool] = None,
         is_confirmed: Optional[StrictBool] = None,
+        oidc_sub: Optional[StrictStr] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -1127,6 +1136,8 @@ class UsersApi:
         :type is_active: bool
         :param is_confirmed:
         :type is_confirmed: bool
+        :param oidc_sub:
+        :type oidc_sub: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -1161,6 +1172,7 @@ class UsersApi:
             is_staff=is_staff,
             is_active=is_active,
             is_confirmed=is_confirmed,
+            oidc_sub=oidc_sub,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -1192,6 +1204,7 @@ class UsersApi:
         is_staff,
         is_active,
         is_confirmed,
+        oidc_sub,
         _request_auth,
         _content_type,
         _headers,
@@ -1256,6 +1269,10 @@ class UsersApi:
         if is_confirmed is not None:
             
             _query_params.append(('is_confirmed', is_confirmed))
+            
+        if oidc_sub is not None:
+            
+            _query_params.append(('oidc_sub', oidc_sub))
             
         # process the header parameters
         # process the form parameters

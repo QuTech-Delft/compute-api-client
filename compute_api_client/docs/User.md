@@ -11,6 +11,7 @@ Name | Type | Description | Notes
 **is_staff** | **bool** |  | 
 **is_active** | **bool** |  | 
 **is_confirmed** | **bool** |  | 
+**oidc_sub** | **str** |  | 
 
 ## Example
 

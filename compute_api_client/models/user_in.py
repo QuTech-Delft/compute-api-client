@@ -37,7 +37,8 @@ class UserIn(BaseModel):
     is_staff: Optional[StrictBool] = False
     is_active: Optional[StrictBool] = False
     is_confirmed: Optional[StrictBool] = False
-    __properties: ClassVar[List[str]] = ["full_name", "email", "is_superuser", "is_staff", "is_active", "is_confirmed"]
+    oidc_sub: Annotated[str, Field(strict=True, max_length=256)]
+    __properties: ClassVar[List[str]] = ["full_name", "email", "is_superuser", "is_staff", "is_active", "is_confirmed", "oidc_sub"]
 
     model_config = {
         "populate_by_name": True,
@@ -92,7 +93,8 @@ class UserIn(BaseModel):
             "is_superuser": obj.get("is_superuser") if obj.get("is_superuser") is not None else False,
             "is_staff": obj.get("is_staff") if obj.get("is_staff") is not None else False,
             "is_active": obj.get("is_active") if obj.get("is_active") is not None else False,
-            "is_confirmed": obj.get("is_confirmed") if obj.get("is_confirmed") is not None else False
+            "is_confirmed": obj.get("is_confirmed") if obj.get("is_confirmed") is not None else False,
+            "oidc_sub": obj.get("oidc_sub")
         })
         return _obj
 

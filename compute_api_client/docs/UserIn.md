@@ -10,6 +10,7 @@ Name | Type | Description | Notes
 **is_staff** | **bool** |  | [optional] [default to False]
 **is_active** | **bool** |  | [optional] [default to False]
 **is_confirmed** | **bool** |  | [optional] [default to False]
+**oidc_sub** | **str** |  | 
 
 ## Example
 

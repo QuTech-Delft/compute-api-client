@@ -269,7 +269,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **read_users_users_get**
-> List[User] read_users_users_get(latest=latest, sort_by=sort_by, page_number=page_number, items_per_page=items_per_page, id=id, full_name=full_name, email=email, is_superuser=is_superuser, is_staff=is_staff, is_active=is_active, is_confirmed=is_confirmed)
+> List[User] read_users_users_get(latest=latest, sort_by=sort_by, page_number=page_number, items_per_page=items_per_page, id=id, full_name=full_name, email=email, is_superuser=is_superuser, is_staff=is_staff, is_active=is_active, is_confirmed=is_confirmed, oidc_sub=oidc_sub)
 
 List users
 
@@ -325,10 +325,11 @@ async with compute_api_client.ApiClient(configuration) as api_client:
     is_staff = True # bool |  (optional)
     is_active = True # bool |  (optional)
     is_confirmed = True # bool |  (optional)
+    oidc_sub = 'oidc_sub_example' # str |  (optional)
 
     try:
         # List users
-        api_response = await api_instance.read_users_users_get(latest=latest, sort_by=sort_by, page_number=page_number, items_per_page=items_per_page, id=id, full_name=full_name, email=email, is_superuser=is_superuser, is_staff=is_staff, is_active=is_active, is_confirmed=is_confirmed)
+        api_response = await api_instance.read_users_users_get(latest=latest, sort_by=sort_by, page_number=page_number, items_per_page=items_per_page, id=id, full_name=full_name, email=email, is_superuser=is_superuser, is_staff=is_staff, is_active=is_active, is_confirmed=is_confirmed, oidc_sub=oidc_sub)
         print("The response of UsersApi->read_users_users_get:\n")
         pprint(api_response)
     except Exception as e:
@@ -352,6 +353,7 @@ Name | Type | Description  | Notes
  **is_staff** | **bool**|  | [optional] 
  **is_active** | **bool**|  | [optional] 
  **is_confirmed** | **bool**|  | [optional] 
+ **oidc_sub** | **str**|  | [optional] 
 
 ### Return type
 
