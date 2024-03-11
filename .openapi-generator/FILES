@@ -27,6 +27,7 @@ compute_api_client/docs/AlgorithmType.md
 compute_api_client/docs/AlgorithmsApi.md
 compute_api_client/docs/Backend.md
 compute_api_client/docs/BackendApi.md
+compute_api_client/docs/BackendIn.md
 compute_api_client/docs/BackendPatch.md
 compute_api_client/docs/BackendStatus.md
 compute_api_client/docs/BackendType.md
@@ -92,6 +93,7 @@ compute_api_client/models/algorithm.py
 compute_api_client/models/algorithm_in.py
 compute_api_client/models/algorithm_type.py
 compute_api_client/models/backend.py
+compute_api_client/models/backend_in.py
 compute_api_client/models/backend_patch.py
 compute_api_client/models/backend_status.py
 compute_api_client/models/backend_type.py

@@ -12,7 +12,7 @@ Method | HTTP request | Description
 
 
 # **create_backend_backends_post**
-> BackendWithAuthentication create_backend_backends_post(backend)
+> BackendWithAuthentication create_backend_backends_post(backend_in)
 
 Create backend
 
@@ -26,7 +26,7 @@ Create new backend.
 import time
 import os
 import compute_api_client
-from compute_api_client.models.backend import Backend
+from compute_api_client.models.backend_in import BackendIn
 from compute_api_client.models.backend_with_authentication import BackendWithAuthentication
 from compute_api_client.rest import ApiException
 from pprint import pprint
@@ -58,11 +58,11 @@ configuration.api_key['user'] = os.environ["API_KEY"]
 async with compute_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = compute_api_client.BackendApi(api_client)
-    backend = compute_api_client.Backend() # Backend | 
+    backend_in = compute_api_client.BackendIn() # BackendIn | 
 
     try:
         # Create backend
-        api_response = await api_instance.create_backend_backends_post(backend)
+        api_response = await api_instance.create_backend_backends_post(backend_in)
         print("The response of BackendApi->create_backend_backends_post:\n")
         pprint(api_response)
     except Exception as e:
@@ -75,7 +75,7 @@ async with compute_api_client.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **backend** | [**Backend**](Backend.md)|  | 
+ **backend_in** | [**BackendIn**](BackendIn.md)|  | 
 
 ### Return type
 

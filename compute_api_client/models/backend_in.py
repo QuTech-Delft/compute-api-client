@@ -17,20 +17,27 @@ import pprint
 import re  # noqa: F401
 import json
 
-
+from datetime import datetime
 from typing import Any, ClassVar, Dict, List
 from pydantic import BaseModel, StrictInt
+from pydantic import Field
+from typing_extensions import Annotated
+from compute_api_client.models.backend_status import BackendStatus
 try:
     from typing import Self
 except ImportError:
     from typing_extensions import Self
 
-class BatchJobIn(BaseModel):
+class BackendIn(BaseModel):
     """
-    BatchJobIn
+    BackendIn
     """ # noqa: E501
+    name: Annotated[str, Field(strict=True, max_length=32)]
+    location: Annotated[str, Field(strict=True, max_length=32)]
     backend_type_id: StrictInt
-    __properties: ClassVar[List[str]] = ["backend_type_id"]
+    status: BackendStatus
+    last_heartbeat: datetime
+    __properties: ClassVar[List[str]] = ["name", "location", "backend_type_id", "status", "last_heartbeat"]
 
     model_config = {
         "populate_by_name": True,
@@ -49,7 +56,7 @@ class BatchJobIn(BaseModel):
 
     @classmethod
     def from_json(cls, json_str: str) -> Self:
-        """Create an instance of BatchJobIn from a JSON string"""
+        """Create an instance of BackendIn from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
     def to_dict(self) -> Dict[str, Any]:
@@ -72,7 +79,7 @@ class BatchJobIn(BaseModel):
 
     @classmethod
     def from_dict(cls, obj: Dict) -> Self:
-        """Create an instance of BatchJobIn from a dict"""
+        """Create an instance of BackendIn from a dict"""
         if obj is None:
             return None
 
@@ -80,7 +87,11 @@ class BatchJobIn(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
-            "backend_type_id": obj.get("backend_type_id")
+            "name": obj.get("name"),
+            "location": obj.get("location"),
+            "backend_type_id": obj.get("backend_type_id"),
+            "status": obj.get("status"),
+            "last_heartbeat": obj.get("last_heartbeat")
         })
         return _obj
 

@@ -30,6 +30,7 @@ from pydantic import StrictBool, StrictInt, StrictStr
 from typing import List, Optional
 
 from compute_api_client.models.backend import Backend
+from compute_api_client.models.backend_in import BackendIn
 from compute_api_client.models.backend_patch import BackendPatch
 from compute_api_client.models.backend_status import BackendStatus
 from compute_api_client.models.backend_with_authentication import BackendWithAuthentication
@@ -55,7 +56,7 @@ class BackendApi:
     @validate_call
     async def create_backend_backends_post(
         self,
-        backend: Backend,
+        backend_in: BackendIn,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -73,8 +74,8 @@ class BackendApi:
 
         Create new backend.
 
-        :param backend: (required)
-        :type backend: Backend
+        :param backend_in: (required)
+        :type backend_in: BackendIn
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -98,7 +99,7 @@ class BackendApi:
         """ # noqa: E501
 
         _param = self._create_backend_backends_post_serialize(
-            backend=backend,
+            backend_in=backend_in,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -124,7 +125,7 @@ class BackendApi:
     @validate_call
     async def create_backend_backends_post_with_http_info(
         self,
-        backend: Backend,
+        backend_in: BackendIn,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -142,8 +143,8 @@ class BackendApi:
 
         Create new backend.
 
-        :param backend: (required)
-        :type backend: Backend
+        :param backend_in: (required)
+        :type backend_in: BackendIn
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -167,7 +168,7 @@ class BackendApi:
         """ # noqa: E501
 
         _param = self._create_backend_backends_post_serialize(
-            backend=backend,
+            backend_in=backend_in,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -193,7 +194,7 @@ class BackendApi:
     @validate_call
     async def create_backend_backends_post_without_preload_content(
         self,
-        backend: Backend,
+        backend_in: BackendIn,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -211,8 +212,8 @@ class BackendApi:
 
         Create new backend.
 
-        :param backend: (required)
-        :type backend: Backend
+        :param backend_in: (required)
+        :type backend_in: BackendIn
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -236,7 +237,7 @@ class BackendApi:
         """ # noqa: E501
 
         _param = self._create_backend_backends_post_serialize(
-            backend=backend,
+            backend_in=backend_in,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -257,7 +258,7 @@ class BackendApi:
 
     def _create_backend_backends_post_serialize(
         self,
-        backend,
+        backend_in,
         _request_auth,
         _content_type,
         _headers,
@@ -282,8 +283,8 @@ class BackendApi:
         # process the header parameters
         # process the form parameters
         # process the body parameter
-        if backend is not None:
-            _body_params = backend
+        if backend_in is not None:
+            _body_params = backend_in
 
 
         # set the HTTP header `Accept`

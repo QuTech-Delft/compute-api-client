@@ -4,7 +4,6 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**user_id** | **int** |  | 
 **backend_type_id** | **int** |  | 
 
 ## Example

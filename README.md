@@ -158,6 +158,7 @@ Class | Method | HTTP request | Description
  - [AlgorithmIn](compute_api_client/docs/AlgorithmIn.md)
  - [AlgorithmType](compute_api_client/docs/AlgorithmType.md)
  - [Backend](compute_api_client/docs/Backend.md)
+ - [BackendIn](compute_api_client/docs/BackendIn.md)
  - [BackendPatch](compute_api_client/docs/BackendPatch.md)
  - [BackendStatus](compute_api_client/docs/BackendStatus.md)
  - [BackendType](compute_api_client/docs/BackendType.md)
