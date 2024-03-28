@@ -382,14 +382,12 @@ conf = compute_api_client.Configuration(
                     'user',
                 ),
             }
-        if 'user_bearer' in self.api_key:
+        if self.access_token is not None:
             auth['user_bearer'] = {
-                'type': 'api_key',
+                'type': 'oauth2',
                 'in': 'header',
                 'key': 'Authorization',
-                'value': self.get_api_key_with_prefix(
-                    'user_bearer',
-                ),
+                'value': 'Bearer ' + self.access_token
             }
         if 'backend' in self.api_key:
             auth['backend'] = {

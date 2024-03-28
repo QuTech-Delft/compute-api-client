@@ -98,7 +98,7 @@ Get metadata by job ID.
 
 ### Example
 
-* Api Key Authentication (user_bearer):
+* OAuth Authentication (user_bearer):
 * Api Key Authentication (user):
 ```python
 import time
@@ -119,11 +119,7 @@ configuration = compute_api_client.Configuration(
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
 
-# Configure API key authorization: user_bearer
-configuration.api_key['user_bearer'] = os.environ["API_KEY"]
-
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['user_bearer'] = 'Bearer'
+configuration.access_token = os.environ["ACCESS_TOKEN"]
 
 # Configure API key authorization: user
 configuration.api_key['user'] = os.environ["API_KEY"]
@@ -184,7 +180,7 @@ Get metadata by ID.
 
 ### Example
 
-* Api Key Authentication (user_bearer):
+* OAuth Authentication (user_bearer):
 * Api Key Authentication (user):
 ```python
 import time
@@ -205,11 +201,7 @@ configuration = compute_api_client.Configuration(
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
 
-# Configure API key authorization: user_bearer
-configuration.api_key['user_bearer'] = os.environ["API_KEY"]
-
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['user_bearer'] = 'Bearer'
+configuration.access_token = os.environ["ACCESS_TOKEN"]
 
 # Configure API key authorization: user
 configuration.api_key['user'] = os.environ["API_KEY"]

@@ -45,11 +45,7 @@ configuration = compute_api_client.Configuration(
 # Examples for each auth method are provided below, use the example that
 # satisfies your auth use case.
 
-# Configure API key authorization: user_bearer
-configuration.api_key['user_bearer'] = os.environ["API_KEY"]
-
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['user_bearer'] = 'Bearer'
+configuration.access_token = os.environ["ACCESS_TOKEN"]
 
 # Configure API key authorization: user
 configuration.api_key['user'] = os.environ["API_KEY"]
@@ -219,9 +215,10 @@ Authentication schemes defined for the API:
 <a id="user_bearer"></a>
 ### user_bearer
 
-- **Type**: API key
-- **API key parameter name**: Authorization
-- **Location**: HTTP header
+- **Type**: OAuth
+- **Flow**: accessCode
+- **Authorization URL**: https://auth.qi2.quantum-inspire.com/realms/oidc_staging/protocol/openid-connect/auth
+- **Scopes**: N/A
 
 <a id="backend"></a>
 ### backend
