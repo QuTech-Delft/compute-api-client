@@ -92,7 +92,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **read_transactions_transactions_get**
-> List[Transaction] read_transactions_transactions_get(latest=latest, sort_by=sort_by, page_number=page_number, items_per_page=items_per_page, id=id, domain__isnull=domain__isnull, domain=domain, job__isnull=job__isnull, job=job, team_id=team_id, user_id__isnull=user_id__isnull, user_id=user_id, change=change, timestamp=timestamp)
+> List[Transaction] read_transactions_transactions_get(latest=latest, sort_by=sort_by, page_number=page_number, items_per_page=items_per_page, id=id, domain__isnull=domain__isnull, domain=domain, job__isnull=job__isnull, job=job, team_id=team_id, member_id__isnull=member_id__isnull, member_id=member_id, change=change, timestamp=timestamp)
 
 List transactions
 
@@ -144,14 +144,14 @@ async with compute_api_client.ApiClient(configuration) as api_client:
     job__isnull = True # bool |  (optional)
     job = 56 # int |  (optional)
     team_id = 56 # int |  (optional)
-    user_id__isnull = True # bool |  (optional)
-    user_id = 56 # int |  (optional)
+    member_id__isnull = True # bool |  (optional)
+    member_id = 56 # int |  (optional)
     change = 56 # int |  (optional)
     timestamp = '2013-10-20T19:20:30+01:00' # datetime |  (optional)
 
     try:
         # List transactions
-        api_response = await api_instance.read_transactions_transactions_get(latest=latest, sort_by=sort_by, page_number=page_number, items_per_page=items_per_page, id=id, domain__isnull=domain__isnull, domain=domain, job__isnull=job__isnull, job=job, team_id=team_id, user_id__isnull=user_id__isnull, user_id=user_id, change=change, timestamp=timestamp)
+        api_response = await api_instance.read_transactions_transactions_get(latest=latest, sort_by=sort_by, page_number=page_number, items_per_page=items_per_page, id=id, domain__isnull=domain__isnull, domain=domain, job__isnull=job__isnull, job=job, team_id=team_id, member_id__isnull=member_id__isnull, member_id=member_id, change=change, timestamp=timestamp)
         print("The response of TransactionsApi->read_transactions_transactions_get:\n")
         pprint(api_response)
     except Exception as e:
@@ -174,8 +174,8 @@ Name | Type | Description  | Notes
  **job__isnull** | **bool**|  | [optional] 
  **job** | **int**|  | [optional] 
  **team_id** | **int**|  | [optional] 
- **user_id__isnull** | **bool**|  | [optional] 
- **user_id** | **int**|  | [optional] 
+ **member_id__isnull** | **bool**|  | [optional] 
+ **member_id** | **int**|  | [optional] 
  **change** | **int**|  | [optional] 
  **timestamp** | **datetime**|  | [optional] 
 

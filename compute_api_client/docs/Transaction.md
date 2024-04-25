@@ -8,7 +8,7 @@ Name | Type | Description | Notes
 **domain** | [**Domain**](Domain.md) |  | 
 **job** | **int** |  | 
 **team_id** | **int** |  | 
-**user_id** | **int** |  | 
+**member_id** | **int** |  | 
 **change** | **int** |  | 
 **timestamp** | **datetime** |  | 
 

@@ -332,8 +332,8 @@ class TransactionsApi:
         job__isnull: Optional[StrictBool] = None,
         job: Optional[StrictInt] = None,
         team_id: Optional[StrictInt] = None,
-        user_id__isnull: Optional[StrictBool] = None,
-        user_id: Optional[StrictInt] = None,
+        member_id__isnull: Optional[StrictBool] = None,
+        member_id: Optional[StrictInt] = None,
         change: Optional[StrictInt] = None,
         timestamp: Optional[datetime] = None,
         _request_timeout: Union[
@@ -373,10 +373,10 @@ class TransactionsApi:
         :type job: int
         :param team_id:
         :type team_id: int
-        :param user_id__isnull:
-        :type user_id__isnull: bool
-        :param user_id:
-        :type user_id: int
+        :param member_id__isnull:
+        :type member_id__isnull: bool
+        :param member_id:
+        :type member_id: int
         :param change:
         :type change: int
         :param timestamp:
@@ -414,8 +414,8 @@ class TransactionsApi:
             job__isnull=job__isnull,
             job=job,
             team_id=team_id,
-            user_id__isnull=user_id__isnull,
-            user_id=user_id,
+            member_id__isnull=member_id__isnull,
+            member_id=member_id,
             change=change,
             timestamp=timestamp,
             _request_auth=_request_auth,
@@ -453,8 +453,8 @@ class TransactionsApi:
         job__isnull: Optional[StrictBool] = None,
         job: Optional[StrictInt] = None,
         team_id: Optional[StrictInt] = None,
-        user_id__isnull: Optional[StrictBool] = None,
-        user_id: Optional[StrictInt] = None,
+        member_id__isnull: Optional[StrictBool] = None,
+        member_id: Optional[StrictInt] = None,
         change: Optional[StrictInt] = None,
         timestamp: Optional[datetime] = None,
         _request_timeout: Union[
@@ -494,10 +494,10 @@ class TransactionsApi:
         :type job: int
         :param team_id:
         :type team_id: int
-        :param user_id__isnull:
-        :type user_id__isnull: bool
-        :param user_id:
-        :type user_id: int
+        :param member_id__isnull:
+        :type member_id__isnull: bool
+        :param member_id:
+        :type member_id: int
         :param change:
         :type change: int
         :param timestamp:
@@ -535,8 +535,8 @@ class TransactionsApi:
             job__isnull=job__isnull,
             job=job,
             team_id=team_id,
-            user_id__isnull=user_id__isnull,
-            user_id=user_id,
+            member_id__isnull=member_id__isnull,
+            member_id=member_id,
             change=change,
             timestamp=timestamp,
             _request_auth=_request_auth,
@@ -574,8 +574,8 @@ class TransactionsApi:
         job__isnull: Optional[StrictBool] = None,
         job: Optional[StrictInt] = None,
         team_id: Optional[StrictInt] = None,
-        user_id__isnull: Optional[StrictBool] = None,
-        user_id: Optional[StrictInt] = None,
+        member_id__isnull: Optional[StrictBool] = None,
+        member_id: Optional[StrictInt] = None,
         change: Optional[StrictInt] = None,
         timestamp: Optional[datetime] = None,
         _request_timeout: Union[
@@ -615,10 +615,10 @@ class TransactionsApi:
         :type job: int
         :param team_id:
         :type team_id: int
-        :param user_id__isnull:
-        :type user_id__isnull: bool
-        :param user_id:
-        :type user_id: int
+        :param member_id__isnull:
+        :type member_id__isnull: bool
+        :param member_id:
+        :type member_id: int
         :param change:
         :type change: int
         :param timestamp:
@@ -656,8 +656,8 @@ class TransactionsApi:
             job__isnull=job__isnull,
             job=job,
             team_id=team_id,
-            user_id__isnull=user_id__isnull,
-            user_id=user_id,
+            member_id__isnull=member_id__isnull,
+            member_id=member_id,
             change=change,
             timestamp=timestamp,
             _request_auth=_request_auth,
@@ -690,8 +690,8 @@ class TransactionsApi:
         job__isnull,
         job,
         team_id,
-        user_id__isnull,
-        user_id,
+        member_id__isnull,
+        member_id,
         change,
         timestamp,
         _request_auth,
@@ -755,13 +755,13 @@ class TransactionsApi:
             
             _query_params.append(('team_id', team_id))
             
-        if user_id__isnull is not None:
+        if member_id__isnull is not None:
             
-            _query_params.append(('user_id__isnull', user_id__isnull))
+            _query_params.append(('member_id__isnull', member_id__isnull))
             
-        if user_id is not None:
+        if member_id is not None:
             
-            _query_params.append(('user_id', user_id))
+            _query_params.append(('member_id', member_id))
             
         if change is not None:
             

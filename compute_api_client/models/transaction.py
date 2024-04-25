@@ -36,10 +36,10 @@ class Transaction(BaseModel):
     domain: Optional[Domain]
     job: Optional[StrictInt]
     team_id: StrictInt
-    user_id: Optional[StrictInt]
+    member_id: Optional[StrictInt]
     change: Annotated[int, Field(strict=True, ge=-32768)]
     timestamp: datetime
-    __properties: ClassVar[List[str]] = ["id", "domain", "job", "team_id", "user_id", "change", "timestamp"]
+    __properties: ClassVar[List[str]] = ["id", "domain", "job", "team_id", "member_id", "change", "timestamp"]
 
     model_config = {
         "populate_by_name": True,
@@ -87,10 +87,10 @@ class Transaction(BaseModel):
         if self.job is None and "job" in self.model_fields_set:
             _dict['job'] = None
 
-        # set to None if user_id (nullable) is None
+        # set to None if member_id (nullable) is None
         # and model_fields_set contains the field
-        if self.user_id is None and "user_id" in self.model_fields_set:
-            _dict['user_id'] = None
+        if self.member_id is None and "member_id" in self.model_fields_set:
+            _dict['member_id'] = None
 
         return _dict
 
@@ -108,7 +108,7 @@ class Transaction(BaseModel):
             "domain": obj.get("domain"),
             "job": obj.get("job"),
             "team_id": obj.get("team_id"),
-            "user_id": obj.get("user_id"),
+            "member_id": obj.get("member_id"),
             "change": obj.get("change"),
             "timestamp": obj.get("timestamp")
         })
