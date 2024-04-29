@@ -866,7 +866,6 @@ class MembersApi:
         items_per_page: Optional[StrictInt] = None,
         id: Optional[StrictInt] = None,
         team_id: Optional[StrictInt] = None,
-        user_id: Optional[StrictInt] = None,
         role: Optional[Role] = None,
         is_active: Optional[StrictBool] = None,
         _request_timeout: Union[
@@ -898,8 +897,6 @@ class MembersApi:
         :type id: int
         :param team_id:
         :type team_id: int
-        :param user_id:
-        :type user_id: int
         :param role:
         :type role: Role
         :param is_active:
@@ -933,7 +930,6 @@ class MembersApi:
             items_per_page=items_per_page,
             id=id,
             team_id=team_id,
-            user_id=user_id,
             role=role,
             is_active=is_active,
             _request_auth=_request_auth,
@@ -967,7 +963,6 @@ class MembersApi:
         items_per_page: Optional[StrictInt] = None,
         id: Optional[StrictInt] = None,
         team_id: Optional[StrictInt] = None,
-        user_id: Optional[StrictInt] = None,
         role: Optional[Role] = None,
         is_active: Optional[StrictBool] = None,
         _request_timeout: Union[
@@ -999,8 +994,6 @@ class MembersApi:
         :type id: int
         :param team_id:
         :type team_id: int
-        :param user_id:
-        :type user_id: int
         :param role:
         :type role: Role
         :param is_active:
@@ -1034,7 +1027,6 @@ class MembersApi:
             items_per_page=items_per_page,
             id=id,
             team_id=team_id,
-            user_id=user_id,
             role=role,
             is_active=is_active,
             _request_auth=_request_auth,
@@ -1068,7 +1060,6 @@ class MembersApi:
         items_per_page: Optional[StrictInt] = None,
         id: Optional[StrictInt] = None,
         team_id: Optional[StrictInt] = None,
-        user_id: Optional[StrictInt] = None,
         role: Optional[Role] = None,
         is_active: Optional[StrictBool] = None,
         _request_timeout: Union[
@@ -1100,8 +1091,6 @@ class MembersApi:
         :type id: int
         :param team_id:
         :type team_id: int
-        :param user_id:
-        :type user_id: int
         :param role:
         :type role: Role
         :param is_active:
@@ -1135,7 +1124,6 @@ class MembersApi:
             items_per_page=items_per_page,
             id=id,
             team_id=team_id,
-            user_id=user_id,
             role=role,
             is_active=is_active,
             _request_auth=_request_auth,
@@ -1164,7 +1152,6 @@ class MembersApi:
         items_per_page,
         id,
         team_id,
-        user_id,
         role,
         is_active,
         _request_auth,
@@ -1211,10 +1198,6 @@ class MembersApi:
         if team_id is not None:
             
             _query_params.append(('team_id', team_id))
-            
-        if user_id is not None:
-            
-            _query_params.append(('user_id', user_id))
             
         if role is not None:
             

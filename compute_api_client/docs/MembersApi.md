@@ -257,7 +257,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **read_members_members_get**
-> List[Member] read_members_members_get(latest=latest, sort_by=sort_by, page_number=page_number, items_per_page=items_per_page, id=id, team_id=team_id, user_id=user_id, role=role, is_active=is_active)
+> List[Member] read_members_members_get(latest=latest, sort_by=sort_by, page_number=page_number, items_per_page=items_per_page, id=id, team_id=team_id, role=role, is_active=is_active)
 
 List members
 
@@ -305,13 +305,12 @@ async with compute_api_client.ApiClient(configuration) as api_client:
     items_per_page = 56 # int |  (optional)
     id = 56 # int |  (optional)
     team_id = 56 # int |  (optional)
-    user_id = 56 # int |  (optional)
     role = compute_api_client.Role() # Role |  (optional)
     is_active = True # bool |  (optional)
 
     try:
         # List members
-        api_response = await api_instance.read_members_members_get(latest=latest, sort_by=sort_by, page_number=page_number, items_per_page=items_per_page, id=id, team_id=team_id, user_id=user_id, role=role, is_active=is_active)
+        api_response = await api_instance.read_members_members_get(latest=latest, sort_by=sort_by, page_number=page_number, items_per_page=items_per_page, id=id, team_id=team_id, role=role, is_active=is_active)
         print("The response of MembersApi->read_members_members_get:\n")
         pprint(api_response)
     except Exception as e:
@@ -330,7 +329,6 @@ Name | Type | Description  | Notes
  **items_per_page** | **int**|  | [optional] 
  **id** | **int**|  | [optional] 
  **team_id** | **int**|  | [optional] 
- **user_id** | **int**|  | [optional] 
  **role** | [**Role**](.md)|  | [optional] 
  **is_active** | **bool**|  | [optional] 
 

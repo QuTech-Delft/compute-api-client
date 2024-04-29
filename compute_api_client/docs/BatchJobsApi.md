@@ -424,7 +424,7 @@ This endpoint does not need any parameter.
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **read_batch_jobs_batch_jobs_get**
-> List[BatchJob] read_batch_jobs_batch_jobs_get(latest=latest, sort_by=sort_by, page_number=page_number, items_per_page=items_per_page, id=id, created_on=created_on, status=status, user_id=user_id, backend_type_id=backend_type_id, backend_id__isnull=backend_id__isnull, backend_id=backend_id, queued_at__isnull=queued_at__isnull, queued_at=queued_at, reserved_at__isnull=reserved_at__isnull, reserved_at=reserved_at, finished_at__isnull=finished_at__isnull, finished_at=finished_at, aggregated_algorithm_type=aggregated_algorithm_type)
+> List[BatchJob] read_batch_jobs_batch_jobs_get(latest=latest, sort_by=sort_by, page_number=page_number, items_per_page=items_per_page, id=id, created_on=created_on, status=status, backend_type_id=backend_type_id, backend_id__isnull=backend_id__isnull, backend_id=backend_id, queued_at__isnull=queued_at__isnull, queued_at=queued_at, reserved_at__isnull=reserved_at__isnull, reserved_at=reserved_at, finished_at__isnull=finished_at__isnull, finished_at=finished_at, aggregated_algorithm_type=aggregated_algorithm_type)
 
 List batch jobs
 
@@ -474,7 +474,6 @@ async with compute_api_client.ApiClient(configuration) as api_client:
     id = 56 # int |  (optional)
     created_on = '2013-10-20T19:20:30+01:00' # datetime |  (optional)
     status = compute_api_client.BatchJobStatus() # BatchJobStatus |  (optional)
-    user_id = 56 # int |  (optional)
     backend_type_id = 56 # int |  (optional)
     backend_id__isnull = True # bool |  (optional)
     backend_id = 56 # int |  (optional)
@@ -488,7 +487,7 @@ async with compute_api_client.ApiClient(configuration) as api_client:
 
     try:
         # List batch jobs
-        api_response = await api_instance.read_batch_jobs_batch_jobs_get(latest=latest, sort_by=sort_by, page_number=page_number, items_per_page=items_per_page, id=id, created_on=created_on, status=status, user_id=user_id, backend_type_id=backend_type_id, backend_id__isnull=backend_id__isnull, backend_id=backend_id, queued_at__isnull=queued_at__isnull, queued_at=queued_at, reserved_at__isnull=reserved_at__isnull, reserved_at=reserved_at, finished_at__isnull=finished_at__isnull, finished_at=finished_at, aggregated_algorithm_type=aggregated_algorithm_type)
+        api_response = await api_instance.read_batch_jobs_batch_jobs_get(latest=latest, sort_by=sort_by, page_number=page_number, items_per_page=items_per_page, id=id, created_on=created_on, status=status, backend_type_id=backend_type_id, backend_id__isnull=backend_id__isnull, backend_id=backend_id, queued_at__isnull=queued_at__isnull, queued_at=queued_at, reserved_at__isnull=reserved_at__isnull, reserved_at=reserved_at, finished_at__isnull=finished_at__isnull, finished_at=finished_at, aggregated_algorithm_type=aggregated_algorithm_type)
         print("The response of BatchJobsApi->read_batch_jobs_batch_jobs_get:\n")
         pprint(api_response)
     except Exception as e:
@@ -508,7 +507,6 @@ Name | Type | Description  | Notes
  **id** | **int**|  | [optional] 
  **created_on** | **datetime**|  | [optional] 
  **status** | [**BatchJobStatus**](.md)|  | [optional] 
- **user_id** | **int**|  | [optional] 
  **backend_type_id** | **int**|  | [optional] 
  **backend_id__isnull** | **bool**|  | [optional] 
  **backend_id** | **int**|  | [optional] 

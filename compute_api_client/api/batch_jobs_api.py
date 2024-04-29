@@ -1409,7 +1409,6 @@ class BatchJobsApi:
         id: Optional[StrictInt] = None,
         created_on: Optional[datetime] = None,
         status: Optional[BatchJobStatus] = None,
-        user_id: Optional[StrictInt] = None,
         backend_type_id: Optional[StrictInt] = None,
         backend_id__isnull: Optional[StrictBool] = None,
         backend_id: Optional[StrictInt] = None,
@@ -1451,8 +1450,6 @@ class BatchJobsApi:
         :type created_on: datetime
         :param status:
         :type status: BatchJobStatus
-        :param user_id:
-        :type user_id: int
         :param backend_type_id:
         :type backend_type_id: int
         :param backend_id__isnull:
@@ -1503,7 +1500,6 @@ class BatchJobsApi:
             id=id,
             created_on=created_on,
             status=status,
-            user_id=user_id,
             backend_type_id=backend_type_id,
             backend_id__isnull=backend_id__isnull,
             backend_id=backend_id,
@@ -1546,7 +1542,6 @@ class BatchJobsApi:
         id: Optional[StrictInt] = None,
         created_on: Optional[datetime] = None,
         status: Optional[BatchJobStatus] = None,
-        user_id: Optional[StrictInt] = None,
         backend_type_id: Optional[StrictInt] = None,
         backend_id__isnull: Optional[StrictBool] = None,
         backend_id: Optional[StrictInt] = None,
@@ -1588,8 +1583,6 @@ class BatchJobsApi:
         :type created_on: datetime
         :param status:
         :type status: BatchJobStatus
-        :param user_id:
-        :type user_id: int
         :param backend_type_id:
         :type backend_type_id: int
         :param backend_id__isnull:
@@ -1640,7 +1633,6 @@ class BatchJobsApi:
             id=id,
             created_on=created_on,
             status=status,
-            user_id=user_id,
             backend_type_id=backend_type_id,
             backend_id__isnull=backend_id__isnull,
             backend_id=backend_id,
@@ -1683,7 +1675,6 @@ class BatchJobsApi:
         id: Optional[StrictInt] = None,
         created_on: Optional[datetime] = None,
         status: Optional[BatchJobStatus] = None,
-        user_id: Optional[StrictInt] = None,
         backend_type_id: Optional[StrictInt] = None,
         backend_id__isnull: Optional[StrictBool] = None,
         backend_id: Optional[StrictInt] = None,
@@ -1725,8 +1716,6 @@ class BatchJobsApi:
         :type created_on: datetime
         :param status:
         :type status: BatchJobStatus
-        :param user_id:
-        :type user_id: int
         :param backend_type_id:
         :type backend_type_id: int
         :param backend_id__isnull:
@@ -1777,7 +1766,6 @@ class BatchJobsApi:
             id=id,
             created_on=created_on,
             status=status,
-            user_id=user_id,
             backend_type_id=backend_type_id,
             backend_id__isnull=backend_id__isnull,
             backend_id=backend_id,
@@ -1815,7 +1803,6 @@ class BatchJobsApi:
         id,
         created_on,
         status,
-        user_id,
         backend_type_id,
         backend_id__isnull,
         backend_id,
@@ -1883,10 +1870,6 @@ class BatchJobsApi:
         if status is not None:
             
             _query_params.append(('status', status.value))
-            
-        if user_id is not None:
-            
-            _query_params.append(('user_id', user_id))
             
         if backend_type_id is not None:
             
