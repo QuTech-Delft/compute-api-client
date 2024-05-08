@@ -7,6 +7,7 @@ Method | HTTP request | Description
 [**create_result_results_post**](ResultsApi.md#create_result_results_post) | **POST** /results | Create result
 [**delete_results_by_job_id_results_job_job_id_delete**](ResultsApi.md#delete_results_by_job_id_results_job_job_id_delete) | **DELETE** /results/job/{job_id} | Delete results by job ID
 [**read_result_results_id_get**](ResultsApi.md#read_result_results_id_get) | **GET** /results/{id} | Retrieve result
+[**read_results_by_algorithm_id_results_algorithm_algorithm_id_get**](ResultsApi.md#read_results_by_algorithm_id_results_algorithm_algorithm_id_get) | **GET** /results/algorithm/{algorithm_id} | Retrieve results by algorithm ID
 [**read_results_by_job_id_results_job_job_id_get**](ResultsApi.md#read_results_by_job_id_results_job_job_id_get) | **GET** /results/job/{job_id} | Retrieve results by job ID
 
 
@@ -239,6 +240,121 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Successful Response |  -  |
+**404** | Not Found |  -  |
+**422** | Validation Error |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **read_results_by_algorithm_id_results_algorithm_algorithm_id_get**
+> List[Result] read_results_by_algorithm_id_results_algorithm_algorithm_id_get(algorithm_id, latest=latest, sort_by=sort_by, page_number=page_number, items_per_page=items_per_page, id=id, created_on=created_on, job_id=job_id, metadata_id=metadata_id, number_of_qubits=number_of_qubits, execution_time_in_seconds=execution_time_in_seconds, shots_requested__isnull=shots_requested__isnull, shots_requested=shots_requested, shots_done__isnull=shots_done__isnull, shots_done=shots_done, results__isnull=results__isnull, body=body)
+
+Retrieve results by algorithm ID
+
+Get results by algorithm ID.
+
+### Example
+
+* OAuth Authentication (user_bearer):
+* Api Key Authentication (user):
+```python
+import time
+import os
+import compute_api_client
+from compute_api_client.models.result import Result
+from compute_api_client.rest import ApiException
+from pprint import pprint
+
+# Defining the host is optional and defaults to http://localhost
+# See configuration.py for a list of all supported configuration parameters.
+configuration = compute_api_client.Configuration(
+    host = "http://localhost"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+configuration.access_token = os.environ["ACCESS_TOKEN"]
+
+# Configure API key authorization: user
+configuration.api_key['user'] = os.environ["API_KEY"]
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['user'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+async with compute_api_client.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = compute_api_client.ResultsApi(api_client)
+    algorithm_id = 56 # int | 
+    latest = True # bool |  (optional)
+    sort_by = 'sort_by_example' # str |  (optional)
+    page_number = 56 # int |  (optional)
+    items_per_page = 56 # int |  (optional)
+    id = 56 # int |  (optional)
+    created_on = '2013-10-20T19:20:30+01:00' # datetime |  (optional)
+    job_id = 56 # int |  (optional)
+    metadata_id = 56 # int |  (optional)
+    number_of_qubits = 56 # int |  (optional)
+    execution_time_in_seconds = 3.4 # float |  (optional)
+    shots_requested__isnull = True # bool |  (optional)
+    shots_requested = 56 # int |  (optional)
+    shots_done__isnull = True # bool |  (optional)
+    shots_done = 56 # int |  (optional)
+    results__isnull = True # bool |  (optional)
+    body = None # object |  (optional)
+
+    try:
+        # Retrieve results by algorithm ID
+        api_response = await api_instance.read_results_by_algorithm_id_results_algorithm_algorithm_id_get(algorithm_id, latest=latest, sort_by=sort_by, page_number=page_number, items_per_page=items_per_page, id=id, created_on=created_on, job_id=job_id, metadata_id=metadata_id, number_of_qubits=number_of_qubits, execution_time_in_seconds=execution_time_in_seconds, shots_requested__isnull=shots_requested__isnull, shots_requested=shots_requested, shots_done__isnull=shots_done__isnull, shots_done=shots_done, results__isnull=results__isnull, body=body)
+        print("The response of ResultsApi->read_results_by_algorithm_id_results_algorithm_algorithm_id_get:\n")
+        pprint(api_response)
+    except Exception as e:
+        print("Exception when calling ResultsApi->read_results_by_algorithm_id_results_algorithm_algorithm_id_get: %s\n" % e)
+```
+
+
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **algorithm_id** | **int**|  | 
+ **latest** | **bool**|  | [optional] 
+ **sort_by** | **str**|  | [optional] 
+ **page_number** | **int**|  | [optional] 
+ **items_per_page** | **int**|  | [optional] 
+ **id** | **int**|  | [optional] 
+ **created_on** | **datetime**|  | [optional] 
+ **job_id** | **int**|  | [optional] 
+ **metadata_id** | **int**|  | [optional] 
+ **number_of_qubits** | **int**|  | [optional] 
+ **execution_time_in_seconds** | **float**|  | [optional] 
+ **shots_requested__isnull** | **bool**|  | [optional] 
+ **shots_requested** | **int**|  | [optional] 
+ **shots_done__isnull** | **bool**|  | [optional] 
+ **shots_done** | **int**|  | [optional] 
+ **results__isnull** | **bool**|  | [optional] 
+ **body** | **object**|  | [optional] 
+
+### Return type
+
+[**List[Result]**](Result.md)
+
+### Authorization
+
+[user_bearer](../README.md#user_bearer), [user](../README.md#user)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 ### HTTP response details

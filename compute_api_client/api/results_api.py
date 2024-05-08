@@ -23,9 +23,11 @@ try:
 except ImportError:
     from typing_extensions import Annotated
 
-from pydantic import StrictInt
+from datetime import datetime
 
-from typing import List
+from pydantic import StrictBool, StrictFloat, StrictInt, StrictStr
+
+from typing import Any, Dict, List, Optional, Union
 
 from compute_api_client.models.result import Result
 from compute_api_client.models.result_in import ResultIn
@@ -839,6 +841,567 @@ class ResultsApi:
         return self.api_client.param_serialize(
             method='GET',
             resource_path='/results/{id}',
+            path_params=_path_params,
+            query_params=_query_params,
+            header_params=_header_params,
+            body=_body_params,
+            post_params=_form_params,
+            files=_files,
+            auth_settings=_auth_settings,
+            collection_formats=_collection_formats,
+            _host=_host,
+            _request_auth=_request_auth
+        )
+
+
+
+
+    @validate_call
+    async def read_results_by_algorithm_id_results_algorithm_algorithm_id_get(
+        self,
+        algorithm_id: StrictInt,
+        latest: Optional[StrictBool] = None,
+        sort_by: Optional[StrictStr] = None,
+        page_number: Optional[StrictInt] = None,
+        items_per_page: Optional[StrictInt] = None,
+        id: Optional[StrictInt] = None,
+        created_on: Optional[datetime] = None,
+        job_id: Optional[StrictInt] = None,
+        metadata_id: Optional[StrictInt] = None,
+        number_of_qubits: Optional[StrictInt] = None,
+        execution_time_in_seconds: Optional[Union[StrictFloat, StrictInt]] = None,
+        shots_requested__isnull: Optional[StrictBool] = None,
+        shots_requested: Optional[StrictInt] = None,
+        shots_done__isnull: Optional[StrictBool] = None,
+        shots_done: Optional[StrictInt] = None,
+        results__isnull: Optional[StrictBool] = None,
+        body: Optional[Dict[str, Any]] = None,
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+    ) -> List[Result]:
+        """Retrieve results by algorithm ID
+
+        Get results by algorithm ID.
+
+        :param algorithm_id: (required)
+        :type algorithm_id: int
+        :param latest:
+        :type latest: bool
+        :param sort_by:
+        :type sort_by: str
+        :param page_number:
+        :type page_number: int
+        :param items_per_page:
+        :type items_per_page: int
+        :param id:
+        :type id: int
+        :param created_on:
+        :type created_on: datetime
+        :param job_id:
+        :type job_id: int
+        :param metadata_id:
+        :type metadata_id: int
+        :param number_of_qubits:
+        :type number_of_qubits: int
+        :param execution_time_in_seconds:
+        :type execution_time_in_seconds: float
+        :param shots_requested__isnull:
+        :type shots_requested__isnull: bool
+        :param shots_requested:
+        :type shots_requested: int
+        :param shots_done__isnull:
+        :type shots_done__isnull: bool
+        :param shots_done:
+        :type shots_done: int
+        :param results__isnull:
+        :type results__isnull: bool
+        :param body:
+        :type body: object
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._read_results_by_algorithm_id_results_algorithm_algorithm_id_get_serialize(
+            algorithm_id=algorithm_id,
+            latest=latest,
+            sort_by=sort_by,
+            page_number=page_number,
+            items_per_page=items_per_page,
+            id=id,
+            created_on=created_on,
+            job_id=job_id,
+            metadata_id=metadata_id,
+            number_of_qubits=number_of_qubits,
+            execution_time_in_seconds=execution_time_in_seconds,
+            shots_requested__isnull=shots_requested__isnull,
+            shots_requested=shots_requested,
+            shots_done__isnull=shots_done__isnull,
+            shots_done=shots_done,
+            results__isnull=results__isnull,
+            body=body,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '200': "List[Result]",
+            '404': "HTTPNotFoundError",
+            '422': "HTTPValidationError"
+            
+        }
+        response_data = await self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        await response_data.read()
+        return self.api_client.response_deserialize(
+            response_data=response_data,
+            response_types_map=_response_types_map,
+        ).data
+
+
+    @validate_call
+    async def read_results_by_algorithm_id_results_algorithm_algorithm_id_get_with_http_info(
+        self,
+        algorithm_id: StrictInt,
+        latest: Optional[StrictBool] = None,
+        sort_by: Optional[StrictStr] = None,
+        page_number: Optional[StrictInt] = None,
+        items_per_page: Optional[StrictInt] = None,
+        id: Optional[StrictInt] = None,
+        created_on: Optional[datetime] = None,
+        job_id: Optional[StrictInt] = None,
+        metadata_id: Optional[StrictInt] = None,
+        number_of_qubits: Optional[StrictInt] = None,
+        execution_time_in_seconds: Optional[Union[StrictFloat, StrictInt]] = None,
+        shots_requested__isnull: Optional[StrictBool] = None,
+        shots_requested: Optional[StrictInt] = None,
+        shots_done__isnull: Optional[StrictBool] = None,
+        shots_done: Optional[StrictInt] = None,
+        results__isnull: Optional[StrictBool] = None,
+        body: Optional[Dict[str, Any]] = None,
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+    ) -> ApiResponse[List[Result]]:
+        """Retrieve results by algorithm ID
+
+        Get results by algorithm ID.
+
+        :param algorithm_id: (required)
+        :type algorithm_id: int
+        :param latest:
+        :type latest: bool
+        :param sort_by:
+        :type sort_by: str
+        :param page_number:
+        :type page_number: int
+        :param items_per_page:
+        :type items_per_page: int
+        :param id:
+        :type id: int
+        :param created_on:
+        :type created_on: datetime
+        :param job_id:
+        :type job_id: int
+        :param metadata_id:
+        :type metadata_id: int
+        :param number_of_qubits:
+        :type number_of_qubits: int
+        :param execution_time_in_seconds:
+        :type execution_time_in_seconds: float
+        :param shots_requested__isnull:
+        :type shots_requested__isnull: bool
+        :param shots_requested:
+        :type shots_requested: int
+        :param shots_done__isnull:
+        :type shots_done__isnull: bool
+        :param shots_done:
+        :type shots_done: int
+        :param results__isnull:
+        :type results__isnull: bool
+        :param body:
+        :type body: object
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._read_results_by_algorithm_id_results_algorithm_algorithm_id_get_serialize(
+            algorithm_id=algorithm_id,
+            latest=latest,
+            sort_by=sort_by,
+            page_number=page_number,
+            items_per_page=items_per_page,
+            id=id,
+            created_on=created_on,
+            job_id=job_id,
+            metadata_id=metadata_id,
+            number_of_qubits=number_of_qubits,
+            execution_time_in_seconds=execution_time_in_seconds,
+            shots_requested__isnull=shots_requested__isnull,
+            shots_requested=shots_requested,
+            shots_done__isnull=shots_done__isnull,
+            shots_done=shots_done,
+            results__isnull=results__isnull,
+            body=body,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '200': "List[Result]",
+            '404': "HTTPNotFoundError",
+            '422': "HTTPValidationError"
+            
+        }
+        response_data = await self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        await response_data.read()
+        return self.api_client.response_deserialize(
+            response_data=response_data,
+            response_types_map=_response_types_map,
+        )
+
+
+    @validate_call
+    async def read_results_by_algorithm_id_results_algorithm_algorithm_id_get_without_preload_content(
+        self,
+        algorithm_id: StrictInt,
+        latest: Optional[StrictBool] = None,
+        sort_by: Optional[StrictStr] = None,
+        page_number: Optional[StrictInt] = None,
+        items_per_page: Optional[StrictInt] = None,
+        id: Optional[StrictInt] = None,
+        created_on: Optional[datetime] = None,
+        job_id: Optional[StrictInt] = None,
+        metadata_id: Optional[StrictInt] = None,
+        number_of_qubits: Optional[StrictInt] = None,
+        execution_time_in_seconds: Optional[Union[StrictFloat, StrictInt]] = None,
+        shots_requested__isnull: Optional[StrictBool] = None,
+        shots_requested: Optional[StrictInt] = None,
+        shots_done__isnull: Optional[StrictBool] = None,
+        shots_done: Optional[StrictInt] = None,
+        results__isnull: Optional[StrictBool] = None,
+        body: Optional[Dict[str, Any]] = None,
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+    ) -> RESTResponseType:
+        """Retrieve results by algorithm ID
+
+        Get results by algorithm ID.
+
+        :param algorithm_id: (required)
+        :type algorithm_id: int
+        :param latest:
+        :type latest: bool
+        :param sort_by:
+        :type sort_by: str
+        :param page_number:
+        :type page_number: int
+        :param items_per_page:
+        :type items_per_page: int
+        :param id:
+        :type id: int
+        :param created_on:
+        :type created_on: datetime
+        :param job_id:
+        :type job_id: int
+        :param metadata_id:
+        :type metadata_id: int
+        :param number_of_qubits:
+        :type number_of_qubits: int
+        :param execution_time_in_seconds:
+        :type execution_time_in_seconds: float
+        :param shots_requested__isnull:
+        :type shots_requested__isnull: bool
+        :param shots_requested:
+        :type shots_requested: int
+        :param shots_done__isnull:
+        :type shots_done__isnull: bool
+        :param shots_done:
+        :type shots_done: int
+        :param results__isnull:
+        :type results__isnull: bool
+        :param body:
+        :type body: object
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._read_results_by_algorithm_id_results_algorithm_algorithm_id_get_serialize(
+            algorithm_id=algorithm_id,
+            latest=latest,
+            sort_by=sort_by,
+            page_number=page_number,
+            items_per_page=items_per_page,
+            id=id,
+            created_on=created_on,
+            job_id=job_id,
+            metadata_id=metadata_id,
+            number_of_qubits=number_of_qubits,
+            execution_time_in_seconds=execution_time_in_seconds,
+            shots_requested__isnull=shots_requested__isnull,
+            shots_requested=shots_requested,
+            shots_done__isnull=shots_done__isnull,
+            shots_done=shots_done,
+            results__isnull=results__isnull,
+            body=body,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '200': "List[Result]",
+            '404': "HTTPNotFoundError",
+            '422': "HTTPValidationError"
+            
+        }
+        response_data = await self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        return response_data.response
+
+
+    def _read_results_by_algorithm_id_results_algorithm_algorithm_id_get_serialize(
+        self,
+        algorithm_id,
+        latest,
+        sort_by,
+        page_number,
+        items_per_page,
+        id,
+        created_on,
+        job_id,
+        metadata_id,
+        number_of_qubits,
+        execution_time_in_seconds,
+        shots_requested__isnull,
+        shots_requested,
+        shots_done__isnull,
+        shots_done,
+        results__isnull,
+        body,
+        _request_auth,
+        _content_type,
+        _headers,
+        _host_index,
+    ) -> Tuple:
+
+        _host = None
+
+        _collection_formats: Dict[str, str] = {
+            
+        }
+
+        _path_params: Dict[str, str] = {}
+        _query_params: List[Tuple[str, str]] = []
+        _header_params: Dict[str, Optional[str]] = _headers or {}
+        _form_params: List[Tuple[str, str]] = []
+        _files: Dict[str, str] = {}
+        _body_params: Optional[bytes] = None
+
+        # process the path parameters
+        if algorithm_id is not None:
+            _path_params['algorithm_id'] = algorithm_id
+        # process the query parameters
+        if latest is not None:
+            
+            _query_params.append(('latest', latest))
+            
+        if sort_by is not None:
+            
+            _query_params.append(('sort_by', sort_by))
+            
+        if page_number is not None:
+            
+            _query_params.append(('page_number', page_number))
+            
+        if items_per_page is not None:
+            
+            _query_params.append(('items_per_page', items_per_page))
+            
+        if id is not None:
+            
+            _query_params.append(('id', id))
+            
+        if created_on is not None:
+            if isinstance(created_on, datetime):
+                _query_params.append(
+                    (
+                        'created_on',
+                        created_on.strftime(
+                            self.api_client.configuration.datetime_format
+                        )
+                    )
+                )
+            else:
+                _query_params.append(('created_on', created_on))
+            
+        if job_id is not None:
+            
+            _query_params.append(('job_id', job_id))
+            
+        if metadata_id is not None:
+            
+            _query_params.append(('metadata_id', metadata_id))
+            
+        if number_of_qubits is not None:
+            
+            _query_params.append(('number_of_qubits', number_of_qubits))
+            
+        if execution_time_in_seconds is not None:
+            
+            _query_params.append(('execution_time_in_seconds', execution_time_in_seconds))
+            
+        if shots_requested__isnull is not None:
+            
+            _query_params.append(('shots_requested__isnull', shots_requested__isnull))
+            
+        if shots_requested is not None:
+            
+            _query_params.append(('shots_requested', shots_requested))
+            
+        if shots_done__isnull is not None:
+            
+            _query_params.append(('shots_done__isnull', shots_done__isnull))
+            
+        if shots_done is not None:
+            
+            _query_params.append(('shots_done', shots_done))
+            
+        if results__isnull is not None:
+            
+            _query_params.append(('results__isnull', results__isnull))
+            
+        # process the header parameters
+        # process the form parameters
+        # process the body parameter
+        if body is not None:
+            _body_params = body
+
+
+        # set the HTTP header `Accept`
+        _header_params['Accept'] = self.api_client.select_header_accept(
+            [
+                'application/json'
+            ]
+        )
+
+        # set the HTTP header `Content-Type`
+        if _content_type:
+            _header_params['Content-Type'] = _content_type
+        else:
+            _default_content_type = (
+                self.api_client.select_header_content_type(
+                    [
+                        'application/json'
+                    ]
+                )
+            )
+            if _default_content_type is not None:
+                _header_params['Content-Type'] = _default_content_type
+
+        # authentication setting
+        _auth_settings: List[str] = [
+            'user_bearer', 
+            'user'
+        ]
+
+        return self.api_client.param_serialize(
+            method='GET',
+            resource_path='/results/algorithm/{algorithm_id}',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,

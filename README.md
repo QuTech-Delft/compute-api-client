@@ -137,6 +137,7 @@ Class | Method | HTTP request | Description
 *ResultsApi* | [**create_result_results_post**](compute_api_client/docs/ResultsApi.md#create_result_results_post) | **POST** /results | Create result
 *ResultsApi* | [**delete_results_by_job_id_results_job_job_id_delete**](compute_api_client/docs/ResultsApi.md#delete_results_by_job_id_results_job_job_id_delete) | **DELETE** /results/job/{job_id} | Delete results by job ID
 *ResultsApi* | [**read_result_results_id_get**](compute_api_client/docs/ResultsApi.md#read_result_results_id_get) | **GET** /results/{id} | Retrieve result
+*ResultsApi* | [**read_results_by_algorithm_id_results_algorithm_algorithm_id_get**](compute_api_client/docs/ResultsApi.md#read_results_by_algorithm_id_results_algorithm_algorithm_id_get) | **GET** /results/algorithm/{algorithm_id} | Retrieve results by algorithm ID
 *ResultsApi* | [**read_results_by_job_id_results_job_job_id_get**](compute_api_client/docs/ResultsApi.md#read_results_by_job_id_results_job_job_id_get) | **GET** /results/job/{job_id} | Retrieve results by job ID
 *TeamsApi* | [**read_team_teams_id_get**](compute_api_client/docs/TeamsApi.md#read_team_teams_id_get) | **GET** /teams/{id} | Retrieve teams
 *TeamsApi* | [**read_teams_teams_get**](compute_api_client/docs/TeamsApi.md#read_teams_teams_get) | **GET** /teams/ | List teams
