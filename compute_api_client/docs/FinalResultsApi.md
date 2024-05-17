@@ -20,7 +20,6 @@ Create new final result.
 
 * OAuth Authentication (user_bearer):
 * Api Key Authentication (backend):
-* Api Key Authentication (user):
 ```python
 import time
 import os
@@ -48,12 +47,6 @@ configuration.api_key['backend'] = os.environ["API_KEY"]
 
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['backend'] = 'Bearer'
-
-# Configure API key authorization: user
-configuration.api_key['user'] = os.environ["API_KEY"]
-
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['user'] = 'Bearer'
 
 # Enter a context with an instance of the API client
 async with compute_api_client.ApiClient(configuration) as api_client:
@@ -84,7 +77,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[user_bearer](../README.md#user_bearer), [backend](../README.md#backend), [user](../README.md#user)
+[user_bearer](../README.md#user_bearer), [backend](../README.md#backend)
 
 ### HTTP request headers
 
@@ -109,7 +102,6 @@ Get final result by job ID.
 ### Example
 
 * OAuth Authentication (user_bearer):
-* Api Key Authentication (user):
 ```python
 import time
 import os
@@ -130,12 +122,6 @@ configuration = compute_api_client.Configuration(
 # satisfies your auth use case.
 
 configuration.access_token = os.environ["ACCESS_TOKEN"]
-
-# Configure API key authorization: user
-configuration.api_key['user'] = os.environ["API_KEY"]
-
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['user'] = 'Bearer'
 
 # Enter a context with an instance of the API client
 async with compute_api_client.ApiClient(configuration) as api_client:
@@ -166,7 +152,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[user_bearer](../README.md#user_bearer), [user](../README.md#user)
+[user_bearer](../README.md#user_bearer)
 
 ### HTTP request headers
 
@@ -191,7 +177,6 @@ Get final result by ID.
 ### Example
 
 * OAuth Authentication (user_bearer):
-* Api Key Authentication (user):
 ```python
 import time
 import os
@@ -212,12 +197,6 @@ configuration = compute_api_client.Configuration(
 # satisfies your auth use case.
 
 configuration.access_token = os.environ["ACCESS_TOKEN"]
-
-# Configure API key authorization: user
-configuration.api_key['user'] = os.environ["API_KEY"]
-
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['user'] = 'Bearer'
 
 # Enter a context with an instance of the API client
 async with compute_api_client.ApiClient(configuration) as api_client:
@@ -248,7 +227,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[user_bearer](../README.md#user_bearer), [user](../README.md#user)
+[user_bearer](../README.md#user_bearer)
 
 ### HTTP request headers
 

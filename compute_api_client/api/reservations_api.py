@@ -307,8 +307,7 @@ class ReservationsApi:
 
         # authentication setting
         _auth_settings: List[str] = [
-            'user_bearer', 
-            'user'
+            'user_bearer'
         ]
 
         return self.api_client.param_serialize(
@@ -576,8 +575,7 @@ class ReservationsApi:
 
         # authentication setting
         _auth_settings: List[str] = [
-            'user_bearer', 
-            'user'
+            'user_bearer'
         ]
 
         return self.api_client.param_serialize(
@@ -1049,8 +1047,7 @@ class ReservationsApi:
 
         # authentication setting
         _auth_settings: List[str] = [
-            'user_bearer', 
-            'user'
+            'user_bearer'
         ]
 
         return self.api_client.param_serialize(
@@ -1318,8 +1315,7 @@ class ReservationsApi:
 
         # authentication setting
         _auth_settings: List[str] = [
-            'user_bearer', 
-            'user'
+            'user_bearer'
         ]
 
         return self.api_client.param_serialize(

@@ -373,15 +373,6 @@ conf = compute_api_client.Configuration(
         :return: The Auth Settings information dict.
         """
         auth = {}
-        if 'user' in self.api_key:
-            auth['user'] = {
-                'type': 'api_key',
-                'in': 'header',
-                'key': 'X-userid',
-                'value': self.get_api_key_with_prefix(
-                    'user',
-                ),
-            }
         if self.access_token is not None:
             auth['user_bearer'] = {
                 'type': 'oauth2',

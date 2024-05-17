@@ -47,12 +47,6 @@ configuration = compute_api_client.Configuration(
 
 configuration.access_token = os.environ["ACCESS_TOKEN"]
 
-# Configure API key authorization: user
-configuration.api_key['user'] = os.environ["API_KEY"]
-
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['user'] = 'Bearer'
-
 
 # Enter a context with an instance of the API client
 async with compute_api_client.ApiClient(configuration) as api_client:
@@ -206,13 +200,6 @@ Class | Method | HTTP request | Description
 
 
 Authentication schemes defined for the API:
-<a id="user"></a>
-### user
-
-- **Type**: API key
-- **API key parameter name**: X-userid
-- **Location**: HTTP header
-
 <a id="user_bearer"></a>
 ### user_bearer
 
