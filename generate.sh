@@ -1,5 +1,19 @@
 #!/bin/bash
 
+# Script for generating the API client library and accompanying docs for the Compute Job Manager API. 
+#
+# Usage:
+# Requires the openapi-generator-cli, which will be installed in the dev-container by dev-install.
+# Make sure the Compute Job Manager is running (OpenAPI specs should be available on port 8000) and run the script.
+# The script will prompt you to choose a new version number for the library.
+#
+# Examples
+# Generate client and docs:
+# $ ./generate.sh
+# Check for changes in client and docs:
+# $ ./generate.sh check
+
+
 set -e
 
 check=$1
@@ -15,8 +29,10 @@ openapi-generator-cli generate \
     mv compute_api_client_README.md README.md
 
 if [ "$check" = "check" ]; then
+    # Allows CI to verify the client is up to date
     git diff --quiet HEAD
 else
+    # Update documentation
     curl -o ../../../../docs/design/code/apps/compute_job_manager_openapi.json http://localhost:8000/openapi.json
 
     rm -rf ../../../../docs/design/code/libs/compute_api_client
