@@ -17,15 +17,15 @@ openapi-generator-cli generate \
 if [ "$check" = "check" ]; then
     git diff --quiet HEAD
 else
-    curl -o ../../../docs/design/code/apps/compute_job_manager_openapi.json http://localhost:8000/openapi.json
+    curl -o ../../../../docs/design/code/apps/compute_job_manager_openapi.json http://localhost:8000/openapi.json
 
-    rm -rf ../../../docs/design/code/libs/compute_api_client
-    mkdir ../../../docs/design/code/libs/compute_api_client
-    cp README.md ../../../docs/design/code/libs/compute_api_client/index.md
-    cp compute_api_client/docs/* ../../../docs/design/code/libs/compute_api_client/
+    rm -rf ../../../../docs/design/code/libs/compute_api_client
+    mkdir ../../../../docs/design/code/libs/compute_api_client
+    cp README.md ../../../../docs/design/code/libs/compute_api_client/index.md
+    cp compute_api_client/docs/* ../../../../docs/design/code/libs/compute_api_client/
 
-    sed -i -e 's|compute_api_client/docs/||g' ../../../docs/design/code/libs/compute_api_client/index.md
-    find ../../../docs/design/code/libs/compute_api_client -name "*.md" -exec sed -i -e 's|../README|index|g' {} \;
+    sed -i -e 's|compute_api_client/docs/||g' ../../../../docs/design/code/libs/compute_api_client/index.md
+    find ../../../../docs/design/code/libs/compute_api_client -name "*.md" -exec sed -i -e 's|../README|index|g' {} \;
 
     # Update the version of the poetry project
     git_tag=$(git describe --tags --abbrev=0)
@@ -40,7 +40,7 @@ else
     sed -i -e "s/^version =.*/version = \"${version}\"/" pyproject.toml
 
     echo "Updating dispatcher dependencies"
-    cd ../dispatcher/
+    cd ../../dispatcher/
     poetry lock --no-update
 
     echo "Updating integration test dependencies"
