@@ -872,7 +872,6 @@ class AlgorithmsApi:
         shared: Optional[ShareType] = None,
         link__isnull: Optional[StrictBool] = None,
         link: Optional[StrictStr] = None,
-        name__isnull: Optional[StrictBool] = None,
         name: Optional[StrictStr] = None,
         _request_timeout: Union[
             None,
@@ -913,8 +912,6 @@ class AlgorithmsApi:
         :type link__isnull: bool
         :param link:
         :type link: str
-        :param name__isnull:
-        :type name__isnull: bool
         :param name:
         :type name: str
         :param _request_timeout: timeout setting for this request. If one
@@ -951,7 +948,6 @@ class AlgorithmsApi:
             shared=shared,
             link__isnull=link__isnull,
             link=link,
-            name__isnull=name__isnull,
             name=name,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -989,7 +985,6 @@ class AlgorithmsApi:
         shared: Optional[ShareType] = None,
         link__isnull: Optional[StrictBool] = None,
         link: Optional[StrictStr] = None,
-        name__isnull: Optional[StrictBool] = None,
         name: Optional[StrictStr] = None,
         _request_timeout: Union[
             None,
@@ -1030,8 +1025,6 @@ class AlgorithmsApi:
         :type link__isnull: bool
         :param link:
         :type link: str
-        :param name__isnull:
-        :type name__isnull: bool
         :param name:
         :type name: str
         :param _request_timeout: timeout setting for this request. If one
@@ -1068,7 +1061,6 @@ class AlgorithmsApi:
             shared=shared,
             link__isnull=link__isnull,
             link=link,
-            name__isnull=name__isnull,
             name=name,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -1106,7 +1098,6 @@ class AlgorithmsApi:
         shared: Optional[ShareType] = None,
         link__isnull: Optional[StrictBool] = None,
         link: Optional[StrictStr] = None,
-        name__isnull: Optional[StrictBool] = None,
         name: Optional[StrictStr] = None,
         _request_timeout: Union[
             None,
@@ -1147,8 +1138,6 @@ class AlgorithmsApi:
         :type link__isnull: bool
         :param link:
         :type link: str
-        :param name__isnull:
-        :type name__isnull: bool
         :param name:
         :type name: str
         :param _request_timeout: timeout setting for this request. If one
@@ -1185,7 +1174,6 @@ class AlgorithmsApi:
             shared=shared,
             link__isnull=link__isnull,
             link=link,
-            name__isnull=name__isnull,
             name=name,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -1218,7 +1206,6 @@ class AlgorithmsApi:
         shared,
         link__isnull,
         link,
-        name__isnull,
         name,
         _request_auth,
         _content_type,
@@ -1284,10 +1271,6 @@ class AlgorithmsApi:
         if link is not None:
             
             _query_params.append(('link', link))
-            
-        if name__isnull is not None:
-            
-            _query_params.append(('name__isnull', name__isnull))
             
         if name is not None:
             

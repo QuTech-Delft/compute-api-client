@@ -244,7 +244,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **read_algorithms_algorithms_get**
-> List[Algorithm] read_algorithms_algorithms_get(search=search, latest=latest, sort_by=sort_by, page_number=page_number, items_per_page=items_per_page, id=id, project_id=project_id, type=type, shared=shared, link__isnull=link__isnull, link=link, name__isnull=name__isnull, name=name)
+> List[Algorithm] read_algorithms_algorithms_get(search=search, latest=latest, sort_by=sort_by, page_number=page_number, items_per_page=items_per_page, id=id, project_id=project_id, type=type, shared=shared, link__isnull=link__isnull, link=link, name=name)
 
 List algorithms
 
@@ -291,12 +291,11 @@ async with compute_api_client.ApiClient(configuration) as api_client:
     shared = compute_api_client.ShareType() # ShareType |  (optional)
     link__isnull = True # bool |  (optional)
     link = 'link_example' # str |  (optional)
-    name__isnull = True # bool |  (optional)
     name = 'name_example' # str |  (optional)
 
     try:
         # List algorithms
-        api_response = await api_instance.read_algorithms_algorithms_get(search=search, latest=latest, sort_by=sort_by, page_number=page_number, items_per_page=items_per_page, id=id, project_id=project_id, type=type, shared=shared, link__isnull=link__isnull, link=link, name__isnull=name__isnull, name=name)
+        api_response = await api_instance.read_algorithms_algorithms_get(search=search, latest=latest, sort_by=sort_by, page_number=page_number, items_per_page=items_per_page, id=id, project_id=project_id, type=type, shared=shared, link__isnull=link__isnull, link=link, name=name)
         print("The response of AlgorithmsApi->read_algorithms_algorithms_get:\n")
         pprint(api_response)
     except Exception as e:
@@ -320,7 +319,6 @@ Name | Type | Description  | Notes
  **shared** | [**ShareType**](.md)|  | [optional] 
  **link__isnull** | **bool**|  | [optional] 
  **link** | **str**|  | [optional] 
- **name__isnull** | **bool**|  | [optional] 
  **name** | **str**|  | [optional] 
 
 ### Return type

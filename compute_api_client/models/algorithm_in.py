@@ -37,7 +37,7 @@ class AlgorithmIn(BaseModel):
     type: AlgorithmType
     shared: ShareType
     link: Optional[Annotated[str, Field(strict=True, max_length=255)]] = None
-    name: Optional[Annotated[str, Field(strict=True, max_length=255)]] = None
+    name: Annotated[str, Field(strict=True, max_length=255)]
     __properties: ClassVar[List[str]] = ["project_id", "type", "shared", "link", "name"]
 
     model_config = {
@@ -80,11 +80,6 @@ class AlgorithmIn(BaseModel):
         # and model_fields_set contains the field
         if self.link is None and "link" in self.model_fields_set:
             _dict['link'] = None
-
-        # set to None if name (nullable) is None
-        # and model_fields_set contains the field
-        if self.name is None and "name" in self.model_fields_set:
-            _dict['name'] = None
 
         return _dict
 
