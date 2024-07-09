@@ -8,7 +8,6 @@ Name | Type | Description | Notes
 **created_on** | **datetime** |  | 
 **job_id** | **int** |  | 
 **metadata_id** | **int** |  | 
-**number_of_qubits** | **int** |  | 
 **execution_time_in_seconds** | **float** |  | 
 **shots_requested** | **int** |  | 
 **shots_done** | **int** |  | 

@@ -867,7 +867,6 @@ class ResultsApi:
         created_on: Optional[datetime] = None,
         job_id: Optional[StrictInt] = None,
         metadata_id: Optional[StrictInt] = None,
-        number_of_qubits: Optional[StrictInt] = None,
         execution_time_in_seconds: Optional[Union[StrictFloat, StrictInt]] = None,
         shots_requested__isnull: Optional[StrictBool] = None,
         shots_requested: Optional[StrictInt] = None,
@@ -910,8 +909,6 @@ class ResultsApi:
         :type job_id: int
         :param metadata_id:
         :type metadata_id: int
-        :param number_of_qubits:
-        :type number_of_qubits: int
         :param execution_time_in_seconds:
         :type execution_time_in_seconds: float
         :param shots_requested__isnull:
@@ -958,7 +955,6 @@ class ResultsApi:
             created_on=created_on,
             job_id=job_id,
             metadata_id=metadata_id,
-            number_of_qubits=number_of_qubits,
             execution_time_in_seconds=execution_time_in_seconds,
             shots_requested__isnull=shots_requested__isnull,
             shots_requested=shots_requested,
@@ -1001,7 +997,6 @@ class ResultsApi:
         created_on: Optional[datetime] = None,
         job_id: Optional[StrictInt] = None,
         metadata_id: Optional[StrictInt] = None,
-        number_of_qubits: Optional[StrictInt] = None,
         execution_time_in_seconds: Optional[Union[StrictFloat, StrictInt]] = None,
         shots_requested__isnull: Optional[StrictBool] = None,
         shots_requested: Optional[StrictInt] = None,
@@ -1044,8 +1039,6 @@ class ResultsApi:
         :type job_id: int
         :param metadata_id:
         :type metadata_id: int
-        :param number_of_qubits:
-        :type number_of_qubits: int
         :param execution_time_in_seconds:
         :type execution_time_in_seconds: float
         :param shots_requested__isnull:
@@ -1092,7 +1085,6 @@ class ResultsApi:
             created_on=created_on,
             job_id=job_id,
             metadata_id=metadata_id,
-            number_of_qubits=number_of_qubits,
             execution_time_in_seconds=execution_time_in_seconds,
             shots_requested__isnull=shots_requested__isnull,
             shots_requested=shots_requested,
@@ -1135,7 +1127,6 @@ class ResultsApi:
         created_on: Optional[datetime] = None,
         job_id: Optional[StrictInt] = None,
         metadata_id: Optional[StrictInt] = None,
-        number_of_qubits: Optional[StrictInt] = None,
         execution_time_in_seconds: Optional[Union[StrictFloat, StrictInt]] = None,
         shots_requested__isnull: Optional[StrictBool] = None,
         shots_requested: Optional[StrictInt] = None,
@@ -1178,8 +1169,6 @@ class ResultsApi:
         :type job_id: int
         :param metadata_id:
         :type metadata_id: int
-        :param number_of_qubits:
-        :type number_of_qubits: int
         :param execution_time_in_seconds:
         :type execution_time_in_seconds: float
         :param shots_requested__isnull:
@@ -1226,7 +1215,6 @@ class ResultsApi:
             created_on=created_on,
             job_id=job_id,
             metadata_id=metadata_id,
-            number_of_qubits=number_of_qubits,
             execution_time_in_seconds=execution_time_in_seconds,
             shots_requested__isnull=shots_requested__isnull,
             shots_requested=shots_requested,
@@ -1264,7 +1252,6 @@ class ResultsApi:
         created_on,
         job_id,
         metadata_id,
-        number_of_qubits,
         execution_time_in_seconds,
         shots_requested__isnull,
         shots_requested,
@@ -1335,10 +1322,6 @@ class ResultsApi:
         if metadata_id is not None:
             
             _query_params.append(('metadata_id', metadata_id))
-            
-        if number_of_qubits is not None:
-            
-            _query_params.append(('number_of_qubits', number_of_qubits))
             
         if execution_time_in_seconds is not None:
             

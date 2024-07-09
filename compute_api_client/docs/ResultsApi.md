@@ -245,7 +245,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **read_results_by_algorithm_id_results_algorithm_algorithm_id_get**
-> List[Result] read_results_by_algorithm_id_results_algorithm_algorithm_id_get(algorithm_id, latest=latest, sort_by=sort_by, page_number=page_number, items_per_page=items_per_page, id=id, created_on=created_on, job_id=job_id, metadata_id=metadata_id, number_of_qubits=number_of_qubits, execution_time_in_seconds=execution_time_in_seconds, shots_requested__isnull=shots_requested__isnull, shots_requested=shots_requested, shots_done__isnull=shots_done__isnull, shots_done=shots_done, results__isnull=results__isnull, body=body)
+> List[Result] read_results_by_algorithm_id_results_algorithm_algorithm_id_get(algorithm_id, latest=latest, sort_by=sort_by, page_number=page_number, items_per_page=items_per_page, id=id, created_on=created_on, job_id=job_id, metadata_id=metadata_id, execution_time_in_seconds=execution_time_in_seconds, shots_requested__isnull=shots_requested__isnull, shots_requested=shots_requested, shots_done__isnull=shots_done__isnull, shots_done=shots_done, results__isnull=results__isnull, body=body)
 
 Retrieve results by algorithm ID
 
@@ -288,7 +288,6 @@ async with compute_api_client.ApiClient(configuration) as api_client:
     created_on = '2013-10-20T19:20:30+01:00' # datetime |  (optional)
     job_id = 56 # int |  (optional)
     metadata_id = 56 # int |  (optional)
-    number_of_qubits = 56 # int |  (optional)
     execution_time_in_seconds = 3.4 # float |  (optional)
     shots_requested__isnull = True # bool |  (optional)
     shots_requested = 56 # int |  (optional)
@@ -299,7 +298,7 @@ async with compute_api_client.ApiClient(configuration) as api_client:
 
     try:
         # Retrieve results by algorithm ID
-        api_response = await api_instance.read_results_by_algorithm_id_results_algorithm_algorithm_id_get(algorithm_id, latest=latest, sort_by=sort_by, page_number=page_number, items_per_page=items_per_page, id=id, created_on=created_on, job_id=job_id, metadata_id=metadata_id, number_of_qubits=number_of_qubits, execution_time_in_seconds=execution_time_in_seconds, shots_requested__isnull=shots_requested__isnull, shots_requested=shots_requested, shots_done__isnull=shots_done__isnull, shots_done=shots_done, results__isnull=results__isnull, body=body)
+        api_response = await api_instance.read_results_by_algorithm_id_results_algorithm_algorithm_id_get(algorithm_id, latest=latest, sort_by=sort_by, page_number=page_number, items_per_page=items_per_page, id=id, created_on=created_on, job_id=job_id, metadata_id=metadata_id, execution_time_in_seconds=execution_time_in_seconds, shots_requested__isnull=shots_requested__isnull, shots_requested=shots_requested, shots_done__isnull=shots_done__isnull, shots_done=shots_done, results__isnull=results__isnull, body=body)
         print("The response of ResultsApi->read_results_by_algorithm_id_results_algorithm_algorithm_id_get:\n")
         pprint(api_response)
     except Exception as e:
@@ -321,7 +320,6 @@ Name | Type | Description  | Notes
  **created_on** | **datetime**|  | [optional] 
  **job_id** | **int**|  | [optional] 
  **metadata_id** | **int**|  | [optional] 
- **number_of_qubits** | **int**|  | [optional] 
  **execution_time_in_seconds** | **float**|  | [optional] 
  **shots_requested__isnull** | **bool**|  | [optional] 
  **shots_requested** | **int**|  | [optional] 

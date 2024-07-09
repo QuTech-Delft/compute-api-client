@@ -20,8 +20,6 @@ import json
 from datetime import datetime
 from typing import Any, ClassVar, Dict, List, Optional, Union
 from pydantic import BaseModel, StrictFloat, StrictInt
-from pydantic import Field
-from typing_extensions import Annotated
 try:
     from typing import Self
 except ImportError:
@@ -35,12 +33,11 @@ class Result(BaseModel):
     created_on: datetime
     job_id: StrictInt
     metadata_id: StrictInt
-    number_of_qubits: Annotated[int, Field(strict=True, ge=-32768)]
     execution_time_in_seconds: Union[StrictFloat, StrictInt]
     shots_requested: Optional[StrictInt]
     shots_done: Optional[StrictInt]
     results: Optional[Union[str, Any]]
-    __properties: ClassVar[List[str]] = ["id", "created_on", "job_id", "metadata_id", "number_of_qubits", "execution_time_in_seconds", "shots_requested", "shots_done", "results"]
+    __properties: ClassVar[List[str]] = ["id", "created_on", "job_id", "metadata_id", "execution_time_in_seconds", "shots_requested", "shots_done", "results"]
 
     model_config = {
         "populate_by_name": True,
@@ -109,7 +106,6 @@ class Result(BaseModel):
             "created_on": obj.get("created_on"),
             "job_id": obj.get("job_id"),
             "metadata_id": obj.get("metadata_id"),
-            "number_of_qubits": obj.get("number_of_qubits"),
             "execution_time_in_seconds": obj.get("execution_time_in_seconds"),
             "shots_requested": obj.get("shots_requested"),
             "shots_done": obj.get("shots_done"),

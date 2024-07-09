@@ -6,7 +6,6 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **job_id** | **int** |  | 
 **metadata_id** | **int** |  | [optional] 
-**number_of_qubits** | **int** |  | 
 **execution_time_in_seconds** | **float** |  | 
 **shots_requested** | **int** |  | [optional] 
 **shots_done** | **int** |  | [optional] 
