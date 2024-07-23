@@ -236,7 +236,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **read_members_members_get**
-> PageMember read_members_members_get(id=id, team_id=team_id, role=role, is_active=is_active, sort_by=sort_by, latest=latest, page=page, size=size)
+> List[Member] read_members_members_get(latest=latest, sort_by=sort_by, page_number=page_number, items_per_page=items_per_page, id=id, team_id=team_id, role=role, is_active=is_active)
 
 List members
 
@@ -249,7 +249,7 @@ Read members.
 import time
 import os
 import compute_api_client
-from compute_api_client.models.page_member import PageMember
+from compute_api_client.models.member import Member
 from compute_api_client.models.role import Role
 from compute_api_client.rest import ApiException
 from pprint import pprint
@@ -271,18 +271,18 @@ configuration.access_token = os.environ["ACCESS_TOKEN"]
 async with compute_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = compute_api_client.MembersApi(api_client)
+    latest = True # bool |  (optional)
+    sort_by = 'sort_by_example' # str |  (optional)
+    page_number = 56 # int |  (optional)
+    items_per_page = 56 # int |  (optional)
     id = 56 # int |  (optional)
     team_id = 56 # int |  (optional)
     role = compute_api_client.Role() # Role |  (optional)
     is_active = True # bool |  (optional)
-    sort_by = 'sort_by_example' # str | The field name to sort on. Prefix with '-' for descending order. E.g., '-created_on'. (optional)
-    latest = True # bool | If True gets the most recently created object. (optional)
-    page = 1 # int | Page number (optional) (default to 1)
-    size = 50 # int | Page size (optional) (default to 50)
 
     try:
         # List members
-        api_response = await api_instance.read_members_members_get(id=id, team_id=team_id, role=role, is_active=is_active, sort_by=sort_by, latest=latest, page=page, size=size)
+        api_response = await api_instance.read_members_members_get(latest=latest, sort_by=sort_by, page_number=page_number, items_per_page=items_per_page, id=id, team_id=team_id, role=role, is_active=is_active)
         print("The response of MembersApi->read_members_members_get:\n")
         pprint(api_response)
     except Exception as e:
@@ -295,18 +295,18 @@ async with compute_api_client.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **latest** | **bool**|  | [optional] 
+ **sort_by** | **str**|  | [optional] 
+ **page_number** | **int**|  | [optional] 
+ **items_per_page** | **int**|  | [optional] 
  **id** | **int**|  | [optional] 
  **team_id** | **int**|  | [optional] 
  **role** | [**Role**](.md)|  | [optional] 
  **is_active** | **bool**|  | [optional] 
- **sort_by** | **str**| The field name to sort on. Prefix with &#39;-&#39; for descending order. E.g., &#39;-created_on&#39;. | [optional] 
- **latest** | **bool**| If True gets the most recently created object. | [optional] 
- **page** | **int**| Page number | [optional] [default to 1]
- **size** | **int**| Page size | [optional] [default to 50]
 
 ### Return type
 
-[**PageMember**](PageMember.md)
+[**List[Member]**](Member.md)
 
 ### Authorization
 

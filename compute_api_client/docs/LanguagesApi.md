@@ -85,7 +85,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **read_languages_languages_get**
-> PageLanguage read_languages_languages_get(q=q, id=id, name=name, version=version, sort_by=sort_by, latest=latest, page=page, size=size)
+> List[Language] read_languages_languages_get(q=q, latest=latest, sort_by=sort_by, page_number=page_number, items_per_page=items_per_page, id=id, name=name, version=version)
 
 List languages
 
@@ -98,7 +98,7 @@ List languages.
 import time
 import os
 import compute_api_client
-from compute_api_client.models.page_language import PageLanguage
+from compute_api_client.models.language import Language
 from compute_api_client.rest import ApiException
 from pprint import pprint
 
@@ -120,17 +120,17 @@ async with compute_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = compute_api_client.LanguagesApi(api_client)
     q = 'q_example' # str |  (optional)
+    latest = True # bool |  (optional)
+    sort_by = 'sort_by_example' # str |  (optional)
+    page_number = 56 # int |  (optional)
+    items_per_page = 56 # int |  (optional)
     id = 56 # int |  (optional)
     name = 'name_example' # str |  (optional)
     version = 'version_example' # str |  (optional)
-    sort_by = 'sort_by_example' # str | The field name to sort on. Prefix with '-' for descending order. E.g., '-created_on'. (optional)
-    latest = True # bool | If True gets the most recently created object. (optional)
-    page = 1 # int | Page number (optional) (default to 1)
-    size = 50 # int | Page size (optional) (default to 50)
 
     try:
         # List languages
-        api_response = await api_instance.read_languages_languages_get(q=q, id=id, name=name, version=version, sort_by=sort_by, latest=latest, page=page, size=size)
+        api_response = await api_instance.read_languages_languages_get(q=q, latest=latest, sort_by=sort_by, page_number=page_number, items_per_page=items_per_page, id=id, name=name, version=version)
         print("The response of LanguagesApi->read_languages_languages_get:\n")
         pprint(api_response)
     except Exception as e:
@@ -144,17 +144,17 @@ async with compute_api_client.ApiClient(configuration) as api_client:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **q** | **str**|  | [optional] 
+ **latest** | **bool**|  | [optional] 
+ **sort_by** | **str**|  | [optional] 
+ **page_number** | **int**|  | [optional] 
+ **items_per_page** | **int**|  | [optional] 
  **id** | **int**|  | [optional] 
  **name** | **str**|  | [optional] 
  **version** | **str**|  | [optional] 
- **sort_by** | **str**| The field name to sort on. Prefix with &#39;-&#39; for descending order. E.g., &#39;-created_on&#39;. | [optional] 
- **latest** | **bool**| If True gets the most recently created object. | [optional] 
- **page** | **int**| Page number | [optional] [default to 1]
- **size** | **int**| Page size | [optional] [default to 50]
 
 ### Return type
 
-[**PageLanguage**](PageLanguage.md)
+[**List[Language]**](Language.md)
 
 ### Authorization
 

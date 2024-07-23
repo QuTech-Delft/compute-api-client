@@ -85,7 +85,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **read_backend_types_backend_types_get**
-> PageBackendType read_backend_types_backend_types_get(id=id, name=name, infrastructure=infrastructure, description=description, image_id=image_id, is_hardware=is_hardware, status=status, default_number_of_shots=default_number_of_shots, max_number_of_shots=max_number_of_shots, sort_by=sort_by, latest=latest, page=page, size=size)
+> List[BackendType] read_backend_types_backend_types_get(latest=latest, sort_by=sort_by, page_number=page_number, items_per_page=items_per_page, id=id, name=name, infrastructure=infrastructure, description=description, image_id=image_id, is_hardware=is_hardware, status=status, default_number_of_shots=default_number_of_shots, max_number_of_shots=max_number_of_shots)
 
 List backend types
 
@@ -99,7 +99,7 @@ import time
 import os
 import compute_api_client
 from compute_api_client.models.backend_status import BackendStatus
-from compute_api_client.models.page_backend_type import PageBackendType
+from compute_api_client.models.backend_type import BackendType
 from compute_api_client.rest import ApiException
 from pprint import pprint
 
@@ -120,6 +120,10 @@ configuration.access_token = os.environ["ACCESS_TOKEN"]
 async with compute_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = compute_api_client.BackendTypesApi(api_client)
+    latest = True # bool |  (optional)
+    sort_by = 'sort_by_example' # str |  (optional)
+    page_number = 56 # int |  (optional)
+    items_per_page = 56 # int |  (optional)
     id = 56 # int |  (optional)
     name = 'name_example' # str |  (optional)
     infrastructure = 'infrastructure_example' # str |  (optional)
@@ -129,14 +133,10 @@ async with compute_api_client.ApiClient(configuration) as api_client:
     status = compute_api_client.BackendStatus() # BackendStatus |  (optional)
     default_number_of_shots = 56 # int |  (optional)
     max_number_of_shots = 56 # int |  (optional)
-    sort_by = 'sort_by_example' # str | The field name to sort on. Prefix with '-' for descending order. E.g., '-created_on'. (optional)
-    latest = True # bool | If True gets the most recently created object. (optional)
-    page = 1 # int | Page number (optional) (default to 1)
-    size = 50 # int | Page size (optional) (default to 50)
 
     try:
         # List backend types
-        api_response = await api_instance.read_backend_types_backend_types_get(id=id, name=name, infrastructure=infrastructure, description=description, image_id=image_id, is_hardware=is_hardware, status=status, default_number_of_shots=default_number_of_shots, max_number_of_shots=max_number_of_shots, sort_by=sort_by, latest=latest, page=page, size=size)
+        api_response = await api_instance.read_backend_types_backend_types_get(latest=latest, sort_by=sort_by, page_number=page_number, items_per_page=items_per_page, id=id, name=name, infrastructure=infrastructure, description=description, image_id=image_id, is_hardware=is_hardware, status=status, default_number_of_shots=default_number_of_shots, max_number_of_shots=max_number_of_shots)
         print("The response of BackendTypesApi->read_backend_types_backend_types_get:\n")
         pprint(api_response)
     except Exception as e:
@@ -149,6 +149,10 @@ async with compute_api_client.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **latest** | **bool**|  | [optional] 
+ **sort_by** | **str**|  | [optional] 
+ **page_number** | **int**|  | [optional] 
+ **items_per_page** | **int**|  | [optional] 
  **id** | **int**|  | [optional] 
  **name** | **str**|  | [optional] 
  **infrastructure** | **str**|  | [optional] 
@@ -158,14 +162,10 @@ Name | Type | Description  | Notes
  **status** | [**BackendStatus**](.md)|  | [optional] 
  **default_number_of_shots** | **int**|  | [optional] 
  **max_number_of_shots** | **int**|  | [optional] 
- **sort_by** | **str**| The field name to sort on. Prefix with &#39;-&#39; for descending order. E.g., &#39;-created_on&#39;. | [optional] 
- **latest** | **bool**| If True gets the most recently created object. | [optional] 
- **page** | **int**| Page number | [optional] [default to 1]
- **size** | **int**| Page size | [optional] [default to 50]
 
 ### Return type
 
-[**PageBackendType**](PageBackendType.md)
+[**List[BackendType]**](BackendType.md)
 
 ### Authorization
 

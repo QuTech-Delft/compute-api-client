@@ -245,7 +245,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **read_results_by_algorithm_id_results_algorithm_algorithm_id_get**
-> PageResult read_results_by_algorithm_id_results_algorithm_algorithm_id_get(algorithm_id, id=id, created_on=created_on, job_id=job_id, metadata_id=metadata_id, execution_time_in_seconds=execution_time_in_seconds, shots_requested__isnull=shots_requested__isnull, shots_requested=shots_requested, shots_done__isnull=shots_done__isnull, shots_done=shots_done, results__isnull=results__isnull, sort_by=sort_by, latest=latest, page=page, size=size, body=body)
+> List[Result] read_results_by_algorithm_id_results_algorithm_algorithm_id_get(algorithm_id, latest=latest, sort_by=sort_by, page_number=page_number, items_per_page=items_per_page, id=id, created_on=created_on, job_id=job_id, metadata_id=metadata_id, execution_time_in_seconds=execution_time_in_seconds, shots_requested__isnull=shots_requested__isnull, shots_requested=shots_requested, shots_done__isnull=shots_done__isnull, shots_done=shots_done, results__isnull=results__isnull, body=body)
 
 Retrieve results by algorithm ID
 
@@ -258,7 +258,7 @@ Get results by algorithm ID.
 import time
 import os
 import compute_api_client
-from compute_api_client.models.page_result import PageResult
+from compute_api_client.models.result import Result
 from compute_api_client.rest import ApiException
 from pprint import pprint
 
@@ -280,6 +280,10 @@ async with compute_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = compute_api_client.ResultsApi(api_client)
     algorithm_id = 56 # int | 
+    latest = True # bool |  (optional)
+    sort_by = 'sort_by_example' # str |  (optional)
+    page_number = 56 # int |  (optional)
+    items_per_page = 56 # int |  (optional)
     id = 56 # int |  (optional)
     created_on = '2013-10-20T19:20:30+01:00' # datetime |  (optional)
     job_id = 56 # int |  (optional)
@@ -290,15 +294,11 @@ async with compute_api_client.ApiClient(configuration) as api_client:
     shots_done__isnull = True # bool |  (optional)
     shots_done = 56 # int |  (optional)
     results__isnull = True # bool |  (optional)
-    sort_by = 'sort_by_example' # str | The field name to sort on. Prefix with '-' for descending order. E.g., '-created_on'. (optional)
-    latest = True # bool | If True gets the most recently created object. (optional)
-    page = 1 # int | Page number (optional) (default to 1)
-    size = 50 # int | Page size (optional) (default to 50)
     body = None # object |  (optional)
 
     try:
         # Retrieve results by algorithm ID
-        api_response = await api_instance.read_results_by_algorithm_id_results_algorithm_algorithm_id_get(algorithm_id, id=id, created_on=created_on, job_id=job_id, metadata_id=metadata_id, execution_time_in_seconds=execution_time_in_seconds, shots_requested__isnull=shots_requested__isnull, shots_requested=shots_requested, shots_done__isnull=shots_done__isnull, shots_done=shots_done, results__isnull=results__isnull, sort_by=sort_by, latest=latest, page=page, size=size, body=body)
+        api_response = await api_instance.read_results_by_algorithm_id_results_algorithm_algorithm_id_get(algorithm_id, latest=latest, sort_by=sort_by, page_number=page_number, items_per_page=items_per_page, id=id, created_on=created_on, job_id=job_id, metadata_id=metadata_id, execution_time_in_seconds=execution_time_in_seconds, shots_requested__isnull=shots_requested__isnull, shots_requested=shots_requested, shots_done__isnull=shots_done__isnull, shots_done=shots_done, results__isnull=results__isnull, body=body)
         print("The response of ResultsApi->read_results_by_algorithm_id_results_algorithm_algorithm_id_get:\n")
         pprint(api_response)
     except Exception as e:
@@ -312,6 +312,10 @@ async with compute_api_client.ApiClient(configuration) as api_client:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **algorithm_id** | **int**|  | 
+ **latest** | **bool**|  | [optional] 
+ **sort_by** | **str**|  | [optional] 
+ **page_number** | **int**|  | [optional] 
+ **items_per_page** | **int**|  | [optional] 
  **id** | **int**|  | [optional] 
  **created_on** | **datetime**|  | [optional] 
  **job_id** | **int**|  | [optional] 
@@ -322,15 +326,11 @@ Name | Type | Description  | Notes
  **shots_done__isnull** | **bool**|  | [optional] 
  **shots_done** | **int**|  | [optional] 
  **results__isnull** | **bool**|  | [optional] 
- **sort_by** | **str**| The field name to sort on. Prefix with &#39;-&#39; for descending order. E.g., &#39;-created_on&#39;. | [optional] 
- **latest** | **bool**| If True gets the most recently created object. | [optional] 
- **page** | **int**| Page number | [optional] [default to 1]
- **size** | **int**| Page size | [optional] [default to 50]
  **body** | **object**|  | [optional] 
 
 ### Return type
 
-[**PageResult**](PageResult.md)
+[**List[Result]**](Result.md)
 
 ### Authorization
 
@@ -351,7 +351,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **read_results_by_job_id_results_job_job_id_get**
-> PageResult read_results_by_job_id_results_job_job_id_get(job_id, page=page, size=size, sort_by=sort_by, latest=latest)
+> List[Result] read_results_by_job_id_results_job_job_id_get(job_id)
 
 Retrieve results by job ID
 
@@ -364,7 +364,7 @@ Get results by job ID.
 import time
 import os
 import compute_api_client
-from compute_api_client.models.page_result import PageResult
+from compute_api_client.models.result import Result
 from compute_api_client.rest import ApiException
 from pprint import pprint
 
@@ -386,14 +386,10 @@ async with compute_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = compute_api_client.ResultsApi(api_client)
     job_id = 56 # int | 
-    page = 1 # int | Page number (optional) (default to 1)
-    size = 50 # int | Page size (optional) (default to 50)
-    sort_by = 'sort_by_example' # str |  (optional)
-    latest = True # bool |  (optional)
 
     try:
         # Retrieve results by job ID
-        api_response = await api_instance.read_results_by_job_id_results_job_job_id_get(job_id, page=page, size=size, sort_by=sort_by, latest=latest)
+        api_response = await api_instance.read_results_by_job_id_results_job_job_id_get(job_id)
         print("The response of ResultsApi->read_results_by_job_id_results_job_job_id_get:\n")
         pprint(api_response)
     except Exception as e:
@@ -407,14 +403,10 @@ async with compute_api_client.ApiClient(configuration) as api_client:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **job_id** | **int**|  | 
- **page** | **int**| Page number | [optional] [default to 1]
- **size** | **int**| Page size | [optional] [default to 50]
- **sort_by** | **str**|  | [optional] 
- **latest** | **bool**|  | [optional] 
 
 ### Return type
 
-[**PageResult**](PageResult.md)
+[**List[Result]**](Result.md)
 
 ### Authorization
 
