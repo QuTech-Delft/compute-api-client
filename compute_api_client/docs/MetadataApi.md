@@ -90,7 +90,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **read_metadata_by_backend_id_metadata_backend_backend_id_get**
-> List[Metadata] read_metadata_by_backend_id_metadata_backend_backend_id_get(backend_id)
+> PageMetadata read_metadata_by_backend_id_metadata_backend_backend_id_get(backend_id, sort_by=sort_by, latest=latest, page=page, size=size)
 
 Retrieve metadata by backend ID
 
@@ -103,7 +103,7 @@ Get metadata by job ID.
 import time
 import os
 import compute_api_client
-from compute_api_client.models.metadata import Metadata
+from compute_api_client.models.page_metadata import PageMetadata
 from compute_api_client.rest import ApiException
 from pprint import pprint
 
@@ -125,10 +125,14 @@ async with compute_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = compute_api_client.MetadataApi(api_client)
     backend_id = 56 # int | 
+    sort_by = 'sort_by_example' # str | The field name to sort on. Prefix with '-' for descending order. E.g., '-created_on'. (optional)
+    latest = True # bool | If True gets the most recently created object. (optional)
+    page = 1 # int | Page number (optional) (default to 1)
+    size = 50 # int | Page size (optional) (default to 50)
 
     try:
         # Retrieve metadata by backend ID
-        api_response = await api_instance.read_metadata_by_backend_id_metadata_backend_backend_id_get(backend_id)
+        api_response = await api_instance.read_metadata_by_backend_id_metadata_backend_backend_id_get(backend_id, sort_by=sort_by, latest=latest, page=page, size=size)
         print("The response of MetadataApi->read_metadata_by_backend_id_metadata_backend_backend_id_get:\n")
         pprint(api_response)
     except Exception as e:
@@ -142,10 +146,14 @@ async with compute_api_client.ApiClient(configuration) as api_client:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **backend_id** | **int**|  | 
+ **sort_by** | **str**| The field name to sort on. Prefix with &#39;-&#39; for descending order. E.g., &#39;-created_on&#39;. | [optional] 
+ **latest** | **bool**| If True gets the most recently created object. | [optional] 
+ **page** | **int**| Page number | [optional] [default to 1]
+ **size** | **int**| Page size | [optional] [default to 50]
 
 ### Return type
 
-[**List[Metadata]**](Metadata.md)
+[**PageMetadata**](PageMetadata.md)
 
 ### Authorization
 

@@ -244,7 +244,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **read_jobs_jobs_get**
-> List[Job] read_jobs_jobs_get(latest=latest, sort_by=sort_by, page_number=page_number, items_per_page=items_per_page, id=id, created_on=created_on, file_id=file_id, algorithm_type=algorithm_type, status=status, batch_job_id=batch_job_id, queued_at__isnull=queued_at__isnull, queued_at=queued_at, finished_at__isnull=finished_at__isnull, finished_at=finished_at, number_of_shots__isnull=number_of_shots__isnull, number_of_shots=number_of_shots)
+> PageJob read_jobs_jobs_get(id=id, created_on=created_on, file_id=file_id, algorithm_type=algorithm_type, status=status, batch_job_id=batch_job_id, queued_at__isnull=queued_at__isnull, queued_at=queued_at, finished_at__isnull=finished_at__isnull, finished_at=finished_at, number_of_shots__isnull=number_of_shots__isnull, number_of_shots=number_of_shots, sort_by=sort_by, latest=latest, page=page, size=size)
 
 List jobs
 
@@ -259,8 +259,8 @@ import time
 import os
 import compute_api_client
 from compute_api_client.models.algorithm_type import AlgorithmType
-from compute_api_client.models.job import Job
 from compute_api_client.models.job_status import JobStatus
+from compute_api_client.models.page_job import PageJob
 from compute_api_client.rest import ApiException
 from pprint import pprint
 
@@ -287,10 +287,6 @@ configuration.api_key['backend'] = os.environ["API_KEY"]
 async with compute_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = compute_api_client.JobsApi(api_client)
-    latest = True # bool |  (optional)
-    sort_by = 'sort_by_example' # str |  (optional)
-    page_number = 56 # int |  (optional)
-    items_per_page = 56 # int |  (optional)
     id = 56 # int |  (optional)
     created_on = '2013-10-20T19:20:30+01:00' # datetime |  (optional)
     file_id = 56 # int |  (optional)
@@ -303,10 +299,14 @@ async with compute_api_client.ApiClient(configuration) as api_client:
     finished_at = '2013-10-20T19:20:30+01:00' # datetime |  (optional)
     number_of_shots__isnull = True # bool |  (optional)
     number_of_shots = 56 # int |  (optional)
+    sort_by = 'sort_by_example' # str | The field name to sort on. Prefix with '-' for descending order. E.g., '-created_on'. (optional)
+    latest = True # bool | If True gets the most recently created object. (optional)
+    page = 1 # int | Page number (optional) (default to 1)
+    size = 50 # int | Page size (optional) (default to 50)
 
     try:
         # List jobs
-        api_response = await api_instance.read_jobs_jobs_get(latest=latest, sort_by=sort_by, page_number=page_number, items_per_page=items_per_page, id=id, created_on=created_on, file_id=file_id, algorithm_type=algorithm_type, status=status, batch_job_id=batch_job_id, queued_at__isnull=queued_at__isnull, queued_at=queued_at, finished_at__isnull=finished_at__isnull, finished_at=finished_at, number_of_shots__isnull=number_of_shots__isnull, number_of_shots=number_of_shots)
+        api_response = await api_instance.read_jobs_jobs_get(id=id, created_on=created_on, file_id=file_id, algorithm_type=algorithm_type, status=status, batch_job_id=batch_job_id, queued_at__isnull=queued_at__isnull, queued_at=queued_at, finished_at__isnull=finished_at__isnull, finished_at=finished_at, number_of_shots__isnull=number_of_shots__isnull, number_of_shots=number_of_shots, sort_by=sort_by, latest=latest, page=page, size=size)
         print("The response of JobsApi->read_jobs_jobs_get:\n")
         pprint(api_response)
     except Exception as e:
@@ -319,10 +319,6 @@ async with compute_api_client.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **latest** | **bool**|  | [optional] 
- **sort_by** | **str**|  | [optional] 
- **page_number** | **int**|  | [optional] 
- **items_per_page** | **int**|  | [optional] 
  **id** | **int**|  | [optional] 
  **created_on** | **datetime**|  | [optional] 
  **file_id** | **int**|  | [optional] 
@@ -335,10 +331,14 @@ Name | Type | Description  | Notes
  **finished_at** | **datetime**|  | [optional] 
  **number_of_shots__isnull** | **bool**|  | [optional] 
  **number_of_shots** | **int**|  | [optional] 
+ **sort_by** | **str**| The field name to sort on. Prefix with &#39;-&#39; for descending order. E.g., &#39;-created_on&#39;. | [optional] 
+ **latest** | **bool**| If True gets the most recently created object. | [optional] 
+ **page** | **int**| Page number | [optional] [default to 1]
+ **size** | **int**| Page size | [optional] [default to 50]
 
 ### Return type
 
-[**List[Job]**](Job.md)
+[**PageJob**](PageJob.md)
 
 ### Authorization
 
