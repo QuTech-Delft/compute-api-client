@@ -7,6 +7,7 @@ compute_api_client/api/batch_jobs_api.py
 compute_api_client/api/commits_api.py
 compute_api_client/api/files_api.py
 compute_api_client/api/final_results_api.py
+compute_api_client/api/health_api.py
 compute_api_client/api/jobs_api.py
 compute_api_client/api/languages_api.py
 compute_api_client/api/members_api.py
@@ -50,6 +51,7 @@ compute_api_client/docs/FinalResultIn.md
 compute_api_client/docs/FinalResultsApi.md
 compute_api_client/docs/HTTPNotFoundError.md
 compute_api_client/docs/HTTPValidationError.md
+compute_api_client/docs/HealthApi.md
 compute_api_client/docs/Job.md
 compute_api_client/docs/JobIn.md
 compute_api_client/docs/JobPatch.md

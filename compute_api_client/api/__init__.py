@@ -8,6 +8,7 @@ from compute_api_client.api.batch_jobs_api import BatchJobsApi
 from compute_api_client.api.commits_api import CommitsApi
 from compute_api_client.api.files_api import FilesApi
 from compute_api_client.api.final_results_api import FinalResultsApi
+from compute_api_client.api.health_api import HealthApi
 from compute_api_client.api.jobs_api import JobsApi
 from compute_api_client.api.languages_api import LanguagesApi
 from compute_api_client.api.members_api import MembersApi

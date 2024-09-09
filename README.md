@@ -100,6 +100,7 @@ Class | Method | HTTP request | Description
 *FinalResultsApi* | [**create_final_result_final_results_post**](compute_api_client/docs/FinalResultsApi.md#create_final_result_final_results_post) | **POST** /final_results | Create final result
 *FinalResultsApi* | [**read_final_result_by_job_id_final_results_job_job_id_get**](compute_api_client/docs/FinalResultsApi.md#read_final_result_by_job_id_final_results_job_job_id_get) | **GET** /final_results/job/{job_id} | Retrieve final result by job ID
 *FinalResultsApi* | [**read_final_result_final_results_id_get**](compute_api_client/docs/FinalResultsApi.md#read_final_result_final_results_id_get) | **GET** /final_results/{id} | Retrieve final result
+*HealthApi* | [**healthz_healthz_get**](compute_api_client/docs/HealthApi.md#healthz_healthz_get) | **GET** /healthz | Report health
 *JobsApi* | [**create_job_jobs_post**](compute_api_client/docs/JobsApi.md#create_job_jobs_post) | **POST** /jobs | Create job
 *JobsApi* | [**delete_job_jobs_id_delete**](compute_api_client/docs/JobsApi.md#delete_job_jobs_id_delete) | **DELETE** /jobs/{id} | Destroy job
 *JobsApi* | [**read_job_jobs_id_get**](compute_api_client/docs/JobsApi.md#read_job_jobs_id_get) | **GET** /jobs/{id} | Retrieve job
