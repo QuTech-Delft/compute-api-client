@@ -12,7 +12,9 @@ Name | Type | Description | Notes
 **is_hardware** | **bool** |  | 
 **features** | **List[str]** |  | 
 **default_compiler_config** | **object** |  | 
-**native_gateset** | **object** |  | 
+**gateset** | **List[str]** |  | 
+**topology** | **List[List[int]]** |  | 
+**nqubits** | **int** |  | 
 **status** | [**BackendStatus**](BackendStatus.md) |  | 
 **default_number_of_shots** | **int** |  | 
 **max_number_of_shots** | **int** |  | 

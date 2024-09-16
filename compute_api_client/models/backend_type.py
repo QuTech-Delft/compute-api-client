@@ -40,11 +40,13 @@ class BackendType(BaseModel):
     is_hardware: StrictBool
     features: List[StrictStr]
     default_compiler_config: Union[str, Any]
-    native_gateset: Union[str, Any]
+    gateset: List[StrictStr]
+    topology: List[List[StrictInt]]
+    nqubits: StrictInt
     status: BackendStatus
     default_number_of_shots: StrictInt
     max_number_of_shots: StrictInt
-    __properties: ClassVar[List[str]] = ["id", "name", "infrastructure", "description", "image_id", "is_hardware", "features", "default_compiler_config", "native_gateset", "status", "default_number_of_shots", "max_number_of_shots"]
+    __properties: ClassVar[List[str]] = ["id", "name", "infrastructure", "description", "image_id", "is_hardware", "features", "default_compiler_config", "gateset", "topology", "nqubits", "status", "default_number_of_shots", "max_number_of_shots"]
 
     model_config = {
         "populate_by_name": True,
@@ -102,7 +104,9 @@ class BackendType(BaseModel):
             "is_hardware": obj.get("is_hardware"),
             "features": obj.get("features"),
             "default_compiler_config": obj.get("default_compiler_config"),
-            "native_gateset": obj.get("native_gateset"),
+            "gateset": obj.get("gateset"),
+            "topology": obj.get("topology"),
+            "nqubits": obj.get("nqubits"),
             "status": obj.get("status"),
             "default_number_of_shots": obj.get("default_number_of_shots"),
             "max_number_of_shots": obj.get("max_number_of_shots")
