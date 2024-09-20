@@ -245,7 +245,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **read_results_by_algorithm_id_results_algorithm_algorithm_id_get**
-> PageResult read_results_by_algorithm_id_results_algorithm_algorithm_id_get(algorithm_id, id=id, created_on=created_on, job_id=job_id, metadata_id=metadata_id, execution_time_in_seconds=execution_time_in_seconds, shots_requested__isnull=shots_requested__isnull, shots_requested=shots_requested, shots_done__isnull=shots_done__isnull, shots_done=shots_done, results__isnull=results__isnull, sort_by=sort_by, latest=latest, page=page, size=size, body=body)
+> PageResult read_results_by_algorithm_id_results_algorithm_algorithm_id_get(algorithm_id, id=id, created_on=created_on, job_id=job_id, metadata_id=metadata_id, execution_time_in_seconds=execution_time_in_seconds, shots_requested__isnull=shots_requested__isnull, shots_requested=shots_requested, shots_done__isnull=shots_done__isnull, shots_done=shots_done, results__isnull=results__isnull, sort_by=sort_by, latest=latest, page=page, size=size)
 
 Retrieve results by algorithm ID
 
@@ -294,11 +294,10 @@ async with compute_api_client.ApiClient(configuration) as api_client:
     latest = True # bool | If True gets the most recently created object. (optional)
     page = 1 # int | Page number (optional) (default to 1)
     size = 50 # int | Page size (optional) (default to 50)
-    body = None # object |  (optional)
 
     try:
         # Retrieve results by algorithm ID
-        api_response = await api_instance.read_results_by_algorithm_id_results_algorithm_algorithm_id_get(algorithm_id, id=id, created_on=created_on, job_id=job_id, metadata_id=metadata_id, execution_time_in_seconds=execution_time_in_seconds, shots_requested__isnull=shots_requested__isnull, shots_requested=shots_requested, shots_done__isnull=shots_done__isnull, shots_done=shots_done, results__isnull=results__isnull, sort_by=sort_by, latest=latest, page=page, size=size, body=body)
+        api_response = await api_instance.read_results_by_algorithm_id_results_algorithm_algorithm_id_get(algorithm_id, id=id, created_on=created_on, job_id=job_id, metadata_id=metadata_id, execution_time_in_seconds=execution_time_in_seconds, shots_requested__isnull=shots_requested__isnull, shots_requested=shots_requested, shots_done__isnull=shots_done__isnull, shots_done=shots_done, results__isnull=results__isnull, sort_by=sort_by, latest=latest, page=page, size=size)
         print("The response of ResultsApi->read_results_by_algorithm_id_results_algorithm_algorithm_id_get:\n")
         pprint(api_response)
     except Exception as e:
@@ -326,7 +325,6 @@ Name | Type | Description  | Notes
  **latest** | **bool**| If True gets the most recently created object. | [optional] 
  **page** | **int**| Page number | [optional] [default to 1]
  **size** | **int**| Page size | [optional] [default to 50]
- **body** | **object**|  | [optional] 
 
 ### Return type
 
@@ -338,7 +336,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 ### HTTP response details
