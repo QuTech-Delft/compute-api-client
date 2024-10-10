@@ -243,7 +243,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **read_files_files_get**
-> PageFile read_files_files_get(id=id, commit_id=commit_id, content=content, language_id=language_id, compile_stage=compile_stage, generated=generated, sort_by=sort_by, latest=latest, page=page, size=size)
+> PageFile read_files_files_get(id=id, commit_id=commit_id, content=content, language_id=language_id, compile_stage=compile_stage, generated=generated, name__isnull=name__isnull, name=name, sort_by=sort_by, latest=latest, page=page, size=size)
 
 List files
 
@@ -284,6 +284,8 @@ async with compute_api_client.ApiClient(configuration) as api_client:
     language_id = 56 # int |  (optional)
     compile_stage = compute_api_client.CompileStage() # CompileStage |  (optional)
     generated = True # bool |  (optional)
+    name__isnull = True # bool |  (optional)
+    name = 'name_example' # str |  (optional)
     sort_by = 'sort_by_example' # str | The field name to sort on. Prefix with '-' for descending order. E.g., '-created_on'. (optional)
     latest = True # bool | If True gets the most recently created object. (optional)
     page = 1 # int | Page number (optional) (default to 1)
@@ -291,7 +293,7 @@ async with compute_api_client.ApiClient(configuration) as api_client:
 
     try:
         # List files
-        api_response = await api_instance.read_files_files_get(id=id, commit_id=commit_id, content=content, language_id=language_id, compile_stage=compile_stage, generated=generated, sort_by=sort_by, latest=latest, page=page, size=size)
+        api_response = await api_instance.read_files_files_get(id=id, commit_id=commit_id, content=content, language_id=language_id, compile_stage=compile_stage, generated=generated, name__isnull=name__isnull, name=name, sort_by=sort_by, latest=latest, page=page, size=size)
         print("The response of FilesApi->read_files_files_get:\n")
         pprint(api_response)
     except Exception as e:
@@ -310,6 +312,8 @@ Name | Type | Description  | Notes
  **language_id** | **int**|  | [optional] 
  **compile_stage** | [**CompileStage**](.md)|  | [optional] 
  **generated** | **bool**|  | [optional] 
+ **name__isnull** | **bool**|  | [optional] 
+ **name** | **str**|  | [optional] 
  **sort_by** | **str**| The field name to sort on. Prefix with &#39;-&#39; for descending order. E.g., &#39;-created_on&#39;. | [optional] 
  **latest** | **bool**| If True gets the most recently created object. | [optional] 
  **page** | **int**| Page number | [optional] [default to 1]

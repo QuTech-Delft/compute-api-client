@@ -20,6 +20,8 @@ import json
 
 from typing import Any, ClassVar, Dict, List, Optional, Union
 from pydantic import BaseModel, StrictBool, StrictInt, StrictStr
+from pydantic import Field
+from typing_extensions import Annotated
 from compute_api_client.models.compile_stage import CompileStage
 try:
     from typing import Self
@@ -36,7 +38,8 @@ class FileIn(BaseModel):
     compile_stage: CompileStage
     compile_properties: Union[str, Any]
     generated: Optional[StrictBool] = False
-    __properties: ClassVar[List[str]] = ["commit_id", "content", "language_id", "compile_stage", "compile_properties", "generated"]
+    name: Optional[Annotated[str, Field(strict=True, max_length=255)]] = None
+    __properties: ClassVar[List[str]] = ["commit_id", "content", "language_id", "compile_stage", "compile_properties", "generated", "name"]
 
     model_config = {
         "populate_by_name": True,
@@ -74,6 +77,11 @@ class FileIn(BaseModel):
             },
             exclude_none=True,
         )
+        # set to None if name (nullable) is None
+        # and model_fields_set contains the field
+        if self.name is None and "name" in self.model_fields_set:
+            _dict['name'] = None
+
         return _dict
 
     @classmethod
@@ -91,7 +99,8 @@ class FileIn(BaseModel):
             "language_id": obj.get("language_id"),
             "compile_stage": obj.get("compile_stage"),
             "compile_properties": obj.get("compile_properties"),
-            "generated": obj.get("generated") if obj.get("generated") is not None else False
+            "generated": obj.get("generated") if obj.get("generated") is not None else False,
+            "name": obj.get("name")
         })
         return _obj
 

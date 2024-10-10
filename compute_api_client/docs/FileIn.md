@@ -10,6 +10,7 @@ Name | Type | Description | Notes
 **compile_stage** | [**CompileStage**](CompileStage.md) |  | 
 **compile_properties** | **object** |  | 
 **generated** | **bool** |  | [optional] [default to False]
+**name** | **str** |  | [optional] 
 
 ## Example
 

@@ -867,6 +867,8 @@ class FilesApi:
         language_id: Optional[StrictInt] = None,
         compile_stage: Optional[CompileStage] = None,
         generated: Optional[StrictBool] = None,
+        name__isnull: Optional[StrictBool] = None,
+        name: Optional[StrictStr] = None,
         sort_by: Annotated[Optional[StrictStr], Field(description="The field name to sort on. Prefix with '-' for descending order. E.g., '-created_on'.")] = None,
         latest: Annotated[Optional[StrictBool], Field(description="If True gets the most recently created object.")] = None,
         page: Annotated[Optional[Annotated[int, Field(strict=True, ge=1)]], Field(description="Page number")] = None,
@@ -900,6 +902,10 @@ class FilesApi:
         :type compile_stage: CompileStage
         :param generated:
         :type generated: bool
+        :param name__isnull:
+        :type name__isnull: bool
+        :param name:
+        :type name: str
         :param sort_by: The field name to sort on. Prefix with '-' for descending order. E.g., '-created_on'.
         :type sort_by: str
         :param latest: If True gets the most recently created object.
@@ -937,6 +943,8 @@ class FilesApi:
             language_id=language_id,
             compile_stage=compile_stage,
             generated=generated,
+            name__isnull=name__isnull,
+            name=name,
             sort_by=sort_by,
             latest=latest,
             page=page,
@@ -972,6 +980,8 @@ class FilesApi:
         language_id: Optional[StrictInt] = None,
         compile_stage: Optional[CompileStage] = None,
         generated: Optional[StrictBool] = None,
+        name__isnull: Optional[StrictBool] = None,
+        name: Optional[StrictStr] = None,
         sort_by: Annotated[Optional[StrictStr], Field(description="The field name to sort on. Prefix with '-' for descending order. E.g., '-created_on'.")] = None,
         latest: Annotated[Optional[StrictBool], Field(description="If True gets the most recently created object.")] = None,
         page: Annotated[Optional[Annotated[int, Field(strict=True, ge=1)]], Field(description="Page number")] = None,
@@ -1005,6 +1015,10 @@ class FilesApi:
         :type compile_stage: CompileStage
         :param generated:
         :type generated: bool
+        :param name__isnull:
+        :type name__isnull: bool
+        :param name:
+        :type name: str
         :param sort_by: The field name to sort on. Prefix with '-' for descending order. E.g., '-created_on'.
         :type sort_by: str
         :param latest: If True gets the most recently created object.
@@ -1042,6 +1056,8 @@ class FilesApi:
             language_id=language_id,
             compile_stage=compile_stage,
             generated=generated,
+            name__isnull=name__isnull,
+            name=name,
             sort_by=sort_by,
             latest=latest,
             page=page,
@@ -1077,6 +1093,8 @@ class FilesApi:
         language_id: Optional[StrictInt] = None,
         compile_stage: Optional[CompileStage] = None,
         generated: Optional[StrictBool] = None,
+        name__isnull: Optional[StrictBool] = None,
+        name: Optional[StrictStr] = None,
         sort_by: Annotated[Optional[StrictStr], Field(description="The field name to sort on. Prefix with '-' for descending order. E.g., '-created_on'.")] = None,
         latest: Annotated[Optional[StrictBool], Field(description="If True gets the most recently created object.")] = None,
         page: Annotated[Optional[Annotated[int, Field(strict=True, ge=1)]], Field(description="Page number")] = None,
@@ -1110,6 +1128,10 @@ class FilesApi:
         :type compile_stage: CompileStage
         :param generated:
         :type generated: bool
+        :param name__isnull:
+        :type name__isnull: bool
+        :param name:
+        :type name: str
         :param sort_by: The field name to sort on. Prefix with '-' for descending order. E.g., '-created_on'.
         :type sort_by: str
         :param latest: If True gets the most recently created object.
@@ -1147,6 +1169,8 @@ class FilesApi:
             language_id=language_id,
             compile_stage=compile_stage,
             generated=generated,
+            name__isnull=name__isnull,
+            name=name,
             sort_by=sort_by,
             latest=latest,
             page=page,
@@ -1177,6 +1201,8 @@ class FilesApi:
         language_id,
         compile_stage,
         generated,
+        name__isnull,
+        name,
         sort_by,
         latest,
         page,
@@ -1225,6 +1251,14 @@ class FilesApi:
         if generated is not None:
             
             _query_params.append(('generated', generated))
+            
+        if name__isnull is not None:
+            
+            _query_params.append(('name__isnull', name__isnull))
+            
+        if name is not None:
+            
+            _query_params.append(('name', name))
             
         if sort_by is not None:
             
