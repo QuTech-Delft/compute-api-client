@@ -93,7 +93,6 @@ Read backend types.
 
 ### Example
 
-* OAuth Authentication (user_bearer):
 ```python
 import time
 import os
@@ -109,12 +108,6 @@ configuration = compute_api_client.Configuration(
     host = "http://localhost"
 )
 
-# The client must configure the authentication and authorization parameters
-# in accordance with the API server security policy.
-# Examples for each auth method are provided below, use the example that
-# satisfies your auth use case.
-
-configuration.access_token = os.environ["ACCESS_TOKEN"]
 
 # Enter a context with an instance of the API client
 async with compute_api_client.ApiClient(configuration) as api_client:
@@ -171,7 +164,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[user_bearer](../README.md#user_bearer)
+No authorization required
 
 ### HTTP request headers
 

@@ -786,7 +786,6 @@ class BackendTypesApi:
 
         # authentication setting
         _auth_settings: List[str] = [
-            'user_bearer'
         ]
 
         return self.api_client.param_serialize(
