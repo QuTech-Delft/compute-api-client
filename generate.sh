@@ -30,7 +30,7 @@ openapi-generator-cli generate \
 
 if [ "$check" = "check" ]; then
     # Allows CI to verify the client is up to date
-    git diff --quiet HEAD
+    git diff HEAD
 else
     # Update documentation
     curl -o ../../../../docs/design/code/apps/compute_job_manager_openapi.json http://localhost:8000/openapi.json
