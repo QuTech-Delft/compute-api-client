@@ -89,6 +89,7 @@ Class | Method | HTTP request | Description
 *BatchJobsApi* | [**pop_batch_job_batch_jobs_pop_patch**](compute_api_client/docs/BatchJobsApi.md#pop_batch_job_batch_jobs_pop_patch) | **PATCH** /batch_jobs/pop | Take batch job
 *BatchJobsApi* | [**read_batch_jobs_batch_jobs_get**](compute_api_client/docs/BatchJobsApi.md#read_batch_jobs_batch_jobs_get) | **GET** /batch_jobs | List batch jobs
 *BatchJobsApi* | [**unpop_batch_job_batch_jobs_unpop_patch**](compute_api_client/docs/BatchJobsApi.md#unpop_batch_job_batch_jobs_unpop_patch) | **PATCH** /batch_jobs/unpop | Take batch job
+*CommitsApi* | [**compile_commit_commits_id_compile_post**](compute_api_client/docs/CommitsApi.md#compile_commit_commits_id_compile_post) | **POST** /commits/{id}/compile | Compile file in a commit
 *CommitsApi* | [**create_commit_commits_post**](compute_api_client/docs/CommitsApi.md#create_commit_commits_post) | **POST** /commits | Create commit
 *CommitsApi* | [**delete_commit_commits_id_delete**](compute_api_client/docs/CommitsApi.md#delete_commit_commits_id_delete) | **DELETE** /commits/{id} | Destroy commit
 *CommitsApi* | [**read_commit_commits_id_get**](compute_api_client/docs/CommitsApi.md#read_commit_commits_id_get) | **GET** /commits/{id} | Get commit by ID
@@ -160,6 +161,7 @@ Class | Method | HTTP request | Description
  - [BatchJobStatus](compute_api_client/docs/BatchJobStatus.md)
  - [Commit](compute_api_client/docs/Commit.md)
  - [CommitIn](compute_api_client/docs/CommitIn.md)
+ - [CompilePayload](compute_api_client/docs/CompilePayload.md)
  - [CompileStage](compute_api_client/docs/CompileStage.md)
  - [Domain](compute_api_client/docs/Domain.md)
  - [File](compute_api_client/docs/File.md)
@@ -224,7 +226,7 @@ Authentication schemes defined for the API:
 
 - **Type**: OAuth
 - **Flow**: accessCode
-- **Authorization URL**: https://auth.qi2.quantum-inspire.com/realms/oidc_development/protocol/openid-connect/auth
+- **Authorization URL**: https://auth.qi2.quantum-inspire.com/realms/oidc_staging/protocol/openid-connect/auth
 - **Scopes**: N/A
 
 <a id="backend"></a>

@@ -4,11 +4,95 @@ All URIs are relative to *http://localhost*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
+[**compile_commit_commits_id_compile_post**](CommitsApi.md#compile_commit_commits_id_compile_post) | **POST** /commits/{id}/compile | Compile file in a commit
 [**create_commit_commits_post**](CommitsApi.md#create_commit_commits_post) | **POST** /commits | Create commit
 [**delete_commit_commits_id_delete**](CommitsApi.md#delete_commit_commits_id_delete) | **DELETE** /commits/{id} | Destroy commit
 [**read_commit_commits_id_get**](CommitsApi.md#read_commit_commits_id_get) | **GET** /commits/{id} | Get commit by ID
 [**read_commits_commits_get**](CommitsApi.md#read_commits_commits_get) | **GET** /commits | List commits
 
+
+# **compile_commit_commits_id_compile_post**
+> compile_commit_commits_id_compile_post(id, compile_payload)
+
+Compile file in a commit
+
+Get commit by ID.
+
+### Example
+
+* OAuth Authentication (user_bearer):
+* Api Key Authentication (backend):
+```python
+import time
+import os
+import compute_api_client
+from compute_api_client.models.compile_payload import CompilePayload
+from compute_api_client.rest import ApiException
+from pprint import pprint
+
+# Defining the host is optional and defaults to http://localhost
+# See configuration.py for a list of all supported configuration parameters.
+configuration = compute_api_client.Configuration(
+    host = "http://localhost"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+configuration.access_token = os.environ["ACCESS_TOKEN"]
+
+# Configure API key authorization: backend
+configuration.api_key['backend'] = os.environ["API_KEY"]
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['backend'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+async with compute_api_client.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = compute_api_client.CommitsApi(api_client)
+    id = 56 # int | 
+    compile_payload = compute_api_client.CompilePayload() # CompilePayload | 
+
+    try:
+        # Compile file in a commit
+        await api_instance.compile_commit_commits_id_compile_post(id, compile_payload)
+    except Exception as e:
+        print("Exception when calling CommitsApi->compile_commit_commits_id_compile_post: %s\n" % e)
+```
+
+
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **id** | **int**|  | 
+ **compile_payload** | [**CompilePayload**](CompilePayload.md)|  | 
+
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+[user_bearer](../README.md#user_bearer), [backend](../README.md#backend)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**204** | Compiled |  -  |
+**404** | Not Found |  -  |
+**422** | Validation Error |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **create_commit_commits_post**
 > Commit create_commit_commits_post(commit_in)

@@ -63,6 +63,7 @@ from compute_api_client.models.batch_job_in import BatchJobIn
 from compute_api_client.models.batch_job_status import BatchJobStatus
 from compute_api_client.models.commit import Commit
 from compute_api_client.models.commit_in import CommitIn
+from compute_api_client.models.compile_payload import CompilePayload
 from compute_api_client.models.compile_stage import CompileStage
 from compute_api_client.models.domain import Domain
 from compute_api_client.models.file import File
