@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "qi-compute-api-client"
-version = "0.38.1"
+version = "0.38.2"
 description = "An API client for the Compute Job Manager of Quantum Inspire."
 license = "Apache-2.0"
 authors = ["Quantum Inspire <support@quantum-inspire.eu>"]

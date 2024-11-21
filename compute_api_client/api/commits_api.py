@@ -74,7 +74,7 @@ class CommitsApi:
     ) -> None:
         """Compile file in a commit
 
-        Get commit by ID.
+        Compile file in a commit.
 
         :param id: (required)
         :type id: int
@@ -145,7 +145,7 @@ class CommitsApi:
     ) -> ApiResponse[None]:
         """Compile file in a commit
 
-        Get commit by ID.
+        Compile file in a commit.
 
         :param id: (required)
         :type id: int
@@ -216,7 +216,7 @@ class CommitsApi:
     ) -> RESTResponseType:
         """Compile file in a commit
 
-        Get commit by ID.
+        Compile file in a commit.
 
         :param id: (required)
         :type id: int

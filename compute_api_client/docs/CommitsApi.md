@@ -16,7 +16,7 @@ Method | HTTP request | Description
 
 Compile file in a commit
 
-Get commit by ID.
+Compile file in a commit.
 
 ### Example
 

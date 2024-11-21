@@ -35,9 +35,7 @@ class CompileStage(str, Enum):
     allowed enum values
     """
     NONE = 'none'
-    MAPPED = 'mapped'
-    NATIVE_GATESET = 'native_gateset'
-    SCHEDULED = 'scheduled'
+    DECOMPOSITION = 'decomposition'
 
     @classmethod
     def from_json(cls, json_str: str) -> Self:
