@@ -226,7 +226,7 @@ Authentication schemes defined for the API:
 
 - **Type**: OAuth
 - **Flow**: accessCode
-- **Authorization URL**: https://auth.qi2.quantum-inspire.com/realms/oidc_staging/protocol/openid-connect/auth
+- **Authorization URL**: https://auth.qi2.quantum-inspire.com/realms/oidc_development/protocol/openid-connect/auth
 - **Scopes**: N/A
 
 <a id="backend"></a>

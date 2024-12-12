@@ -872,6 +872,7 @@ class ResultsApi:
         shots_done__isnull: Optional[StrictBool] = None,
         shots_done: Optional[StrictInt] = None,
         results__isnull: Optional[StrictBool] = None,
+        raw_data__isnull: Optional[StrictBool] = None,
         sort_by: Annotated[Optional[StrictStr], Field(description="The field name to sort on. Prefix with '-' for descending order. E.g., '-created_on'.")] = None,
         latest: Annotated[Optional[StrictBool], Field(description="If True gets the most recently created object.")] = None,
         page: Annotated[Optional[Annotated[int, Field(strict=True, ge=1)]], Field(description="Page number")] = None,
@@ -915,6 +916,8 @@ class ResultsApi:
         :type shots_done: int
         :param results__isnull:
         :type results__isnull: bool
+        :param raw_data__isnull:
+        :type raw_data__isnull: bool
         :param sort_by: The field name to sort on. Prefix with '-' for descending order. E.g., '-created_on'.
         :type sort_by: str
         :param latest: If True gets the most recently created object.
@@ -957,6 +960,7 @@ class ResultsApi:
             shots_done__isnull=shots_done__isnull,
             shots_done=shots_done,
             results__isnull=results__isnull,
+            raw_data__isnull=raw_data__isnull,
             sort_by=sort_by,
             latest=latest,
             page=page,
@@ -998,6 +1002,7 @@ class ResultsApi:
         shots_done__isnull: Optional[StrictBool] = None,
         shots_done: Optional[StrictInt] = None,
         results__isnull: Optional[StrictBool] = None,
+        raw_data__isnull: Optional[StrictBool] = None,
         sort_by: Annotated[Optional[StrictStr], Field(description="The field name to sort on. Prefix with '-' for descending order. E.g., '-created_on'.")] = None,
         latest: Annotated[Optional[StrictBool], Field(description="If True gets the most recently created object.")] = None,
         page: Annotated[Optional[Annotated[int, Field(strict=True, ge=1)]], Field(description="Page number")] = None,
@@ -1041,6 +1046,8 @@ class ResultsApi:
         :type shots_done: int
         :param results__isnull:
         :type results__isnull: bool
+        :param raw_data__isnull:
+        :type raw_data__isnull: bool
         :param sort_by: The field name to sort on. Prefix with '-' for descending order. E.g., '-created_on'.
         :type sort_by: str
         :param latest: If True gets the most recently created object.
@@ -1083,6 +1090,7 @@ class ResultsApi:
             shots_done__isnull=shots_done__isnull,
             shots_done=shots_done,
             results__isnull=results__isnull,
+            raw_data__isnull=raw_data__isnull,
             sort_by=sort_by,
             latest=latest,
             page=page,
@@ -1124,6 +1132,7 @@ class ResultsApi:
         shots_done__isnull: Optional[StrictBool] = None,
         shots_done: Optional[StrictInt] = None,
         results__isnull: Optional[StrictBool] = None,
+        raw_data__isnull: Optional[StrictBool] = None,
         sort_by: Annotated[Optional[StrictStr], Field(description="The field name to sort on. Prefix with '-' for descending order. E.g., '-created_on'.")] = None,
         latest: Annotated[Optional[StrictBool], Field(description="If True gets the most recently created object.")] = None,
         page: Annotated[Optional[Annotated[int, Field(strict=True, ge=1)]], Field(description="Page number")] = None,
@@ -1167,6 +1176,8 @@ class ResultsApi:
         :type shots_done: int
         :param results__isnull:
         :type results__isnull: bool
+        :param raw_data__isnull:
+        :type raw_data__isnull: bool
         :param sort_by: The field name to sort on. Prefix with '-' for descending order. E.g., '-created_on'.
         :type sort_by: str
         :param latest: If True gets the most recently created object.
@@ -1209,6 +1220,7 @@ class ResultsApi:
             shots_done__isnull=shots_done__isnull,
             shots_done=shots_done,
             results__isnull=results__isnull,
+            raw_data__isnull=raw_data__isnull,
             sort_by=sort_by,
             latest=latest,
             page=page,
@@ -1245,6 +1257,7 @@ class ResultsApi:
         shots_done__isnull,
         shots_done,
         results__isnull,
+        raw_data__isnull,
         sort_by,
         latest,
         page,
@@ -1320,6 +1333,10 @@ class ResultsApi:
         if results__isnull is not None:
             
             _query_params.append(('results__isnull', results__isnull))
+            
+        if raw_data__isnull is not None:
+            
+            _query_params.append(('raw_data__isnull', raw_data__isnull))
             
         if sort_by is not None:
             

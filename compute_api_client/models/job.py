@@ -19,7 +19,7 @@ import json
 
 from datetime import datetime
 from typing import Any, ClassVar, Dict, List, Optional
-from pydantic import BaseModel, StrictInt
+from pydantic import BaseModel, StrictBool, StrictInt
 from compute_api_client.models.algorithm_type import AlgorithmType
 from compute_api_client.models.job_status import JobStatus
 try:
@@ -40,7 +40,8 @@ class Job(BaseModel):
     queued_at: Optional[datetime]
     finished_at: Optional[datetime]
     number_of_shots: Optional[StrictInt]
-    __properties: ClassVar[List[str]] = ["id", "created_on", "file_id", "algorithm_type", "status", "batch_job_id", "queued_at", "finished_at", "number_of_shots"]
+    raw_data_enabled: StrictBool
+    __properties: ClassVar[List[str]] = ["id", "created_on", "file_id", "algorithm_type", "status", "batch_job_id", "queued_at", "finished_at", "number_of_shots", "raw_data_enabled"]
 
     model_config = {
         "populate_by_name": True,
@@ -113,7 +114,8 @@ class Job(BaseModel):
             "batch_job_id": obj.get("batch_job_id"),
             "queued_at": obj.get("queued_at"),
             "finished_at": obj.get("finished_at"),
-            "number_of_shots": obj.get("number_of_shots")
+            "number_of_shots": obj.get("number_of_shots"),
+            "raw_data_enabled": obj.get("raw_data_enabled")
         })
         return _obj
 

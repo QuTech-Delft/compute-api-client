@@ -19,7 +19,7 @@ import json
 
 
 from typing import Any, ClassVar, Dict, List, Optional, Union
-from pydantic import BaseModel, StrictFloat, StrictInt
+from pydantic import BaseModel, StrictFloat, StrictInt, StrictStr
 try:
     from typing import Self
 except ImportError:
@@ -35,7 +35,8 @@ class ResultIn(BaseModel):
     shots_requested: Optional[StrictInt] = None
     shots_done: Optional[StrictInt] = None
     results: Optional[Union[str, Any]] = None
-    __properties: ClassVar[List[str]] = ["job_id", "metadata_id", "execution_time_in_seconds", "shots_requested", "shots_done", "results"]
+    raw_data: Optional[List[StrictStr]] = None
+    __properties: ClassVar[List[str]] = ["job_id", "metadata_id", "execution_time_in_seconds", "shots_requested", "shots_done", "results", "raw_data"]
 
     model_config = {
         "populate_by_name": True,
@@ -93,6 +94,11 @@ class ResultIn(BaseModel):
         if self.results is None and "results" in self.model_fields_set:
             _dict['results'] = None
 
+        # set to None if raw_data (nullable) is None
+        # and model_fields_set contains the field
+        if self.raw_data is None and "raw_data" in self.model_fields_set:
+            _dict['raw_data'] = None
+
         return _dict
 
     @classmethod
@@ -110,7 +116,8 @@ class ResultIn(BaseModel):
             "execution_time_in_seconds": obj.get("execution_time_in_seconds"),
             "shots_requested": obj.get("shots_requested"),
             "shots_done": obj.get("shots_done"),
-            "results": obj.get("results")
+            "results": obj.get("results"),
+            "raw_data": obj.get("raw_data")
         })
         return _obj
 

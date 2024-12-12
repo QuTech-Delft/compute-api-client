@@ -19,7 +19,7 @@ import json
 
 
 from typing import Any, ClassVar, Dict, List, Optional
-from pydantic import BaseModel, StrictInt
+from pydantic import BaseModel, StrictBool, StrictInt
 try:
     from typing import Self
 except ImportError:
@@ -32,7 +32,8 @@ class JobIn(BaseModel):
     file_id: StrictInt
     batch_job_id: StrictInt
     number_of_shots: Optional[StrictInt] = None
-    __properties: ClassVar[List[str]] = ["file_id", "batch_job_id", "number_of_shots"]
+    raw_data_enabled: Optional[StrictBool] = False
+    __properties: ClassVar[List[str]] = ["file_id", "batch_job_id", "number_of_shots", "raw_data_enabled"]
 
     model_config = {
         "populate_by_name": True,
@@ -89,7 +90,8 @@ class JobIn(BaseModel):
         _obj = cls.model_validate({
             "file_id": obj.get("file_id"),
             "batch_job_id": obj.get("batch_job_id"),
-            "number_of_shots": obj.get("number_of_shots")
+            "number_of_shots": obj.get("number_of_shots"),
+            "raw_data_enabled": obj.get("raw_data_enabled") if obj.get("raw_data_enabled") is not None else False
         })
         return _obj
 

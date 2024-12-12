@@ -13,6 +13,7 @@ Name | Type | Description | Notes
 **queued_at** | **datetime** |  | 
 **finished_at** | **datetime** |  | 
 **number_of_shots** | **int** |  | 
+**raw_data_enabled** | **bool** |  | 
 
 ## Example
 

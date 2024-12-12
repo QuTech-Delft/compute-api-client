@@ -7,6 +7,7 @@ Name | Type | Description | Notes
 **file_id** | **int** |  | 
 **batch_job_id** | **int** |  | 
 **number_of_shots** | **int** |  | [optional] 
+**raw_data_enabled** | **bool** |  | [optional] [default to False]
 
 ## Example
 

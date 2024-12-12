@@ -328,6 +328,7 @@ class BackendTypesApi:
         description: Optional[StrictStr] = None,
         image_id: Optional[StrictStr] = None,
         is_hardware: Optional[StrictBool] = None,
+        supports_raw_data: Optional[StrictBool] = None,
         nqubits: Optional[StrictInt] = None,
         status: Optional[BackendStatus] = None,
         default_number_of_shots: Optional[StrictInt] = None,
@@ -365,6 +366,8 @@ class BackendTypesApi:
         :type image_id: str
         :param is_hardware:
         :type is_hardware: bool
+        :param supports_raw_data:
+        :type supports_raw_data: bool
         :param nqubits:
         :type nqubits: int
         :param status:
@@ -410,6 +413,7 @@ class BackendTypesApi:
             description=description,
             image_id=image_id,
             is_hardware=is_hardware,
+            supports_raw_data=supports_raw_data,
             nqubits=nqubits,
             status=status,
             default_number_of_shots=default_number_of_shots,
@@ -449,6 +453,7 @@ class BackendTypesApi:
         description: Optional[StrictStr] = None,
         image_id: Optional[StrictStr] = None,
         is_hardware: Optional[StrictBool] = None,
+        supports_raw_data: Optional[StrictBool] = None,
         nqubits: Optional[StrictInt] = None,
         status: Optional[BackendStatus] = None,
         default_number_of_shots: Optional[StrictInt] = None,
@@ -486,6 +491,8 @@ class BackendTypesApi:
         :type image_id: str
         :param is_hardware:
         :type is_hardware: bool
+        :param supports_raw_data:
+        :type supports_raw_data: bool
         :param nqubits:
         :type nqubits: int
         :param status:
@@ -531,6 +538,7 @@ class BackendTypesApi:
             description=description,
             image_id=image_id,
             is_hardware=is_hardware,
+            supports_raw_data=supports_raw_data,
             nqubits=nqubits,
             status=status,
             default_number_of_shots=default_number_of_shots,
@@ -570,6 +578,7 @@ class BackendTypesApi:
         description: Optional[StrictStr] = None,
         image_id: Optional[StrictStr] = None,
         is_hardware: Optional[StrictBool] = None,
+        supports_raw_data: Optional[StrictBool] = None,
         nqubits: Optional[StrictInt] = None,
         status: Optional[BackendStatus] = None,
         default_number_of_shots: Optional[StrictInt] = None,
@@ -607,6 +616,8 @@ class BackendTypesApi:
         :type image_id: str
         :param is_hardware:
         :type is_hardware: bool
+        :param supports_raw_data:
+        :type supports_raw_data: bool
         :param nqubits:
         :type nqubits: int
         :param status:
@@ -652,6 +663,7 @@ class BackendTypesApi:
             description=description,
             image_id=image_id,
             is_hardware=is_hardware,
+            supports_raw_data=supports_raw_data,
             nqubits=nqubits,
             status=status,
             default_number_of_shots=default_number_of_shots,
@@ -686,6 +698,7 @@ class BackendTypesApi:
         description,
         image_id,
         is_hardware,
+        supports_raw_data,
         nqubits,
         status,
         default_number_of_shots,
@@ -738,6 +751,10 @@ class BackendTypesApi:
         if is_hardware is not None:
             
             _query_params.append(('is_hardware', is_hardware))
+            
+        if supports_raw_data is not None:
+            
+            _query_params.append(('supports_raw_data', supports_raw_data))
             
         if nqubits is not None:
             

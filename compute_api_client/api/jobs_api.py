@@ -877,6 +877,7 @@ class JobsApi:
         finished_at: Optional[datetime] = None,
         number_of_shots__isnull: Optional[StrictBool] = None,
         number_of_shots: Optional[StrictInt] = None,
+        raw_data_enabled: Optional[StrictBool] = None,
         sort_by: Annotated[Optional[StrictStr], Field(description="The field name to sort on. Prefix with '-' for descending order. E.g., '-created_on'.")] = None,
         latest: Annotated[Optional[StrictBool], Field(description="If True gets the most recently created object.")] = None,
         page: Annotated[Optional[Annotated[int, Field(strict=True, ge=1)]], Field(description="Page number")] = None,
@@ -922,6 +923,8 @@ class JobsApi:
         :type number_of_shots__isnull: bool
         :param number_of_shots:
         :type number_of_shots: int
+        :param raw_data_enabled:
+        :type raw_data_enabled: bool
         :param sort_by: The field name to sort on. Prefix with '-' for descending order. E.g., '-created_on'.
         :type sort_by: str
         :param latest: If True gets the most recently created object.
@@ -965,6 +968,7 @@ class JobsApi:
             finished_at=finished_at,
             number_of_shots__isnull=number_of_shots__isnull,
             number_of_shots=number_of_shots,
+            raw_data_enabled=raw_data_enabled,
             sort_by=sort_by,
             latest=latest,
             page=page,
@@ -1006,6 +1010,7 @@ class JobsApi:
         finished_at: Optional[datetime] = None,
         number_of_shots__isnull: Optional[StrictBool] = None,
         number_of_shots: Optional[StrictInt] = None,
+        raw_data_enabled: Optional[StrictBool] = None,
         sort_by: Annotated[Optional[StrictStr], Field(description="The field name to sort on. Prefix with '-' for descending order. E.g., '-created_on'.")] = None,
         latest: Annotated[Optional[StrictBool], Field(description="If True gets the most recently created object.")] = None,
         page: Annotated[Optional[Annotated[int, Field(strict=True, ge=1)]], Field(description="Page number")] = None,
@@ -1051,6 +1056,8 @@ class JobsApi:
         :type number_of_shots__isnull: bool
         :param number_of_shots:
         :type number_of_shots: int
+        :param raw_data_enabled:
+        :type raw_data_enabled: bool
         :param sort_by: The field name to sort on. Prefix with '-' for descending order. E.g., '-created_on'.
         :type sort_by: str
         :param latest: If True gets the most recently created object.
@@ -1094,6 +1101,7 @@ class JobsApi:
             finished_at=finished_at,
             number_of_shots__isnull=number_of_shots__isnull,
             number_of_shots=number_of_shots,
+            raw_data_enabled=raw_data_enabled,
             sort_by=sort_by,
             latest=latest,
             page=page,
@@ -1135,6 +1143,7 @@ class JobsApi:
         finished_at: Optional[datetime] = None,
         number_of_shots__isnull: Optional[StrictBool] = None,
         number_of_shots: Optional[StrictInt] = None,
+        raw_data_enabled: Optional[StrictBool] = None,
         sort_by: Annotated[Optional[StrictStr], Field(description="The field name to sort on. Prefix with '-' for descending order. E.g., '-created_on'.")] = None,
         latest: Annotated[Optional[StrictBool], Field(description="If True gets the most recently created object.")] = None,
         page: Annotated[Optional[Annotated[int, Field(strict=True, ge=1)]], Field(description="Page number")] = None,
@@ -1180,6 +1189,8 @@ class JobsApi:
         :type number_of_shots__isnull: bool
         :param number_of_shots:
         :type number_of_shots: int
+        :param raw_data_enabled:
+        :type raw_data_enabled: bool
         :param sort_by: The field name to sort on. Prefix with '-' for descending order. E.g., '-created_on'.
         :type sort_by: str
         :param latest: If True gets the most recently created object.
@@ -1223,6 +1234,7 @@ class JobsApi:
             finished_at=finished_at,
             number_of_shots__isnull=number_of_shots__isnull,
             number_of_shots=number_of_shots,
+            raw_data_enabled=raw_data_enabled,
             sort_by=sort_by,
             latest=latest,
             page=page,
@@ -1259,6 +1271,7 @@ class JobsApi:
         finished_at,
         number_of_shots__isnull,
         number_of_shots,
+        raw_data_enabled,
         sort_by,
         latest,
         page,
@@ -1358,6 +1371,10 @@ class JobsApi:
         if number_of_shots is not None:
             
             _query_params.append(('number_of_shots', number_of_shots))
+            
+        if raw_data_enabled is not None:
+            
+            _query_params.append(('raw_data_enabled', raw_data_enabled))
             
         if sort_by is not None:
             

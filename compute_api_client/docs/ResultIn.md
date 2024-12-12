@@ -10,6 +10,7 @@ Name | Type | Description | Notes
 **shots_requested** | **int** |  | [optional] 
 **shots_done** | **int** |  | [optional] 
 **results** | **object** |  | [optional] 
+**raw_data** | **List[str]** |  | [optional] 
 
 ## Example
 

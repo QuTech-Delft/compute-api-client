@@ -63,5 +63,9 @@ else
     cd ../../../tests/integration/
     poetry lock --no-update
 
+    echo "Updating e2e test dependencies"
+    cd ../e2e/
+    poetry lock --no-update
+
     echo "Success!"
 fi

@@ -245,7 +245,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **read_results_by_algorithm_id_results_algorithm_algorithm_id_get**
-> PageResult read_results_by_algorithm_id_results_algorithm_algorithm_id_get(algorithm_id, id=id, created_on=created_on, job_id=job_id, metadata_id=metadata_id, execution_time_in_seconds=execution_time_in_seconds, shots_requested__isnull=shots_requested__isnull, shots_requested=shots_requested, shots_done__isnull=shots_done__isnull, shots_done=shots_done, results__isnull=results__isnull, sort_by=sort_by, latest=latest, page=page, size=size)
+> PageResult read_results_by_algorithm_id_results_algorithm_algorithm_id_get(algorithm_id, id=id, created_on=created_on, job_id=job_id, metadata_id=metadata_id, execution_time_in_seconds=execution_time_in_seconds, shots_requested__isnull=shots_requested__isnull, shots_requested=shots_requested, shots_done__isnull=shots_done__isnull, shots_done=shots_done, results__isnull=results__isnull, raw_data__isnull=raw_data__isnull, sort_by=sort_by, latest=latest, page=page, size=size)
 
 Retrieve results by algorithm ID
 
@@ -290,6 +290,7 @@ async with compute_api_client.ApiClient(configuration) as api_client:
     shots_done__isnull = True # bool |  (optional)
     shots_done = 56 # int |  (optional)
     results__isnull = True # bool |  (optional)
+    raw_data__isnull = True # bool |  (optional)
     sort_by = 'sort_by_example' # str | The field name to sort on. Prefix with '-' for descending order. E.g., '-created_on'. (optional)
     latest = True # bool | If True gets the most recently created object. (optional)
     page = 1 # int | Page number (optional) (default to 1)
@@ -297,7 +298,7 @@ async with compute_api_client.ApiClient(configuration) as api_client:
 
     try:
         # Retrieve results by algorithm ID
-        api_response = await api_instance.read_results_by_algorithm_id_results_algorithm_algorithm_id_get(algorithm_id, id=id, created_on=created_on, job_id=job_id, metadata_id=metadata_id, execution_time_in_seconds=execution_time_in_seconds, shots_requested__isnull=shots_requested__isnull, shots_requested=shots_requested, shots_done__isnull=shots_done__isnull, shots_done=shots_done, results__isnull=results__isnull, sort_by=sort_by, latest=latest, page=page, size=size)
+        api_response = await api_instance.read_results_by_algorithm_id_results_algorithm_algorithm_id_get(algorithm_id, id=id, created_on=created_on, job_id=job_id, metadata_id=metadata_id, execution_time_in_seconds=execution_time_in_seconds, shots_requested__isnull=shots_requested__isnull, shots_requested=shots_requested, shots_done__isnull=shots_done__isnull, shots_done=shots_done, results__isnull=results__isnull, raw_data__isnull=raw_data__isnull, sort_by=sort_by, latest=latest, page=page, size=size)
         print("The response of ResultsApi->read_results_by_algorithm_id_results_algorithm_algorithm_id_get:\n")
         pprint(api_response)
     except Exception as e:
@@ -321,6 +322,7 @@ Name | Type | Description  | Notes
  **shots_done__isnull** | **bool**|  | [optional] 
  **shots_done** | **int**|  | [optional] 
  **results__isnull** | **bool**|  | [optional] 
+ **raw_data__isnull** | **bool**|  | [optional] 
  **sort_by** | **str**| The field name to sort on. Prefix with &#39;-&#39; for descending order. E.g., &#39;-created_on&#39;. | [optional] 
  **latest** | **bool**| If True gets the most recently created object. | [optional] 
  **page** | **int**| Page number | [optional] [default to 1]

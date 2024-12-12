@@ -10,6 +10,7 @@ Name | Type | Description | Notes
 **description** | **str** |  | 
 **image_id** | **str** |  | 
 **is_hardware** | **bool** |  | 
+**supports_raw_data** | **bool** |  | 
 **features** | **List[str]** |  | 
 **default_compiler_config** | **object** |  | 
 **gateset** | **List[str]** |  | 

@@ -38,6 +38,7 @@ class BackendType(BaseModel):
     description: StrictStr
     image_id: Annotated[str, Field(strict=True, max_length=16)]
     is_hardware: StrictBool
+    supports_raw_data: StrictBool
     features: List[StrictStr]
     default_compiler_config: Union[str, Any]
     gateset: List[StrictStr]
@@ -46,7 +47,7 @@ class BackendType(BaseModel):
     status: BackendStatus
     default_number_of_shots: StrictInt
     max_number_of_shots: StrictInt
-    __properties: ClassVar[List[str]] = ["id", "name", "infrastructure", "description", "image_id", "is_hardware", "features", "default_compiler_config", "gateset", "topology", "nqubits", "status", "default_number_of_shots", "max_number_of_shots"]
+    __properties: ClassVar[List[str]] = ["id", "name", "infrastructure", "description", "image_id", "is_hardware", "supports_raw_data", "features", "default_compiler_config", "gateset", "topology", "nqubits", "status", "default_number_of_shots", "max_number_of_shots"]
 
     model_config = {
         "populate_by_name": True,
@@ -102,6 +103,7 @@ class BackendType(BaseModel):
             "description": obj.get("description"),
             "image_id": obj.get("image_id"),
             "is_hardware": obj.get("is_hardware"),
+            "supports_raw_data": obj.get("supports_raw_data"),
             "features": obj.get("features"),
             "default_compiler_config": obj.get("default_compiler_config"),
             "gateset": obj.get("gateset"),
