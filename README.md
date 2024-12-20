@@ -75,6 +75,7 @@ Class | Method | HTTP request | Description
 *AlgorithmsApi* | [**read_algorithm_algorithms_id_get**](compute_api_client/docs/AlgorithmsApi.md#read_algorithm_algorithms_id_get) | **GET** /algorithms/{id} | Retrieve algorithm
 *AlgorithmsApi* | [**read_algorithms_algorithms_get**](compute_api_client/docs/AlgorithmsApi.md#read_algorithms_algorithms_get) | **GET** /algorithms | List algorithms
 *AlgorithmsApi* | [**update_algorithm_algorithms_id_put**](compute_api_client/docs/AlgorithmsApi.md#update_algorithm_algorithms_id_put) | **PUT** /algorithms/{id} | Update algorithm
+*AuthConfigApi* | [**auth_config_auth_config_get**](compute_api_client/docs/AuthConfigApi.md#auth_config_auth_config_get) | **GET** /auth_config | Get suggested authentication configuration
 *BackendApi* | [**create_backend_backends_post**](compute_api_client/docs/BackendApi.md#create_backend_backends_post) | **POST** /backends | Create backend
 *BackendApi* | [**read_backend_backends_id_get**](compute_api_client/docs/BackendApi.md#read_backend_backends_id_get) | **GET** /backends/{id} | Retrieve backend
 *BackendApi* | [**read_backend_self_backends_me_get**](compute_api_client/docs/BackendApi.md#read_backend_self_backends_me_get) | **GET** /backends/me | Retrieve backend
@@ -150,6 +151,7 @@ Class | Method | HTTP request | Description
  - [Algorithm](compute_api_client/docs/Algorithm.md)
  - [AlgorithmIn](compute_api_client/docs/AlgorithmIn.md)
  - [AlgorithmType](compute_api_client/docs/AlgorithmType.md)
+ - [AuthConfig](compute_api_client/docs/AuthConfig.md)
  - [Backend](compute_api_client/docs/Backend.md)
  - [BackendIn](compute_api_client/docs/BackendIn.md)
  - [BackendPatch](compute_api_client/docs/BackendPatch.md)
@@ -227,7 +229,7 @@ Authentication schemes defined for the API:
 
 - **Type**: OAuth
 - **Flow**: accessCode
-- **Authorization URL**: https://auth.qi2.quantum-inspire.com/realms/oidc_staging/protocol/openid-connect/auth
+- **Authorization URL**: https://auth.qi2.quantum-inspire.com/realms/oidc_development/protocol/openid-connect/auth
 - **Scopes**: N/A
 
 <a id="backend"></a>

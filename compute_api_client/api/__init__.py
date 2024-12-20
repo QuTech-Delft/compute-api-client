@@ -2,6 +2,7 @@
 
 # import apis into api package
 from compute_api_client.api.algorithms_api import AlgorithmsApi
+from compute_api_client.api.auth_config_api import AuthConfigApi
 from compute_api_client.api.backend_api import BackendApi
 from compute_api_client.api.backend_types_api import BackendTypesApi
 from compute_api_client.api.batch_jobs_api import BatchJobsApi

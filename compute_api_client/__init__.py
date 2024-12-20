@@ -18,6 +18,7 @@ __version__ = "1.0.0"
 
 # import apis into sdk package
 from compute_api_client.api.algorithms_api import AlgorithmsApi
+from compute_api_client.api.auth_config_api import AuthConfigApi
 from compute_api_client.api.backend_api import BackendApi
 from compute_api_client.api.backend_types_api import BackendTypesApi
 from compute_api_client.api.batch_jobs_api import BatchJobsApi
@@ -52,6 +53,7 @@ from compute_api_client.exceptions import ApiException
 from compute_api_client.models.algorithm import Algorithm
 from compute_api_client.models.algorithm_in import AlgorithmIn
 from compute_api_client.models.algorithm_type import AlgorithmType
+from compute_api_client.models.auth_config import AuthConfig
 from compute_api_client.models.backend import Backend
 from compute_api_client.models.backend_in import BackendIn
 from compute_api_client.models.backend_patch import BackendPatch
