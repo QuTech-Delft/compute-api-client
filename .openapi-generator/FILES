@@ -50,6 +50,7 @@ compute_api_client/docs/FilesApi.md
 compute_api_client/docs/FinalResult.md
 compute_api_client/docs/FinalResultIn.md
 compute_api_client/docs/FinalResultsApi.md
+compute_api_client/docs/HTTPBadRequestError.md
 compute_api_client/docs/HTTPNotFoundError.md
 compute_api_client/docs/HTTPValidationError.md
 compute_api_client/docs/HealthApi.md
@@ -131,6 +132,7 @@ compute_api_client/models/file.py
 compute_api_client/models/file_in.py
 compute_api_client/models/final_result.py
 compute_api_client/models/final_result_in.py
+compute_api_client/models/http_bad_request_error.py
 compute_api_client/models/http_not_found_error.py
 compute_api_client/models/http_validation_error.py
 compute_api_client/models/job.py
@@ -179,4 +181,5 @@ compute_api_client/models/user_in.py
 compute_api_client/models/validation_error.py
 compute_api_client/rest.py
 compute_api_client/test/__init__.py
+compute_api_client/test/test_http_bad_request_error.py
 compute_api_client_README.md

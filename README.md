@@ -168,6 +168,7 @@ Class | Method | HTTP request | Description
  - [FileIn](compute_api_client/docs/FileIn.md)
  - [FinalResult](compute_api_client/docs/FinalResult.md)
  - [FinalResultIn](compute_api_client/docs/FinalResultIn.md)
+ - [HTTPBadRequestError](compute_api_client/docs/HTTPBadRequestError.md)
  - [HTTPNotFoundError](compute_api_client/docs/HTTPNotFoundError.md)
  - [HTTPValidationError](compute_api_client/docs/HTTPValidationError.md)
  - [Job](compute_api_client/docs/Job.md)

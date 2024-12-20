@@ -35,6 +35,7 @@ from compute_api_client.models.file import File
 from compute_api_client.models.file_in import FileIn
 from compute_api_client.models.final_result import FinalResult
 from compute_api_client.models.final_result_in import FinalResultIn
+from compute_api_client.models.http_bad_request_error import HTTPBadRequestError
 from compute_api_client.models.http_not_found_error import HTTPNotFoundError
 from compute_api_client.models.http_validation_error import HTTPValidationError
 from compute_api_client.models.job import Job
