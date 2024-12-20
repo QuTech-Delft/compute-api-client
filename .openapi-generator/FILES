@@ -181,5 +181,4 @@ compute_api_client/models/user_in.py
 compute_api_client/models/validation_error.py
 compute_api_client/rest.py
 compute_api_client/test/__init__.py
-compute_api_client/test/test_http_bad_request_error.py
 compute_api_client_README.md

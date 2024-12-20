@@ -18,6 +18,7 @@ Get backend type by ID.
 ### Example
 
 * OAuth Authentication (user_bearer):
+* Api Key Authentication (backend):
 ```python
 import time
 import os
@@ -38,6 +39,12 @@ configuration = compute_api_client.Configuration(
 # satisfies your auth use case.
 
 configuration.access_token = os.environ["ACCESS_TOKEN"]
+
+# Configure API key authorization: backend
+configuration.api_key['backend'] = os.environ["API_KEY"]
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['backend'] = 'Bearer'
 
 # Enter a context with an instance of the API client
 async with compute_api_client.ApiClient(configuration) as api_client:
@@ -68,7 +75,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[user_bearer](../README.md#user_bearer)
+[user_bearer](../README.md#user_bearer), [backend](../README.md#backend)
 
 ### HTTP request headers
 
