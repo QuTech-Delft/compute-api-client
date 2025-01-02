@@ -16,7 +16,7 @@ jobs:
         with:
           python-version: "3.8"
       - name: Install poetry
-        uses: abatilo/actions-poetry@v3
+        uses: abatilo/actions-poetry@v4
       - name: Version poetry package
         run: poetry version "${{  github.ref_name }}"
       - name: Build poetry package
