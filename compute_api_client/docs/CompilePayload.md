@@ -4,7 +4,7 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**compile_stage** | [**CompileStage**](CompileStage.md) |  | 
+**compile_stage** | [**CompileStage**](CompileStage.md) |  | [optional] 
 **backend_type_id** | **int** |  | 
 
 ## Example

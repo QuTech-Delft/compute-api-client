@@ -18,7 +18,7 @@ import re  # noqa: F401
 import json
 
 
-from typing import Any, ClassVar, Dict, List
+from typing import Any, ClassVar, Dict, List, Optional
 from pydantic import BaseModel, StrictInt
 from compute_api_client.models.compile_stage import CompileStage
 try:
@@ -30,7 +30,7 @@ class CompilePayload(BaseModel):
     """
     CompilePayload
     """ # noqa: E501
-    compile_stage: CompileStage
+    compile_stage: Optional[CompileStage] = None
     backend_type_id: StrictInt
     __properties: ClassVar[List[str]] = ["compile_stage", "backend_type_id"]
 
@@ -70,6 +70,11 @@ class CompilePayload(BaseModel):
             },
             exclude_none=True,
         )
+        # set to None if compile_stage (nullable) is None
+        # and model_fields_set contains the field
+        if self.compile_stage is None and "compile_stage" in self.model_fields_set:
+            _dict['compile_stage'] = None
+
         return _dict
 
     @classmethod
