@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "qi-compute-api-client"
-version = "0.43.0"
+version = "0.44.0"
 description = "An API client for the Compute Job Manager of Quantum Inspire."
 license = "Apache-2.0"
 authors = ["Quantum Inspire <support@quantum-inspire.eu>"]
@@ -29,7 +29,7 @@ pydantic = "^2.10.4"
 python = "^3.8"
 python-dateutil = "^2.8.2"
 urllib3 = "^2.0.0"
-requests = "^2.32.3"
+requests = "^2.31.0"
 
 [tool.poetry.group.dev.dependencies]
 pytest = {extras = ["toml"], version = "^8.0.0"}
