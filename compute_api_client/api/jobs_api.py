@@ -878,6 +878,10 @@ class JobsApi:
         number_of_shots__isnull: Optional[StrictBool] = None,
         number_of_shots: Optional[StrictInt] = None,
         raw_data_enabled: Optional[StrictBool] = None,
+        session_id: Optional[StrictStr] = None,
+        trace_id: Optional[StrictStr] = None,
+        message: Optional[StrictStr] = None,
+        source: Optional[StrictStr] = None,
         sort_by: Annotated[Optional[StrictStr], Field(description="The field name to sort on. Prefix with '-' for descending order. E.g., '-created_on'.")] = None,
         latest: Annotated[Optional[StrictBool], Field(description="If True gets the most recently created object.")] = None,
         page: Annotated[Optional[Annotated[int, Field(strict=True, ge=1)]], Field(description="Page number")] = None,
@@ -925,6 +929,14 @@ class JobsApi:
         :type number_of_shots: int
         :param raw_data_enabled:
         :type raw_data_enabled: bool
+        :param session_id:
+        :type session_id: str
+        :param trace_id:
+        :type trace_id: str
+        :param message:
+        :type message: str
+        :param source:
+        :type source: str
         :param sort_by: The field name to sort on. Prefix with '-' for descending order. E.g., '-created_on'.
         :type sort_by: str
         :param latest: If True gets the most recently created object.
@@ -969,6 +981,10 @@ class JobsApi:
             number_of_shots__isnull=number_of_shots__isnull,
             number_of_shots=number_of_shots,
             raw_data_enabled=raw_data_enabled,
+            session_id=session_id,
+            trace_id=trace_id,
+            message=message,
+            source=source,
             sort_by=sort_by,
             latest=latest,
             page=page,
@@ -1011,6 +1027,10 @@ class JobsApi:
         number_of_shots__isnull: Optional[StrictBool] = None,
         number_of_shots: Optional[StrictInt] = None,
         raw_data_enabled: Optional[StrictBool] = None,
+        session_id: Optional[StrictStr] = None,
+        trace_id: Optional[StrictStr] = None,
+        message: Optional[StrictStr] = None,
+        source: Optional[StrictStr] = None,
         sort_by: Annotated[Optional[StrictStr], Field(description="The field name to sort on. Prefix with '-' for descending order. E.g., '-created_on'.")] = None,
         latest: Annotated[Optional[StrictBool], Field(description="If True gets the most recently created object.")] = None,
         page: Annotated[Optional[Annotated[int, Field(strict=True, ge=1)]], Field(description="Page number")] = None,
@@ -1058,6 +1078,14 @@ class JobsApi:
         :type number_of_shots: int
         :param raw_data_enabled:
         :type raw_data_enabled: bool
+        :param session_id:
+        :type session_id: str
+        :param trace_id:
+        :type trace_id: str
+        :param message:
+        :type message: str
+        :param source:
+        :type source: str
         :param sort_by: The field name to sort on. Prefix with '-' for descending order. E.g., '-created_on'.
         :type sort_by: str
         :param latest: If True gets the most recently created object.
@@ -1102,6 +1130,10 @@ class JobsApi:
             number_of_shots__isnull=number_of_shots__isnull,
             number_of_shots=number_of_shots,
             raw_data_enabled=raw_data_enabled,
+            session_id=session_id,
+            trace_id=trace_id,
+            message=message,
+            source=source,
             sort_by=sort_by,
             latest=latest,
             page=page,
@@ -1144,6 +1176,10 @@ class JobsApi:
         number_of_shots__isnull: Optional[StrictBool] = None,
         number_of_shots: Optional[StrictInt] = None,
         raw_data_enabled: Optional[StrictBool] = None,
+        session_id: Optional[StrictStr] = None,
+        trace_id: Optional[StrictStr] = None,
+        message: Optional[StrictStr] = None,
+        source: Optional[StrictStr] = None,
         sort_by: Annotated[Optional[StrictStr], Field(description="The field name to sort on. Prefix with '-' for descending order. E.g., '-created_on'.")] = None,
         latest: Annotated[Optional[StrictBool], Field(description="If True gets the most recently created object.")] = None,
         page: Annotated[Optional[Annotated[int, Field(strict=True, ge=1)]], Field(description="Page number")] = None,
@@ -1191,6 +1227,14 @@ class JobsApi:
         :type number_of_shots: int
         :param raw_data_enabled:
         :type raw_data_enabled: bool
+        :param session_id:
+        :type session_id: str
+        :param trace_id:
+        :type trace_id: str
+        :param message:
+        :type message: str
+        :param source:
+        :type source: str
         :param sort_by: The field name to sort on. Prefix with '-' for descending order. E.g., '-created_on'.
         :type sort_by: str
         :param latest: If True gets the most recently created object.
@@ -1235,6 +1279,10 @@ class JobsApi:
             number_of_shots__isnull=number_of_shots__isnull,
             number_of_shots=number_of_shots,
             raw_data_enabled=raw_data_enabled,
+            session_id=session_id,
+            trace_id=trace_id,
+            message=message,
+            source=source,
             sort_by=sort_by,
             latest=latest,
             page=page,
@@ -1272,6 +1320,10 @@ class JobsApi:
         number_of_shots__isnull,
         number_of_shots,
         raw_data_enabled,
+        session_id,
+        trace_id,
+        message,
+        source,
         sort_by,
         latest,
         page,
@@ -1375,6 +1427,22 @@ class JobsApi:
         if raw_data_enabled is not None:
             
             _query_params.append(('raw_data_enabled', raw_data_enabled))
+            
+        if session_id is not None:
+            
+            _query_params.append(('session_id', session_id))
+            
+        if trace_id is not None:
+            
+            _query_params.append(('trace_id', trace_id))
+            
+        if message is not None:
+            
+            _query_params.append(('message', message))
+            
+        if source is not None:
+            
+            _query_params.append(('source', source))
             
         if sort_by is not None:
             

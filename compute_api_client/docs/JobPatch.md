@@ -5,6 +5,10 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **status** | [**JobStatus**](JobStatus.md) |  | 
+**session_id** | **str** |  | [optional] [default to '']
+**trace_id** | **str** |  | [optional] [default to '']
+**message** | **str** |  | [optional] [default to '']
+**source** | **str** |  | [optional] [default to '']
 
 ## Example
 

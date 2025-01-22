@@ -18,8 +18,10 @@ import re  # noqa: F401
 import json
 
 
-from typing import Any, ClassVar, Dict, List
-from pydantic import BaseModel
+from typing import Any, ClassVar, Dict, List, Optional
+from pydantic import BaseModel, StrictStr
+from pydantic import Field
+from typing_extensions import Annotated
 from compute_api_client.models.job_status import JobStatus
 try:
     from typing import Self
@@ -31,7 +33,11 @@ class JobPatch(BaseModel):
     JobPatch
     """ # noqa: E501
     status: JobStatus
-    __properties: ClassVar[List[str]] = ["status"]
+    session_id: Optional[Annotated[str, Field(strict=True, max_length=255)]] = ''
+    trace_id: Optional[Annotated[str, Field(strict=True, max_length=255)]] = ''
+    message: Optional[StrictStr] = ''
+    source: Optional[StrictStr] = ''
+    __properties: ClassVar[List[str]] = ["status", "session_id", "trace_id", "message", "source"]
 
     model_config = {
         "populate_by_name": True,
@@ -81,7 +87,11 @@ class JobPatch(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
-            "status": obj.get("status")
+            "status": obj.get("status"),
+            "session_id": obj.get("session_id") if obj.get("session_id") is not None else '',
+            "trace_id": obj.get("trace_id") if obj.get("trace_id") is not None else '',
+            "message": obj.get("message") if obj.get("message") is not None else '',
+            "source": obj.get("source") if obj.get("source") is not None else ''
         })
         return _obj
 

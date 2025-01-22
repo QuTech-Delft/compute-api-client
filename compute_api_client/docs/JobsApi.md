@@ -244,7 +244,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **read_jobs_jobs_get**
-> PageJob read_jobs_jobs_get(id=id, created_on=created_on, file_id=file_id, algorithm_type=algorithm_type, status=status, batch_job_id=batch_job_id, queued_at__isnull=queued_at__isnull, queued_at=queued_at, finished_at__isnull=finished_at__isnull, finished_at=finished_at, number_of_shots__isnull=number_of_shots__isnull, number_of_shots=number_of_shots, raw_data_enabled=raw_data_enabled, sort_by=sort_by, latest=latest, page=page, size=size)
+> PageJob read_jobs_jobs_get(id=id, created_on=created_on, file_id=file_id, algorithm_type=algorithm_type, status=status, batch_job_id=batch_job_id, queued_at__isnull=queued_at__isnull, queued_at=queued_at, finished_at__isnull=finished_at__isnull, finished_at=finished_at, number_of_shots__isnull=number_of_shots__isnull, number_of_shots=number_of_shots, raw_data_enabled=raw_data_enabled, session_id=session_id, trace_id=trace_id, message=message, source=source, sort_by=sort_by, latest=latest, page=page, size=size)
 
 List jobs
 
@@ -300,6 +300,10 @@ async with compute_api_client.ApiClient(configuration) as api_client:
     number_of_shots__isnull = True # bool |  (optional)
     number_of_shots = 56 # int |  (optional)
     raw_data_enabled = True # bool |  (optional)
+    session_id = 'session_id_example' # str |  (optional)
+    trace_id = 'trace_id_example' # str |  (optional)
+    message = 'message_example' # str |  (optional)
+    source = 'source_example' # str |  (optional)
     sort_by = 'sort_by_example' # str | The field name to sort on. Prefix with '-' for descending order. E.g., '-created_on'. (optional)
     latest = True # bool | If True gets the most recently created object. (optional)
     page = 1 # int | Page number (optional) (default to 1)
@@ -307,7 +311,7 @@ async with compute_api_client.ApiClient(configuration) as api_client:
 
     try:
         # List jobs
-        api_response = await api_instance.read_jobs_jobs_get(id=id, created_on=created_on, file_id=file_id, algorithm_type=algorithm_type, status=status, batch_job_id=batch_job_id, queued_at__isnull=queued_at__isnull, queued_at=queued_at, finished_at__isnull=finished_at__isnull, finished_at=finished_at, number_of_shots__isnull=number_of_shots__isnull, number_of_shots=number_of_shots, raw_data_enabled=raw_data_enabled, sort_by=sort_by, latest=latest, page=page, size=size)
+        api_response = await api_instance.read_jobs_jobs_get(id=id, created_on=created_on, file_id=file_id, algorithm_type=algorithm_type, status=status, batch_job_id=batch_job_id, queued_at__isnull=queued_at__isnull, queued_at=queued_at, finished_at__isnull=finished_at__isnull, finished_at=finished_at, number_of_shots__isnull=number_of_shots__isnull, number_of_shots=number_of_shots, raw_data_enabled=raw_data_enabled, session_id=session_id, trace_id=trace_id, message=message, source=source, sort_by=sort_by, latest=latest, page=page, size=size)
         print("The response of JobsApi->read_jobs_jobs_get:\n")
         pprint(api_response)
     except Exception as e:
@@ -333,6 +337,10 @@ Name | Type | Description  | Notes
  **number_of_shots__isnull** | **bool**|  | [optional] 
  **number_of_shots** | **int**|  | [optional] 
  **raw_data_enabled** | **bool**|  | [optional] 
+ **session_id** | **str**|  | [optional] 
+ **trace_id** | **str**|  | [optional] 
+ **message** | **str**|  | [optional] 
+ **source** | **str**|  | [optional] 
  **sort_by** | **str**| The field name to sort on. Prefix with &#39;-&#39; for descending order. E.g., &#39;-created_on&#39;. | [optional] 
  **latest** | **bool**| If True gets the most recently created object. | [optional] 
  **page** | **int**| Page number | [optional] [default to 1]

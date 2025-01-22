@@ -14,6 +14,10 @@ Name | Type | Description | Notes
 **finished_at** | **datetime** |  | 
 **number_of_shots** | **int** |  | 
 **raw_data_enabled** | **bool** |  | 
+**session_id** | **str** |  | 
+**trace_id** | **str** |  | 
+**message** | **str** |  | 
+**source** | **str** |  | 
 
 ## Example
 
