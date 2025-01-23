@@ -13,7 +13,7 @@ language governing permissions and limitations under the License.
 """
 
 from abc import ABC, abstractmethod
-from typing import Any, Dict, List
+from typing import Any, Dict, List, Optional
 
 from compute_api_client.models.backend_type import BackendType
 from pydantic import BaseModel
@@ -22,7 +22,8 @@ from pydantic import BaseModel
 class ExecuteCircuitResult(BaseModel):
     """Result of executing a quantum circuit."""
 
-    results: Dict[str, float]
+    results: Dict[str, int]
+    raw_data: Optional[List[str]]
     shots_requested: int
     shots_done: int
 
@@ -38,7 +39,7 @@ class QuantumInterface(ABC):
 
     @abstractmethod
     def execute_circuit(
-        self, circuit: str, number_of_shots: int
+        self, circuit: str, number_of_shots: int, raw_data_enabled: bool = False
     ) -> ExecuteCircuitResult:
         """Execute a quantum circuit."""
         raise NotImplementedError
