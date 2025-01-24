@@ -36,6 +36,9 @@ class CompileStage(str, Enum):
     """
     NONE = 'none'
     DECOMPOSITION = 'decomposition'
+    MAPPING = 'mapping'
+    OPTIMIZATION = 'optimization'
+    ROUTING = 'routing'
 
     @classmethod
     def from_json(cls, json_str: str) -> Self:
