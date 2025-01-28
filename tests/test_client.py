@@ -11,9 +11,8 @@ from qi2_shared.settings import ApiSettings, AuthSettings, TokenInfo
 def api_settings_mock(auth_settings: AuthSettings, mocker: MockerFixture) -> MagicMock:
     api_settings = MagicMock(spec=ApiSettings)
     api_settings.default_host = "https://host.com"
-    api_settings.auths = {api_settings.default_host: auth_settings}
     api_settings.from_config_file.return_value = api_settings
-
+    api_settings.auths = {api_settings.default_host: auth_settings}
     mocker.patch("qi2_shared.client.ApiSettings", return_value=api_settings)
 
     return api_settings

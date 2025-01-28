@@ -39,10 +39,9 @@ def test_oauth_device_session_refresh_token_not_expired(
     # Arrange
     auth_settings = api_settings_mock.auths[api_settings_mock.default_host]
     auth_settings.tokens.generated_at = time.time()
-    session = OauthDeviceSession("https://host.com", api_settings_mock, identity_provider_mock)
 
     # Act
-    token_info = session.refresh()
+    token_info = OauthDeviceSession("https://host.com", api_settings_mock, identity_provider_mock).refresh()
 
     # Assert
     assert token_info == auth_settings.tokens
@@ -100,9 +99,7 @@ def test_identity_provider_refresh_access_token() -> None:
     )
 
     # Act
-    provider = IdentityProvider("https://host.com/well-known-endpoint")
-
-    token = provider.refresh_access_token(client_id, old_refresh_token)
+    token = IdentityProvider("https://host.com/well-known-endpoint").refresh_access_token(client_id, old_refresh_token)
 
     # Assert
     assert token == token_info

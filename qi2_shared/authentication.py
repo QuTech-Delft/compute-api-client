@@ -8,6 +8,7 @@ from qi2_shared.settings import ApiSettings, TokenInfo, Url
 
 class AuthorisationError(Exception):
     """Indicates that the authorisation permanently went wrong."""
+
     pass
 
 

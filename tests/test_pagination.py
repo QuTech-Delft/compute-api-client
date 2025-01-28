@@ -1,11 +1,17 @@
-from unittest.mock import AsyncMock
+from unittest.mock import AsyncMock, MagicMock
 
 import pytest
 from compute_api_client import BackendType, BatchJob, PageBackendType, PageBatchJob
 from pytest_mock import MockerFixture
 
 from qi2_shared.pagination import PageReader
-from tests.helpers import create_backend_type
+
+
+def create_backend_type(name: str) -> BackendType:
+    """Helper for creating a backendtype with only the fields you care about."""
+    backend_type = MagicMock(BackendType)
+    backend_type.name = name
+    return backend_type
 
 
 @pytest.mark.asyncio
