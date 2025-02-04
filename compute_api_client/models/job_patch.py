@@ -37,7 +37,8 @@ class JobPatch(BaseModel):
     trace_id: Optional[Annotated[str, Field(strict=True, max_length=255)]] = ''
     message: Optional[StrictStr] = ''
     source: Optional[StrictStr] = ''
-    __properties: ClassVar[List[str]] = ["status", "session_id", "trace_id", "message", "source"]
+    traceback: Optional[StrictStr] = ''
+    __properties: ClassVar[List[str]] = ["status", "session_id", "trace_id", "message", "source", "traceback"]
 
     model_config = {
         "populate_by_name": True,
@@ -91,7 +92,8 @@ class JobPatch(BaseModel):
             "session_id": obj.get("session_id") if obj.get("session_id") is not None else '',
             "trace_id": obj.get("trace_id") if obj.get("trace_id") is not None else '',
             "message": obj.get("message") if obj.get("message") is not None else '',
-            "source": obj.get("source") if obj.get("source") is not None else ''
+            "source": obj.get("source") if obj.get("source") is not None else '',
+            "traceback": obj.get("traceback") if obj.get("traceback") is not None else ''
         })
         return _obj
 

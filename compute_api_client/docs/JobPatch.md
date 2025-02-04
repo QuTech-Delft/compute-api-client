@@ -9,6 +9,7 @@ Name | Type | Description | Notes
 **trace_id** | **str** |  | [optional] [default to '']
 **message** | **str** |  | [optional] [default to '']
 **source** | **str** |  | [optional] [default to '']
+**traceback** | **str** |  | [optional] [default to '']
 
 ## Example
 
