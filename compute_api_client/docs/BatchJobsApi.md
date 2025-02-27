@@ -10,7 +10,7 @@ Method | HTTP request | Description
 [**peek_batch_job_batch_jobs_peek_patch**](BatchJobsApi.md#peek_batch_job_batch_jobs_peek_patch) | **PATCH** /batch_jobs/peek | Peek batch job
 [**pop_batch_job_batch_jobs_pop_patch**](BatchJobsApi.md#pop_batch_job_batch_jobs_pop_patch) | **PATCH** /batch_jobs/pop | Take batch job
 [**read_batch_jobs_batch_jobs_get**](BatchJobsApi.md#read_batch_jobs_batch_jobs_get) | **GET** /batch_jobs | List batch jobs
-[**unpop_batch_job_batch_jobs_unpop_patch**](BatchJobsApi.md#unpop_batch_job_batch_jobs_unpop_patch) | **PATCH** /batch_jobs/unpop | Take batch job
+[**unpop_batch_job_batch_jobs_id_unpop_patch**](BatchJobsApi.md#unpop_batch_job_batch_jobs_id_unpop_patch) | **PATCH** /batch_jobs/{id}/unpop | Take batch job
 
 
 # **create_batch_job_batch_jobs_post**
@@ -511,8 +511,8 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **unpop_batch_job_batch_jobs_unpop_patch**
-> BatchJob unpop_batch_job_batch_jobs_unpop_patch()
+# **unpop_batch_job_batch_jobs_id_unpop_patch**
+> BatchJob unpop_batch_job_batch_jobs_id_unpop_patch(id)
 
 Take batch job
 
@@ -550,20 +550,24 @@ configuration.api_key['backend'] = os.environ["API_KEY"]
 async with compute_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = compute_api_client.BatchJobsApi(api_client)
+    id = 56 # int | 
 
     try:
         # Take batch job
-        api_response = await api_instance.unpop_batch_job_batch_jobs_unpop_patch()
-        print("The response of BatchJobsApi->unpop_batch_job_batch_jobs_unpop_patch:\n")
+        api_response = await api_instance.unpop_batch_job_batch_jobs_id_unpop_patch(id)
+        print("The response of BatchJobsApi->unpop_batch_job_batch_jobs_id_unpop_patch:\n")
         pprint(api_response)
     except Exception as e:
-        print("Exception when calling BatchJobsApi->unpop_batch_job_batch_jobs_unpop_patch: %s\n" % e)
+        print("Exception when calling BatchJobsApi->unpop_batch_job_batch_jobs_id_unpop_patch: %s\n" % e)
 ```
 
 
 
 ### Parameters
-This endpoint does not need any parameter.
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **id** | **int**|  | 
 
 ### Return type
 
@@ -583,6 +587,7 @@ This endpoint does not need any parameter.
 |-------------|-------------|------------------|
 **200** | Successful Response |  -  |
 **404** | Not Found |  -  |
+**422** | Validation Error |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 

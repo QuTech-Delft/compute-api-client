@@ -90,7 +90,7 @@ All URIs are relative to _http://localhost_
 | _BatchJobsApi_    | [**peek_batch_job_batch_jobs_peek_patch**](compute_api_client/docs/BatchJobsApi.md#peek_batch_job_batch_jobs_peek_patch)                                                     | **PATCH** /batch_jobs/peek                | Peek batch job                             |
 | _BatchJobsApi_    | [**pop_batch_job_batch_jobs_pop_patch**](compute_api_client/docs/BatchJobsApi.md#pop_batch_job_batch_jobs_pop_patch)                                                         | **PATCH** /batch_jobs/pop                 | Take batch job                             |
 | _BatchJobsApi_    | [**read_batch_jobs_batch_jobs_get**](compute_api_client/docs/BatchJobsApi.md#read_batch_jobs_batch_jobs_get)                                                                 | **GET** /batch_jobs                       | List batch jobs                            |
-| _BatchJobsApi_    | [**unpop_batch_job_batch_jobs_unpop_patch**](compute_api_client/docs/BatchJobsApi.md#unpop_batch_job_batch_jobs_unpop_patch)                                                 | **PATCH** /batch_jobs/unpop               | Take batch job                             |
+| _BatchJobsApi_    | [**unpop_batch_job_batch_jobs_id_unpop_patch**](compute_api_client/docs/BatchJobsApi.md#unpop_batch_job_batch_jobs_id_unpop_patch)                                           | **PATCH** /batch_jobs/{id}/unpop          | Take batch job                             |
 | _CommitsApi_      | [**compile_commit_commits_id_compile_post**](compute_api_client/docs/CommitsApi.md#compile_commit_commits_id_compile_post)                                                   | **POST** /commits/{id}/compile            | Compile file in a commit                   |
 | _CommitsApi_      | [**create_commit_commits_post**](compute_api_client/docs/CommitsApi.md#create_commit_commits_post)                                                                           | **POST** /commits                         | Create commit                              |
 | _CommitsApi_      | [**delete_commit_commits_id_delete**](compute_api_client/docs/CommitsApi.md#delete_commit_commits_id_delete)                                                                 | **DELETE** /commits/{id}                  | Destroy commit                             |
@@ -228,7 +228,7 @@ Authentication schemes defined for the API: <a id="user_bearer"></a>
 
 - **Type**: OAuth
 - **Flow**: accessCode
-- **Authorization URL**: https://quantum-inspire-staging.eu.auth0.com/authorize
+- **Authorization URL**: https://auth.qi2.quantum-inspire.com/realms/oidc_development/protocol/openid-connect/auth
 - **Scopes**: N/A
 
 <a id="backend"></a>

@@ -1975,8 +1975,9 @@ class BatchJobsApi:
 
 
     @validate_call
-    async def unpop_batch_job_batch_jobs_unpop_patch(
+    async def unpop_batch_job_batch_jobs_id_unpop_patch(
         self,
+        id: StrictInt,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -1994,6 +1995,8 @@ class BatchJobsApi:
 
         Unclaim batch job.
 
+        :param id: (required)
+        :type id: int
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -2016,7 +2019,8 @@ class BatchJobsApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._unpop_batch_job_batch_jobs_unpop_patch_serialize(
+        _param = self._unpop_batch_job_batch_jobs_id_unpop_patch_serialize(
+            id=id,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -2025,7 +2029,8 @@ class BatchJobsApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "BatchJob",
-            '404': "HTTPNotFoundError"
+            '404': "HTTPNotFoundError",
+            '422': "HTTPValidationError"
             
         }
         response_data = await self.api_client.call_api(
@@ -2040,8 +2045,9 @@ class BatchJobsApi:
 
 
     @validate_call
-    async def unpop_batch_job_batch_jobs_unpop_patch_with_http_info(
+    async def unpop_batch_job_batch_jobs_id_unpop_patch_with_http_info(
         self,
+        id: StrictInt,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -2059,6 +2065,8 @@ class BatchJobsApi:
 
         Unclaim batch job.
 
+        :param id: (required)
+        :type id: int
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -2081,7 +2089,8 @@ class BatchJobsApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._unpop_batch_job_batch_jobs_unpop_patch_serialize(
+        _param = self._unpop_batch_job_batch_jobs_id_unpop_patch_serialize(
+            id=id,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -2090,7 +2099,8 @@ class BatchJobsApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "BatchJob",
-            '404': "HTTPNotFoundError"
+            '404': "HTTPNotFoundError",
+            '422': "HTTPValidationError"
             
         }
         response_data = await self.api_client.call_api(
@@ -2105,8 +2115,9 @@ class BatchJobsApi:
 
 
     @validate_call
-    async def unpop_batch_job_batch_jobs_unpop_patch_without_preload_content(
+    async def unpop_batch_job_batch_jobs_id_unpop_patch_without_preload_content(
         self,
+        id: StrictInt,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -2124,6 +2135,8 @@ class BatchJobsApi:
 
         Unclaim batch job.
 
+        :param id: (required)
+        :type id: int
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -2146,7 +2159,8 @@ class BatchJobsApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._unpop_batch_job_batch_jobs_unpop_patch_serialize(
+        _param = self._unpop_batch_job_batch_jobs_id_unpop_patch_serialize(
+            id=id,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -2155,7 +2169,8 @@ class BatchJobsApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "BatchJob",
-            '404': "HTTPNotFoundError"
+            '404': "HTTPNotFoundError",
+            '422': "HTTPValidationError"
             
         }
         response_data = await self.api_client.call_api(
@@ -2165,8 +2180,9 @@ class BatchJobsApi:
         return response_data.response
 
 
-    def _unpop_batch_job_batch_jobs_unpop_patch_serialize(
+    def _unpop_batch_job_batch_jobs_id_unpop_patch_serialize(
         self,
+        id,
         _request_auth,
         _content_type,
         _headers,
@@ -2187,6 +2203,8 @@ class BatchJobsApi:
         _body_params: Optional[bytes] = None
 
         # process the path parameters
+        if id is not None:
+            _path_params['id'] = id
         # process the query parameters
         # process the header parameters
         # process the form parameters
@@ -2208,7 +2226,7 @@ class BatchJobsApi:
 
         return self.api_client.param_serialize(
             method='PATCH',
-            resource_path='/batch_jobs/unpop',
+            resource_path='/batch_jobs/{id}/unpop',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
