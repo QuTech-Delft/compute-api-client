@@ -5,7 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **job_id** | **int** |  | 
-**final_result** | **object** |  | 
+**final_result** | **Dict[str, object]** |  | 
 
 ## Example
 

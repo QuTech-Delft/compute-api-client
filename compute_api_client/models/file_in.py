@@ -18,7 +18,7 @@ import re  # noqa: F401
 import json
 
 
-from typing import Any, ClassVar, Dict, List, Optional, Union
+from typing import Any, ClassVar, Dict, List, Optional
 from pydantic import BaseModel, StrictBool, StrictInt, StrictStr
 from pydantic import Field
 from typing_extensions import Annotated
@@ -36,7 +36,7 @@ class FileIn(BaseModel):
     content: StrictStr
     language_id: StrictInt
     compile_stage: CompileStage
-    compile_properties: Union[str, Any]
+    compile_properties: Dict[str, Any]
     generated: Optional[StrictBool] = False
     name: Optional[Annotated[str, Field(strict=True, max_length=255)]] = None
     __properties: ClassVar[List[str]] = ["commit_id", "content", "language_id", "compile_stage", "compile_properties", "generated", "name"]

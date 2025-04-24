@@ -12,13 +12,14 @@ Name | Type | Description | Notes
 **is_hardware** | **bool** |  | 
 **supports_raw_data** | **bool** |  | 
 **features** | **List[str]** |  | 
-**default_compiler_config** | **object** |  | 
+**default_compiler_config** | **Dict[str, object]** |  | 
 **gateset** | **List[str]** |  | 
 **topology** | **List[List[int]]** |  | 
 **nqubits** | **int** |  | 
 **status** | [**BackendStatus**](BackendStatus.md) |  | 
 **default_number_of_shots** | **int** |  | 
 **max_number_of_shots** | **int** |  | 
+**enabled** | **bool** |  | 
 
 ## Example
 

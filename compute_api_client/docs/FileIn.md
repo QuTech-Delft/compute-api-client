@@ -8,7 +8,7 @@ Name | Type | Description | Notes
 **content** | **str** |  | 
 **language_id** | **int** |  | 
 **compile_stage** | [**CompileStage**](CompileStage.md) |  | 
-**compile_properties** | **object** |  | 
+**compile_properties** | **Dict[str, object]** |  | 
 **generated** | **bool** |  | [optional] [default to False]
 **name** | **str** |  | [optional] 
 

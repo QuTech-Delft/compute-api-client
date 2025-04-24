@@ -865,7 +865,6 @@ class ResultsApi:
         id: Optional[StrictInt] = None,
         created_on: Optional[datetime] = None,
         job_id: Optional[StrictInt] = None,
-        metadata_id: Optional[StrictInt] = None,
         execution_time_in_seconds: Optional[Union[StrictFloat, StrictInt]] = None,
         shots_requested__isnull: Optional[StrictBool] = None,
         shots_requested: Optional[StrictInt] = None,
@@ -902,8 +901,6 @@ class ResultsApi:
         :type created_on: datetime
         :param job_id:
         :type job_id: int
-        :param metadata_id:
-        :type metadata_id: int
         :param execution_time_in_seconds:
         :type execution_time_in_seconds: float
         :param shots_requested__isnull:
@@ -953,7 +950,6 @@ class ResultsApi:
             id=id,
             created_on=created_on,
             job_id=job_id,
-            metadata_id=metadata_id,
             execution_time_in_seconds=execution_time_in_seconds,
             shots_requested__isnull=shots_requested__isnull,
             shots_requested=shots_requested,
@@ -995,7 +991,6 @@ class ResultsApi:
         id: Optional[StrictInt] = None,
         created_on: Optional[datetime] = None,
         job_id: Optional[StrictInt] = None,
-        metadata_id: Optional[StrictInt] = None,
         execution_time_in_seconds: Optional[Union[StrictFloat, StrictInt]] = None,
         shots_requested__isnull: Optional[StrictBool] = None,
         shots_requested: Optional[StrictInt] = None,
@@ -1032,8 +1027,6 @@ class ResultsApi:
         :type created_on: datetime
         :param job_id:
         :type job_id: int
-        :param metadata_id:
-        :type metadata_id: int
         :param execution_time_in_seconds:
         :type execution_time_in_seconds: float
         :param shots_requested__isnull:
@@ -1083,7 +1076,6 @@ class ResultsApi:
             id=id,
             created_on=created_on,
             job_id=job_id,
-            metadata_id=metadata_id,
             execution_time_in_seconds=execution_time_in_seconds,
             shots_requested__isnull=shots_requested__isnull,
             shots_requested=shots_requested,
@@ -1125,7 +1117,6 @@ class ResultsApi:
         id: Optional[StrictInt] = None,
         created_on: Optional[datetime] = None,
         job_id: Optional[StrictInt] = None,
-        metadata_id: Optional[StrictInt] = None,
         execution_time_in_seconds: Optional[Union[StrictFloat, StrictInt]] = None,
         shots_requested__isnull: Optional[StrictBool] = None,
         shots_requested: Optional[StrictInt] = None,
@@ -1162,8 +1153,6 @@ class ResultsApi:
         :type created_on: datetime
         :param job_id:
         :type job_id: int
-        :param metadata_id:
-        :type metadata_id: int
         :param execution_time_in_seconds:
         :type execution_time_in_seconds: float
         :param shots_requested__isnull:
@@ -1213,7 +1202,6 @@ class ResultsApi:
             id=id,
             created_on=created_on,
             job_id=job_id,
-            metadata_id=metadata_id,
             execution_time_in_seconds=execution_time_in_seconds,
             shots_requested__isnull=shots_requested__isnull,
             shots_requested=shots_requested,
@@ -1250,7 +1238,6 @@ class ResultsApi:
         id,
         created_on,
         job_id,
-        metadata_id,
         execution_time_in_seconds,
         shots_requested__isnull,
         shots_requested,
@@ -1305,10 +1292,6 @@ class ResultsApi:
         if job_id is not None:
             
             _query_params.append(('job_id', job_id))
-            
-        if metadata_id is not None:
-            
-            _query_params.append(('metadata_id', metadata_id))
             
         if execution_time_in_seconds is not None:
             

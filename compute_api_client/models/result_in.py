@@ -30,13 +30,12 @@ class ResultIn(BaseModel):
     ResultIn
     """ # noqa: E501
     job_id: StrictInt
-    metadata_id: Optional[StrictInt] = None
     execution_time_in_seconds: Union[StrictFloat, StrictInt]
     shots_requested: Optional[StrictInt] = None
     shots_done: Optional[StrictInt] = None
-    results: Optional[Union[str, Any]] = None
+    results: Optional[Dict[str, Any]] = None
     raw_data: Optional[List[StrictStr]] = None
-    __properties: ClassVar[List[str]] = ["job_id", "metadata_id", "execution_time_in_seconds", "shots_requested", "shots_done", "results", "raw_data"]
+    __properties: ClassVar[List[str]] = ["job_id", "execution_time_in_seconds", "shots_requested", "shots_done", "results", "raw_data"]
 
     model_config = {
         "populate_by_name": True,
@@ -74,11 +73,6 @@ class ResultIn(BaseModel):
             },
             exclude_none=True,
         )
-        # set to None if metadata_id (nullable) is None
-        # and model_fields_set contains the field
-        if self.metadata_id is None and "metadata_id" in self.model_fields_set:
-            _dict['metadata_id'] = None
-
         # set to None if shots_requested (nullable) is None
         # and model_fields_set contains the field
         if self.shots_requested is None and "shots_requested" in self.model_fields_set:
@@ -112,7 +106,6 @@ class ResultIn(BaseModel):
 
         _obj = cls.model_validate({
             "job_id": obj.get("job_id"),
-            "metadata_id": obj.get("metadata_id"),
             "execution_time_in_seconds": obj.get("execution_time_in_seconds"),
             "shots_requested": obj.get("shots_requested"),
             "shots_done": obj.get("shots_done"),

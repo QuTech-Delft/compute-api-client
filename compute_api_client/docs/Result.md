@@ -7,11 +7,10 @@ Name | Type | Description | Notes
 **id** | **int** |  | 
 **created_on** | **datetime** |  | 
 **job_id** | **int** |  | 
-**metadata_id** | **int** |  | 
 **execution_time_in_seconds** | **float** |  | 
 **shots_requested** | **int** |  | 
 **shots_done** | **int** |  | 
-**results** | **object** |  | 
+**results** | **Dict[str, object]** |  | 
 **raw_data** | **List[str]** |  | 
 
 ## Example

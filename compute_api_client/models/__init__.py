@@ -23,6 +23,7 @@ from compute_api_client.models.backend_in import BackendIn
 from compute_api_client.models.backend_patch import BackendPatch
 from compute_api_client.models.backend_status import BackendStatus
 from compute_api_client.models.backend_type import BackendType
+from compute_api_client.models.backend_type_patch import BackendTypePatch
 from compute_api_client.models.backend_with_authentication import BackendWithAuthentication
 from compute_api_client.models.batch_job import BatchJob
 from compute_api_client.models.batch_job_in import BatchJobIn
@@ -47,8 +48,6 @@ from compute_api_client.models.language import Language
 from compute_api_client.models.location_inner import LocationInner
 from compute_api_client.models.member import Member
 from compute_api_client.models.member_in import MemberIn
-from compute_api_client.models.metadata import Metadata
-from compute_api_client.models.metadata_in import MetadataIn
 from compute_api_client.models.page_algorithm import PageAlgorithm
 from compute_api_client.models.page_backend import PageBackend
 from compute_api_client.models.page_backend_type import PageBackendType
@@ -58,7 +57,6 @@ from compute_api_client.models.page_file import PageFile
 from compute_api_client.models.page_job import PageJob
 from compute_api_client.models.page_language import PageLanguage
 from compute_api_client.models.page_member import PageMember
-from compute_api_client.models.page_metadata import PageMetadata
 from compute_api_client.models.page_permission import PagePermission
 from compute_api_client.models.page_permission_group import PagePermissionGroup
 from compute_api_client.models.page_project import PageProject

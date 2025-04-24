@@ -18,7 +18,7 @@ import re  # noqa: F401
 import json
 
 
-from typing import Any, ClassVar, Dict, List, Union
+from typing import Any, ClassVar, Dict, List
 from pydantic import BaseModel, StrictInt
 try:
     from typing import Self
@@ -30,7 +30,7 @@ class FinalResultIn(BaseModel):
     FinalResultIn
     """ # noqa: E501
     job_id: StrictInt
-    final_result: Union[str, Any]
+    final_result: Dict[str, Any]
     __properties: ClassVar[List[str]] = ["job_id", "final_result"]
 
     model_config = {

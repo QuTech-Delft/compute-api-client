@@ -13,7 +13,6 @@ from compute_api_client.api.health_api import HealthApi
 from compute_api_client.api.jobs_api import JobsApi
 from compute_api_client.api.languages_api import LanguagesApi
 from compute_api_client.api.members_api import MembersApi
-from compute_api_client.api.metadata_api import MetadataApi
 from compute_api_client.api.permissions_api import PermissionsApi
 from compute_api_client.api.projects_api import ProjectsApi
 from compute_api_client.api.reservations_api import ReservationsApi

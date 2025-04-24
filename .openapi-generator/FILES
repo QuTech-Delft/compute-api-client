@@ -12,7 +12,6 @@ compute_api_client/api/health_api.py
 compute_api_client/api/jobs_api.py
 compute_api_client/api/languages_api.py
 compute_api_client/api/members_api.py
-compute_api_client/api/metadata_api.py
 compute_api_client/api/permissions_api.py
 compute_api_client/api/projects_api.py
 compute_api_client/api/reservations_api.py
@@ -35,6 +34,7 @@ compute_api_client/docs/BackendIn.md
 compute_api_client/docs/BackendPatch.md
 compute_api_client/docs/BackendStatus.md
 compute_api_client/docs/BackendType.md
+compute_api_client/docs/BackendTypePatch.md
 compute_api_client/docs/BackendTypesApi.md
 compute_api_client/docs/BackendWithAuthentication.md
 compute_api_client/docs/BatchJob.md
@@ -68,9 +68,6 @@ compute_api_client/docs/LocationInner.md
 compute_api_client/docs/Member.md
 compute_api_client/docs/MemberIn.md
 compute_api_client/docs/MembersApi.md
-compute_api_client/docs/Metadata.md
-compute_api_client/docs/MetadataApi.md
-compute_api_client/docs/MetadataIn.md
 compute_api_client/docs/PageAlgorithm.md
 compute_api_client/docs/PageBackend.md
 compute_api_client/docs/PageBackendType.md
@@ -80,7 +77,6 @@ compute_api_client/docs/PageFile.md
 compute_api_client/docs/PageJob.md
 compute_api_client/docs/PageLanguage.md
 compute_api_client/docs/PageMember.md
-compute_api_client/docs/PageMetadata.md
 compute_api_client/docs/PagePermission.md
 compute_api_client/docs/PagePermissionGroup.md
 compute_api_client/docs/PageProject.md
@@ -123,6 +119,7 @@ compute_api_client/models/backend_in.py
 compute_api_client/models/backend_patch.py
 compute_api_client/models/backend_status.py
 compute_api_client/models/backend_type.py
+compute_api_client/models/backend_type_patch.py
 compute_api_client/models/backend_with_authentication.py
 compute_api_client/models/batch_job.py
 compute_api_client/models/batch_job_in.py
@@ -147,8 +144,6 @@ compute_api_client/models/language.py
 compute_api_client/models/location_inner.py
 compute_api_client/models/member.py
 compute_api_client/models/member_in.py
-compute_api_client/models/metadata.py
-compute_api_client/models/metadata_in.py
 compute_api_client/models/page_algorithm.py
 compute_api_client/models/page_backend.py
 compute_api_client/models/page_backend_type.py
@@ -158,7 +153,6 @@ compute_api_client/models/page_file.py
 compute_api_client/models/page_job.py
 compute_api_client/models/page_language.py
 compute_api_client/models/page_member.py
-compute_api_client/models/page_metadata.py
 compute_api_client/models/page_permission.py
 compute_api_client/models/page_permission_group.py
 compute_api_client/models/page_project.py
@@ -185,4 +179,5 @@ compute_api_client/models/user_in.py
 compute_api_client/models/validation_error.py
 compute_api_client/rest.py
 compute_api_client/test/__init__.py
+compute_api_client/test/test_backend_type_patch.py
 compute_api_client_README.md

@@ -32,13 +32,12 @@ class Result(BaseModel):
     id: StrictInt
     created_on: datetime
     job_id: StrictInt
-    metadata_id: StrictInt
     execution_time_in_seconds: Union[StrictFloat, StrictInt]
     shots_requested: Optional[StrictInt]
     shots_done: Optional[StrictInt]
-    results: Optional[Union[str, Any]]
+    results: Optional[Dict[str, Any]]
     raw_data: Optional[List[StrictStr]]
-    __properties: ClassVar[List[str]] = ["id", "created_on", "job_id", "metadata_id", "execution_time_in_seconds", "shots_requested", "shots_done", "results", "raw_data"]
+    __properties: ClassVar[List[str]] = ["id", "created_on", "job_id", "execution_time_in_seconds", "shots_requested", "shots_done", "results", "raw_data"]
 
     model_config = {
         "populate_by_name": True,
@@ -111,7 +110,6 @@ class Result(BaseModel):
             "id": obj.get("id"),
             "created_on": obj.get("created_on"),
             "job_id": obj.get("job_id"),
-            "metadata_id": obj.get("metadata_id"),
             "execution_time_in_seconds": obj.get("execution_time_in_seconds"),
             "shots_requested": obj.get("shots_requested"),
             "shots_done": obj.get("shots_done"),

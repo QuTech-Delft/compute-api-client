@@ -18,7 +18,7 @@ import re  # noqa: F401
 import json
 
 
-from typing import Any, ClassVar, Dict, List, Union
+from typing import Any, ClassVar, Dict, List
 from pydantic import BaseModel, StrictBool, StrictInt, StrictStr
 from pydantic import Field
 from typing_extensions import Annotated
@@ -40,14 +40,15 @@ class BackendType(BaseModel):
     is_hardware: StrictBool
     supports_raw_data: StrictBool
     features: List[StrictStr]
-    default_compiler_config: Union[str, Any]
+    default_compiler_config: Dict[str, Any]
     gateset: List[StrictStr]
     topology: List[List[StrictInt]]
     nqubits: StrictInt
     status: BackendStatus
     default_number_of_shots: StrictInt
     max_number_of_shots: StrictInt
-    __properties: ClassVar[List[str]] = ["id", "name", "infrastructure", "description", "image_id", "is_hardware", "supports_raw_data", "features", "default_compiler_config", "gateset", "topology", "nqubits", "status", "default_number_of_shots", "max_number_of_shots"]
+    enabled: StrictBool
+    __properties: ClassVar[List[str]] = ["id", "name", "infrastructure", "description", "image_id", "is_hardware", "supports_raw_data", "features", "default_compiler_config", "gateset", "topology", "nqubits", "status", "default_number_of_shots", "max_number_of_shots", "enabled"]
 
     model_config = {
         "populate_by_name": True,
@@ -111,7 +112,8 @@ class BackendType(BaseModel):
             "nqubits": obj.get("nqubits"),
             "status": obj.get("status"),
             "default_number_of_shots": obj.get("default_number_of_shots"),
-            "max_number_of_shots": obj.get("max_number_of_shots")
+            "max_number_of_shots": obj.get("max_number_of_shots"),
+            "enabled": obj.get("enabled")
         })
         return _obj
 

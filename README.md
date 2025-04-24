@@ -84,6 +84,7 @@ All URIs are relative to _http://localhost_
 | _BackendApi_      | [**update_backend_self_backends_me_patch**](compute_api_client/docs/BackendApi.md#update_backend_self_backends_me_patch)                                                     | **PATCH** /backends/me                    | Update backend                             |
 | _BackendTypesApi_ | [**read_backend_type_backend_types_id_get**](compute_api_client/docs/BackendTypesApi.md#read_backend_type_backend_types_id_get)                                              | **GET** /backend_types/{id}               | Retrieve backend type                      |
 | _BackendTypesApi_ | [**read_backend_types_backend_types_get**](compute_api_client/docs/BackendTypesApi.md#read_backend_types_backend_types_get)                                                  | **GET** /backend_types/                   | List backend types                         |
+| _BackendTypesApi_ | [**update_backend_type_backend_types_me_patch**](compute_api_client/docs/BackendTypesApi.md#update_backend_type_backend_types_me_patch)                                      | **PATCH** /backend_types/me               | Update backend type                        |
 | _BatchJobsApi_    | [**create_batch_job_batch_jobs_post**](compute_api_client/docs/BatchJobsApi.md#create_batch_job_batch_jobs_post)                                                             | **POST** /batch_jobs                      | Create batch job                           |
 | _BatchJobsApi_    | [**enqueue_batch_job_batch_jobs_id_enqueue_patch**](compute_api_client/docs/BatchJobsApi.md#enqueue_batch_job_batch_jobs_id_enqueue_patch)                                   | **PATCH** /batch_jobs/{id}/enqueue        | Enqueue batch job for execution            |
 | _BatchJobsApi_    | [**finish_batch_job_batch_jobs_id_finish_patch**](compute_api_client/docs/BatchJobsApi.md#finish_batch_job_batch_jobs_id_finish_patch)                                       | **PATCH** /batch_jobs/{id}/finish         | Finish batch job                           |
@@ -115,9 +116,6 @@ All URIs are relative to _http://localhost_
 | _MembersApi_      | [**delete_member_members_id_delete**](compute_api_client/docs/MembersApi.md#delete_member_members_id_delete)                                                                 | **DELETE** /members/{id}                  | Destroy member                             |
 | _MembersApi_      | [**read_member_members_id_get**](compute_api_client/docs/MembersApi.md#read_member_members_id_get)                                                                           | **GET** /members/{id}                     | Retrieve member                            |
 | _MembersApi_      | [**read_members_members_get**](compute_api_client/docs/MembersApi.md#read_members_members_get)                                                                               | **GET** /members                          | List members                               |
-| _MetadataApi_     | [**create_metadata_self_metadata_post**](compute_api_client/docs/MetadataApi.md#create_metadata_self_metadata_post)                                                          | **POST** /metadata                        | Create metadata                            |
-| _MetadataApi_     | [**read_metadata_by_backend_id_metadata_backend_backend_id_get**](compute_api_client/docs/MetadataApi.md#read_metadata_by_backend_id_metadata_backend_backend_id_get)        | **GET** /metadata/backend/{backend_id}    | Retrieve metadata by backend ID            |
-| _MetadataApi_     | [**read_metadata_metadata_id_get**](compute_api_client/docs/MetadataApi.md#read_metadata_metadata_id_get)                                                                    | **GET** /metadata/{id}                    | Get metadata by ID                         |
 | _PermissionsApi_  | [**read_permission_group_permission_groups_id_get**](compute_api_client/docs/PermissionsApi.md#read_permission_group_permission_groups_id_get)                               | **GET** /permission_groups/{id}           | Retrieve permission groups                 |
 | _PermissionsApi_  | [**read_permission_groups_permission_groups_get**](compute_api_client/docs/PermissionsApi.md#read_permission_groups_permission_groups_get)                                   | **GET** /permission_groups/               | List permission groups                     |
 | _PermissionsApi_  | [**read_permission_permissions_id_get**](compute_api_client/docs/PermissionsApi.md#read_permission_permissions_id_get)                                                       | **GET** /permissions/{id}                 | Retrieve permissions                       |
@@ -157,6 +155,7 @@ All URIs are relative to _http://localhost_
 - [BackendPatch](compute_api_client/docs/BackendPatch.md)
 - [BackendStatus](compute_api_client/docs/BackendStatus.md)
 - [BackendType](compute_api_client/docs/BackendType.md)
+- [BackendTypePatch](compute_api_client/docs/BackendTypePatch.md)
 - [BackendWithAuthentication](compute_api_client/docs/BackendWithAuthentication.md)
 - [BatchJob](compute_api_client/docs/BatchJob.md)
 - [BatchJobIn](compute_api_client/docs/BatchJobIn.md)
@@ -181,8 +180,6 @@ All URIs are relative to _http://localhost_
 - [LocationInner](compute_api_client/docs/LocationInner.md)
 - [Member](compute_api_client/docs/Member.md)
 - [MemberIn](compute_api_client/docs/MemberIn.md)
-- [Metadata](compute_api_client/docs/Metadata.md)
-- [MetadataIn](compute_api_client/docs/MetadataIn.md)
 - [PageAlgorithm](compute_api_client/docs/PageAlgorithm.md)
 - [PageBackend](compute_api_client/docs/PageBackend.md)
 - [PageBackendType](compute_api_client/docs/PageBackendType.md)
@@ -192,7 +189,6 @@ All URIs are relative to _http://localhost_
 - [PageJob](compute_api_client/docs/PageJob.md)
 - [PageLanguage](compute_api_client/docs/PageLanguage.md)
 - [PageMember](compute_api_client/docs/PageMember.md)
-- [PageMetadata](compute_api_client/docs/PageMetadata.md)
 - [PagePermission](compute_api_client/docs/PagePermission.md)
 - [PagePermissionGroup](compute_api_client/docs/PagePermissionGroup.md)
 - [PageProject](compute_api_client/docs/PageProject.md)
@@ -228,7 +224,7 @@ Authentication schemes defined for the API: <a id="user_bearer"></a>
 
 - **Type**: OAuth
 - **Flow**: accessCode
-- **Authorization URL**: https://quantum-inspire-staging.eu.auth0.com/authorize
+- **Authorization URL**: https://quantum-inspire-development.eu.auth0.com/authorize
 - **Scopes**: N/A
 
 <a id="backend"></a>

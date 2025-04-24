@@ -5,11 +5,10 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **job_id** | **int** |  | 
-**metadata_id** | **int** |  | [optional] 
 **execution_time_in_seconds** | **float** |  | 
 **shots_requested** | **int** |  | [optional] 
 **shots_done** | **int** |  | [optional] 
-**results** | **object** |  | [optional] 
+**results** | **Dict[str, object]** |  | [optional] 
 **raw_data** | **List[str]** |  | [optional] 
 
 ## Example

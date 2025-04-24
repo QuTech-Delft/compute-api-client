@@ -7,7 +7,7 @@ Name | Type | Description | Notes
 **id** | **int** |  | 
 **created_on** | **datetime** |  | 
 **job_id** | **int** |  | 
-**final_result** | **object** |  | 
+**final_result** | **Dict[str, object]** |  | 
 
 ## Example
 
