@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# Script for generating the API client library and accompanying docs for the Compute Job Manager API. 
+# Script for generating the API client library and accompanying docs for the Compute Job Manager API.
 #
 # Usage:
 # Requires the openapi-generator-cli, which will be installed in the dev-container by dev-install.
@@ -43,12 +43,12 @@ else
     sed -i -e 's|compute_api_client/docs/||g' ../../../../docs/design/code/libs/compute_api_client/index.md
     find ../../../../docs/design/code/libs/compute_api_client -name "*.md" -exec sed -i -e 's|../README|index|g' {} \;
 
-    # Update the version of the poetry project
+    # Update the version of the uv project
     git_tag=$(git describe --tags --abbrev=0)
-    poetry_tag=$(cat pyproject.toml | grep "^version =" | cut -d'"' -f2)
+    uv_tag=$(cat pyproject.toml | grep "^version =" | cut -d'"' -f2)
 
     echo "Last Git tag:           ${git_tag}"
-    echo "Current Poetry version: ${poetry_tag}"
+    echo "Current uv version:     ${uv_tag}"
 
     echo "Please input the new version for this repo"
     read version
@@ -57,15 +57,15 @@ else
 
     echo "Updating dispatcher dependencies"
     cd ../../dispatcher/
-    poetry lock --no-update
+    uv lock
 
     echo "Updating integration test dependencies"
     cd ../../../tests/integration/
-    poetry lock --no-update
+    uv lock
 
     echo "Updating e2e test dependencies"
     cd ../e2e/
-    poetry lock --no-update
+    uv lock
 
     echo "Success!"
 fi
