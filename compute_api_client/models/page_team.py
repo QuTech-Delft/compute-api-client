@@ -33,7 +33,7 @@ class PageTeam(BaseModel):
     PageTeam
     """ # noqa: E501
     items: List[Team]
-    total: Optional[Annotated[int, Field(strict=True, ge=0)]]
+    total: Optional[Annotated[int, Field(strict=True, ge=0)]] = None
     page: Optional[Annotated[int, Field(strict=True, ge=1)]]
     size: Optional[Annotated[int, Field(strict=True, ge=1)]]
     pages: Optional[Annotated[int, Field(strict=True, ge=0)]] = None

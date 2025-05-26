@@ -20,6 +20,7 @@ import json
 from datetime import datetime
 from typing import Any, ClassVar, Dict, List, Optional
 from pydantic import BaseModel, StrictBool, StrictInt, StrictStr
+from pydantic import Field
 from compute_api_client.models.algorithm_type import AlgorithmType
 from compute_api_client.models.job_status import JobStatus
 try:
@@ -44,7 +45,7 @@ class Job(BaseModel):
     session_id: StrictStr
     trace_id: StrictStr
     message: StrictStr
-    source: StrictStr
+    source: Optional[StrictStr] = Field(default='', description="The source application of an exception that caused a job to fail (if applicable).")
     __properties: ClassVar[List[str]] = ["id", "created_on", "file_id", "algorithm_type", "status", "batch_job_id", "queued_at", "finished_at", "number_of_shots", "raw_data_enabled", "session_id", "trace_id", "message", "source"]
 
     model_config = {
@@ -123,7 +124,7 @@ class Job(BaseModel):
             "session_id": obj.get("session_id"),
             "trace_id": obj.get("trace_id"),
             "message": obj.get("message"),
-            "source": obj.get("source")
+            "source": obj.get("source") if obj.get("source") is not None else ''
         })
         return _obj
 

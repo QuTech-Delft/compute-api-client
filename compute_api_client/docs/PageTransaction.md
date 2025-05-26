@@ -5,7 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **items** | [**List[Transaction]**](Transaction.md) |  | 
-**total** | **int** |  | 
+**total** | **int** |  | [optional] 
 **page** | **int** |  | 
 **size** | **int** |  | 
 **pages** | **int** |  | [optional] 

@@ -17,7 +17,7 @@ Name | Type | Description | Notes
 **session_id** | **str** |  | 
 **trace_id** | **str** |  | 
 **message** | **str** |  | 
-**source** | **str** |  | 
+**source** | **str** | The source application of an exception that caused a job to fail (if applicable). | [optional] [default to '']
 
 ## Example
 

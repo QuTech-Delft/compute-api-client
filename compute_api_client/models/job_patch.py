@@ -36,7 +36,7 @@ class JobPatch(BaseModel):
     session_id: Optional[Annotated[str, Field(strict=True, max_length=255)]] = ''
     trace_id: Optional[Annotated[str, Field(strict=True, max_length=255)]] = ''
     message: Optional[StrictStr] = ''
-    source: Optional[StrictStr] = ''
+    source: Optional[StrictStr] = Field(default='', description="The source application of an exception that caused a job to fail (if applicable).")
     traceback: Optional[StrictStr] = ''
     __properties: ClassVar[List[str]] = ["status", "session_id", "trace_id", "message", "source", "traceback"]
 

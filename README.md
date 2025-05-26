@@ -224,7 +224,7 @@ Authentication schemes defined for the API: <a id="user_bearer"></a>
 
 - **Type**: OAuth
 - **Flow**: accessCode
-- **Authorization URL**: https://quantum-inspire-development.eu.auth0.com/authorize
+- **Authorization URL**: https://quantum-inspire-staging.eu.auth0.com/authorize
 - **Scopes**: N/A
 
 <a id="backend"></a>

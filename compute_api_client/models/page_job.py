@@ -33,7 +33,7 @@ class PageJob(BaseModel):
     PageJob
     """ # noqa: E501
     items: List[Job]
-    total: Optional[Annotated[int, Field(strict=True, ge=0)]]
+    total: Optional[Annotated[int, Field(strict=True, ge=0)]] = None
     page: Optional[Annotated[int, Field(strict=True, ge=1)]]
     size: Optional[Annotated[int, Field(strict=True, ge=1)]]
     pages: Optional[Annotated[int, Field(strict=True, ge=0)]] = None
