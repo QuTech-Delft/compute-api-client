@@ -48,7 +48,8 @@ class BackendType(BaseModel):
     default_number_of_shots: StrictInt
     max_number_of_shots: StrictInt
     enabled: StrictBool
-    __properties: ClassVar[List[str]] = ["id", "name", "infrastructure", "description", "image_id", "is_hardware", "supports_raw_data", "features", "default_compiler_config", "gateset", "topology", "nqubits", "status", "default_number_of_shots", "max_number_of_shots", "enabled"]
+    identifier: Annotated[str, Field(strict=True, max_length=32)]
+    __properties: ClassVar[List[str]] = ["id", "name", "infrastructure", "description", "image_id", "is_hardware", "supports_raw_data", "features", "default_compiler_config", "gateset", "topology", "nqubits", "status", "default_number_of_shots", "max_number_of_shots", "enabled", "identifier"]
 
     model_config = {
         "populate_by_name": True,
@@ -113,7 +114,8 @@ class BackendType(BaseModel):
             "status": obj.get("status"),
             "default_number_of_shots": obj.get("default_number_of_shots"),
             "max_number_of_shots": obj.get("max_number_of_shots"),
-            "enabled": obj.get("enabled")
+            "enabled": obj.get("enabled"),
+            "identifier": obj.get("identifier")
         })
         return _obj
 

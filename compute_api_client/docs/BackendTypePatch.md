@@ -18,6 +18,7 @@ Name | Type | Description | Notes
 **default_number_of_shots** | **int** |  | [optional] 
 **max_number_of_shots** | **int** |  | [optional] 
 **enabled** | **bool** |  | [optional] 
+**identifier** | **str** |  | [optional] 
 
 ## Example
 

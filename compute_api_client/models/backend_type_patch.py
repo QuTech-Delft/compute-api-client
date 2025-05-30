@@ -45,7 +45,8 @@ class BackendTypePatch(BaseModel):
     default_number_of_shots: Optional[StrictInt] = None
     max_number_of_shots: Optional[StrictInt] = None
     enabled: Optional[StrictBool] = None
-    __properties: ClassVar[List[str]] = ["name", "infrastructure", "description", "image_id", "is_hardware", "supports_raw_data", "features", "default_compiler_config", "gateset", "topology", "nqubits", "default_number_of_shots", "max_number_of_shots", "enabled"]
+    identifier: Optional[Annotated[str, Field(strict=True, max_length=32)]] = None
+    __properties: ClassVar[List[str]] = ["name", "infrastructure", "description", "image_id", "is_hardware", "supports_raw_data", "features", "default_compiler_config", "gateset", "topology", "nqubits", "default_number_of_shots", "max_number_of_shots", "enabled", "identifier"]
 
     model_config = {
         "populate_by_name": True,
@@ -153,6 +154,11 @@ class BackendTypePatch(BaseModel):
         if self.enabled is None and "enabled" in self.model_fields_set:
             _dict['enabled'] = None
 
+        # set to None if identifier (nullable) is None
+        # and model_fields_set contains the field
+        if self.identifier is None and "identifier" in self.model_fields_set:
+            _dict['identifier'] = None
+
         return _dict
 
     @classmethod
@@ -178,7 +184,8 @@ class BackendTypePatch(BaseModel):
             "nqubits": obj.get("nqubits"),
             "default_number_of_shots": obj.get("default_number_of_shots"),
             "max_number_of_shots": obj.get("max_number_of_shots"),
-            "enabled": obj.get("enabled")
+            "enabled": obj.get("enabled"),
+            "identifier": obj.get("identifier")
         })
         return _obj
 

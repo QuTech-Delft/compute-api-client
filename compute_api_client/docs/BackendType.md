@@ -20,6 +20,7 @@ Name | Type | Description | Notes
 **default_number_of_shots** | **int** |  | 
 **max_number_of_shots** | **int** |  | 
 **enabled** | **bool** |  | 
+**identifier** | **str** |  | 
 
 ## Example
 

@@ -336,6 +336,7 @@ class BackendTypesApi:
         default_number_of_shots: Optional[StrictInt] = None,
         max_number_of_shots: Optional[StrictInt] = None,
         enabled: Optional[StrictBool] = None,
+        identifier: Optional[StrictStr] = None,
         sort_by: Annotated[Optional[StrictStr], Field(description="The field name to sort on. Prefix with '-' for descending order. E.g., '-created_on'.")] = None,
         latest: Annotated[Optional[StrictBool], Field(description="If True gets the most recently created object.")] = None,
         page: Annotated[Optional[Annotated[int, Field(strict=True, ge=1)]], Field(description="Page number")] = None,
@@ -381,6 +382,8 @@ class BackendTypesApi:
         :type max_number_of_shots: int
         :param enabled:
         :type enabled: bool
+        :param identifier:
+        :type identifier: str
         :param sort_by: The field name to sort on. Prefix with '-' for descending order. E.g., '-created_on'.
         :type sort_by: str
         :param latest: If True gets the most recently created object.
@@ -424,6 +427,7 @@ class BackendTypesApi:
             default_number_of_shots=default_number_of_shots,
             max_number_of_shots=max_number_of_shots,
             enabled=enabled,
+            identifier=identifier,
             sort_by=sort_by,
             latest=latest,
             page=page,
@@ -465,6 +469,7 @@ class BackendTypesApi:
         default_number_of_shots: Optional[StrictInt] = None,
         max_number_of_shots: Optional[StrictInt] = None,
         enabled: Optional[StrictBool] = None,
+        identifier: Optional[StrictStr] = None,
         sort_by: Annotated[Optional[StrictStr], Field(description="The field name to sort on. Prefix with '-' for descending order. E.g., '-created_on'.")] = None,
         latest: Annotated[Optional[StrictBool], Field(description="If True gets the most recently created object.")] = None,
         page: Annotated[Optional[Annotated[int, Field(strict=True, ge=1)]], Field(description="Page number")] = None,
@@ -510,6 +515,8 @@ class BackendTypesApi:
         :type max_number_of_shots: int
         :param enabled:
         :type enabled: bool
+        :param identifier:
+        :type identifier: str
         :param sort_by: The field name to sort on. Prefix with '-' for descending order. E.g., '-created_on'.
         :type sort_by: str
         :param latest: If True gets the most recently created object.
@@ -553,6 +560,7 @@ class BackendTypesApi:
             default_number_of_shots=default_number_of_shots,
             max_number_of_shots=max_number_of_shots,
             enabled=enabled,
+            identifier=identifier,
             sort_by=sort_by,
             latest=latest,
             page=page,
@@ -594,6 +602,7 @@ class BackendTypesApi:
         default_number_of_shots: Optional[StrictInt] = None,
         max_number_of_shots: Optional[StrictInt] = None,
         enabled: Optional[StrictBool] = None,
+        identifier: Optional[StrictStr] = None,
         sort_by: Annotated[Optional[StrictStr], Field(description="The field name to sort on. Prefix with '-' for descending order. E.g., '-created_on'.")] = None,
         latest: Annotated[Optional[StrictBool], Field(description="If True gets the most recently created object.")] = None,
         page: Annotated[Optional[Annotated[int, Field(strict=True, ge=1)]], Field(description="Page number")] = None,
@@ -639,6 +648,8 @@ class BackendTypesApi:
         :type max_number_of_shots: int
         :param enabled:
         :type enabled: bool
+        :param identifier:
+        :type identifier: str
         :param sort_by: The field name to sort on. Prefix with '-' for descending order. E.g., '-created_on'.
         :type sort_by: str
         :param latest: If True gets the most recently created object.
@@ -682,6 +693,7 @@ class BackendTypesApi:
             default_number_of_shots=default_number_of_shots,
             max_number_of_shots=max_number_of_shots,
             enabled=enabled,
+            identifier=identifier,
             sort_by=sort_by,
             latest=latest,
             page=page,
@@ -718,6 +730,7 @@ class BackendTypesApi:
         default_number_of_shots,
         max_number_of_shots,
         enabled,
+        identifier,
         sort_by,
         latest,
         page,
@@ -790,6 +803,10 @@ class BackendTypesApi:
         if enabled is not None:
             
             _query_params.append(('enabled', enabled))
+            
+        if identifier is not None:
+            
+            _query_params.append(('identifier', identifier))
             
         if sort_by is not None:
             
