@@ -18,7 +18,7 @@ import re  # noqa: F401
 import json
 
 
-from typing import Any, ClassVar, Dict, List
+from typing import Any, ClassVar, Dict, List, Optional
 from pydantic import BaseModel, StrictBool, StrictInt, StrictStr
 from pydantic import Field
 from typing_extensions import Annotated
@@ -49,7 +49,8 @@ class BackendType(BaseModel):
     max_number_of_shots: StrictInt
     enabled: StrictBool
     identifier: Annotated[str, Field(strict=True, max_length=32)]
-    __properties: ClassVar[List[str]] = ["id", "name", "infrastructure", "description", "image_id", "is_hardware", "supports_raw_data", "features", "default_compiler_config", "gateset", "topology", "nqubits", "status", "default_number_of_shots", "max_number_of_shots", "enabled", "identifier"]
+    protocol_version: Optional[StrictInt] = None
+    __properties: ClassVar[List[str]] = ["id", "name", "infrastructure", "description", "image_id", "is_hardware", "supports_raw_data", "features", "default_compiler_config", "gateset", "topology", "nqubits", "status", "default_number_of_shots", "max_number_of_shots", "enabled", "identifier", "protocol_version"]
 
     model_config = {
         "populate_by_name": True,
@@ -87,6 +88,11 @@ class BackendType(BaseModel):
             },
             exclude_none=True,
         )
+        # set to None if protocol_version (nullable) is None
+        # and model_fields_set contains the field
+        if self.protocol_version is None and "protocol_version" in self.model_fields_set:
+            _dict['protocol_version'] = None
+
         return _dict
 
     @classmethod
@@ -115,7 +121,8 @@ class BackendType(BaseModel):
             "default_number_of_shots": obj.get("default_number_of_shots"),
             "max_number_of_shots": obj.get("max_number_of_shots"),
             "enabled": obj.get("enabled"),
-            "identifier": obj.get("identifier")
+            "identifier": obj.get("identifier"),
+            "protocol_version": obj.get("protocol_version")
         })
         return _obj
 

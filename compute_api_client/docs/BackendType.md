@@ -21,6 +21,7 @@ Name | Type | Description | Notes
 **max_number_of_shots** | **int** |  | 
 **enabled** | **bool** |  | 
 **identifier** | **str** |  | 
+**protocol_version** | **int** |  | [optional] 
 
 ## Example
 

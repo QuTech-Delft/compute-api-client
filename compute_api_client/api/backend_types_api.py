@@ -337,6 +337,8 @@ class BackendTypesApi:
         max_number_of_shots: Optional[StrictInt] = None,
         enabled: Optional[StrictBool] = None,
         identifier: Optional[StrictStr] = None,
+        protocol_version__isnull: Optional[StrictBool] = None,
+        protocol_version: Optional[StrictInt] = None,
         sort_by: Annotated[Optional[StrictStr], Field(description="The field name to sort on. Prefix with '-' for descending order. E.g., '-created_on'.")] = None,
         latest: Annotated[Optional[StrictBool], Field(description="If True gets the most recently created object.")] = None,
         page: Annotated[Optional[Annotated[int, Field(strict=True, ge=1)]], Field(description="Page number")] = None,
@@ -384,6 +386,10 @@ class BackendTypesApi:
         :type enabled: bool
         :param identifier:
         :type identifier: str
+        :param protocol_version__isnull:
+        :type protocol_version__isnull: bool
+        :param protocol_version:
+        :type protocol_version: int
         :param sort_by: The field name to sort on. Prefix with '-' for descending order. E.g., '-created_on'.
         :type sort_by: str
         :param latest: If True gets the most recently created object.
@@ -428,6 +434,8 @@ class BackendTypesApi:
             max_number_of_shots=max_number_of_shots,
             enabled=enabled,
             identifier=identifier,
+            protocol_version__isnull=protocol_version__isnull,
+            protocol_version=protocol_version,
             sort_by=sort_by,
             latest=latest,
             page=page,
@@ -470,6 +478,8 @@ class BackendTypesApi:
         max_number_of_shots: Optional[StrictInt] = None,
         enabled: Optional[StrictBool] = None,
         identifier: Optional[StrictStr] = None,
+        protocol_version__isnull: Optional[StrictBool] = None,
+        protocol_version: Optional[StrictInt] = None,
         sort_by: Annotated[Optional[StrictStr], Field(description="The field name to sort on. Prefix with '-' for descending order. E.g., '-created_on'.")] = None,
         latest: Annotated[Optional[StrictBool], Field(description="If True gets the most recently created object.")] = None,
         page: Annotated[Optional[Annotated[int, Field(strict=True, ge=1)]], Field(description="Page number")] = None,
@@ -517,6 +527,10 @@ class BackendTypesApi:
         :type enabled: bool
         :param identifier:
         :type identifier: str
+        :param protocol_version__isnull:
+        :type protocol_version__isnull: bool
+        :param protocol_version:
+        :type protocol_version: int
         :param sort_by: The field name to sort on. Prefix with '-' for descending order. E.g., '-created_on'.
         :type sort_by: str
         :param latest: If True gets the most recently created object.
@@ -561,6 +575,8 @@ class BackendTypesApi:
             max_number_of_shots=max_number_of_shots,
             enabled=enabled,
             identifier=identifier,
+            protocol_version__isnull=protocol_version__isnull,
+            protocol_version=protocol_version,
             sort_by=sort_by,
             latest=latest,
             page=page,
@@ -603,6 +619,8 @@ class BackendTypesApi:
         max_number_of_shots: Optional[StrictInt] = None,
         enabled: Optional[StrictBool] = None,
         identifier: Optional[StrictStr] = None,
+        protocol_version__isnull: Optional[StrictBool] = None,
+        protocol_version: Optional[StrictInt] = None,
         sort_by: Annotated[Optional[StrictStr], Field(description="The field name to sort on. Prefix with '-' for descending order. E.g., '-created_on'.")] = None,
         latest: Annotated[Optional[StrictBool], Field(description="If True gets the most recently created object.")] = None,
         page: Annotated[Optional[Annotated[int, Field(strict=True, ge=1)]], Field(description="Page number")] = None,
@@ -650,6 +668,10 @@ class BackendTypesApi:
         :type enabled: bool
         :param identifier:
         :type identifier: str
+        :param protocol_version__isnull:
+        :type protocol_version__isnull: bool
+        :param protocol_version:
+        :type protocol_version: int
         :param sort_by: The field name to sort on. Prefix with '-' for descending order. E.g., '-created_on'.
         :type sort_by: str
         :param latest: If True gets the most recently created object.
@@ -694,6 +716,8 @@ class BackendTypesApi:
             max_number_of_shots=max_number_of_shots,
             enabled=enabled,
             identifier=identifier,
+            protocol_version__isnull=protocol_version__isnull,
+            protocol_version=protocol_version,
             sort_by=sort_by,
             latest=latest,
             page=page,
@@ -731,6 +755,8 @@ class BackendTypesApi:
         max_number_of_shots,
         enabled,
         identifier,
+        protocol_version__isnull,
+        protocol_version,
         sort_by,
         latest,
         page,
@@ -807,6 +833,14 @@ class BackendTypesApi:
         if identifier is not None:
             
             _query_params.append(('identifier', identifier))
+            
+        if protocol_version__isnull is not None:
+            
+            _query_params.append(('protocol_version__isnull', protocol_version__isnull))
+            
+        if protocol_version is not None:
+            
+            _query_params.append(('protocol_version', protocol_version))
             
         if sort_by is not None:
             

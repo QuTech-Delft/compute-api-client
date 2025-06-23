@@ -46,7 +46,8 @@ class BackendTypePatch(BaseModel):
     max_number_of_shots: Optional[StrictInt] = None
     enabled: Optional[StrictBool] = None
     identifier: Optional[Annotated[str, Field(strict=True, max_length=32)]] = None
-    __properties: ClassVar[List[str]] = ["name", "infrastructure", "description", "image_id", "is_hardware", "supports_raw_data", "features", "default_compiler_config", "gateset", "topology", "nqubits", "default_number_of_shots", "max_number_of_shots", "enabled", "identifier"]
+    protocol_version: Optional[StrictInt] = None
+    __properties: ClassVar[List[str]] = ["name", "infrastructure", "description", "image_id", "is_hardware", "supports_raw_data", "features", "default_compiler_config", "gateset", "topology", "nqubits", "default_number_of_shots", "max_number_of_shots", "enabled", "identifier", "protocol_version"]
 
     model_config = {
         "populate_by_name": True,
@@ -159,6 +160,11 @@ class BackendTypePatch(BaseModel):
         if self.identifier is None and "identifier" in self.model_fields_set:
             _dict['identifier'] = None
 
+        # set to None if protocol_version (nullable) is None
+        # and model_fields_set contains the field
+        if self.protocol_version is None and "protocol_version" in self.model_fields_set:
+            _dict['protocol_version'] = None
+
         return _dict
 
     @classmethod
@@ -185,7 +191,8 @@ class BackendTypePatch(BaseModel):
             "default_number_of_shots": obj.get("default_number_of_shots"),
             "max_number_of_shots": obj.get("max_number_of_shots"),
             "enabled": obj.get("enabled"),
-            "identifier": obj.get("identifier")
+            "identifier": obj.get("identifier"),
+            "protocol_version": obj.get("protocol_version")
         })
         return _obj
 
