@@ -45,24 +45,12 @@ dev = [
 ]
 
 [tool.hatch.build.targets.sdist]
-include = [
-    "compute_api_client",
-    "qi2_shared",
-]
-exclude = [
-    "compute_api_client/test",
-    "tests",
-]
+include = ["compute_api_client", "qi2_shared"]
+exclude = ["compute_api_client/test", "tests"]
 
 [tool.hatch.build.targets.wheel]
-include = [
-    "compute_api_client",
-    "qi2_shared",
-]
-exclude = [
-    "compute_api_client/test",
-    "tests",
-]
+include = ["compute_api_client", "qi2_shared"]
+exclude = ["compute_api_client/test", "tests"]
 
 [build-system]
 requires = ["hatchling"]
@@ -75,17 +63,17 @@ testpaths = "tests/*"
 
 [tool.coverage.run]
 branch = true
-source = [ "qi2_shared",]
-omit = [ "compute_api_client/*" ]
+source = ["qi2_shared"]
+omit = ["compute_api_client/*"]
 
 [tool.mypy]
-exclude = [ "compute_api_client/*" ]
+exclude = ["compute_api_client/*"]
 
 [tool.deptry]
-exclude = [ "compute_api_client/*", "tests/*", ".venv/*"]
+exclude = ["compute_api_client/*", "tests/*", ".venv/*"]
 
 [tool.deptry.per_rule_ignores]
 DEP002 = ["aiohttp", "python-dateutil", "urllib3"]
 
 [tool.ruff]
-exclude = [ "compute_api_client/*" ]
+exclude = ["compute_api_client/*"]
