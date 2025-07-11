@@ -401,15 +401,15 @@ wheels = [
 
 [[package]]
 name = "docformatter"
-version = "1.7.5"
+version = "1.7.7"
 source = { registry = "https://pypi.org/simple" }
 dependencies = [
     { name = "charset-normalizer" },
     { name = "untokenize" },
 ]
-sdist = { url = "https://files.pythonhosted.org/packages/f4/44/aba2c40cf796121b35835ea8c00bc5d93f2f70730eca53b36b8bbbfaefe1/docformatter-1.7.5.tar.gz", hash = "sha256:ffed3da0daffa2e77f80ccba4f0e50bfa2755e1c10e130102571c890a61b246e", size = 25893, upload-time = "2023-07-12T01:45:43.959Z" }
+sdist = { url = "https://files.pythonhosted.org/packages/2a/7b/ee08cb5fe2627ed0b6f0cc4a1c6be6c9c71de5a3e9785de8174273fc3128/docformatter-1.7.7.tar.gz", hash = "sha256:ea0e1e8867e5af468dfc3f9e947b92230a55be9ec17cd1609556387bffac7978", size = 26587, upload-time = "2025-05-11T04:54:04.356Z" }
 wheels = [
-    { url = "https://files.pythonhosted.org/packages/8b/95/568a2fca29df365b82012b09b64964a05f4f20ac83c2137b262f3fa3188f/docformatter-1.7.5-py3-none-any.whl", hash = "sha256:a24f5545ed1f30af00d106f5d85dc2fce4959295687c24c8f39f5263afaf9186", size = 32798, upload-time = "2023-07-12T01:45:42.458Z" },
+    { url = "https://files.pythonhosted.org/packages/dc/b4/a7ec1eaee86761a9dbfd339732b4706db3c6b65e970c12f0f56cfcce3dcf/docformatter-1.7.7-py3-none-any.whl", hash = "sha256:7af49f8a46346a77858f6651f431b882c503c2f4442c8b4524b920c863277834", size = 33525, upload-time = "2025-05-11T04:54:03.353Z" },
 ]
 
 [[package]]
@@ -1034,7 +1034,7 @@ wheels = [
 
 [[package]]
 name = "qi-compute-api-client"
-version = "0.50.0"
+version = "0.53.0"
 source = { editable = "." }
 dependencies = [
     { name = "aiohttp" },
@@ -1077,7 +1077,7 @@ dev = [
     { name = "black", specifier = ">=25.0.0,<26" },
     { name = "coverage", extras = ["toml"], specifier = ">=7.6.10,<8" },
     { name = "deptry", specifier = ">=0.23.0,<0.24" },
-    { name = "docformatter", specifier = "==1.7.5" },
+    { name = "docformatter", specifier = "==1.7.7" },
     { name = "mypy", specifier = "~=1.14" },
     { name = "pytest", extras = ["toml"], specifier = ">=8.3.4,<9" },
     { name = "pytest-asyncio", specifier = ">=0.26.0,<0.27" },
