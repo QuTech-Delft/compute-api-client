@@ -2,6 +2,7 @@
 
 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **items** | [**List[Permission]**](Permission.md) |  | 
@@ -20,12 +21,12 @@ json = "{}"
 # create an instance of PagePermission from a JSON string
 page_permission_instance = PagePermission.from_json(json)
 # print the JSON string representation of the object
-print PagePermission.to_json()
+print(PagePermission.to_json())
 
 # convert the object into a dict
 page_permission_dict = page_permission_instance.to_dict()
 # create an instance of PagePermission from a dict
-page_permission_form_dict = page_permission.from_dict(page_permission_dict)
+page_permission_from_dict = PagePermission.from_dict(page_permission_dict)
 ```
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

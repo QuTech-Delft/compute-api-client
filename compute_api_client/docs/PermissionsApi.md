@@ -20,9 +20,8 @@ Get permission group by ID.
 ### Example
 
 * OAuth Authentication (user_bearer):
+
 ```python
-import time
-import os
 import compute_api_client
 from compute_api_client.models.permission_group import PermissionGroup
 from compute_api_client.rest import ApiException
@@ -60,6 +59,7 @@ async with compute_api_client.ApiClient(configuration) as api_client:
 
 ### Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **int**|  | 
@@ -78,6 +78,7 @@ Name | Type | Description  | Notes
  - **Accept**: application/json
 
 ### HTTP response details
+
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Successful Response |  -  |
@@ -96,9 +97,8 @@ Read permissions groups.
 ### Example
 
 * OAuth Authentication (user_bearer):
+
 ```python
-import time
-import os
 import compute_api_client
 from compute_api_client.models.page_permission_group import PagePermissionGroup
 from compute_api_client.rest import ApiException
@@ -141,6 +141,7 @@ async with compute_api_client.ApiClient(configuration) as api_client:
 
 ### Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **int**|  | [optional] 
@@ -164,6 +165,7 @@ Name | Type | Description  | Notes
  - **Accept**: application/json
 
 ### HTTP response details
+
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Successful Response |  -  |
@@ -181,9 +183,8 @@ Get permission by ID.
 ### Example
 
 * OAuth Authentication (user_bearer):
+
 ```python
-import time
-import os
 import compute_api_client
 from compute_api_client.models.permission import Permission
 from compute_api_client.rest import ApiException
@@ -221,6 +222,7 @@ async with compute_api_client.ApiClient(configuration) as api_client:
 
 ### Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **int**|  | 
@@ -239,6 +241,7 @@ Name | Type | Description  | Notes
  - **Accept**: application/json
 
 ### HTTP response details
+
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Successful Response |  -  |
@@ -257,9 +260,8 @@ Read permissions.
 ### Example
 
 * OAuth Authentication (user_bearer):
+
 ```python
-import time
-import os
 import compute_api_client
 from compute_api_client.models.page_permission import PagePermission
 from compute_api_client.rest import ApiException
@@ -303,6 +305,7 @@ async with compute_api_client.ApiClient(configuration) as api_client:
 
 ### Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **int**|  | [optional] 
@@ -327,6 +330,7 @@ Name | Type | Description  | Notes
  - **Accept**: application/json
 
 ### HTTP response details
+
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Successful Response |  -  |

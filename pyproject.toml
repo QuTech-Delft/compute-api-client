@@ -1,6 +1,6 @@
 [project]
 name = "qi-compute-api-client"
-version = "0.53.0"
+version = "0.54.0"
 description = "An API client for the Compute Job Manager of Quantum Inspire."
 authors = [{ name = "Quantum Inspire", email = "support@quantum-inspire.eu" }]
 requires-python = "~=3.9"
@@ -22,6 +22,7 @@ dependencies = [
     "urllib3>=2.0.0,<3",
     "requests>=2.31.0,<3",
     "typing-extensions>=4.12.2,<5",
+    "aiohttp-retry>=2.9.1",
 ]
 
 [project.urls]
@@ -73,7 +74,7 @@ exclude = ["compute_api_client/*"]
 exclude = ["compute_api_client/*", "tests/*", ".venv/*"]
 
 [tool.deptry.per_rule_ignores]
-DEP002 = ["aiohttp", "python-dateutil", "urllib3"]
+DEP002 = ["aiohttp", "python-dateutil", "urllib3", "aiohttp-retry"]
 
 [tool.ruff]
 exclude = ["compute_api_client/*"]

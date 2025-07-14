@@ -2,6 +2,7 @@
 
 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **owner_id** | **int** |  | [optional] 
@@ -19,12 +20,12 @@ json = "{}"
 # create an instance of ProjectPatch from a JSON string
 project_patch_instance = ProjectPatch.from_json(json)
 # print the JSON string representation of the object
-print ProjectPatch.to_json()
+print(ProjectPatch.to_json())
 
 # convert the object into a dict
 project_patch_dict = project_patch_instance.to_dict()
 # create an instance of ProjectPatch from a dict
-project_patch_form_dict = project_patch.from_dict(project_patch_dict)
+project_patch_from_dict = ProjectPatch.from_dict(project_patch_dict)
 ```
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

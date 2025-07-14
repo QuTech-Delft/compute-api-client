@@ -16,9 +16,8 @@ Health endpoint.
 
 ### Example
 
+
 ```python
-import time
-import os
 import compute_api_client
 from compute_api_client.rest import ApiException
 from pprint import pprint
@@ -47,6 +46,7 @@ async with compute_api_client.ApiClient(configuration) as api_client:
 
 
 ### Parameters
+
 This endpoint does not need any parameter.
 
 ### Return type
@@ -63,6 +63,7 @@ No authorization required
  - **Accept**: application/json
 
 ### HTTP response details
+
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Successful Response |  -  |

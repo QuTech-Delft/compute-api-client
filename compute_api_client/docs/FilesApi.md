@@ -20,9 +20,8 @@ Create new file.
 ### Example
 
 * OAuth Authentication (user_bearer):
+
 ```python
-import time
-import os
 import compute_api_client
 from compute_api_client.models.file import File
 from compute_api_client.models.file_in import FileIn
@@ -61,6 +60,7 @@ async with compute_api_client.ApiClient(configuration) as api_client:
 
 ### Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **file_in** | [**FileIn**](FileIn.md)|  | 
@@ -79,6 +79,7 @@ Name | Type | Description  | Notes
  - **Accept**: application/json
 
 ### HTTP response details
+
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **201** | Successful Response |  -  |
@@ -96,9 +97,8 @@ Delete a file.
 ### Example
 
 * OAuth Authentication (user_bearer):
+
 ```python
-import time
-import os
 import compute_api_client
 from compute_api_client.rest import ApiException
 from pprint import pprint
@@ -133,6 +133,7 @@ async with compute_api_client.ApiClient(configuration) as api_client:
 
 ### Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **int**|  | 
@@ -151,6 +152,7 @@ void (empty response body)
  - **Accept**: application/json
 
 ### HTTP response details
+
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **204** | Successful Response |  -  |
@@ -170,9 +172,8 @@ Get file by ID.
 
 * OAuth Authentication (user_bearer):
 * Api Key Authentication (backend):
+
 ```python
-import time
-import os
 import compute_api_client
 from compute_api_client.models.file import File
 from compute_api_client.rest import ApiException
@@ -216,6 +217,7 @@ async with compute_api_client.ApiClient(configuration) as api_client:
 
 ### Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **int**|  | 
@@ -234,6 +236,7 @@ Name | Type | Description  | Notes
  - **Accept**: application/json
 
 ### HTTP response details
+
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Successful Response |  -  |
@@ -252,9 +255,8 @@ List files.
 ### Example
 
 * OAuth Authentication (user_bearer):
+
 ```python
-import time
-import os
 import compute_api_client
 from compute_api_client.models.compile_stage import CompileStage
 from compute_api_client.models.page_file import PageFile
@@ -304,6 +306,7 @@ async with compute_api_client.ApiClient(configuration) as api_client:
 
 ### Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **int**|  | [optional] 
@@ -333,6 +336,7 @@ Name | Type | Description  | Notes
  - **Accept**: application/json
 
 ### HTTP response details
+
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Successful Response |  -  |

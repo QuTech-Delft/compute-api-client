@@ -18,30 +18,28 @@ import re  # noqa: F401
 import json
 
 from datetime import datetime
+from pydantic import BaseModel, ConfigDict, Field, StrictInt, StrictStr
 from typing import Any, ClassVar, Dict, List
-from pydantic import BaseModel, StrictInt, StrictStr
-from pydantic import Field
 from typing_extensions import Annotated
-try:
-    from typing import Self
-except ImportError:
-    from typing_extensions import Self
+from typing import Optional, Set
+from typing_extensions import Self
 
 class Commit(BaseModel):
     """
     Commit
     """ # noqa: E501
-    id: StrictInt
-    created_on: datetime
-    hash: Annotated[str, Field(strict=True, max_length=32)]
-    description: StrictStr
-    algorithm_id: StrictInt
+    id: StrictInt = Field(description="ID of the commit")
+    created_on: datetime = Field(description="Time of creation of the commit")
+    hash: Annotated[str, Field(strict=True, max_length=32)] = Field(description="Unique hash assigned to the commit")
+    description: StrictStr = Field(description="Desriptive message of the commit")
+    algorithm_id: StrictInt = Field(description="ID of the algorithm")
     __properties: ClassVar[List[str]] = ["id", "created_on", "hash", "description", "algorithm_id"]
 
-    model_config = {
-        "populate_by_name": True,
-        "validate_assignment": True
-    }
+    model_config = ConfigDict(
+        populate_by_name=True,
+        validate_assignment=True,
+        protected_namespaces=(),
+    )
 
 
     def to_str(self) -> str:
@@ -54,7 +52,7 @@ class Commit(BaseModel):
         return json.dumps(self.to_dict())
 
     @classmethod
-    def from_json(cls, json_str: str) -> Self:
+    def from_json(cls, json_str: str) -> Optional[Self]:
         """Create an instance of Commit from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
@@ -68,16 +66,18 @@ class Commit(BaseModel):
           were set at model initialization. Other fields with value `None`
           are ignored.
         """
+        excluded_fields: Set[str] = set([
+        ])
+
         _dict = self.model_dump(
             by_alias=True,
-            exclude={
-            },
+            exclude=excluded_fields,
             exclude_none=True,
         )
         return _dict
 
     @classmethod
-    def from_dict(cls, obj: Dict) -> Self:
+    def from_dict(cls, obj: Optional[Dict[str, Any]]) -> Optional[Self]:
         """Create an instance of Commit from a dict"""
         if obj is None:
             return None

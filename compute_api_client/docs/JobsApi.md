@@ -21,9 +21,8 @@ Create new job.
 ### Example
 
 * OAuth Authentication (user_bearer):
+
 ```python
-import time
-import os
 import compute_api_client
 from compute_api_client.models.job import Job
 from compute_api_client.models.job_in import JobIn
@@ -62,6 +61,7 @@ async with compute_api_client.ApiClient(configuration) as api_client:
 
 ### Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **job_in** | [**JobIn**](JobIn.md)|  | 
@@ -80,6 +80,7 @@ Name | Type | Description  | Notes
  - **Accept**: application/json
 
 ### HTTP response details
+
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **201** | Successful Response |  -  |
@@ -97,9 +98,8 @@ Delete a job.
 ### Example
 
 * OAuth Authentication (user_bearer):
+
 ```python
-import time
-import os
 import compute_api_client
 from compute_api_client.rest import ApiException
 from pprint import pprint
@@ -134,6 +134,7 @@ async with compute_api_client.ApiClient(configuration) as api_client:
 
 ### Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **int**|  | 
@@ -152,6 +153,7 @@ void (empty response body)
  - **Accept**: application/json
 
 ### HTTP response details
+
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **204** | Successful Response |  -  |
@@ -171,9 +173,8 @@ Get job by ID.
 
 * OAuth Authentication (user_bearer):
 * Api Key Authentication (backend):
+
 ```python
-import time
-import os
 import compute_api_client
 from compute_api_client.models.job import Job
 from compute_api_client.rest import ApiException
@@ -217,6 +218,7 @@ async with compute_api_client.ApiClient(configuration) as api_client:
 
 ### Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **int**|  | 
@@ -235,6 +237,7 @@ Name | Type | Description  | Notes
  - **Accept**: application/json
 
 ### HTTP response details
+
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Successful Response |  -  |
@@ -254,9 +257,8 @@ List jobs.
 
 * OAuth Authentication (user_bearer):
 * Api Key Authentication (backend):
+
 ```python
-import time
-import os
 import compute_api_client
 from compute_api_client.models.algorithm_type import AlgorithmType
 from compute_api_client.models.job_status import JobStatus
@@ -322,6 +324,7 @@ async with compute_api_client.ApiClient(configuration) as api_client:
 
 ### Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **int**|  | [optional] 
@@ -360,6 +363,7 @@ Name | Type | Description  | Notes
  - **Accept**: application/json
 
 ### HTTP response details
+
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Successful Response |  -  |
@@ -378,9 +382,8 @@ Update status of a job.
 
 * OAuth Authentication (user_bearer):
 * Api Key Authentication (backend):
+
 ```python
-import time
-import os
 import compute_api_client
 from compute_api_client.models.job import Job
 from compute_api_client.models.job_patch import JobPatch
@@ -426,6 +429,7 @@ async with compute_api_client.ApiClient(configuration) as api_client:
 
 ### Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **int**|  | 
@@ -445,6 +449,7 @@ Name | Type | Description  | Notes
  - **Accept**: application/json
 
 ### HTTP response details
+
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Successful Response |  -  |

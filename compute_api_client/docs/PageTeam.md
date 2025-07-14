@@ -2,6 +2,7 @@
 
 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **items** | [**List[Team]**](Team.md) |  | 
@@ -20,12 +21,12 @@ json = "{}"
 # create an instance of PageTeam from a JSON string
 page_team_instance = PageTeam.from_json(json)
 # print the JSON string representation of the object
-print PageTeam.to_json()
+print(PageTeam.to_json())
 
 # convert the object into a dict
 page_team_dict = page_team_instance.to_dict()
 # create an instance of PageTeam from a dict
-page_team_form_dict = page_team.from_dict(page_team_dict)
+page_team_from_dict = PageTeam.from_dict(page_team_dict)
 ```
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

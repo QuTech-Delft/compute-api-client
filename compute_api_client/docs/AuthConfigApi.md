@@ -14,9 +14,8 @@ Get suggested authentication configuration
 
 ### Example
 
+
 ```python
-import time
-import os
 import compute_api_client
 from compute_api_client.models.auth_config import AuthConfig
 from compute_api_client.rest import ApiException
@@ -46,6 +45,7 @@ async with compute_api_client.ApiClient(configuration) as api_client:
 
 
 ### Parameters
+
 This endpoint does not need any parameter.
 
 ### Return type
@@ -62,6 +62,7 @@ No authorization required
  - **Accept**: application/json
 
 ### HTTP response details
+
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Successful Response |  -  |

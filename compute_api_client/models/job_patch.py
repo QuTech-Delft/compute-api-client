@@ -17,33 +17,30 @@ import pprint
 import re  # noqa: F401
 import json
 
-
+from pydantic import BaseModel, ConfigDict, Field, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
-from pydantic import BaseModel, StrictStr
-from pydantic import Field
 from typing_extensions import Annotated
 from compute_api_client.models.job_status import JobStatus
-try:
-    from typing import Self
-except ImportError:
-    from typing_extensions import Self
+from typing import Optional, Set
+from typing_extensions import Self
 
 class JobPatch(BaseModel):
     """
     JobPatch
     """ # noqa: E501
-    status: JobStatus
-    session_id: Optional[Annotated[str, Field(strict=True, max_length=255)]] = ''
-    trace_id: Optional[Annotated[str, Field(strict=True, max_length=255)]] = ''
-    message: Optional[StrictStr] = ''
+    status: JobStatus = Field(description="The status of the Job")
+    session_id: Optional[Annotated[str, Field(strict=True, max_length=255)]] = Field(default='', description="The uuid assigned to the job")
+    trace_id: Optional[Annotated[str, Field(strict=True, max_length=255)]] = Field(default='', description="The uuid of the trace in case of job failure")
+    message: Optional[StrictStr] = Field(default='', description="The message associated with the executed job if it failed")
     source: Optional[StrictStr] = Field(default='', description="The source application of an exception that caused a job to fail (if applicable).")
-    traceback: Optional[StrictStr] = ''
+    traceback: Optional[StrictStr] = Field(default='', description="The traceback of the exception")
     __properties: ClassVar[List[str]] = ["status", "session_id", "trace_id", "message", "source", "traceback"]
 
-    model_config = {
-        "populate_by_name": True,
-        "validate_assignment": True
-    }
+    model_config = ConfigDict(
+        populate_by_name=True,
+        validate_assignment=True,
+        protected_namespaces=(),
+    )
 
 
     def to_str(self) -> str:
@@ -56,7 +53,7 @@ class JobPatch(BaseModel):
         return json.dumps(self.to_dict())
 
     @classmethod
-    def from_json(cls, json_str: str) -> Self:
+    def from_json(cls, json_str: str) -> Optional[Self]:
         """Create an instance of JobPatch from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
@@ -70,16 +67,18 @@ class JobPatch(BaseModel):
           were set at model initialization. Other fields with value `None`
           are ignored.
         """
+        excluded_fields: Set[str] = set([
+        ])
+
         _dict = self.model_dump(
             by_alias=True,
-            exclude={
-            },
+            exclude=excluded_fields,
             exclude_none=True,
         )
         return _dict
 
     @classmethod
-    def from_dict(cls, obj: Dict) -> Self:
+    def from_dict(cls, obj: Optional[Dict[str, Any]]) -> Optional[Self]:
         """Create an instance of JobPatch from a dict"""
         if obj is None:
             return None

@@ -17,30 +17,27 @@ import pprint
 import re  # noqa: F401
 import json
 
-
+from pydantic import BaseModel, ConfigDict, Field, StrictBool, StrictInt
 from typing import Any, ClassVar, Dict, List
-from pydantic import BaseModel, StrictBool, StrictInt
-from pydantic import Field
 from typing_extensions import Annotated
-try:
-    from typing import Self
-except ImportError:
-    from typing_extensions import Self
+from typing import Optional, Set
+from typing_extensions import Self
 
 class Team(BaseModel):
     """
     Team
     """ # noqa: E501
-    id: StrictInt
-    name: Annotated[str, Field(strict=True, max_length=64)]
-    slug: Annotated[str, Field(strict=True, max_length=64)]
-    individual_user: StrictBool
+    id: StrictInt = Field(description="The id of the team")
+    name: Annotated[str, Field(strict=True, max_length=64)] = Field(description="The name of the team")
+    slug: Annotated[str, Field(strict=True, max_length=64)] = Field(description="The slugified name")
+    individual_user: StrictBool = Field(description="If it is an individual user")
     __properties: ClassVar[List[str]] = ["id", "name", "slug", "individual_user"]
 
-    model_config = {
-        "populate_by_name": True,
-        "validate_assignment": True
-    }
+    model_config = ConfigDict(
+        populate_by_name=True,
+        validate_assignment=True,
+        protected_namespaces=(),
+    )
 
 
     def to_str(self) -> str:
@@ -53,7 +50,7 @@ class Team(BaseModel):
         return json.dumps(self.to_dict())
 
     @classmethod
-    def from_json(cls, json_str: str) -> Self:
+    def from_json(cls, json_str: str) -> Optional[Self]:
         """Create an instance of Team from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
@@ -67,16 +64,18 @@ class Team(BaseModel):
           were set at model initialization. Other fields with value `None`
           are ignored.
         """
+        excluded_fields: Set[str] = set([
+        ])
+
         _dict = self.model_dump(
             by_alias=True,
-            exclude={
-            },
+            exclude=excluded_fields,
             exclude_none=True,
         )
         return _dict
 
     @classmethod
-    def from_dict(cls, obj: Dict) -> Self:
+    def from_dict(cls, obj: Optional[Dict[str, Any]]) -> Optional[Self]:
         """Create an instance of Team from a dict"""
         if obj is None:
             return None

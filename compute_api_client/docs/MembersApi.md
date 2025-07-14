@@ -20,9 +20,8 @@ Create new member.
 ### Example
 
 * OAuth Authentication (user_bearer):
+
 ```python
-import time
-import os
 import compute_api_client
 from compute_api_client.models.member import Member
 from compute_api_client.models.member_in import MemberIn
@@ -61,6 +60,7 @@ async with compute_api_client.ApiClient(configuration) as api_client:
 
 ### Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **member_in** | [**MemberIn**](MemberIn.md)|  | 
@@ -79,6 +79,7 @@ Name | Type | Description  | Notes
  - **Accept**: application/json
 
 ### HTTP response details
+
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **201** | Successful Response |  -  |
@@ -96,9 +97,8 @@ Delete a member.
 ### Example
 
 * OAuth Authentication (user_bearer):
+
 ```python
-import time
-import os
 import compute_api_client
 from compute_api_client.rest import ApiException
 from pprint import pprint
@@ -133,6 +133,7 @@ async with compute_api_client.ApiClient(configuration) as api_client:
 
 ### Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **int**|  | 
@@ -151,6 +152,7 @@ void (empty response body)
  - **Accept**: application/json
 
 ### HTTP response details
+
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **204** | Successful Response |  -  |
@@ -169,9 +171,8 @@ Get member by ID.
 ### Example
 
 * OAuth Authentication (user_bearer):
+
 ```python
-import time
-import os
 import compute_api_client
 from compute_api_client.models.member import Member
 from compute_api_client.rest import ApiException
@@ -209,6 +210,7 @@ async with compute_api_client.ApiClient(configuration) as api_client:
 
 ### Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **int**|  | 
@@ -227,6 +229,7 @@ Name | Type | Description  | Notes
  - **Accept**: application/json
 
 ### HTTP response details
+
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Successful Response |  -  |
@@ -245,9 +248,8 @@ Read members.
 ### Example
 
 * OAuth Authentication (user_bearer):
+
 ```python
-import time
-import os
 import compute_api_client
 from compute_api_client.models.page_member import PageMember
 from compute_api_client.models.role import Role
@@ -293,6 +295,7 @@ async with compute_api_client.ApiClient(configuration) as api_client:
 
 ### Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **int**|  | [optional] 
@@ -318,6 +321,7 @@ Name | Type | Description  | Notes
  - **Accept**: application/json
 
 ### HTTP response details
+
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Successful Response |  -  |

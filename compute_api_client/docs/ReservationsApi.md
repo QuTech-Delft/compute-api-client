@@ -20,9 +20,8 @@ Create new reservation.
 ### Example
 
 * OAuth Authentication (user_bearer):
+
 ```python
-import time
-import os
 import compute_api_client
 from compute_api_client.models.reservation import Reservation
 from compute_api_client.models.reservation_in import ReservationIn
@@ -61,6 +60,7 @@ async with compute_api_client.ApiClient(configuration) as api_client:
 
 ### Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **reservation_in** | [**ReservationIn**](ReservationIn.md)|  | 
@@ -79,6 +79,7 @@ Name | Type | Description  | Notes
  - **Accept**: application/json
 
 ### HTTP response details
+
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **201** | Successful Response |  -  |
@@ -96,9 +97,8 @@ Get reservation by ID.
 ### Example
 
 * OAuth Authentication (user_bearer):
+
 ```python
-import time
-import os
 import compute_api_client
 from compute_api_client.models.reservation import Reservation
 from compute_api_client.rest import ApiException
@@ -136,6 +136,7 @@ async with compute_api_client.ApiClient(configuration) as api_client:
 
 ### Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **int**|  | 
@@ -154,6 +155,7 @@ Name | Type | Description  | Notes
  - **Accept**: application/json
 
 ### HTTP response details
+
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Successful Response |  -  |
@@ -172,9 +174,8 @@ Read reservations.
 ### Example
 
 * OAuth Authentication (user_bearer):
+
 ```python
-import time
-import os
 import compute_api_client
 from compute_api_client.models.page_reservation import PageReservation
 from compute_api_client.rest import ApiException
@@ -223,6 +224,7 @@ async with compute_api_client.ApiClient(configuration) as api_client:
 
 ### Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **int**|  | [optional] 
@@ -252,6 +254,7 @@ Name | Type | Description  | Notes
  - **Accept**: application/json
 
 ### HTTP response details
+
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Successful Response |  -  |
@@ -269,9 +272,8 @@ Terminate reservation by ID.
 ### Example
 
 * OAuth Authentication (user_bearer):
+
 ```python
-import time
-import os
 import compute_api_client
 from compute_api_client.models.reservation import Reservation
 from compute_api_client.rest import ApiException
@@ -309,6 +311,7 @@ async with compute_api_client.ApiClient(configuration) as api_client:
 
 ### Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **int**|  | 
@@ -327,6 +330,7 @@ Name | Type | Description  | Notes
  - **Accept**: application/json
 
 ### HTTP response details
+
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Successful Response |  -  |

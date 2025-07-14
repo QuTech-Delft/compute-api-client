@@ -17,45 +17,42 @@ import pprint
 import re  # noqa: F401
 import json
 
-
+from pydantic import BaseModel, ConfigDict, Field, StrictBool, StrictInt, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
-from pydantic import BaseModel, StrictBool, StrictInt, StrictStr
-from pydantic import Field
 from typing_extensions import Annotated
 from compute_api_client.models.backend_status import BackendStatus
-try:
-    from typing import Self
-except ImportError:
-    from typing_extensions import Self
+from typing import Optional, Set
+from typing_extensions import Self
 
 class BackendType(BaseModel):
     """
     BackendType
     """ # noqa: E501
-    id: StrictInt
-    name: Annotated[str, Field(strict=True, max_length=32)]
-    infrastructure: Annotated[str, Field(strict=True, max_length=32)]
-    description: StrictStr
-    image_id: Annotated[str, Field(strict=True, max_length=16)]
-    is_hardware: StrictBool
-    supports_raw_data: StrictBool
-    features: List[StrictStr]
-    default_compiler_config: Dict[str, Any]
-    gateset: List[StrictStr]
-    topology: List[List[StrictInt]]
-    nqubits: StrictInt
-    status: BackendStatus
-    default_number_of_shots: StrictInt
-    max_number_of_shots: StrictInt
-    enabled: StrictBool
-    identifier: Annotated[str, Field(strict=True, max_length=32)]
+    id: StrictInt = Field(description="The id of the backend type")
+    name: Annotated[str, Field(strict=True, max_length=32)] = Field(description="Name of the backend type")
+    infrastructure: Annotated[str, Field(strict=True, max_length=32)] = Field(description="Name of the infrastructure")
+    description: StrictStr = Field(description="Description of the backendtype")
+    image_id: Annotated[str, Field(strict=True, max_length=16)] = Field(description="The id of the image")
+    is_hardware: StrictBool = Field(description="If it is hardware")
+    supports_raw_data: StrictBool = Field(description="If it supports raw data extraction")
+    features: List[Optional[StrictStr]] = Field(description="The features supported by backend type")
+    default_compiler_config: Dict[str, Any] = Field(description="The various passes for each stage")
+    gateset: List[Optional[StrictStr]] = Field(description="The primary gatesets supported by the backend")
+    topology: List[List[StrictInt]] = Field(description="The topology of the backend")
+    nqubits: StrictInt = Field(description="The number of qubits on the backend")
+    status: BackendStatus = Field(description="The status of the backend type")
+    default_number_of_shots: StrictInt = Field(description="The default shots")
+    max_number_of_shots: StrictInt = Field(description="The maximum number of shots")
+    enabled: StrictBool = Field(description="If it is enabled")
+    identifier: Annotated[str, Field(strict=True, max_length=32)] = Field(description="The identifier of the backend")
     protocol_version: Optional[StrictInt] = None
     __properties: ClassVar[List[str]] = ["id", "name", "infrastructure", "description", "image_id", "is_hardware", "supports_raw_data", "features", "default_compiler_config", "gateset", "topology", "nqubits", "status", "default_number_of_shots", "max_number_of_shots", "enabled", "identifier", "protocol_version"]
 
-    model_config = {
-        "populate_by_name": True,
-        "validate_assignment": True
-    }
+    model_config = ConfigDict(
+        populate_by_name=True,
+        validate_assignment=True,
+        protected_namespaces=(),
+    )
 
 
     def to_str(self) -> str:
@@ -68,7 +65,7 @@ class BackendType(BaseModel):
         return json.dumps(self.to_dict())
 
     @classmethod
-    def from_json(cls, json_str: str) -> Self:
+    def from_json(cls, json_str: str) -> Optional[Self]:
         """Create an instance of BackendType from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
@@ -82,10 +79,12 @@ class BackendType(BaseModel):
           were set at model initialization. Other fields with value `None`
           are ignored.
         """
+        excluded_fields: Set[str] = set([
+        ])
+
         _dict = self.model_dump(
             by_alias=True,
-            exclude={
-            },
+            exclude=excluded_fields,
             exclude_none=True,
         )
         # set to None if protocol_version (nullable) is None
@@ -96,7 +95,7 @@ class BackendType(BaseModel):
         return _dict
 
     @classmethod
-    def from_dict(cls, obj: Dict) -> Self:
+    def from_dict(cls, obj: Optional[Dict[str, Any]]) -> Optional[Self]:
         """Create an instance of BackendType from a dict"""
         if obj is None:
             return None

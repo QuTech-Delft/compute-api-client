@@ -2,6 +2,7 @@
 
 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **items** | [**List[Transaction]**](Transaction.md) |  | 
@@ -20,12 +21,12 @@ json = "{}"
 # create an instance of PageTransaction from a JSON string
 page_transaction_instance = PageTransaction.from_json(json)
 # print the JSON string representation of the object
-print PageTransaction.to_json()
+print(PageTransaction.to_json())
 
 # convert the object into a dict
 page_transaction_dict = page_transaction_instance.to_dict()
 # create an instance of PageTransaction from a dict
-page_transaction_form_dict = page_transaction.from_dict(page_transaction_dict)
+page_transaction_from_dict = PageTransaction.from_dict(page_transaction_dict)
 ```
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

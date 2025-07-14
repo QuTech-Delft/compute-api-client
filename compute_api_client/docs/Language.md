@@ -2,11 +2,12 @@
 
 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**id** | **int** |  | 
-**name** | **str** |  | 
-**version** | **str** |  | 
+**id** | **int** | The ID of the language | 
+**name** | **str** | Name of the language | 
+**version** | **str** | Version of the language | 
 
 ## Example
 
@@ -18,12 +19,12 @@ json = "{}"
 # create an instance of Language from a JSON string
 language_instance = Language.from_json(json)
 # print the JSON string representation of the object
-print Language.to_json()
+print(Language.to_json())
 
 # convert the object into a dict
 language_dict = language_instance.to_dict()
 # create an instance of Language from a dict
-language_form_dict = language.from_dict(language_dict)
+language_from_dict = Language.from_dict(language_dict)
 ```
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

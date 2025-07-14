@@ -18,33 +18,31 @@ import re  # noqa: F401
 import json
 
 from datetime import datetime
+from pydantic import BaseModel, ConfigDict, Field, StrictInt
 from typing import Any, ClassVar, Dict, List, Optional
-from pydantic import BaseModel, StrictInt
-from pydantic import Field
 from typing_extensions import Annotated
 from compute_api_client.models.domain import Domain
-try:
-    from typing import Self
-except ImportError:
-    from typing_extensions import Self
+from typing import Optional, Set
+from typing_extensions import Self
 
 class Transaction(BaseModel):
     """
     Transaction
     """ # noqa: E501
-    id: StrictInt
+    id: StrictInt = Field(description="The id of the transaction")
     domain: Optional[Domain]
     job: Optional[StrictInt]
-    team_id: StrictInt
+    team_id: StrictInt = Field(description="The id of the team who initiated the transaction")
     member_id: Optional[StrictInt]
     change: Annotated[int, Field(strict=True, ge=-32768)]
-    timestamp: datetime
+    timestamp: datetime = Field(description="Time when the transaction was started")
     __properties: ClassVar[List[str]] = ["id", "domain", "job", "team_id", "member_id", "change", "timestamp"]
 
-    model_config = {
-        "populate_by_name": True,
-        "validate_assignment": True
-    }
+    model_config = ConfigDict(
+        populate_by_name=True,
+        validate_assignment=True,
+        protected_namespaces=(),
+    )
 
 
     def to_str(self) -> str:
@@ -57,7 +55,7 @@ class Transaction(BaseModel):
         return json.dumps(self.to_dict())
 
     @classmethod
-    def from_json(cls, json_str: str) -> Self:
+    def from_json(cls, json_str: str) -> Optional[Self]:
         """Create an instance of Transaction from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
@@ -71,10 +69,12 @@ class Transaction(BaseModel):
           were set at model initialization. Other fields with value `None`
           are ignored.
         """
+        excluded_fields: Set[str] = set([
+        ])
+
         _dict = self.model_dump(
             by_alias=True,
-            exclude={
-            },
+            exclude=excluded_fields,
             exclude_none=True,
         )
         # set to None if domain (nullable) is None
@@ -95,7 +95,7 @@ class Transaction(BaseModel):
         return _dict
 
     @classmethod
-    def from_dict(cls, obj: Dict) -> Self:
+    def from_dict(cls, obj: Optional[Dict[str, Any]]) -> Optional[Self]:
         """Create an instance of Transaction from a dict"""
         if obj is None:
             return None

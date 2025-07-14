@@ -2,6 +2,7 @@
 
 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **name** | **str** |  | [optional] 
@@ -31,12 +32,12 @@ json = "{}"
 # create an instance of BackendTypePatch from a JSON string
 backend_type_patch_instance = BackendTypePatch.from_json(json)
 # print the JSON string representation of the object
-print BackendTypePatch.to_json()
+print(BackendTypePatch.to_json())
 
 # convert the object into a dict
 backend_type_patch_dict = backend_type_patch_instance.to_dict()
 # create an instance of BackendTypePatch from a dict
-backend_type_patch_form_dict = backend_type_patch.from_dict(backend_type_patch_dict)
+backend_type_patch_from_dict = BackendTypePatch.from_dict(backend_type_patch_dict)
 ```
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

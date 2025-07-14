@@ -18,40 +18,38 @@ import re  # noqa: F401
 import json
 
 from datetime import datetime
+from pydantic import BaseModel, ConfigDict, Field, StrictBool, StrictInt, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
-from pydantic import BaseModel, StrictBool, StrictInt, StrictStr
-from pydantic import Field
 from compute_api_client.models.algorithm_type import AlgorithmType
 from compute_api_client.models.job_status import JobStatus
-try:
-    from typing import Self
-except ImportError:
-    from typing_extensions import Self
+from typing import Optional, Set
+from typing_extensions import Self
 
 class Job(BaseModel):
     """
     Job
     """ # noqa: E501
-    id: StrictInt
-    created_on: datetime
-    file_id: StrictInt
-    algorithm_type: AlgorithmType
-    status: JobStatus
-    batch_job_id: StrictInt
+    id: StrictInt = Field(description="The ID of the job")
+    created_on: datetime = Field(description="Time of creation of the Job")
+    file_id: StrictInt = Field(description="The ID of the file")
+    algorithm_type: AlgorithmType = Field(description="The type of the algorithm")
+    status: JobStatus = Field(description="The status of the Job")
+    batch_job_id: StrictInt = Field(description="The ID of the batch job")
     queued_at: Optional[datetime]
     finished_at: Optional[datetime]
     number_of_shots: Optional[StrictInt]
-    raw_data_enabled: StrictBool
-    session_id: StrictStr
-    trace_id: StrictStr
-    message: StrictStr
+    raw_data_enabled: StrictBool = Field(description="If raw data is to be attached to results")
+    session_id: StrictStr = Field(description="The uuid assigned to the job")
+    trace_id: StrictStr = Field(description="The uuid of the trace in case of job failure")
+    message: StrictStr = Field(description="The message associated with the executed job if it failed")
     source: Optional[StrictStr] = Field(default='', description="The source application of an exception that caused a job to fail (if applicable).")
     __properties: ClassVar[List[str]] = ["id", "created_on", "file_id", "algorithm_type", "status", "batch_job_id", "queued_at", "finished_at", "number_of_shots", "raw_data_enabled", "session_id", "trace_id", "message", "source"]
 
-    model_config = {
-        "populate_by_name": True,
-        "validate_assignment": True
-    }
+    model_config = ConfigDict(
+        populate_by_name=True,
+        validate_assignment=True,
+        protected_namespaces=(),
+    )
 
 
     def to_str(self) -> str:
@@ -64,7 +62,7 @@ class Job(BaseModel):
         return json.dumps(self.to_dict())
 
     @classmethod
-    def from_json(cls, json_str: str) -> Self:
+    def from_json(cls, json_str: str) -> Optional[Self]:
         """Create an instance of Job from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
@@ -78,10 +76,12 @@ class Job(BaseModel):
           were set at model initialization. Other fields with value `None`
           are ignored.
         """
+        excluded_fields: Set[str] = set([
+        ])
+
         _dict = self.model_dump(
             by_alias=True,
-            exclude={
-            },
+            exclude=excluded_fields,
             exclude_none=True,
         )
         # set to None if queued_at (nullable) is None
@@ -102,7 +102,7 @@ class Job(BaseModel):
         return _dict
 
     @classmethod
-    def from_dict(cls, obj: Dict) -> Self:
+    def from_dict(cls, obj: Optional[Dict[str, Any]]) -> Optional[Self]:
         """Create an instance of Job from a dict"""
         if obj is None:
             return None

@@ -18,7 +18,7 @@ set -e
 
 check=$1
 
-export OPENAPI_GENERATOR_VERSION=7.1.0
+export OPENAPI_GENERATOR_VERSION=7.14.0
 
 openapi-generator-cli generate \
     --input-spec http://localhost:8000/openapi.json \

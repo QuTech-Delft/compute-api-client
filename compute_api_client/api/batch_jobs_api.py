@@ -11,33 +11,22 @@
     Do not edit the class manually.
 """  # noqa: E501
 
-
-import io
 import warnings
-
 from pydantic import validate_call, Field, StrictFloat, StrictStr, StrictInt
-from typing import Dict, List, Optional, Tuple, Union, Any
-
-try:
-    from typing import Annotated
-except ImportError:
-    from typing_extensions import Annotated
-
-from pydantic import Field
+from typing import Any, Dict, List, Optional, Tuple, Union
 from typing_extensions import Annotated
+
 from datetime import datetime
-
-from pydantic import StrictBool, StrictInt, StrictStr
-
+from pydantic import Field, StrictBool, StrictInt, StrictStr
 from typing import List, Optional
-
+from typing_extensions import Annotated
 from compute_api_client.models.algorithm_type import AlgorithmType
 from compute_api_client.models.batch_job import BatchJob
 from compute_api_client.models.batch_job_in import BatchJobIn
 from compute_api_client.models.batch_job_status import BatchJobStatus
 from compute_api_client.models.page_batch_job import PageBatchJob
 
-from compute_api_client.api_client import ApiClient
+from compute_api_client.api_client import ApiClient, RequestSerialized
 from compute_api_client.api_response import ApiResponse
 from compute_api_client.rest import RESTResponseType
 
@@ -110,8 +99,7 @@ class BatchJobsApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '201': "BatchJob",
-            '422': "HTTPValidationError"
-            
+            '422': "HTTPValidationError",
         }
         response_data = await self.api_client.call_api(
             *_param,
@@ -179,8 +167,7 @@ class BatchJobsApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '201': "BatchJob",
-            '422': "HTTPValidationError"
-            
+            '422': "HTTPValidationError",
         }
         response_data = await self.api_client.call_api(
             *_param,
@@ -248,8 +235,7 @@ class BatchJobsApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '201': "BatchJob",
-            '422': "HTTPValidationError"
-            
+            '422': "HTTPValidationError",
         }
         response_data = await self.api_client.call_api(
             *_param,
@@ -265,19 +251,20 @@ class BatchJobsApi:
         _content_type,
         _headers,
         _host_index,
-    ) -> Tuple:
+    ) -> RequestSerialized:
 
         _host = None
 
         _collection_formats: Dict[str, str] = {
-            
         }
 
         _path_params: Dict[str, str] = {}
         _query_params: List[Tuple[str, str]] = []
         _header_params: Dict[str, Optional[str]] = _headers or {}
         _form_params: List[Tuple[str, str]] = []
-        _files: Dict[str, str] = {}
+        _files: Dict[
+            str, Union[str, bytes, List[str], List[bytes], List[Tuple[str, bytes]]]
+        ] = {}
         _body_params: Optional[bytes] = None
 
         # process the path parameters
@@ -290,11 +277,12 @@ class BatchJobsApi:
 
 
         # set the HTTP header `Accept`
-        _header_params['Accept'] = self.api_client.select_header_accept(
-            [
-                'application/json'
-            ]
-        )
+        if 'Accept' not in _header_params:
+            _header_params['Accept'] = self.api_client.select_header_accept(
+                [
+                    'application/json'
+                ]
+            )
 
         # set the HTTP header `Content-Type`
         if _content_type:
@@ -389,8 +377,7 @@ class BatchJobsApi:
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "BatchJob",
             '404': "HTTPNotFoundError",
-            '422': "HTTPValidationError"
-            
+            '422': "HTTPValidationError",
         }
         response_data = await self.api_client.call_api(
             *_param,
@@ -459,8 +446,7 @@ class BatchJobsApi:
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "BatchJob",
             '404': "HTTPNotFoundError",
-            '422': "HTTPValidationError"
-            
+            '422': "HTTPValidationError",
         }
         response_data = await self.api_client.call_api(
             *_param,
@@ -529,8 +515,7 @@ class BatchJobsApi:
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "BatchJob",
             '404': "HTTPNotFoundError",
-            '422': "HTTPValidationError"
-            
+            '422': "HTTPValidationError",
         }
         response_data = await self.api_client.call_api(
             *_param,
@@ -546,19 +531,20 @@ class BatchJobsApi:
         _content_type,
         _headers,
         _host_index,
-    ) -> Tuple:
+    ) -> RequestSerialized:
 
         _host = None
 
         _collection_formats: Dict[str, str] = {
-            
         }
 
         _path_params: Dict[str, str] = {}
         _query_params: List[Tuple[str, str]] = []
         _header_params: Dict[str, Optional[str]] = _headers or {}
         _form_params: List[Tuple[str, str]] = []
-        _files: Dict[str, str] = {}
+        _files: Dict[
+            str, Union[str, bytes, List[str], List[bytes], List[Tuple[str, bytes]]]
+        ] = {}
         _body_params: Optional[bytes] = None
 
         # process the path parameters
@@ -571,11 +557,12 @@ class BatchJobsApi:
 
 
         # set the HTTP header `Accept`
-        _header_params['Accept'] = self.api_client.select_header_accept(
-            [
-                'application/json'
-            ]
-        )
+        if 'Accept' not in _header_params:
+            _header_params['Accept'] = self.api_client.select_header_accept(
+                [
+                    'application/json'
+                ]
+            )
 
 
         # authentication setting
@@ -657,8 +644,7 @@ class BatchJobsApi:
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "BatchJob",
             '404': "HTTPNotFoundError",
-            '422': "HTTPValidationError"
-            
+            '422': "HTTPValidationError",
         }
         response_data = await self.api_client.call_api(
             *_param,
@@ -727,8 +713,7 @@ class BatchJobsApi:
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "BatchJob",
             '404': "HTTPNotFoundError",
-            '422': "HTTPValidationError"
-            
+            '422': "HTTPValidationError",
         }
         response_data = await self.api_client.call_api(
             *_param,
@@ -797,8 +782,7 @@ class BatchJobsApi:
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "BatchJob",
             '404': "HTTPNotFoundError",
-            '422': "HTTPValidationError"
-            
+            '422': "HTTPValidationError",
         }
         response_data = await self.api_client.call_api(
             *_param,
@@ -814,19 +798,20 @@ class BatchJobsApi:
         _content_type,
         _headers,
         _host_index,
-    ) -> Tuple:
+    ) -> RequestSerialized:
 
         _host = None
 
         _collection_formats: Dict[str, str] = {
-            
         }
 
         _path_params: Dict[str, str] = {}
         _query_params: List[Tuple[str, str]] = []
         _header_params: Dict[str, Optional[str]] = _headers or {}
         _form_params: List[Tuple[str, str]] = []
-        _files: Dict[str, str] = {}
+        _files: Dict[
+            str, Union[str, bytes, List[str], List[bytes], List[Tuple[str, bytes]]]
+        ] = {}
         _body_params: Optional[bytes] = None
 
         # process the path parameters
@@ -839,11 +824,12 @@ class BatchJobsApi:
 
 
         # set the HTTP header `Accept`
-        _header_params['Accept'] = self.api_client.select_header_accept(
-            [
-                'application/json'
-            ]
-        )
+        if 'Accept' not in _header_params:
+            _header_params['Accept'] = self.api_client.select_header_accept(
+                [
+                    'application/json'
+                ]
+            )
 
 
         # authentication setting
@@ -873,7 +859,7 @@ class BatchJobsApi:
     @validate_call
     async def peek_batch_job_batch_jobs_peek_patch(
         self,
-        request_body: List[StrictInt],
+        request_body: List[Optional[StrictInt]],
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -892,7 +878,7 @@ class BatchJobsApi:
         Get batch job that can be taken up, excluding list of IDs.
 
         :param request_body: (required)
-        :type request_body: List[int]
+        :type request_body: List[Optional[int]]
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -925,8 +911,7 @@ class BatchJobsApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "BatchJob",
-            '422': "HTTPValidationError"
-            
+            '422': "HTTPValidationError",
         }
         response_data = await self.api_client.call_api(
             *_param,
@@ -942,7 +927,7 @@ class BatchJobsApi:
     @validate_call
     async def peek_batch_job_batch_jobs_peek_patch_with_http_info(
         self,
-        request_body: List[StrictInt],
+        request_body: List[Optional[StrictInt]],
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -961,7 +946,7 @@ class BatchJobsApi:
         Get batch job that can be taken up, excluding list of IDs.
 
         :param request_body: (required)
-        :type request_body: List[int]
+        :type request_body: List[Optional[int]]
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -994,8 +979,7 @@ class BatchJobsApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "BatchJob",
-            '422': "HTTPValidationError"
-            
+            '422': "HTTPValidationError",
         }
         response_data = await self.api_client.call_api(
             *_param,
@@ -1011,7 +995,7 @@ class BatchJobsApi:
     @validate_call
     async def peek_batch_job_batch_jobs_peek_patch_without_preload_content(
         self,
-        request_body: List[StrictInt],
+        request_body: List[Optional[StrictInt]],
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -1030,7 +1014,7 @@ class BatchJobsApi:
         Get batch job that can be taken up, excluding list of IDs.
 
         :param request_body: (required)
-        :type request_body: List[int]
+        :type request_body: List[Optional[int]]
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -1063,8 +1047,7 @@ class BatchJobsApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "BatchJob",
-            '422': "HTTPValidationError"
-            
+            '422': "HTTPValidationError",
         }
         response_data = await self.api_client.call_api(
             *_param,
@@ -1080,12 +1063,11 @@ class BatchJobsApi:
         _content_type,
         _headers,
         _host_index,
-    ) -> Tuple:
+    ) -> RequestSerialized:
 
         _host = None
 
         _collection_formats: Dict[str, str] = {
-            
             'request_body': '',
         }
 
@@ -1093,7 +1075,9 @@ class BatchJobsApi:
         _query_params: List[Tuple[str, str]] = []
         _header_params: Dict[str, Optional[str]] = _headers or {}
         _form_params: List[Tuple[str, str]] = []
-        _files: Dict[str, str] = {}
+        _files: Dict[
+            str, Union[str, bytes, List[str], List[bytes], List[Tuple[str, bytes]]]
+        ] = {}
         _body_params: Optional[bytes] = None
 
         # process the path parameters
@@ -1106,11 +1090,12 @@ class BatchJobsApi:
 
 
         # set the HTTP header `Accept`
-        _header_params['Accept'] = self.api_client.select_header_accept(
-            [
-                'application/json'
-            ]
-        )
+        if 'Accept' not in _header_params:
+            _header_params['Accept'] = self.api_client.select_header_accept(
+                [
+                    'application/json'
+                ]
+            )
 
         # set the HTTP header `Content-Type`
         if _content_type:
@@ -1200,8 +1185,7 @@ class BatchJobsApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "BatchJob",
-            '404': "HTTPNotFoundError"
-            
+            '404': "HTTPNotFoundError",
         }
         response_data = await self.api_client.call_api(
             *_param,
@@ -1265,8 +1249,7 @@ class BatchJobsApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "BatchJob",
-            '404': "HTTPNotFoundError"
-            
+            '404': "HTTPNotFoundError",
         }
         response_data = await self.api_client.call_api(
             *_param,
@@ -1330,8 +1313,7 @@ class BatchJobsApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "BatchJob",
-            '404': "HTTPNotFoundError"
-            
+            '404': "HTTPNotFoundError",
         }
         response_data = await self.api_client.call_api(
             *_param,
@@ -1346,19 +1328,20 @@ class BatchJobsApi:
         _content_type,
         _headers,
         _host_index,
-    ) -> Tuple:
+    ) -> RequestSerialized:
 
         _host = None
 
         _collection_formats: Dict[str, str] = {
-            
         }
 
         _path_params: Dict[str, str] = {}
         _query_params: List[Tuple[str, str]] = []
         _header_params: Dict[str, Optional[str]] = _headers or {}
         _form_params: List[Tuple[str, str]] = []
-        _files: Dict[str, str] = {}
+        _files: Dict[
+            str, Union[str, bytes, List[str], List[bytes], List[Tuple[str, bytes]]]
+        ] = {}
         _body_params: Optional[bytes] = None
 
         # process the path parameters
@@ -1369,11 +1352,12 @@ class BatchJobsApi:
 
 
         # set the HTTP header `Accept`
-        _header_params['Accept'] = self.api_client.select_header_accept(
-            [
-                'application/json'
-            ]
-        )
+        if 'Accept' not in _header_params:
+            _header_params['Accept'] = self.api_client.select_header_accept(
+                [
+                    'application/json'
+                ]
+            )
 
 
         # authentication setting
@@ -1518,8 +1502,7 @@ class BatchJobsApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "PageBatchJob",
-            '422': "HTTPValidationError"
-            
+            '422': "HTTPValidationError",
         }
         response_data = await self.api_client.call_api(
             *_param,
@@ -1651,8 +1634,7 @@ class BatchJobsApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "PageBatchJob",
-            '422': "HTTPValidationError"
-            
+            '422': "HTTPValidationError",
         }
         response_data = await self.api_client.call_api(
             *_param,
@@ -1784,8 +1766,7 @@ class BatchJobsApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "PageBatchJob",
-            '422': "HTTPValidationError"
-            
+            '422': "HTTPValidationError",
         }
         response_data = await self.api_client.call_api(
             *_param,
@@ -1817,19 +1798,20 @@ class BatchJobsApi:
         _content_type,
         _headers,
         _host_index,
-    ) -> Tuple:
+    ) -> RequestSerialized:
 
         _host = None
 
         _collection_formats: Dict[str, str] = {
-            
         }
 
         _path_params: Dict[str, str] = {}
         _query_params: List[Tuple[str, str]] = []
         _header_params: Dict[str, Optional[str]] = _headers or {}
         _form_params: List[Tuple[str, str]] = []
-        _files: Dict[str, str] = {}
+        _files: Dict[
+            str, Union[str, bytes, List[str], List[bytes], List[Tuple[str, bytes]]]
+        ] = {}
         _body_params: Optional[bytes] = None
 
         # process the path parameters
@@ -1944,11 +1926,12 @@ class BatchJobsApi:
 
 
         # set the HTTP header `Accept`
-        _header_params['Accept'] = self.api_client.select_header_accept(
-            [
-                'application/json'
-            ]
-        )
+        if 'Accept' not in _header_params:
+            _header_params['Accept'] = self.api_client.select_header_accept(
+                [
+                    'application/json'
+                ]
+            )
 
 
         # authentication setting
@@ -2030,8 +2013,7 @@ class BatchJobsApi:
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "BatchJob",
             '404': "HTTPNotFoundError",
-            '422': "HTTPValidationError"
-            
+            '422': "HTTPValidationError",
         }
         response_data = await self.api_client.call_api(
             *_param,
@@ -2100,8 +2082,7 @@ class BatchJobsApi:
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "BatchJob",
             '404': "HTTPNotFoundError",
-            '422': "HTTPValidationError"
-            
+            '422': "HTTPValidationError",
         }
         response_data = await self.api_client.call_api(
             *_param,
@@ -2170,8 +2151,7 @@ class BatchJobsApi:
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "BatchJob",
             '404': "HTTPNotFoundError",
-            '422': "HTTPValidationError"
-            
+            '422': "HTTPValidationError",
         }
         response_data = await self.api_client.call_api(
             *_param,
@@ -2187,19 +2167,20 @@ class BatchJobsApi:
         _content_type,
         _headers,
         _host_index,
-    ) -> Tuple:
+    ) -> RequestSerialized:
 
         _host = None
 
         _collection_formats: Dict[str, str] = {
-            
         }
 
         _path_params: Dict[str, str] = {}
         _query_params: List[Tuple[str, str]] = []
         _header_params: Dict[str, Optional[str]] = _headers or {}
         _form_params: List[Tuple[str, str]] = []
-        _files: Dict[str, str] = {}
+        _files: Dict[
+            str, Union[str, bytes, List[str], List[bytes], List[Tuple[str, bytes]]]
+        ] = {}
         _body_params: Optional[bytes] = None
 
         # process the path parameters
@@ -2212,11 +2193,12 @@ class BatchJobsApi:
 
 
         # set the HTTP header `Accept`
-        _header_params['Accept'] = self.api_client.select_header_accept(
-            [
-                'application/json'
-            ]
-        )
+        if 'Accept' not in _header_params:
+            _header_params['Accept'] = self.api_client.select_header_accept(
+                [
+                    'application/json'
+                ]
+            )
 
 
         # authentication setting

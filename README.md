@@ -7,11 +7,12 @@ project:
 
 - API version: 0.1.0
 - Package version: 1.0.0
+- Generator version: 7.14.0
 - Build package: org.openapitools.codegen.languages.PythonClientCodegen
 
 ## Requirements.
 
-Python 3.7+
+Python 3.9+
 
 ## Installation & Usage
 
@@ -19,10 +20,12 @@ This python library package is generated without supporting files like setup.py 
 
 To be able to use it, you will need these dependencies in your own package that uses this library:
 
-- urllib3 >= 1.25.3
-- python-dateutil
-- aiohttp
-- pydantic
+- urllib3 >= 2.1.0, < 3.0.0
+- python-dateutil >= 2.8.2
+- aiohttp >= 3.8.4
+- aiohttp-retry >= 2.8.3
+- pydantic >= 2
+- typing-extensions >= 4.7.1
 
 ## Getting Started
 
@@ -30,7 +33,6 @@ In your own code, to use this library to connect and interact with compute-api-c
 
 ```python
 
-import time
 import compute_api_client
 from compute_api_client.rest import ApiException
 from pprint import pprint
@@ -177,7 +179,6 @@ All URIs are relative to _http://localhost_
 - [JobPatch](compute_api_client/docs/JobPatch.md)
 - [JobStatus](compute_api_client/docs/JobStatus.md)
 - [Language](compute_api_client/docs/Language.md)
-- [LocationInner](compute_api_client/docs/LocationInner.md)
 - [Member](compute_api_client/docs/Member.md)
 - [MemberIn](compute_api_client/docs/MemberIn.md)
 - [PageAlgorithm](compute_api_client/docs/PageAlgorithm.md)
@@ -213,6 +214,7 @@ All URIs are relative to _http://localhost_
 - [User](compute_api_client/docs/User.md)
 - [UserIn](compute_api_client/docs/UserIn.md)
 - [ValidationError](compute_api_client/docs/ValidationError.md)
+- [ValidationErrorLocInner](compute_api_client/docs/ValidationErrorLocInner.md)
 
 <a id="documentation-for-authorization"></a>
 
@@ -224,7 +226,7 @@ Authentication schemes defined for the API: <a id="user_bearer"></a>
 
 - **Type**: OAuth
 - **Flow**: accessCode
-- **Authorization URL**: https://quantum-inspire-staging.eu.auth0.com/authorize
+- **Authorization URL**: https://auth.qi2.quantum-inspire.com/realms/oidc_development/protocol/openid-connect/auth
 - **Scopes**: N/A
 
 <a id="backend"></a>

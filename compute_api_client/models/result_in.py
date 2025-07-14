@@ -17,30 +17,28 @@ import pprint
 import re  # noqa: F401
 import json
 
-
+from pydantic import BaseModel, ConfigDict, Field, StrictFloat, StrictInt, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional, Union
-from pydantic import BaseModel, StrictFloat, StrictInt, StrictStr
-try:
-    from typing import Self
-except ImportError:
-    from typing_extensions import Self
+from typing import Optional, Set
+from typing_extensions import Self
 
 class ResultIn(BaseModel):
     """
     ResultIn
     """ # noqa: E501
-    job_id: StrictInt
-    execution_time_in_seconds: Union[StrictFloat, StrictInt]
+    job_id: StrictInt = Field(description="The ID of the result")
+    execution_time_in_seconds: Union[StrictFloat, StrictInt] = Field(description="Time it took to compute the result")
     shots_requested: Optional[StrictInt] = None
     shots_done: Optional[StrictInt] = None
     results: Optional[Dict[str, Any]] = None
     raw_data: Optional[List[StrictStr]] = None
     __properties: ClassVar[List[str]] = ["job_id", "execution_time_in_seconds", "shots_requested", "shots_done", "results", "raw_data"]
 
-    model_config = {
-        "populate_by_name": True,
-        "validate_assignment": True
-    }
+    model_config = ConfigDict(
+        populate_by_name=True,
+        validate_assignment=True,
+        protected_namespaces=(),
+    )
 
 
     def to_str(self) -> str:
@@ -53,7 +51,7 @@ class ResultIn(BaseModel):
         return json.dumps(self.to_dict())
 
     @classmethod
-    def from_json(cls, json_str: str) -> Self:
+    def from_json(cls, json_str: str) -> Optional[Self]:
         """Create an instance of ResultIn from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
@@ -67,10 +65,12 @@ class ResultIn(BaseModel):
           were set at model initialization. Other fields with value `None`
           are ignored.
         """
+        excluded_fields: Set[str] = set([
+        ])
+
         _dict = self.model_dump(
             by_alias=True,
-            exclude={
-            },
+            exclude=excluded_fields,
             exclude_none=True,
         )
         # set to None if shots_requested (nullable) is None
@@ -96,7 +96,7 @@ class ResultIn(BaseModel):
         return _dict
 
     @classmethod
-    def from_dict(cls, obj: Dict) -> Self:
+    def from_dict(cls, obj: Optional[Dict[str, Any]]) -> Optional[Self]:
         """Create an instance of ResultIn from a dict"""
         if obj is None:
             return None

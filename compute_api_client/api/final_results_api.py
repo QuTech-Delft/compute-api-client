@@ -11,24 +11,16 @@
     Do not edit the class manually.
 """  # noqa: E501
 
-
-import io
 import warnings
-
 from pydantic import validate_call, Field, StrictFloat, StrictStr, StrictInt
-from typing import Dict, List, Optional, Tuple, Union, Any
-
-try:
-    from typing import Annotated
-except ImportError:
-    from typing_extensions import Annotated
+from typing import Any, Dict, List, Optional, Tuple, Union
+from typing_extensions import Annotated
 
 from pydantic import StrictInt
-
 from compute_api_client.models.final_result import FinalResult
 from compute_api_client.models.final_result_in import FinalResultIn
 
-from compute_api_client.api_client import ApiClient
+from compute_api_client.api_client import ApiClient, RequestSerialized
 from compute_api_client.api_response import ApiResponse
 from compute_api_client.rest import RESTResponseType
 
@@ -101,8 +93,7 @@ class FinalResultsApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '201': "FinalResult",
-            '422': "HTTPValidationError"
-            
+            '422': "HTTPValidationError",
         }
         response_data = await self.api_client.call_api(
             *_param,
@@ -170,8 +161,7 @@ class FinalResultsApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '201': "FinalResult",
-            '422': "HTTPValidationError"
-            
+            '422': "HTTPValidationError",
         }
         response_data = await self.api_client.call_api(
             *_param,
@@ -239,8 +229,7 @@ class FinalResultsApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '201': "FinalResult",
-            '422': "HTTPValidationError"
-            
+            '422': "HTTPValidationError",
         }
         response_data = await self.api_client.call_api(
             *_param,
@@ -256,19 +245,20 @@ class FinalResultsApi:
         _content_type,
         _headers,
         _host_index,
-    ) -> Tuple:
+    ) -> RequestSerialized:
 
         _host = None
 
         _collection_formats: Dict[str, str] = {
-            
         }
 
         _path_params: Dict[str, str] = {}
         _query_params: List[Tuple[str, str]] = []
         _header_params: Dict[str, Optional[str]] = _headers or {}
         _form_params: List[Tuple[str, str]] = []
-        _files: Dict[str, str] = {}
+        _files: Dict[
+            str, Union[str, bytes, List[str], List[bytes], List[Tuple[str, bytes]]]
+        ] = {}
         _body_params: Optional[bytes] = None
 
         # process the path parameters
@@ -281,11 +271,12 @@ class FinalResultsApi:
 
 
         # set the HTTP header `Accept`
-        _header_params['Accept'] = self.api_client.select_header_accept(
-            [
-                'application/json'
-            ]
-        )
+        if 'Accept' not in _header_params:
+            _header_params['Accept'] = self.api_client.select_header_accept(
+                [
+                    'application/json'
+                ]
+            )
 
         # set the HTTP header `Content-Type`
         if _content_type:
@@ -380,8 +371,7 @@ class FinalResultsApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "FinalResult",
-            '422': "HTTPValidationError"
-            
+            '422': "HTTPValidationError",
         }
         response_data = await self.api_client.call_api(
             *_param,
@@ -449,8 +439,7 @@ class FinalResultsApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "FinalResult",
-            '422': "HTTPValidationError"
-            
+            '422': "HTTPValidationError",
         }
         response_data = await self.api_client.call_api(
             *_param,
@@ -518,8 +507,7 @@ class FinalResultsApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "FinalResult",
-            '422': "HTTPValidationError"
-            
+            '422': "HTTPValidationError",
         }
         response_data = await self.api_client.call_api(
             *_param,
@@ -535,19 +523,20 @@ class FinalResultsApi:
         _content_type,
         _headers,
         _host_index,
-    ) -> Tuple:
+    ) -> RequestSerialized:
 
         _host = None
 
         _collection_formats: Dict[str, str] = {
-            
         }
 
         _path_params: Dict[str, str] = {}
         _query_params: List[Tuple[str, str]] = []
         _header_params: Dict[str, Optional[str]] = _headers or {}
         _form_params: List[Tuple[str, str]] = []
-        _files: Dict[str, str] = {}
+        _files: Dict[
+            str, Union[str, bytes, List[str], List[bytes], List[Tuple[str, bytes]]]
+        ] = {}
         _body_params: Optional[bytes] = None
 
         # process the path parameters
@@ -560,11 +549,12 @@ class FinalResultsApi:
 
 
         # set the HTTP header `Accept`
-        _header_params['Accept'] = self.api_client.select_header_accept(
-            [
-                'application/json'
-            ]
-        )
+        if 'Accept' not in _header_params:
+            _header_params['Accept'] = self.api_client.select_header_accept(
+                [
+                    'application/json'
+                ]
+            )
 
 
         # authentication setting
@@ -646,8 +636,7 @@ class FinalResultsApi:
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "FinalResult",
             '404': "HTTPNotFoundError",
-            '422': "HTTPValidationError"
-            
+            '422': "HTTPValidationError",
         }
         response_data = await self.api_client.call_api(
             *_param,
@@ -716,8 +705,7 @@ class FinalResultsApi:
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "FinalResult",
             '404': "HTTPNotFoundError",
-            '422': "HTTPValidationError"
-            
+            '422': "HTTPValidationError",
         }
         response_data = await self.api_client.call_api(
             *_param,
@@ -786,8 +774,7 @@ class FinalResultsApi:
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "FinalResult",
             '404': "HTTPNotFoundError",
-            '422': "HTTPValidationError"
-            
+            '422': "HTTPValidationError",
         }
         response_data = await self.api_client.call_api(
             *_param,
@@ -803,19 +790,20 @@ class FinalResultsApi:
         _content_type,
         _headers,
         _host_index,
-    ) -> Tuple:
+    ) -> RequestSerialized:
 
         _host = None
 
         _collection_formats: Dict[str, str] = {
-            
         }
 
         _path_params: Dict[str, str] = {}
         _query_params: List[Tuple[str, str]] = []
         _header_params: Dict[str, Optional[str]] = _headers or {}
         _form_params: List[Tuple[str, str]] = []
-        _files: Dict[str, str] = {}
+        _files: Dict[
+            str, Union[str, bytes, List[str], List[bytes], List[Tuple[str, bytes]]]
+        ] = {}
         _body_params: Optional[bytes] = None
 
         # process the path parameters
@@ -828,11 +816,12 @@ class FinalResultsApi:
 
 
         # set the HTTP header `Accept`
-        _header_params['Accept'] = self.api_client.select_header_accept(
-            [
-                'application/json'
-            ]
-        )
+        if 'Accept' not in _header_params:
+            _header_params['Accept'] = self.api_client.select_header_accept(
+                [
+                    'application/json'
+                ]
+            )
 
 
         # authentication setting

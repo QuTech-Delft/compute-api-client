@@ -21,9 +21,8 @@ Create new backend.
 ### Example
 
 * OAuth Authentication (user_bearer):
+
 ```python
-import time
-import os
 import compute_api_client
 from compute_api_client.models.backend_in import BackendIn
 from compute_api_client.models.backend_with_authentication import BackendWithAuthentication
@@ -62,6 +61,7 @@ async with compute_api_client.ApiClient(configuration) as api_client:
 
 ### Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **backend_in** | [**BackendIn**](BackendIn.md)|  | 
@@ -80,6 +80,7 @@ Name | Type | Description  | Notes
  - **Accept**: application/json
 
 ### HTTP response details
+
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **201** | Successful Response |  -  |
@@ -97,9 +98,8 @@ Get backend by ID.
 ### Example
 
 * OAuth Authentication (user_bearer):
+
 ```python
-import time
-import os
 import compute_api_client
 from compute_api_client.models.backend import Backend
 from compute_api_client.rest import ApiException
@@ -137,6 +137,7 @@ async with compute_api_client.ApiClient(configuration) as api_client:
 
 ### Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **int**|  | 
@@ -155,6 +156,7 @@ Name | Type | Description  | Notes
  - **Accept**: application/json
 
 ### HTTP response details
+
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Successful Response |  -  |
@@ -173,9 +175,8 @@ Read backend.
 ### Example
 
 * Api Key Authentication (backend):
+
 ```python
-import time
-import os
 import compute_api_client
 from compute_api_client.models.backend import Backend
 from compute_api_client.rest import ApiException
@@ -215,6 +216,7 @@ async with compute_api_client.ApiClient(configuration) as api_client:
 
 
 ### Parameters
+
 This endpoint does not need any parameter.
 
 ### Return type
@@ -231,6 +233,7 @@ This endpoint does not need any parameter.
  - **Accept**: application/json
 
 ### HTTP response details
+
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Successful Response |  -  |
@@ -247,9 +250,8 @@ Read backends.
 ### Example
 
 * OAuth Authentication (user_bearer):
+
 ```python
-import time
-import os
 import compute_api_client
 from compute_api_client.models.backend_status import BackendStatus
 from compute_api_client.models.page_backend import PageBackend
@@ -297,6 +299,7 @@ async with compute_api_client.ApiClient(configuration) as api_client:
 
 ### Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **int**|  | [optional] 
@@ -324,6 +327,7 @@ Name | Type | Description  | Notes
  - **Accept**: application/json
 
 ### HTTP response details
+
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Successful Response |  -  |
@@ -341,9 +345,8 @@ Update backend.
 ### Example
 
 * Api Key Authentication (backend):
+
 ```python
-import time
-import os
 import compute_api_client
 from compute_api_client.models.backend import Backend
 from compute_api_client.models.backend_patch import BackendPatch
@@ -386,6 +389,7 @@ async with compute_api_client.ApiClient(configuration) as api_client:
 
 ### Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **backend_patch** | [**BackendPatch**](BackendPatch.md)|  | 
@@ -404,6 +408,7 @@ Name | Type | Description  | Notes
  - **Accept**: application/json
 
 ### HTTP response details
+
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Successful Response |  -  |

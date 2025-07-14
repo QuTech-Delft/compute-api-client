@@ -18,36 +18,35 @@ import re  # noqa: F401
 import json
 
 from datetime import datetime
+from pydantic import BaseModel, ConfigDict, Field, StrictInt
 from typing import Any, ClassVar, Dict, List, Optional
-from pydantic import BaseModel, StrictInt
 from compute_api_client.models.algorithm_type import AlgorithmType
 from compute_api_client.models.batch_job_status import BatchJobStatus
-try:
-    from typing import Self
-except ImportError:
-    from typing_extensions import Self
+from typing import Optional, Set
+from typing_extensions import Self
 
 class BatchJob(BaseModel):
     """
     BatchJob
     """ # noqa: E501
-    id: StrictInt
-    created_on: datetime
-    status: BatchJobStatus
-    user_id: StrictInt
-    backend_type_id: StrictInt
+    id: StrictInt = Field(description="ID of the batch job")
+    created_on: datetime = Field(description="Time of batchjob creation")
+    status: BatchJobStatus = Field(description="Status of the batchjob")
+    user_id: StrictInt = Field(description="ID of the user to whom this job belongs")
+    backend_type_id: StrictInt = Field(description="ID of the backendtype")
     backend_id: Optional[StrictInt]
     queued_at: Optional[datetime]
     reserved_at: Optional[datetime]
     finished_at: Optional[datetime]
-    job_ids: List[StrictInt]
-    aggregated_algorithm_type: AlgorithmType
+    job_ids: List[StrictInt] = Field(description="Job ids in the batch job")
+    aggregated_algorithm_type: AlgorithmType = Field(description="Algorithm type submitted")
     __properties: ClassVar[List[str]] = ["id", "created_on", "status", "user_id", "backend_type_id", "backend_id", "queued_at", "reserved_at", "finished_at", "job_ids", "aggregated_algorithm_type"]
 
-    model_config = {
-        "populate_by_name": True,
-        "validate_assignment": True
-    }
+    model_config = ConfigDict(
+        populate_by_name=True,
+        validate_assignment=True,
+        protected_namespaces=(),
+    )
 
 
     def to_str(self) -> str:
@@ -60,7 +59,7 @@ class BatchJob(BaseModel):
         return json.dumps(self.to_dict())
 
     @classmethod
-    def from_json(cls, json_str: str) -> Self:
+    def from_json(cls, json_str: str) -> Optional[Self]:
         """Create an instance of BatchJob from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
@@ -74,10 +73,12 @@ class BatchJob(BaseModel):
           were set at model initialization. Other fields with value `None`
           are ignored.
         """
+        excluded_fields: Set[str] = set([
+        ])
+
         _dict = self.model_dump(
             by_alias=True,
-            exclude={
-            },
+            exclude=excluded_fields,
             exclude_none=True,
         )
         # set to None if backend_id (nullable) is None
@@ -103,7 +104,7 @@ class BatchJob(BaseModel):
         return _dict
 
     @classmethod
-    def from_dict(cls, obj: Dict) -> Self:
+    def from_dict(cls, obj: Optional[Dict[str, Any]]) -> Optional[Self]:
         """Create an instance of BatchJob from a dict"""
         if obj is None:
             return None

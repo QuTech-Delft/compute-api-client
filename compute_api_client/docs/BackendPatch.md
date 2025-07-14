@@ -2,10 +2,11 @@
 
 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**status** | [**BackendStatus**](BackendStatus.md) |  | 
-**last_heartbeat** | **datetime** |  | 
+**status** | [**BackendStatus**](BackendStatus.md) | Status of the backend | 
+**last_heartbeat** | **datetime** | Time of last heartbeat | 
 
 ## Example
 
@@ -17,12 +18,12 @@ json = "{}"
 # create an instance of BackendPatch from a JSON string
 backend_patch_instance = BackendPatch.from_json(json)
 # print the JSON string representation of the object
-print BackendPatch.to_json()
+print(BackendPatch.to_json())
 
 # convert the object into a dict
 backend_patch_dict = backend_patch_instance.to_dict()
 # create an instance of BackendPatch from a dict
-backend_patch_form_dict = backend_patch.from_dict(backend_patch_dict)
+backend_patch_from_dict = BackendPatch.from_dict(backend_patch_dict)
 ```
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

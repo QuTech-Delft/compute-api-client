@@ -17,16 +17,12 @@ import pprint
 import re  # noqa: F401
 import json
 
-
+from pydantic import BaseModel, ConfigDict, Field
 from typing import Any, ClassVar, Dict, List, Optional
-from pydantic import BaseModel
-from pydantic import Field
 from typing_extensions import Annotated
 from compute_api_client.models.transaction import Transaction
-try:
-    from typing import Self
-except ImportError:
-    from typing_extensions import Self
+from typing import Optional, Set
+from typing_extensions import Self
 
 class PageTransaction(BaseModel):
     """
@@ -39,10 +35,11 @@ class PageTransaction(BaseModel):
     pages: Optional[Annotated[int, Field(strict=True, ge=0)]] = None
     __properties: ClassVar[List[str]] = ["items", "total", "page", "size", "pages"]
 
-    model_config = {
-        "populate_by_name": True,
-        "validate_assignment": True
-    }
+    model_config = ConfigDict(
+        populate_by_name=True,
+        validate_assignment=True,
+        protected_namespaces=(),
+    )
 
 
     def to_str(self) -> str:
@@ -55,7 +52,7 @@ class PageTransaction(BaseModel):
         return json.dumps(self.to_dict())
 
     @classmethod
-    def from_json(cls, json_str: str) -> Self:
+    def from_json(cls, json_str: str) -> Optional[Self]:
         """Create an instance of PageTransaction from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
@@ -69,18 +66,20 @@ class PageTransaction(BaseModel):
           were set at model initialization. Other fields with value `None`
           are ignored.
         """
+        excluded_fields: Set[str] = set([
+        ])
+
         _dict = self.model_dump(
             by_alias=True,
-            exclude={
-            },
+            exclude=excluded_fields,
             exclude_none=True,
         )
         # override the default output from pydantic by calling `to_dict()` of each item in items (list)
         _items = []
         if self.items:
-            for _item in self.items:
-                if _item:
-                    _items.append(_item.to_dict())
+            for _item_items in self.items:
+                if _item_items:
+                    _items.append(_item_items.to_dict())
             _dict['items'] = _items
         # set to None if total (nullable) is None
         # and model_fields_set contains the field
@@ -105,7 +104,7 @@ class PageTransaction(BaseModel):
         return _dict
 
     @classmethod
-    def from_dict(cls, obj: Dict) -> Self:
+    def from_dict(cls, obj: Optional[Dict[str, Any]]) -> Optional[Self]:
         """Create an instance of PageTransaction from a dict"""
         if obj is None:
             return None
@@ -114,7 +113,7 @@ class PageTransaction(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
-            "items": [Transaction.from_dict(_item) for _item in obj.get("items")] if obj.get("items") is not None else None,
+            "items": [Transaction.from_dict(_item) for _item in obj["items"]] if obj.get("items") is not None else None,
             "total": obj.get("total"),
             "page": obj.get("page"),
             "size": obj.get("size"),

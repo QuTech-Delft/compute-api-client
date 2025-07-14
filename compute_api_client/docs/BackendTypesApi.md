@@ -20,9 +20,8 @@ Get backend type by ID.
 
 * OAuth Authentication (user_bearer):
 * Api Key Authentication (backend):
+
 ```python
-import time
-import os
 import compute_api_client
 from compute_api_client.models.backend_type import BackendType
 from compute_api_client.rest import ApiException
@@ -66,6 +65,7 @@ async with compute_api_client.ApiClient(configuration) as api_client:
 
 ### Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **int**|  | 
@@ -84,6 +84,7 @@ Name | Type | Description  | Notes
  - **Accept**: application/json
 
 ### HTTP response details
+
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Successful Response |  -  |
@@ -97,13 +98,14 @@ Name | Type | Description  | Notes
 
 List backend types
 
-Read backend types.  Only enabled backend types are returned.
+Read backend types.
+
+Only enabled backend types are returned.
 
 ### Example
 
+
 ```python
-import time
-import os
 import compute_api_client
 from compute_api_client.models.backend_status import BackendStatus
 from compute_api_client.models.page_backend_type import PageBackendType
@@ -154,6 +156,7 @@ async with compute_api_client.ApiClient(configuration) as api_client:
 
 ### Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **int**|  | [optional] 
@@ -190,6 +193,7 @@ No authorization required
  - **Accept**: application/json
 
 ### HTTP response details
+
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Successful Response |  -  |
@@ -202,14 +206,15 @@ No authorization required
 
 Update backend type
 
-Update backend type by ID.  This endpoint allows for partial updates of backend type properties.
+Update backend type by ID.
+
+This endpoint allows for partial updates of backend type properties.
 
 ### Example
 
 * Api Key Authentication (backend):
+
 ```python
-import time
-import os
 import compute_api_client
 from compute_api_client.models.backend_type import BackendType
 from compute_api_client.models.backend_type_patch import BackendTypePatch
@@ -252,6 +257,7 @@ async with compute_api_client.ApiClient(configuration) as api_client:
 
 ### Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **backend_type_patch** | [**BackendTypePatch**](BackendTypePatch.md)|  | 
@@ -270,6 +276,7 @@ Name | Type | Description  | Notes
  - **Accept**: application/json
 
 ### HTTP response details
+
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Successful Response |  -  |

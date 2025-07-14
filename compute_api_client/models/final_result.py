@@ -18,27 +18,26 @@ import re  # noqa: F401
 import json
 
 from datetime import datetime
+from pydantic import BaseModel, ConfigDict, Field, StrictInt
 from typing import Any, ClassVar, Dict, List
-from pydantic import BaseModel, StrictInt
-try:
-    from typing import Self
-except ImportError:
-    from typing_extensions import Self
+from typing import Optional, Set
+from typing_extensions import Self
 
 class FinalResult(BaseModel):
     """
     FinalResult
     """ # noqa: E501
-    id: StrictInt
-    created_on: datetime
-    job_id: StrictInt
-    final_result: Dict[str, Any]
+    id: StrictInt = Field(description="ID of the final result")
+    created_on: datetime = Field(description="Time of creation of the final result")
+    job_id: StrictInt = Field(description="ID of the job")
+    final_result: Dict[str, Any] = Field(description="The final results of the job")
     __properties: ClassVar[List[str]] = ["id", "created_on", "job_id", "final_result"]
 
-    model_config = {
-        "populate_by_name": True,
-        "validate_assignment": True
-    }
+    model_config = ConfigDict(
+        populate_by_name=True,
+        validate_assignment=True,
+        protected_namespaces=(),
+    )
 
 
     def to_str(self) -> str:
@@ -51,7 +50,7 @@ class FinalResult(BaseModel):
         return json.dumps(self.to_dict())
 
     @classmethod
-    def from_json(cls, json_str: str) -> Self:
+    def from_json(cls, json_str: str) -> Optional[Self]:
         """Create an instance of FinalResult from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
@@ -65,16 +64,18 @@ class FinalResult(BaseModel):
           were set at model initialization. Other fields with value `None`
           are ignored.
         """
+        excluded_fields: Set[str] = set([
+        ])
+
         _dict = self.model_dump(
             by_alias=True,
-            exclude={
-            },
+            exclude=excluded_fields,
             exclude_none=True,
         )
         return _dict
 
     @classmethod
-    def from_dict(cls, obj: Dict) -> Self:
+    def from_dict(cls, obj: Optional[Dict[str, Any]]) -> Optional[Self]:
         """Create an instance of FinalResult from a dict"""
         if obj is None:
             return None

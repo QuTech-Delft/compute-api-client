@@ -45,7 +45,6 @@ from compute_api_client.models.job_in import JobIn
 from compute_api_client.models.job_patch import JobPatch
 from compute_api_client.models.job_status import JobStatus
 from compute_api_client.models.language import Language
-from compute_api_client.models.location_inner import LocationInner
 from compute_api_client.models.member import Member
 from compute_api_client.models.member_in import MemberIn
 from compute_api_client.models.page_algorithm import PageAlgorithm
@@ -81,3 +80,4 @@ from compute_api_client.models.transaction import Transaction
 from compute_api_client.models.user import User
 from compute_api_client.models.user_in import UserIn
 from compute_api_client.models.validation_error import ValidationError
+from compute_api_client.models.validation_error_loc_inner import ValidationErrorLocInner

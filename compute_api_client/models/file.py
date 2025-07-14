@@ -17,35 +17,32 @@ import pprint
 import re  # noqa: F401
 import json
 
-
+from pydantic import BaseModel, ConfigDict, Field, StrictBool, StrictInt, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
-from pydantic import BaseModel, StrictBool, StrictInt, StrictStr
-from pydantic import Field
 from typing_extensions import Annotated
 from compute_api_client.models.compile_stage import CompileStage
-try:
-    from typing import Self
-except ImportError:
-    from typing_extensions import Self
+from typing import Optional, Set
+from typing_extensions import Self
 
 class File(BaseModel):
     """
     File
     """ # noqa: E501
-    id: StrictInt
-    commit_id: StrictInt
-    content: StrictStr
-    language_id: StrictInt
-    compile_stage: CompileStage
-    compile_properties: Dict[str, Any]
-    generated: StrictBool
+    id: StrictInt = Field(description="ID of the file")
+    commit_id: StrictInt = Field(description="ID of the commit")
+    content: StrictStr = Field(description="The content of the file")
+    language_id: StrictInt = Field(description="ID of the language")
+    compile_stage: CompileStage = Field(description="The stage upto which the file has been compiled")
+    compile_properties: Dict[str, Any] = Field(description="The compile properties of the file")
+    generated: StrictBool = Field(description="If the file is a generated file")
     name: Optional[Annotated[str, Field(strict=True, max_length=255)]] = None
     __properties: ClassVar[List[str]] = ["id", "commit_id", "content", "language_id", "compile_stage", "compile_properties", "generated", "name"]
 
-    model_config = {
-        "populate_by_name": True,
-        "validate_assignment": True
-    }
+    model_config = ConfigDict(
+        populate_by_name=True,
+        validate_assignment=True,
+        protected_namespaces=(),
+    )
 
 
     def to_str(self) -> str:
@@ -58,7 +55,7 @@ class File(BaseModel):
         return json.dumps(self.to_dict())
 
     @classmethod
-    def from_json(cls, json_str: str) -> Self:
+    def from_json(cls, json_str: str) -> Optional[Self]:
         """Create an instance of File from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
@@ -72,10 +69,12 @@ class File(BaseModel):
           were set at model initialization. Other fields with value `None`
           are ignored.
         """
+        excluded_fields: Set[str] = set([
+        ])
+
         _dict = self.model_dump(
             by_alias=True,
-            exclude={
-            },
+            exclude=excluded_fields,
             exclude_none=True,
         )
         # set to None if name (nullable) is None
@@ -86,7 +85,7 @@ class File(BaseModel):
         return _dict
 
     @classmethod
-    def from_dict(cls, obj: Dict) -> Self:
+    def from_dict(cls, obj: Optional[Dict[str, Any]]) -> Optional[Self]:
         """Create an instance of File from a dict"""
         if obj is None:
             return None

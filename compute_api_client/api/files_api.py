@@ -11,30 +11,20 @@
     Do not edit the class manually.
 """  # noqa: E501
 
-
-import io
 import warnings
-
 from pydantic import validate_call, Field, StrictFloat, StrictStr, StrictInt
-from typing import Dict, List, Optional, Tuple, Union, Any
-
-try:
-    from typing import Annotated
-except ImportError:
-    from typing_extensions import Annotated
-
-from pydantic import Field
+from typing import Any, Dict, List, Optional, Tuple, Union
 from typing_extensions import Annotated
-from pydantic import StrictBool, StrictInt, StrictStr
 
+from pydantic import Field, StrictBool, StrictInt, StrictStr
 from typing import Optional
-
+from typing_extensions import Annotated
 from compute_api_client.models.compile_stage import CompileStage
 from compute_api_client.models.file import File
 from compute_api_client.models.file_in import FileIn
 from compute_api_client.models.page_file import PageFile
 
-from compute_api_client.api_client import ApiClient
+from compute_api_client.api_client import ApiClient, RequestSerialized
 from compute_api_client.api_response import ApiResponse
 from compute_api_client.rest import RESTResponseType
 
@@ -107,8 +97,7 @@ class FilesApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '201': "File",
-            '422': "HTTPValidationError"
-            
+            '422': "HTTPValidationError",
         }
         response_data = await self.api_client.call_api(
             *_param,
@@ -176,8 +165,7 @@ class FilesApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '201': "File",
-            '422': "HTTPValidationError"
-            
+            '422': "HTTPValidationError",
         }
         response_data = await self.api_client.call_api(
             *_param,
@@ -245,8 +233,7 @@ class FilesApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '201': "File",
-            '422': "HTTPValidationError"
-            
+            '422': "HTTPValidationError",
         }
         response_data = await self.api_client.call_api(
             *_param,
@@ -262,19 +249,20 @@ class FilesApi:
         _content_type,
         _headers,
         _host_index,
-    ) -> Tuple:
+    ) -> RequestSerialized:
 
         _host = None
 
         _collection_formats: Dict[str, str] = {
-            
         }
 
         _path_params: Dict[str, str] = {}
         _query_params: List[Tuple[str, str]] = []
         _header_params: Dict[str, Optional[str]] = _headers or {}
         _form_params: List[Tuple[str, str]] = []
-        _files: Dict[str, str] = {}
+        _files: Dict[
+            str, Union[str, bytes, List[str], List[bytes], List[Tuple[str, bytes]]]
+        ] = {}
         _body_params: Optional[bytes] = None
 
         # process the path parameters
@@ -287,11 +275,12 @@ class FilesApi:
 
 
         # set the HTTP header `Accept`
-        _header_params['Accept'] = self.api_client.select_header_accept(
-            [
-                'application/json'
-            ]
-        )
+        if 'Accept' not in _header_params:
+            _header_params['Accept'] = self.api_client.select_header_accept(
+                [
+                    'application/json'
+                ]
+            )
 
         # set the HTTP header `Content-Type`
         if _content_type:
@@ -384,7 +373,9 @@ class FilesApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            
+            '204': None,
+            '404': "HTTPNotFoundError",
+            '422': "HTTPValidationError",
         }
         response_data = await self.api_client.call_api(
             *_param,
@@ -451,7 +442,9 @@ class FilesApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            
+            '204': None,
+            '404': "HTTPNotFoundError",
+            '422': "HTTPValidationError",
         }
         response_data = await self.api_client.call_api(
             *_param,
@@ -518,7 +511,9 @@ class FilesApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            
+            '204': None,
+            '404': "HTTPNotFoundError",
+            '422': "HTTPValidationError",
         }
         response_data = await self.api_client.call_api(
             *_param,
@@ -534,19 +529,20 @@ class FilesApi:
         _content_type,
         _headers,
         _host_index,
-    ) -> Tuple:
+    ) -> RequestSerialized:
 
         _host = None
 
         _collection_formats: Dict[str, str] = {
-            
         }
 
         _path_params: Dict[str, str] = {}
         _query_params: List[Tuple[str, str]] = []
         _header_params: Dict[str, Optional[str]] = _headers or {}
         _form_params: List[Tuple[str, str]] = []
-        _files: Dict[str, str] = {}
+        _files: Dict[
+            str, Union[str, bytes, List[str], List[bytes], List[Tuple[str, bytes]]]
+        ] = {}
         _body_params: Optional[bytes] = None
 
         # process the path parameters
@@ -559,11 +555,12 @@ class FilesApi:
 
 
         # set the HTTP header `Accept`
-        _header_params['Accept'] = self.api_client.select_header_accept(
-            [
-                'application/json'
-            ]
-        )
+        if 'Accept' not in _header_params:
+            _header_params['Accept'] = self.api_client.select_header_accept(
+                [
+                    'application/json'
+                ]
+            )
 
 
         # authentication setting
@@ -645,8 +642,7 @@ class FilesApi:
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "File",
             '404': "HTTPNotFoundError",
-            '422': "HTTPValidationError"
-            
+            '422': "HTTPValidationError",
         }
         response_data = await self.api_client.call_api(
             *_param,
@@ -715,8 +711,7 @@ class FilesApi:
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "File",
             '404': "HTTPNotFoundError",
-            '422': "HTTPValidationError"
-            
+            '422': "HTTPValidationError",
         }
         response_data = await self.api_client.call_api(
             *_param,
@@ -785,8 +780,7 @@ class FilesApi:
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "File",
             '404': "HTTPNotFoundError",
-            '422': "HTTPValidationError"
-            
+            '422': "HTTPValidationError",
         }
         response_data = await self.api_client.call_api(
             *_param,
@@ -802,19 +796,20 @@ class FilesApi:
         _content_type,
         _headers,
         _host_index,
-    ) -> Tuple:
+    ) -> RequestSerialized:
 
         _host = None
 
         _collection_formats: Dict[str, str] = {
-            
         }
 
         _path_params: Dict[str, str] = {}
         _query_params: List[Tuple[str, str]] = []
         _header_params: Dict[str, Optional[str]] = _headers or {}
         _form_params: List[Tuple[str, str]] = []
-        _files: Dict[str, str] = {}
+        _files: Dict[
+            str, Union[str, bytes, List[str], List[bytes], List[Tuple[str, bytes]]]
+        ] = {}
         _body_params: Optional[bytes] = None
 
         # process the path parameters
@@ -827,11 +822,12 @@ class FilesApi:
 
 
         # set the HTTP header `Accept`
-        _header_params['Accept'] = self.api_client.select_header_accept(
-            [
-                'application/json'
-            ]
-        )
+        if 'Accept' not in _header_params:
+            _header_params['Accept'] = self.api_client.select_header_accept(
+                [
+                    'application/json'
+                ]
+            )
 
 
         # authentication setting
@@ -957,8 +953,7 @@ class FilesApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "PageFile",
-            '422': "HTTPValidationError"
-            
+            '422': "HTTPValidationError",
         }
         response_data = await self.api_client.call_api(
             *_param,
@@ -1070,8 +1065,7 @@ class FilesApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "PageFile",
-            '422': "HTTPValidationError"
-            
+            '422': "HTTPValidationError",
         }
         response_data = await self.api_client.call_api(
             *_param,
@@ -1183,8 +1177,7 @@ class FilesApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "PageFile",
-            '422': "HTTPValidationError"
-            
+            '422': "HTTPValidationError",
         }
         response_data = await self.api_client.call_api(
             *_param,
@@ -1211,19 +1204,20 @@ class FilesApi:
         _content_type,
         _headers,
         _host_index,
-    ) -> Tuple:
+    ) -> RequestSerialized:
 
         _host = None
 
         _collection_formats: Dict[str, str] = {
-            
         }
 
         _path_params: Dict[str, str] = {}
         _query_params: List[Tuple[str, str]] = []
         _header_params: Dict[str, Optional[str]] = _headers or {}
         _form_params: List[Tuple[str, str]] = []
-        _files: Dict[str, str] = {}
+        _files: Dict[
+            str, Union[str, bytes, List[str], List[bytes], List[Tuple[str, bytes]]]
+        ] = {}
         _body_params: Optional[bytes] = None
 
         # process the path parameters
@@ -1282,11 +1276,12 @@ class FilesApi:
 
 
         # set the HTTP header `Accept`
-        _header_params['Accept'] = self.api_client.select_header_accept(
-            [
-                'application/json'
-            ]
-        )
+        if 'Accept' not in _header_params:
+            _header_params['Accept'] = self.api_client.select_header_accept(
+                [
+                    'application/json'
+                ]
+            )
 
 
         # authentication setting

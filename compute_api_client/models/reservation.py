@@ -18,30 +18,29 @@ import re  # noqa: F401
 import json
 
 from datetime import datetime
+from pydantic import BaseModel, ConfigDict, Field, StrictBool, StrictInt
 from typing import Any, ClassVar, Dict, List, Optional
-from pydantic import BaseModel, StrictBool, StrictInt
-try:
-    from typing import Self
-except ImportError:
-    from typing_extensions import Self
+from typing import Optional, Set
+from typing_extensions import Self
 
 class Reservation(BaseModel):
     """
     Reservation
     """ # noqa: E501
-    id: StrictInt
-    member_id: StrictInt
-    start_time: datetime
-    end_time: datetime
-    backend_type_id: StrictInt
+    id: StrictInt = Field(description="The id of the reservation")
+    member_id: StrictInt = Field(description="The id of the member who made the reservation")
+    start_time: datetime = Field(description="Starting time of lthe reservation")
+    end_time: datetime = Field(description="End time of the reservation")
+    backend_type_id: StrictInt = Field(description="The id of the backend_type")
     backend_id: Optional[StrictInt]
-    is_terminated: StrictBool
+    is_terminated: StrictBool = Field(description="If the reservation has been terminated")
     __properties: ClassVar[List[str]] = ["id", "member_id", "start_time", "end_time", "backend_type_id", "backend_id", "is_terminated"]
 
-    model_config = {
-        "populate_by_name": True,
-        "validate_assignment": True
-    }
+    model_config = ConfigDict(
+        populate_by_name=True,
+        validate_assignment=True,
+        protected_namespaces=(),
+    )
 
 
     def to_str(self) -> str:
@@ -54,7 +53,7 @@ class Reservation(BaseModel):
         return json.dumps(self.to_dict())
 
     @classmethod
-    def from_json(cls, json_str: str) -> Self:
+    def from_json(cls, json_str: str) -> Optional[Self]:
         """Create an instance of Reservation from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
@@ -68,10 +67,12 @@ class Reservation(BaseModel):
           were set at model initialization. Other fields with value `None`
           are ignored.
         """
+        excluded_fields: Set[str] = set([
+        ])
+
         _dict = self.model_dump(
             by_alias=True,
-            exclude={
-            },
+            exclude=excluded_fields,
             exclude_none=True,
         )
         # set to None if backend_id (nullable) is None
@@ -82,7 +83,7 @@ class Reservation(BaseModel):
         return _dict
 
     @classmethod
-    def from_dict(cls, obj: Dict) -> Self:
+    def from_dict(cls, obj: Optional[Dict[str, Any]]) -> Optional[Self]:
         """Create an instance of Reservation from a dict"""
         if obj is None:
             return None
