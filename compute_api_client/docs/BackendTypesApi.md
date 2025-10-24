@@ -1,6 +1,6 @@
 # compute_api_client.BackendTypesApi
 
-All URIs are relative to *http://localhost*
+All URIs are relative to *<http://localhost>*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -8,8 +8,8 @@ Method | HTTP request | Description
 [**read_backend_types_backend_types_get**](BackendTypesApi.md#read_backend_types_backend_types_get) | **GET** /backend_types/ | List backend types
 [**update_backend_type_backend_types_me_patch**](BackendTypesApi.md#update_backend_type_backend_types_me_patch) | **PATCH** /backend_types/me | Update backend type
 
-
 # **read_backend_type_backend_types_id_get**
+>
 > BackendType read_backend_type_backend_types_id_get(id)
 
 Retrieve backend type
@@ -50,7 +50,7 @@ configuration.api_key['backend'] = os.environ["API_KEY"]
 async with compute_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = compute_api_client.BackendTypesApi(api_client)
-    id = 56 # int | 
+    id = 56 # int |
 
     try:
         # Retrieve backend type
@@ -61,14 +61,11 @@ async with compute_api_client.ApiClient(configuration) as api_client:
         print("Exception when calling BackendTypesApi->read_backend_type_backend_types_id_get: %s\n" % e)
 ```
 
-
-
 ### Parameters
-
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **int**|  | 
+ **id** | **int**|  |
 
 ### Return type
 
@@ -80,8 +77,8 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
- - **Accept**: application/json
+ * **Content-Type**: Not defined
+ * **Accept**: application/json
 
 ### HTTP response details
 
@@ -94,6 +91,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **read_backend_types_backend_types_get**
+>
 > PageBackendType read_backend_types_backend_types_get(id=id, name=name, infrastructure=infrastructure, description=description, image_id=image_id, is_hardware=is_hardware, supports_raw_data=supports_raw_data, nqubits=nqubits, status=status, default_number_of_shots=default_number_of_shots, max_number_of_shots=max_number_of_shots, enabled=enabled, identifier=identifier, protocol_version__isnull=protocol_version__isnull, protocol_version=protocol_version, sort_by=sort_by, latest=latest, page=page, size=size)
 
 List backend types
@@ -103,7 +101,6 @@ Read backend types.
 Only enabled backend types are returned.
 
 ### Example
-
 
 ```python
 import compute_api_client
@@ -152,30 +149,27 @@ async with compute_api_client.ApiClient(configuration) as api_client:
         print("Exception when calling BackendTypesApi->read_backend_types_backend_types_get: %s\n" % e)
 ```
 
-
-
 ### Parameters
-
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **int**|  | [optional] 
- **name** | **str**|  | [optional] 
- **infrastructure** | **str**|  | [optional] 
- **description** | **str**|  | [optional] 
- **image_id** | **str**|  | [optional] 
- **is_hardware** | **bool**|  | [optional] 
- **supports_raw_data** | **bool**|  | [optional] 
- **nqubits** | **int**|  | [optional] 
- **status** | [**BackendStatus**](.md)|  | [optional] 
- **default_number_of_shots** | **int**|  | [optional] 
- **max_number_of_shots** | **int**|  | [optional] 
- **enabled** | **bool**|  | [optional] 
- **identifier** | **str**|  | [optional] 
- **protocol_version__isnull** | **bool**|  | [optional] 
- **protocol_version** | **int**|  | [optional] 
- **sort_by** | **str**| The field name to sort on. Prefix with &#39;-&#39; for descending order. E.g., &#39;-created_on&#39;. | [optional] 
- **latest** | **bool**| If True gets the most recently created object. | [optional] 
+ **id** | **int**|  | [optional]
+ **name** | **str**|  | [optional]
+ **infrastructure** | **str**|  | [optional]
+ **description** | **str**|  | [optional]
+ **image_id** | **str**|  | [optional]
+ **is_hardware** | **bool**|  | [optional]
+ **supports_raw_data** | **bool**|  | [optional]
+ **nqubits** | **int**|  | [optional]
+ **status** | [**BackendStatus**](BackendStatus.md)|  | [optional]
+ **default_number_of_shots** | **int**|  | [optional]
+ **max_number_of_shots** | **int**|  | [optional]
+ **enabled** | **bool**|  | [optional]
+ **identifier** | **str**|  | [optional]
+ **protocol_version__isnull** | **bool**|  | [optional]
+ **protocol_version** | **int**|  | [optional]
+ **sort_by** | **str**| The field name to sort on. Prefix with &#39;-&#39; for descending order. E.g., &#39;-created_on&#39;. | [optional]
+ **latest** | **bool**| If True gets the most recently created object. | [optional]
  **page** | **int**| Page number | [optional] [default to 1]
  **size** | **int**| Page size | [optional] [default to 50]
 
@@ -189,8 +183,8 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
- - **Accept**: application/json
+ * **Content-Type**: Not defined
+ * **Accept**: application/json
 
 ### HTTP response details
 
@@ -202,6 +196,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **update_backend_type_backend_types_me_patch**
+>
 > BackendType update_backend_type_backend_types_me_patch(backend_type_patch)
 
 Update backend type
@@ -242,7 +237,7 @@ configuration.api_key['backend'] = os.environ["API_KEY"]
 async with compute_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = compute_api_client.BackendTypesApi(api_client)
-    backend_type_patch = compute_api_client.BackendTypePatch() # BackendTypePatch | 
+    backend_type_patch = compute_api_client.BackendTypePatch() # BackendTypePatch |
 
     try:
         # Update backend type
@@ -253,14 +248,11 @@ async with compute_api_client.ApiClient(configuration) as api_client:
         print("Exception when calling BackendTypesApi->update_backend_type_backend_types_me_patch: %s\n" % e)
 ```
 
-
-
 ### Parameters
-
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **backend_type_patch** | [**BackendTypePatch**](BackendTypePatch.md)|  | 
+ **backend_type_patch** | [**BackendTypePatch**](BackendTypePatch.md)|  |
 
 ### Return type
 
@@ -272,8 +264,8 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/json
+ * **Content-Type**: application/json
+ * **Accept**: application/json
 
 ### HTTP response details
 
@@ -284,4 +276,3 @@ Name | Type | Description  | Notes
 **422** | Validation Error |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-

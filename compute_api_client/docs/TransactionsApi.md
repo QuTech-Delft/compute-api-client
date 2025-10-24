@@ -1,14 +1,14 @@
 # compute_api_client.TransactionsApi
 
-All URIs are relative to *http://localhost*
+All URIs are relative to *<http://localhost>*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**read_transaction_transactions_id_get**](TransactionsApi.md#read_transaction_transactions_id_get) | **GET** /transactions/{id} | Retrieve transactions
 [**read_transactions_transactions_get**](TransactionsApi.md#read_transactions_transactions_get) | **GET** /transactions/ | List transactions
 
-
 # **read_transaction_transactions_id_get**
+>
 > Transaction read_transaction_transactions_id_get(id)
 
 Retrieve transactions
@@ -42,7 +42,7 @@ configuration.access_token = os.environ["ACCESS_TOKEN"]
 async with compute_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = compute_api_client.TransactionsApi(api_client)
-    id = 56 # int | 
+    id = 56 # int |
 
     try:
         # Retrieve transactions
@@ -53,14 +53,11 @@ async with compute_api_client.ApiClient(configuration) as api_client:
         print("Exception when calling TransactionsApi->read_transaction_transactions_id_get: %s\n" % e)
 ```
 
-
-
 ### Parameters
-
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **int**|  | 
+ **id** | **int**|  |
 
 ### Return type
 
@@ -72,8 +69,8 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
- - **Accept**: application/json
+ * **Content-Type**: Not defined
+ * **Accept**: application/json
 
 ### HTTP response details
 
@@ -86,6 +83,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **read_transactions_transactions_get**
+>
 > PageTransaction read_transactions_transactions_get(id=id, domain__isnull=domain__isnull, domain=domain, job__isnull=job__isnull, job=job, team_id=team_id, member_id__isnull=member_id__isnull, member_id=member_id, change=change, timestamp=timestamp, sort_by=sort_by, latest=latest, page=page, size=size)
 
 List transactions
@@ -144,25 +142,22 @@ async with compute_api_client.ApiClient(configuration) as api_client:
         print("Exception when calling TransactionsApi->read_transactions_transactions_get: %s\n" % e)
 ```
 
-
-
 ### Parameters
-
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **int**|  | [optional] 
- **domain__isnull** | **bool**|  | [optional] 
- **domain** | [**Domain**](.md)|  | [optional] 
- **job__isnull** | **bool**|  | [optional] 
- **job** | **int**|  | [optional] 
- **team_id** | **int**|  | [optional] 
- **member_id__isnull** | **bool**|  | [optional] 
- **member_id** | **int**|  | [optional] 
- **change** | **int**|  | [optional] 
- **timestamp** | **datetime**|  | [optional] 
- **sort_by** | **str**| The field name to sort on. Prefix with &#39;-&#39; for descending order. E.g., &#39;-created_on&#39;. | [optional] 
- **latest** | **bool**| If True gets the most recently created object. | [optional] 
+ **id** | **int**|  | [optional]
+ **domain__isnull** | **bool**|  | [optional]
+ **domain** | [**Domain**](Domain.md)|  | [optional]
+ **job__isnull** | **bool**|  | [optional]
+ **job** | **int**|  | [optional]
+ **team_id** | **int**|  | [optional]
+ **member_id__isnull** | **bool**|  | [optional]
+ **member_id** | **int**|  | [optional]
+ **change** | **int**|  | [optional]
+ **timestamp** | **datetime**|  | [optional]
+ **sort_by** | **str**| The field name to sort on. Prefix with &#39;-&#39; for descending order. E.g., &#39;-created_on&#39;. | [optional]
+ **latest** | **bool**| If True gets the most recently created object. | [optional]
  **page** | **int**| Page number | [optional] [default to 1]
  **size** | **int**| Page size | [optional] [default to 50]
 
@@ -176,8 +171,8 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
- - **Accept**: application/json
+ * **Content-Type**: Not defined
+ * **Accept**: application/json
 
 ### HTTP response details
 
@@ -187,4 +182,3 @@ Name | Type | Description  | Notes
 **422** | Validation Error |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-

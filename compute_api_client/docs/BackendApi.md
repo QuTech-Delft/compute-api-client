@@ -1,6 +1,6 @@
 # compute_api_client.BackendApi
 
-All URIs are relative to *http://localhost*
+All URIs are relative to *<http://localhost>*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -10,8 +10,8 @@ Method | HTTP request | Description
 [**read_backends_backends_get**](BackendApi.md#read_backends_backends_get) | **GET** /backends | List backends
 [**update_backend_self_backends_me_patch**](BackendApi.md#update_backend_self_backends_me_patch) | **PATCH** /backends/me | Update backend
 
-
 # **create_backend_backends_post**
+>
 > BackendWithAuthentication create_backend_backends_post(backend_in)
 
 Create backend
@@ -46,7 +46,7 @@ configuration.access_token = os.environ["ACCESS_TOKEN"]
 async with compute_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = compute_api_client.BackendApi(api_client)
-    backend_in = compute_api_client.BackendIn() # BackendIn | 
+    backend_in = compute_api_client.BackendIn() # BackendIn |
 
     try:
         # Create backend
@@ -57,14 +57,11 @@ async with compute_api_client.ApiClient(configuration) as api_client:
         print("Exception when calling BackendApi->create_backend_backends_post: %s\n" % e)
 ```
 
-
-
 ### Parameters
-
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **backend_in** | [**BackendIn**](BackendIn.md)|  | 
+ **backend_in** | [**BackendIn**](BackendIn.md)|  |
 
 ### Return type
 
@@ -76,8 +73,8 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/json
+ * **Content-Type**: application/json
+ * **Accept**: application/json
 
 ### HTTP response details
 
@@ -89,6 +86,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **read_backend_backends_id_get**
+>
 > Backend read_backend_backends_id_get(id)
 
 Retrieve backend
@@ -122,7 +120,7 @@ configuration.access_token = os.environ["ACCESS_TOKEN"]
 async with compute_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = compute_api_client.BackendApi(api_client)
-    id = 56 # int | 
+    id = 56 # int |
 
     try:
         # Retrieve backend
@@ -133,14 +131,11 @@ async with compute_api_client.ApiClient(configuration) as api_client:
         print("Exception when calling BackendApi->read_backend_backends_id_get: %s\n" % e)
 ```
 
-
-
 ### Parameters
-
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **int**|  | 
+ **id** | **int**|  |
 
 ### Return type
 
@@ -152,8 +147,8 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
- - **Accept**: application/json
+ * **Content-Type**: Not defined
+ * **Accept**: application/json
 
 ### HTTP response details
 
@@ -166,6 +161,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **read_backend_self_backends_me_get**
+>
 > Backend read_backend_self_backends_me_get()
 
 Retrieve backend
@@ -213,8 +209,6 @@ async with compute_api_client.ApiClient(configuration) as api_client:
         print("Exception when calling BackendApi->read_backend_self_backends_me_get: %s\n" % e)
 ```
 
-
-
 ### Parameters
 
 This endpoint does not need any parameter.
@@ -229,8 +223,8 @@ This endpoint does not need any parameter.
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
- - **Accept**: application/json
+ * **Content-Type**: Not defined
+ * **Accept**: application/json
 
 ### HTTP response details
 
@@ -241,6 +235,7 @@ This endpoint does not need any parameter.
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **read_backends_backends_get**
+>
 > PageBackend read_backends_backends_get(id=id, name=name, location=location, backend_type_id=backend_type_id, status=status, last_heartbeat=last_heartbeat, sort_by=sort_by, latest=latest, page=page, size=size)
 
 List backends
@@ -295,21 +290,18 @@ async with compute_api_client.ApiClient(configuration) as api_client:
         print("Exception when calling BackendApi->read_backends_backends_get: %s\n" % e)
 ```
 
-
-
 ### Parameters
-
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **int**|  | [optional] 
- **name** | **str**|  | [optional] 
- **location** | **str**|  | [optional] 
- **backend_type_id** | **int**|  | [optional] 
- **status** | [**BackendStatus**](.md)|  | [optional] 
- **last_heartbeat** | **datetime**|  | [optional] 
- **sort_by** | **str**| The field name to sort on. Prefix with &#39;-&#39; for descending order. E.g., &#39;-created_on&#39;. | [optional] 
- **latest** | **bool**| If True gets the most recently created object. | [optional] 
+ **id** | **int**|  | [optional]
+ **name** | **str**|  | [optional]
+ **location** | **str**|  | [optional]
+ **backend_type_id** | **int**|  | [optional]
+ **status** | [**BackendStatus**](BackendStatus.md)|  | [optional]
+ **last_heartbeat** | **datetime**|  | [optional]
+ **sort_by** | **str**| The field name to sort on. Prefix with &#39;-&#39; for descending order. E.g., &#39;-created_on&#39;. | [optional]
+ **latest** | **bool**| If True gets the most recently created object. | [optional]
  **page** | **int**| Page number | [optional] [default to 1]
  **size** | **int**| Page size | [optional] [default to 50]
 
@@ -323,8 +315,8 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
- - **Accept**: application/json
+ * **Content-Type**: Not defined
+ * **Accept**: application/json
 
 ### HTTP response details
 
@@ -336,6 +328,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **update_backend_self_backends_me_patch**
+>
 > Backend update_backend_self_backends_me_patch(backend_patch)
 
 Update backend
@@ -374,7 +367,7 @@ configuration.api_key['backend'] = os.environ["API_KEY"]
 async with compute_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = compute_api_client.BackendApi(api_client)
-    backend_patch = compute_api_client.BackendPatch() # BackendPatch | 
+    backend_patch = compute_api_client.BackendPatch() # BackendPatch |
 
     try:
         # Update backend
@@ -385,14 +378,11 @@ async with compute_api_client.ApiClient(configuration) as api_client:
         print("Exception when calling BackendApi->update_backend_self_backends_me_patch: %s\n" % e)
 ```
 
-
-
 ### Parameters
-
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **backend_patch** | [**BackendPatch**](BackendPatch.md)|  | 
+ **backend_patch** | [**BackendPatch**](BackendPatch.md)|  |
 
 ### Return type
 
@@ -404,8 +394,8 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/json
+ * **Content-Type**: application/json
+ * **Accept**: application/json
 
 ### HTTP response details
 
@@ -415,4 +405,3 @@ Name | Type | Description  | Notes
 **422** | Validation Error |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
