@@ -38,7 +38,7 @@ dev = [
     "pytest-mock==3.15.1",
     "black==25.11.0",
     "pytest-asyncio==1.2.0",
-    "ruff==0.14.5",
+    "ruff==0.14.6",
     "deptry==0.23.1",
     "types-requests==2.32.4.20250913",
     "responses==0.25.8",
