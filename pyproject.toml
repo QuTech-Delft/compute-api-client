@@ -3,7 +3,7 @@ name = "qi-compute-api-client"
 version = "0.54.1"
 description = "An API client for the Compute Job Manager of Quantum Inspire."
 authors = [{ name = "Quantum Inspire", email = "support@quantum-inspire.eu" }]
-requires-python = ">=3.10,<3.13"
+requires-python = ">=3.10,<3.14"
 readme = "README.md"
 license = "Apache-2.0"
 classifiers = [
@@ -12,6 +12,7 @@ classifiers = [
     "Programming Language :: Python :: 3.10",
     "Programming Language :: Python :: 3.11",
     "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
     "License :: OSI Approved :: Apache Software License",
 ]
 dependencies = [
