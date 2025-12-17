@@ -3,13 +3,12 @@ name = "qi-compute-api-client"
 version = "0.54.1"
 description = "An API client for the Compute Job Manager of Quantum Inspire."
 authors = [{ name = "Quantum Inspire", email = "support@quantum-inspire.eu" }]
-requires-python = ">=3.9,<3.13"
+requires-python = ">=3.10,<3.13"
 readme = "README.md"
 license = "Apache-2.0"
 classifiers = [
     "Development Status :: 3 - Alpha",
     "Programming Language :: Python :: 3",
-    "Programming Language :: Python :: 3.9",
     "Programming Language :: Python :: 3.10",
     "Programming Language :: Python :: 3.11",
     "Programming Language :: Python :: 3.12",
@@ -39,7 +38,7 @@ dev = [
     "black==25.11.0",
     "pytest-asyncio==1.2.0",
     "ruff==0.14.9",
-    "deptry==0.23.1",
+    "deptry==0.24.0",
     "types-requests==2.32.4.20250913",
     "responses==0.25.8",
     "refurb==2.2.0 ; python_version >= '3.10'",
