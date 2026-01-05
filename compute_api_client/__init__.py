@@ -52,6 +52,7 @@ __all__ = [
     "AuthConfig",
     "Backend",
     "BackendIn",
+    "BackendMessage",
     "BackendPatch",
     "BackendStatus",
     "BackendType",
@@ -154,6 +155,7 @@ from compute_api_client.models.algorithm_type import AlgorithmType as AlgorithmT
 from compute_api_client.models.auth_config import AuthConfig as AuthConfig
 from compute_api_client.models.backend import Backend as Backend
 from compute_api_client.models.backend_in import BackendIn as BackendIn
+from compute_api_client.models.backend_message import BackendMessage as BackendMessage
 from compute_api_client.models.backend_patch import BackendPatch as BackendPatch
 from compute_api_client.models.backend_status import BackendStatus as BackendStatus
 from compute_api_client.models.backend_type import BackendType as BackendType

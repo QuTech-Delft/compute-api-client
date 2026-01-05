@@ -1164,8 +1164,8 @@ class CommitsApi:
         algorithm_id: Optional[StrictInt] = None,
         sort_by: Annotated[Optional[StrictStr], Field(description="The field name to sort on. Prefix with '-' for descending order. E.g., '-created_on'.")] = None,
         latest: Annotated[Optional[StrictBool], Field(description="If True gets the most recently created object.")] = None,
-        page: Annotated[Optional[Annotated[int, Field(strict=True, ge=1)]], Field(description="Page number")] = None,
-        size: Annotated[Optional[Annotated[int, Field(le=100, strict=True, ge=1)]], Field(description="Page size")] = None,
+        page: Optional[Annotated[int, Field(strict=True, ge=1)]] = None,
+        size: Optional[Annotated[int, Field(le=100, strict=True, ge=1)]] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -1197,9 +1197,9 @@ class CommitsApi:
         :type sort_by: str
         :param latest: If True gets the most recently created object.
         :type latest: bool
-        :param page: Page number
+        :param page:
         :type page: int
-        :param size: Page size
+        :param size:
         :type size: int
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -1264,8 +1264,8 @@ class CommitsApi:
         algorithm_id: Optional[StrictInt] = None,
         sort_by: Annotated[Optional[StrictStr], Field(description="The field name to sort on. Prefix with '-' for descending order. E.g., '-created_on'.")] = None,
         latest: Annotated[Optional[StrictBool], Field(description="If True gets the most recently created object.")] = None,
-        page: Annotated[Optional[Annotated[int, Field(strict=True, ge=1)]], Field(description="Page number")] = None,
-        size: Annotated[Optional[Annotated[int, Field(le=100, strict=True, ge=1)]], Field(description="Page size")] = None,
+        page: Optional[Annotated[int, Field(strict=True, ge=1)]] = None,
+        size: Optional[Annotated[int, Field(le=100, strict=True, ge=1)]] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -1297,9 +1297,9 @@ class CommitsApi:
         :type sort_by: str
         :param latest: If True gets the most recently created object.
         :type latest: bool
-        :param page: Page number
+        :param page:
         :type page: int
-        :param size: Page size
+        :param size:
         :type size: int
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -1364,8 +1364,8 @@ class CommitsApi:
         algorithm_id: Optional[StrictInt] = None,
         sort_by: Annotated[Optional[StrictStr], Field(description="The field name to sort on. Prefix with '-' for descending order. E.g., '-created_on'.")] = None,
         latest: Annotated[Optional[StrictBool], Field(description="If True gets the most recently created object.")] = None,
-        page: Annotated[Optional[Annotated[int, Field(strict=True, ge=1)]], Field(description="Page number")] = None,
-        size: Annotated[Optional[Annotated[int, Field(le=100, strict=True, ge=1)]], Field(description="Page size")] = None,
+        page: Optional[Annotated[int, Field(strict=True, ge=1)]] = None,
+        size: Optional[Annotated[int, Field(le=100, strict=True, ge=1)]] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -1397,9 +1397,9 @@ class CommitsApi:
         :type sort_by: str
         :param latest: If True gets the most recently created object.
         :type latest: bool
-        :param page: Page number
+        :param page:
         :type page: int
-        :param size: Page size
+        :param size:
         :type size: int
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request

@@ -1,6 +1,6 @@
 # compute_api_client.MembersApi
 
-All URIs are relative to *<http://localhost>*
+All URIs are relative to *http://localhost*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -9,8 +9,8 @@ Method | HTTP request | Description
 [**read_member_members_id_get**](MembersApi.md#read_member_members_id_get) | **GET** /members/{id} | Retrieve member
 [**read_members_members_get**](MembersApi.md#read_members_members_get) | **GET** /members | List members
 
+
 # **create_member_members_post**
->
 > Member create_member_members_post(member_in)
 
 Create member
@@ -45,7 +45,7 @@ configuration.access_token = os.environ["ACCESS_TOKEN"]
 async with compute_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = compute_api_client.MembersApi(api_client)
-    member_in = compute_api_client.MemberIn() # MemberIn |
+    member_in = compute_api_client.MemberIn() # MemberIn | 
 
     try:
         # Create member
@@ -56,11 +56,14 @@ async with compute_api_client.ApiClient(configuration) as api_client:
         print("Exception when calling MembersApi->create_member_members_post: %s\n" % e)
 ```
 
+
+
 ### Parameters
+
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **member_in** | [**MemberIn**](MemberIn.md)|  |
+ **member_in** | [**MemberIn**](MemberIn.md)|  | 
 
 ### Return type
 
@@ -72,8 +75,8 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- * **Content-Type**: application/json
- * **Accept**: application/json
+ - **Content-Type**: application/json
+ - **Accept**: application/json
 
 ### HTTP response details
 
@@ -85,7 +88,6 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **delete_member_members_id_delete**
->
 > delete_member_members_id_delete(id)
 
 Destroy member
@@ -118,7 +120,7 @@ configuration.access_token = os.environ["ACCESS_TOKEN"]
 async with compute_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = compute_api_client.MembersApi(api_client)
-    id = 56 # int |
+    id = 56 # int | 
 
     try:
         # Destroy member
@@ -127,11 +129,14 @@ async with compute_api_client.ApiClient(configuration) as api_client:
         print("Exception when calling MembersApi->delete_member_members_id_delete: %s\n" % e)
 ```
 
+
+
 ### Parameters
+
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **int**|  |
+ **id** | **int**|  | 
 
 ### Return type
 
@@ -143,8 +148,8 @@ void (empty response body)
 
 ### HTTP request headers
 
- * **Content-Type**: Not defined
- * **Accept**: application/json
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
 
 ### HTTP response details
 
@@ -157,7 +162,6 @@ void (empty response body)
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **read_member_members_id_get**
->
 > Member read_member_members_id_get(id)
 
 Retrieve member
@@ -191,7 +195,7 @@ configuration.access_token = os.environ["ACCESS_TOKEN"]
 async with compute_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = compute_api_client.MembersApi(api_client)
-    id = 56 # int |
+    id = 56 # int | 
 
     try:
         # Retrieve member
@@ -202,11 +206,14 @@ async with compute_api_client.ApiClient(configuration) as api_client:
         print("Exception when calling MembersApi->read_member_members_id_get: %s\n" % e)
 ```
 
+
+
 ### Parameters
+
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **int**|  |
+ **id** | **int**|  | 
 
 ### Return type
 
@@ -218,8 +225,8 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- * **Content-Type**: Not defined
- * **Accept**: application/json
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
 
 ### HTTP response details
 
@@ -232,7 +239,6 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **read_members_members_get**
->
 > PageMember read_members_members_get(id=id, team_id=team_id, role=role, is_active=is_active, sort_by=sort_by, latest=latest, page=page, size=size)
 
 List members
@@ -273,8 +279,8 @@ async with compute_api_client.ApiClient(configuration) as api_client:
     is_active = True # bool |  (optional)
     sort_by = 'sort_by_example' # str | The field name to sort on. Prefix with '-' for descending order. E.g., '-created_on'. (optional)
     latest = True # bool | If True gets the most recently created object. (optional)
-    page = 1 # int | Page number (optional) (default to 1)
-    size = 50 # int | Page size (optional) (default to 50)
+    page = 1 # int |  (optional) (default to 1)
+    size = 50 # int |  (optional) (default to 50)
 
     try:
         # List members
@@ -285,18 +291,21 @@ async with compute_api_client.ApiClient(configuration) as api_client:
         print("Exception when calling MembersApi->read_members_members_get: %s\n" % e)
 ```
 
+
+
 ### Parameters
+
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | **int**|  | [optional]
- **team_id** | **int**|  | [optional]
- **role** | [**Role**](Role.md)|  | [optional]
- **is_active** | **bool**|  | [optional]
- **sort_by** | **str**| The field name to sort on. Prefix with &#39;-&#39; for descending order. E.g., &#39;-created_on&#39;. | [optional]
- **latest** | **bool**| If True gets the most recently created object. | [optional]
- **page** | **int**| Page number | [optional] [default to 1]
- **size** | **int**| Page size | [optional] [default to 50]
+ **id** | **int**|  | [optional] 
+ **team_id** | **int**|  | [optional] 
+ **role** | [**Role**](.md)|  | [optional] 
+ **is_active** | **bool**|  | [optional] 
+ **sort_by** | **str**| The field name to sort on. Prefix with &#39;-&#39; for descending order. E.g., &#39;-created_on&#39;. | [optional] 
+ **latest** | **bool**| If True gets the most recently created object. | [optional] 
+ **page** | **int**|  | [optional] [default to 1]
+ **size** | **int**|  | [optional] [default to 50]
 
 ### Return type
 
@@ -308,8 +317,8 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- * **Content-Type**: Not defined
- * **Accept**: application/json
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
 
 ### HTTP response details
 
@@ -319,3 +328,4 @@ Name | Type | Description  | Notes
 **422** | Validation Error |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+

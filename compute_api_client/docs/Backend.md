@@ -10,6 +10,7 @@ Name | Type | Description | Notes
 **location** | **str** | The location of the backend | 
 **backend_type_id** | **int** | The id of the backend type | 
 **status** | [**BackendStatus**](BackendStatus.md) | Status of the backend | 
+**message** | [**BackendMessage**](BackendMessage.md) | The message obj for a backend | [optional] 
 **last_heartbeat** | **datetime** | Time of last heartbeat | 
 
 ## Example

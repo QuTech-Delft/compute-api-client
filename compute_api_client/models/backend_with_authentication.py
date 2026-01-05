@@ -19,8 +19,9 @@ import json
 
 from datetime import datetime
 from pydantic import BaseModel, ConfigDict, Field, StrictInt
-from typing import Any, ClassVar, Dict, List
+from typing import Any, ClassVar, Dict, List, Optional
 from typing_extensions import Annotated
+from compute_api_client.models.backend_message import BackendMessage
 from compute_api_client.models.backend_status import BackendStatus
 from typing import Optional, Set
 from typing_extensions import Self
@@ -34,9 +35,10 @@ class BackendWithAuthentication(BaseModel):
     location: Annotated[str, Field(strict=True, max_length=32)] = Field(description="The location of the backend")
     backend_type_id: StrictInt = Field(description="The id of the backend type")
     status: BackendStatus = Field(description="Status of the backend")
+    message: Optional[BackendMessage] = Field(default=None, description="The message obj for a backend")
     last_heartbeat: datetime = Field(description="Time of last heartbeat")
     authentication_hash: Annotated[str, Field(strict=True, max_length=32)] = Field(description="The authentication hash of the backend")
-    __properties: ClassVar[List[str]] = ["id", "name", "location", "backend_type_id", "status", "last_heartbeat", "authentication_hash"]
+    __properties: ClassVar[List[str]] = ["id", "name", "location", "backend_type_id", "status", "message", "last_heartbeat", "authentication_hash"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -77,6 +79,9 @@ class BackendWithAuthentication(BaseModel):
             exclude=excluded_fields,
             exclude_none=True,
         )
+        # override the default output from pydantic by calling `to_dict()` of message
+        if self.message:
+            _dict['message'] = self.message.to_dict()
         return _dict
 
     @classmethod
@@ -94,6 +99,7 @@ class BackendWithAuthentication(BaseModel):
             "location": obj.get("location"),
             "backend_type_id": obj.get("backend_type_id"),
             "status": obj.get("status"),
+            "message": BackendMessage.from_dict(obj["message"]) if obj.get("message") is not None else None,
             "last_heartbeat": obj.get("last_heartbeat"),
             "authentication_hash": obj.get("authentication_hash")
         })

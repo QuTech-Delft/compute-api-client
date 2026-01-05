@@ -6,10 +6,10 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **items** | [**List[Commit]**](Commit.md) |  | 
-**total** | **int** |  | [optional] 
+**total** | **int** |  | 
 **page** | **int** |  | 
 **size** | **int** |  | 
-**pages** | **int** |  | [optional] 
+**pages** | **int** |  | 
 
 ## Example
 

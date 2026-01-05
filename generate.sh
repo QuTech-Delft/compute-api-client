@@ -59,6 +59,10 @@ else
     cd ../../dispatcher/
     uv lock
 
+    echo "Updating message broadcaster dependencies"
+    cd ../message-broadcaster/
+    uv lock
+
     echo "Updating integration test dependencies"
     cd ../../../tests/integration/
     uv lock

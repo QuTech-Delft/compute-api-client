@@ -5,8 +5,9 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**status** | [**BackendStatus**](BackendStatus.md) | Status of the backend | 
-**last_heartbeat** | **datetime** | Time of last heartbeat | 
+**message** | [**BackendMessage**](BackendMessage.md) |  | [optional] 
+**status** | [**BackendStatus**](BackendStatus.md) |  | [optional] 
+**last_heartbeat** | **datetime** |  | [optional] 
 
 ## Example
 

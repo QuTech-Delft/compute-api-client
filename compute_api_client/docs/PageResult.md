@@ -6,10 +6,10 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **items** | [**List[Result]**](Result.md) |  | 
-**total** | **int** |  | [optional] 
+**total** | **int** |  | 
 **page** | **int** |  | 
 **size** | **int** |  | 
-**pages** | **int** |  | [optional] 
+**pages** | **int** |  | 
 
 ## Example
 

@@ -18,8 +18,9 @@ import re  # noqa: F401
 import json
 
 from datetime import datetime
-from pydantic import BaseModel, ConfigDict, Field
-from typing import Any, ClassVar, Dict, List
+from pydantic import BaseModel, ConfigDict
+from typing import Any, ClassVar, Dict, List, Optional
+from compute_api_client.models.backend_message import BackendMessage
 from compute_api_client.models.backend_status import BackendStatus
 from typing import Optional, Set
 from typing_extensions import Self
@@ -28,9 +29,10 @@ class BackendPatch(BaseModel):
     """
     BackendPatch
     """ # noqa: E501
-    status: BackendStatus = Field(description="Status of the backend")
-    last_heartbeat: datetime = Field(description="Time of last heartbeat")
-    __properties: ClassVar[List[str]] = ["status", "last_heartbeat"]
+    message: Optional[BackendMessage] = None
+    status: Optional[BackendStatus] = None
+    last_heartbeat: Optional[datetime] = None
+    __properties: ClassVar[List[str]] = ["message", "status", "last_heartbeat"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -71,6 +73,24 @@ class BackendPatch(BaseModel):
             exclude=excluded_fields,
             exclude_none=True,
         )
+        # override the default output from pydantic by calling `to_dict()` of message
+        if self.message:
+            _dict['message'] = self.message.to_dict()
+        # set to None if message (nullable) is None
+        # and model_fields_set contains the field
+        if self.message is None and "message" in self.model_fields_set:
+            _dict['message'] = None
+
+        # set to None if status (nullable) is None
+        # and model_fields_set contains the field
+        if self.status is None and "status" in self.model_fields_set:
+            _dict['status'] = None
+
+        # set to None if last_heartbeat (nullable) is None
+        # and model_fields_set contains the field
+        if self.last_heartbeat is None and "last_heartbeat" in self.model_fields_set:
+            _dict['last_heartbeat'] = None
+
         return _dict
 
     @classmethod
@@ -83,6 +103,7 @@ class BackendPatch(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
+            "message": BackendMessage.from_dict(obj["message"]) if obj.get("message") is not None else None,
             "status": obj.get("status"),
             "last_heartbeat": obj.get("last_heartbeat")
         })

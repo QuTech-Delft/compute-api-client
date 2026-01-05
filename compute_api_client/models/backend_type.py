@@ -20,6 +20,7 @@ import json
 from pydantic import BaseModel, ConfigDict, Field, StrictBool, StrictInt, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
 from typing_extensions import Annotated
+from compute_api_client.models.backend_message import BackendMessage
 from compute_api_client.models.backend_status import BackendStatus
 from typing import Optional, Set
 from typing_extensions import Self
@@ -41,12 +42,13 @@ class BackendType(BaseModel):
     topology: List[List[StrictInt]] = Field(description="The topology of the backend")
     nqubits: StrictInt = Field(description="The number of qubits on the backend")
     status: BackendStatus = Field(description="The status of the backend type")
+    messages: Dict[str, BackendMessage] = Field(description="List of status messages for the various instances")
     default_number_of_shots: StrictInt = Field(description="The default shots")
     max_number_of_shots: StrictInt = Field(description="The maximum number of shots")
     enabled: StrictBool = Field(description="If it is enabled")
     identifier: Annotated[str, Field(strict=True, max_length=32)] = Field(description="The identifier of the backend")
     protocol_version: Optional[StrictInt] = None
-    __properties: ClassVar[List[str]] = ["id", "name", "infrastructure", "description", "image_id", "is_hardware", "supports_raw_data", "features", "default_compiler_config", "gateset", "topology", "nqubits", "status", "default_number_of_shots", "max_number_of_shots", "enabled", "identifier", "protocol_version"]
+    __properties: ClassVar[List[str]] = ["id", "name", "infrastructure", "description", "image_id", "is_hardware", "supports_raw_data", "features", "default_compiler_config", "gateset", "topology", "nqubits", "status", "messages", "default_number_of_shots", "max_number_of_shots", "enabled", "identifier", "protocol_version"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -87,6 +89,13 @@ class BackendType(BaseModel):
             exclude=excluded_fields,
             exclude_none=True,
         )
+        # override the default output from pydantic by calling `to_dict()` of each value in messages (dict)
+        _field_dict = {}
+        if self.messages:
+            for _key_messages in self.messages:
+                if self.messages[_key_messages]:
+                    _field_dict[_key_messages] = self.messages[_key_messages].to_dict()
+            _dict['messages'] = _field_dict
         # set to None if protocol_version (nullable) is None
         # and model_fields_set contains the field
         if self.protocol_version is None and "protocol_version" in self.model_fields_set:
@@ -117,6 +126,12 @@ class BackendType(BaseModel):
             "topology": obj.get("topology"),
             "nqubits": obj.get("nqubits"),
             "status": obj.get("status"),
+            "messages": dict(
+                (_k, BackendMessage.from_dict(_v))
+                for _k, _v in obj["messages"].items()
+            )
+            if obj.get("messages") is not None
+            else None,
             "default_number_of_shots": obj.get("default_number_of_shots"),
             "max_number_of_shots": obj.get("max_number_of_shots"),
             "enabled": obj.get("enabled"),

@@ -18,6 +18,7 @@ Name | Type | Description | Notes
 **topology** | **List[List[int]]** | The topology of the backend | 
 **nqubits** | **int** | The number of qubits on the backend | 
 **status** | [**BackendStatus**](BackendStatus.md) | The status of the backend type | 
+**messages** | [**Dict[str, BackendMessage]**](BackendMessage.md) | List of status messages for the various instances | 
 **default_number_of_shots** | **int** | The default shots | 
 **max_number_of_shots** | **int** | The maximum number of shots | 
 **enabled** | **bool** | If it is enabled | 

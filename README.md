@@ -154,6 +154,7 @@ All URIs are relative to _http://localhost_
 - [AuthConfig](compute_api_client/docs/AuthConfig.md)
 - [Backend](compute_api_client/docs/Backend.md)
 - [BackendIn](compute_api_client/docs/BackendIn.md)
+- [BackendMessage](compute_api_client/docs/BackendMessage.md)
 - [BackendPatch](compute_api_client/docs/BackendPatch.md)
 - [BackendStatus](compute_api_client/docs/BackendStatus.md)
 - [BackendType](compute_api_client/docs/BackendType.md)
