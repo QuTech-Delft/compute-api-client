@@ -1015,7 +1015,7 @@ wheels = [
 
 [[package]]
 name = "qi-compute-api-client"
-version = "0.55.0"
+version = "0.56.0"
 source = { editable = "." }
 dependencies = [
     { name = "aiohttp" },

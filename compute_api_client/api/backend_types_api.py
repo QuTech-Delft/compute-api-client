@@ -16,8 +16,8 @@ from pydantic import validate_call, Field, StrictFloat, StrictStr, StrictInt
 from typing import Any, Dict, List, Optional, Tuple, Union
 from typing_extensions import Annotated
 
-from pydantic import Field, StrictBool, StrictInt, StrictStr
-from typing import Optional
+from pydantic import Field, StrictBool, StrictFloat, StrictInt, StrictStr
+from typing import Optional, Union
 from typing_extensions import Annotated
 from compute_api_client.models.backend_status import BackendStatus
 from compute_api_client.models.backend_type import BackendType
@@ -328,10 +328,11 @@ class BackendTypesApi:
         identifier: Optional[StrictStr] = None,
         protocol_version__isnull: Optional[StrictBool] = None,
         protocol_version: Optional[StrictInt] = None,
+        job_execution_time_limit: Optional[Union[StrictFloat, StrictInt]] = None,
         sort_by: Annotated[Optional[StrictStr], Field(description="The field name to sort on. Prefix with '-' for descending order. E.g., '-created_on'.")] = None,
         latest: Annotated[Optional[StrictBool], Field(description="If True gets the most recently created object.")] = None,
-        page: Optional[Annotated[int, Field(strict=True, ge=1)]] = None,
-        size: Optional[Annotated[int, Field(le=100, strict=True, ge=1)]] = None,
+        page: Annotated[Optional[Annotated[int, Field(strict=True, ge=1)]], Field(description="Page number")] = None,
+        size: Annotated[Optional[Annotated[int, Field(le=100, strict=True, ge=1)]], Field(description="Page size")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -379,13 +380,15 @@ class BackendTypesApi:
         :type protocol_version__isnull: bool
         :param protocol_version:
         :type protocol_version: int
+        :param job_execution_time_limit:
+        :type job_execution_time_limit: float
         :param sort_by: The field name to sort on. Prefix with '-' for descending order. E.g., '-created_on'.
         :type sort_by: str
         :param latest: If True gets the most recently created object.
         :type latest: bool
-        :param page:
+        :param page: Page number
         :type page: int
-        :param size:
+        :param size: Page size
         :type size: int
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -425,6 +428,7 @@ class BackendTypesApi:
             identifier=identifier,
             protocol_version__isnull=protocol_version__isnull,
             protocol_version=protocol_version,
+            job_execution_time_limit=job_execution_time_limit,
             sort_by=sort_by,
             latest=latest,
             page=page,
@@ -468,10 +472,11 @@ class BackendTypesApi:
         identifier: Optional[StrictStr] = None,
         protocol_version__isnull: Optional[StrictBool] = None,
         protocol_version: Optional[StrictInt] = None,
+        job_execution_time_limit: Optional[Union[StrictFloat, StrictInt]] = None,
         sort_by: Annotated[Optional[StrictStr], Field(description="The field name to sort on. Prefix with '-' for descending order. E.g., '-created_on'.")] = None,
         latest: Annotated[Optional[StrictBool], Field(description="If True gets the most recently created object.")] = None,
-        page: Optional[Annotated[int, Field(strict=True, ge=1)]] = None,
-        size: Optional[Annotated[int, Field(le=100, strict=True, ge=1)]] = None,
+        page: Annotated[Optional[Annotated[int, Field(strict=True, ge=1)]], Field(description="Page number")] = None,
+        size: Annotated[Optional[Annotated[int, Field(le=100, strict=True, ge=1)]], Field(description="Page size")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -519,13 +524,15 @@ class BackendTypesApi:
         :type protocol_version__isnull: bool
         :param protocol_version:
         :type protocol_version: int
+        :param job_execution_time_limit:
+        :type job_execution_time_limit: float
         :param sort_by: The field name to sort on. Prefix with '-' for descending order. E.g., '-created_on'.
         :type sort_by: str
         :param latest: If True gets the most recently created object.
         :type latest: bool
-        :param page:
+        :param page: Page number
         :type page: int
-        :param size:
+        :param size: Page size
         :type size: int
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -565,6 +572,7 @@ class BackendTypesApi:
             identifier=identifier,
             protocol_version__isnull=protocol_version__isnull,
             protocol_version=protocol_version,
+            job_execution_time_limit=job_execution_time_limit,
             sort_by=sort_by,
             latest=latest,
             page=page,
@@ -608,10 +616,11 @@ class BackendTypesApi:
         identifier: Optional[StrictStr] = None,
         protocol_version__isnull: Optional[StrictBool] = None,
         protocol_version: Optional[StrictInt] = None,
+        job_execution_time_limit: Optional[Union[StrictFloat, StrictInt]] = None,
         sort_by: Annotated[Optional[StrictStr], Field(description="The field name to sort on. Prefix with '-' for descending order. E.g., '-created_on'.")] = None,
         latest: Annotated[Optional[StrictBool], Field(description="If True gets the most recently created object.")] = None,
-        page: Optional[Annotated[int, Field(strict=True, ge=1)]] = None,
-        size: Optional[Annotated[int, Field(le=100, strict=True, ge=1)]] = None,
+        page: Annotated[Optional[Annotated[int, Field(strict=True, ge=1)]], Field(description="Page number")] = None,
+        size: Annotated[Optional[Annotated[int, Field(le=100, strict=True, ge=1)]], Field(description="Page size")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -659,13 +668,15 @@ class BackendTypesApi:
         :type protocol_version__isnull: bool
         :param protocol_version:
         :type protocol_version: int
+        :param job_execution_time_limit:
+        :type job_execution_time_limit: float
         :param sort_by: The field name to sort on. Prefix with '-' for descending order. E.g., '-created_on'.
         :type sort_by: str
         :param latest: If True gets the most recently created object.
         :type latest: bool
-        :param page:
+        :param page: Page number
         :type page: int
-        :param size:
+        :param size: Page size
         :type size: int
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -705,6 +716,7 @@ class BackendTypesApi:
             identifier=identifier,
             protocol_version__isnull=protocol_version__isnull,
             protocol_version=protocol_version,
+            job_execution_time_limit=job_execution_time_limit,
             sort_by=sort_by,
             latest=latest,
             page=page,
@@ -743,6 +755,7 @@ class BackendTypesApi:
         identifier,
         protocol_version__isnull,
         protocol_version,
+        job_execution_time_limit,
         sort_by,
         latest,
         page,
@@ -828,6 +841,10 @@ class BackendTypesApi:
         if protocol_version is not None:
             
             _query_params.append(('protocol_version', protocol_version))
+            
+        if job_execution_time_limit is not None:
+            
+            _query_params.append(('job_execution_time_limit', job_execution_time_limit))
             
         if sort_by is not None:
             

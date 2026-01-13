@@ -21,6 +21,7 @@ Name | Type | Description | Notes
 **enabled** | **bool** |  | [optional] 
 **identifier** | **str** |  | [optional] 
 **protocol_version** | **int** |  | [optional] 
+**job_execution_time_limit** | **float** |  | [optional] 
 
 ## Example
 

@@ -868,8 +868,8 @@ class AlgorithmsApi:
         name: Optional[StrictStr] = None,
         sort_by: Annotated[Optional[StrictStr], Field(description="The field name to sort on. Prefix with '-' for descending order. E.g., '-created_on'.")] = None,
         latest: Annotated[Optional[StrictBool], Field(description="If True gets the most recently created object.")] = None,
-        page: Optional[Annotated[int, Field(strict=True, ge=1)]] = None,
-        size: Optional[Annotated[int, Field(le=100, strict=True, ge=1)]] = None,
+        page: Annotated[Optional[Annotated[int, Field(strict=True, ge=1)]], Field(description="Page number")] = None,
+        size: Annotated[Optional[Annotated[int, Field(le=100, strict=True, ge=1)]], Field(description="Page size")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -907,9 +907,9 @@ class AlgorithmsApi:
         :type sort_by: str
         :param latest: If True gets the most recently created object.
         :type latest: bool
-        :param page:
+        :param page: Page number
         :type page: int
-        :param size:
+        :param size: Page size
         :type size: int
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -980,8 +980,8 @@ class AlgorithmsApi:
         name: Optional[StrictStr] = None,
         sort_by: Annotated[Optional[StrictStr], Field(description="The field name to sort on. Prefix with '-' for descending order. E.g., '-created_on'.")] = None,
         latest: Annotated[Optional[StrictBool], Field(description="If True gets the most recently created object.")] = None,
-        page: Optional[Annotated[int, Field(strict=True, ge=1)]] = None,
-        size: Optional[Annotated[int, Field(le=100, strict=True, ge=1)]] = None,
+        page: Annotated[Optional[Annotated[int, Field(strict=True, ge=1)]], Field(description="Page number")] = None,
+        size: Annotated[Optional[Annotated[int, Field(le=100, strict=True, ge=1)]], Field(description="Page size")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -1019,9 +1019,9 @@ class AlgorithmsApi:
         :type sort_by: str
         :param latest: If True gets the most recently created object.
         :type latest: bool
-        :param page:
+        :param page: Page number
         :type page: int
-        :param size:
+        :param size: Page size
         :type size: int
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -1092,8 +1092,8 @@ class AlgorithmsApi:
         name: Optional[StrictStr] = None,
         sort_by: Annotated[Optional[StrictStr], Field(description="The field name to sort on. Prefix with '-' for descending order. E.g., '-created_on'.")] = None,
         latest: Annotated[Optional[StrictBool], Field(description="If True gets the most recently created object.")] = None,
-        page: Optional[Annotated[int, Field(strict=True, ge=1)]] = None,
-        size: Optional[Annotated[int, Field(le=100, strict=True, ge=1)]] = None,
+        page: Annotated[Optional[Annotated[int, Field(strict=True, ge=1)]], Field(description="Page number")] = None,
+        size: Annotated[Optional[Annotated[int, Field(le=100, strict=True, ge=1)]], Field(description="Page size")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -1131,9 +1131,9 @@ class AlgorithmsApi:
         :type sort_by: str
         :param latest: If True gets the most recently created object.
         :type latest: bool
-        :param page:
+        :param page: Page number
         :type page: int
-        :param size:
+        :param size: Page size
         :type size: int
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request

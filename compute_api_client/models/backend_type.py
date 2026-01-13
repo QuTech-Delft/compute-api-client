@@ -17,8 +17,8 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, Field, StrictBool, StrictInt, StrictStr
-from typing import Any, ClassVar, Dict, List, Optional
+from pydantic import BaseModel, ConfigDict, Field, StrictBool, StrictFloat, StrictInt, StrictStr
+from typing import Any, ClassVar, Dict, List, Optional, Union
 from typing_extensions import Annotated
 from compute_api_client.models.backend_message import BackendMessage
 from compute_api_client.models.backend_status import BackendStatus
@@ -33,7 +33,7 @@ class BackendType(BaseModel):
     name: Annotated[str, Field(strict=True, max_length=32)] = Field(description="Name of the backend type")
     infrastructure: Annotated[str, Field(strict=True, max_length=32)] = Field(description="Name of the infrastructure")
     description: StrictStr = Field(description="Description of the backendtype")
-    image_id: Annotated[str, Field(strict=True, max_length=16)] = Field(description="The id of the image")
+    image_id: Annotated[str, Field(strict=True, max_length=64)] = Field(description="The id of the image")
     is_hardware: StrictBool = Field(description="If it is hardware")
     supports_raw_data: StrictBool = Field(description="If it supports raw data extraction")
     features: List[Optional[StrictStr]] = Field(description="The features supported by backend type")
@@ -48,7 +48,8 @@ class BackendType(BaseModel):
     enabled: StrictBool = Field(description="If it is enabled")
     identifier: Annotated[str, Field(strict=True, max_length=32)] = Field(description="The identifier of the backend")
     protocol_version: Optional[StrictInt] = None
-    __properties: ClassVar[List[str]] = ["id", "name", "infrastructure", "description", "image_id", "is_hardware", "supports_raw_data", "features", "default_compiler_config", "gateset", "topology", "nqubits", "status", "messages", "default_number_of_shots", "max_number_of_shots", "enabled", "identifier", "protocol_version"]
+    job_execution_time_limit: Union[StrictFloat, StrictInt] = Field(description="Maximum allowed execution time(seconds) for a job.")
+    __properties: ClassVar[List[str]] = ["id", "name", "infrastructure", "description", "image_id", "is_hardware", "supports_raw_data", "features", "default_compiler_config", "gateset", "topology", "nqubits", "status", "messages", "default_number_of_shots", "max_number_of_shots", "enabled", "identifier", "protocol_version", "job_execution_time_limit"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -136,7 +137,8 @@ class BackendType(BaseModel):
             "max_number_of_shots": obj.get("max_number_of_shots"),
             "enabled": obj.get("enabled"),
             "identifier": obj.get("identifier"),
-            "protocol_version": obj.get("protocol_version")
+            "protocol_version": obj.get("protocol_version"),
+            "job_execution_time_limit": obj.get("job_execution_time_limit")
         })
         return _obj
 

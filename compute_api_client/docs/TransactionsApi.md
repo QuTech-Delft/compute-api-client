@@ -132,8 +132,8 @@ async with compute_api_client.ApiClient(configuration) as api_client:
     timestamp = '2013-10-20T19:20:30+01:00' # datetime |  (optional)
     sort_by = 'sort_by_example' # str | The field name to sort on. Prefix with '-' for descending order. E.g., '-created_on'. (optional)
     latest = True # bool | If True gets the most recently created object. (optional)
-    page = 1 # int |  (optional) (default to 1)
-    size = 50 # int |  (optional) (default to 50)
+    page = 1 # int | Page number (optional) (default to 1)
+    size = 50 # int | Page size (optional) (default to 50)
 
     try:
         # List transactions
@@ -163,8 +163,8 @@ Name | Type | Description  | Notes
  **timestamp** | **datetime**|  | [optional] 
  **sort_by** | **str**| The field name to sort on. Prefix with &#39;-&#39; for descending order. E.g., &#39;-created_on&#39;. | [optional] 
  **latest** | **bool**| If True gets the most recently created object. | [optional] 
- **page** | **int**|  | [optional] [default to 1]
- **size** | **int**|  | [optional] [default to 50]
+ **page** | **int**| Page number | [optional] [default to 1]
+ **size** | **int**| Page size | [optional] [default to 50]
 
 ### Return type
 

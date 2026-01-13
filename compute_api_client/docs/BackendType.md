@@ -24,6 +24,7 @@ Name | Type | Description | Notes
 **enabled** | **bool** | If it is enabled | 
 **identifier** | **str** | The identifier of the backend | 
 **protocol_version** | **int** |  | [optional] 
+**job_execution_time_limit** | **float** | Maximum allowed execution time(seconds) for a job. | 
 
 ## Example
 
