@@ -43,6 +43,8 @@ from compute_api_client.models.http_not_found_error import HTTPNotFoundError
 from compute_api_client.models.http_validation_error import HTTPValidationError
 from compute_api_client.models.job import Job
 from compute_api_client.models.job_in import JobIn
+from compute_api_client.models.job_log_line import JobLogLine
+from compute_api_client.models.job_log_page import JobLogPage
 from compute_api_client.models.job_patch import JobPatch
 from compute_api_client.models.job_status import JobStatus
 from compute_api_client.models.language import Language

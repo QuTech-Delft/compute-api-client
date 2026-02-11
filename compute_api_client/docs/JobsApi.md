@@ -6,6 +6,7 @@ Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**create_job_jobs_post**](JobsApi.md#create_job_jobs_post) | **POST** /jobs | Create job
 [**delete_job_jobs_id_delete**](JobsApi.md#delete_job_jobs_id_delete) | **DELETE** /jobs/{id} | Destroy job
+[**get_job_logs_jobs_id_logs_get**](JobsApi.md#get_job_logs_jobs_id_logs_get) | **GET** /jobs/{id}/logs | Retrieve logs for a job
 [**read_job_jobs_id_get**](JobsApi.md#read_job_jobs_id_get) | **GET** /jobs/{id} | Retrieve job
 [**read_jobs_jobs_get**](JobsApi.md#read_jobs_jobs_get) | **GET** /jobs | List jobs
 [**update_job_status_jobs_id_patch**](JobsApi.md#update_job_status_jobs_id_patch) | **PATCH** /jobs/{id} | Update Job Status
@@ -158,6 +159,88 @@ void (empty response body)
 |-------------|-------------|------------------|
 **204** | Successful Response |  -  |
 **404** | Not Found |  -  |
+**422** | Validation Error |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **get_job_logs_jobs_id_logs_get**
+> JobLogPage get_job_logs_jobs_id_logs_get(id, start=start, end=end, limit=limit)
+
+Retrieve logs for a job
+
+Fetch logs for a (hybrid) job.
+
+### Example
+
+* OAuth Authentication (user_bearer):
+
+```python
+import compute_api_client
+from compute_api_client.models.job_log_page import JobLogPage
+from compute_api_client.rest import ApiException
+from pprint import pprint
+
+# Defining the host is optional and defaults to http://localhost
+# See configuration.py for a list of all supported configuration parameters.
+configuration = compute_api_client.Configuration(
+    host = "http://localhost"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+configuration.access_token = os.environ["ACCESS_TOKEN"]
+
+# Enter a context with an instance of the API client
+async with compute_api_client.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = compute_api_client.JobsApi(api_client)
+    id = 56 # int | 
+    start = 56 # int | Start timestamp(nanosec) (optional)
+    end = 56 # int | End timestamp(nanosec) (optional)
+    limit = 100 # int | Maximum number of logs per page (optional) (default to 100)
+
+    try:
+        # Retrieve logs for a job
+        api_response = await api_instance.get_job_logs_jobs_id_logs_get(id, start=start, end=end, limit=limit)
+        print("The response of JobsApi->get_job_logs_jobs_id_logs_get:\n")
+        pprint(api_response)
+    except Exception as e:
+        print("Exception when calling JobsApi->get_job_logs_jobs_id_logs_get: %s\n" % e)
+```
+
+
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **id** | **int**|  | 
+ **start** | **int**| Start timestamp(nanosec) | [optional] 
+ **end** | **int**| End timestamp(nanosec) | [optional] 
+ **limit** | **int**| Maximum number of logs per page | [optional] [default to 100]
+
+### Return type
+
+[**JobLogPage**](JobLogPage.md)
+
+### Authorization
+
+[user_bearer](../README.md#user_bearer)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Successful Response |  -  |
 **422** | Validation Error |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)

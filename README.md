@@ -109,6 +109,7 @@ All URIs are relative to _http://localhost_
 | _HealthApi_       | [**healthz_healthz_get**](compute_api_client/docs/HealthApi.md#healthz_healthz_get)                                                                                          | **GET** /healthz                          | Report health                              |
 | _JobsApi_         | [**create_job_jobs_post**](compute_api_client/docs/JobsApi.md#create_job_jobs_post)                                                                                          | **POST** /jobs                            | Create job                                 |
 | _JobsApi_         | [**delete_job_jobs_id_delete**](compute_api_client/docs/JobsApi.md#delete_job_jobs_id_delete)                                                                                | **DELETE** /jobs/{id}                     | Destroy job                                |
+| _JobsApi_         | [**get_job_logs_jobs_id_logs_get**](compute_api_client/docs/JobsApi.md#get_job_logs_jobs_id_logs_get)                                                                        | **GET** /jobs/{id}/logs                   | Retrieve logs for a job                    |
 | _JobsApi_         | [**read_job_jobs_id_get**](compute_api_client/docs/JobsApi.md#read_job_jobs_id_get)                                                                                          | **GET** /jobs/{id}                        | Retrieve job                               |
 | _JobsApi_         | [**read_jobs_jobs_get**](compute_api_client/docs/JobsApi.md#read_jobs_jobs_get)                                                                                              | **GET** /jobs                             | List jobs                                  |
 | _JobsApi_         | [**update_job_status_jobs_id_patch**](compute_api_client/docs/JobsApi.md#update_job_status_jobs_id_patch)                                                                    | **PATCH** /jobs/{id}                      | Update Job Status                          |
@@ -177,6 +178,8 @@ All URIs are relative to _http://localhost_
 - [HTTPValidationError](compute_api_client/docs/HTTPValidationError.md)
 - [Job](compute_api_client/docs/Job.md)
 - [JobIn](compute_api_client/docs/JobIn.md)
+- [JobLogLine](compute_api_client/docs/JobLogLine.md)
+- [JobLogPage](compute_api_client/docs/JobLogPage.md)
 - [JobPatch](compute_api_client/docs/JobPatch.md)
 - [JobStatus](compute_api_client/docs/JobStatus.md)
 - [Language](compute_api_client/docs/Language.md)

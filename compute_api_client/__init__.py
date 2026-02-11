@@ -75,6 +75,8 @@ __all__ = [
     "HTTPValidationError",
     "Job",
     "JobIn",
+    "JobLogLine",
+    "JobLogPage",
     "JobPatch",
     "JobStatus",
     "Language",
@@ -178,6 +180,8 @@ from compute_api_client.models.http_not_found_error import HTTPNotFoundError as 
 from compute_api_client.models.http_validation_error import HTTPValidationError as HTTPValidationError
 from compute_api_client.models.job import Job as Job
 from compute_api_client.models.job_in import JobIn as JobIn
+from compute_api_client.models.job_log_line import JobLogLine as JobLogLine
+from compute_api_client.models.job_log_page import JobLogPage as JobLogPage
 from compute_api_client.models.job_patch import JobPatch as JobPatch
 from compute_api_client.models.job_status import JobStatus as JobStatus
 from compute_api_client.models.language import Language as Language
