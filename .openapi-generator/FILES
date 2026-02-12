@@ -94,6 +94,7 @@ compute_api_client/docs/Project.md
 compute_api_client/docs/ProjectIn.md
 compute_api_client/docs/ProjectPatch.md
 compute_api_client/docs/ProjectsApi.md
+compute_api_client/docs/Queue.md
 compute_api_client/docs/Reservation.md
 compute_api_client/docs/ReservationIn.md
 compute_api_client/docs/ReservationsApi.md
@@ -171,6 +172,7 @@ compute_api_client/models/permission_group.py
 compute_api_client/models/project.py
 compute_api_client/models/project_in.py
 compute_api_client/models/project_patch.py
+compute_api_client/models/queue.py
 compute_api_client/models/reservation.py
 compute_api_client/models/reservation_in.py
 compute_api_client/models/result.py

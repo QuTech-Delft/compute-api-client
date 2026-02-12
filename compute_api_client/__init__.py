@@ -104,6 +104,7 @@ __all__ = [
     "Project",
     "ProjectIn",
     "ProjectPatch",
+    "Queue",
     "Reservation",
     "ReservationIn",
     "Result",
@@ -209,6 +210,7 @@ from compute_api_client.models.permission_group import PermissionGroup as Permis
 from compute_api_client.models.project import Project as Project
 from compute_api_client.models.project_in import ProjectIn as ProjectIn
 from compute_api_client.models.project_patch import ProjectPatch as ProjectPatch
+from compute_api_client.models.queue import Queue as Queue
 from compute_api_client.models.reservation import Reservation as Reservation
 from compute_api_client.models.reservation_in import ReservationIn as ReservationIn
 from compute_api_client.models.result import Result as Result

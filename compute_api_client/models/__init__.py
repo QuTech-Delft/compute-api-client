@@ -72,6 +72,7 @@ from compute_api_client.models.permission_group import PermissionGroup
 from compute_api_client.models.project import Project
 from compute_api_client.models.project_in import ProjectIn
 from compute_api_client.models.project_patch import ProjectPatch
+from compute_api_client.models.queue import Queue
 from compute_api_client.models.reservation import Reservation
 from compute_api_client.models.reservation_in import ReservationIn
 from compute_api_client.models.result import Result
