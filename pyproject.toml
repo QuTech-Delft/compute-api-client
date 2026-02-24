@@ -42,7 +42,7 @@ dev = [
     "deptry==0.24.0",
     "types-requests==2.32.4.20260107",
     "responses==0.25.8",
-    "refurb==2.2.0 ; python_version >= '3.10'",
+    "refurb==2.3.0; python_version >= '3.10'",
 ]
 
 [tool.hatch.build.targets.sdist]
