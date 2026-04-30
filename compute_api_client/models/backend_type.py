@@ -49,7 +49,8 @@ class BackendType(BaseModel):
     identifier: Annotated[str, Field(strict=True, max_length=32)] = Field(description="The identifier of the backend")
     protocol_version: Optional[StrictInt] = None
     job_execution_time_limit: Union[StrictFloat, StrictInt] = Field(description="Maximum allowed execution time(seconds) for a job.")
-    __properties: ClassVar[List[str]] = ["id", "name", "infrastructure", "description", "image_id", "is_hardware", "supports_raw_data", "features", "default_compiler_config", "gateset", "topology", "nqubits", "status", "messages", "default_number_of_shots", "max_number_of_shots", "enabled", "identifier", "protocol_version", "job_execution_time_limit"]
+    max_jobs_per_batch_job: StrictInt = Field(description="Maximum number of jobs allowed in a batch job.")
+    __properties: ClassVar[List[str]] = ["id", "name", "infrastructure", "description", "image_id", "is_hardware", "supports_raw_data", "features", "default_compiler_config", "gateset", "topology", "nqubits", "status", "messages", "default_number_of_shots", "max_number_of_shots", "enabled", "identifier", "protocol_version", "job_execution_time_limit", "max_jobs_per_batch_job"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -138,7 +139,8 @@ class BackendType(BaseModel):
             "enabled": obj.get("enabled"),
             "identifier": obj.get("identifier"),
             "protocol_version": obj.get("protocol_version"),
-            "job_execution_time_limit": obj.get("job_execution_time_limit")
+            "job_execution_time_limit": obj.get("job_execution_time_limit"),
+            "max_jobs_per_batch_job": obj.get("max_jobs_per_batch_job")
         })
         return _obj
 

@@ -7,6 +7,7 @@ from compute_api_client.api.backend_api import BackendApi
 from compute_api_client.api.backend_types_api import BackendTypesApi
 from compute_api_client.api.batch_jobs_api import BatchJobsApi
 from compute_api_client.api.commits_api import CommitsApi
+from compute_api_client.api.drain_mode_api import DrainModeApi
 from compute_api_client.api.files_api import FilesApi
 from compute_api_client.api.final_results_api import FinalResultsApi
 from compute_api_client.api.health_api import HealthApi

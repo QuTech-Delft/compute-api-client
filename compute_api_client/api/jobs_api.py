@@ -101,6 +101,7 @@ class JobsApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '201': "Job",
+            '409': "HTTPConflictError",
             '422': "HTTPValidationError",
         }
         response_data = await self.api_client.call_api(
@@ -169,6 +170,7 @@ class JobsApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '201': "Job",
+            '409': "HTTPConflictError",
             '422': "HTTPValidationError",
         }
         response_data = await self.api_client.call_api(
@@ -237,6 +239,7 @@ class JobsApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '201': "Job",
+            '409': "HTTPConflictError",
             '422': "HTTPValidationError",
         }
         response_data = await self.api_client.call_api(

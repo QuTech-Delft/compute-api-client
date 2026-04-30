@@ -24,6 +24,7 @@ __all__ = [
     "BackendTypesApi",
     "BatchJobsApi",
     "CommitsApi",
+    "DrainModeApi",
     "FilesApi",
     "FinalResultsApi",
     "HealthApi",
@@ -66,11 +67,14 @@ __all__ = [
     "CompilePayload",
     "CompileStage",
     "Domain",
+    "DrainMode",
+    "DrainModeIn",
     "File",
     "FileIn",
     "FinalResult",
     "FinalResultIn",
     "HTTPBadRequestError",
+    "HTTPConflictError",
     "HTTPNotFoundError",
     "HTTPValidationError",
     "Job",
@@ -126,6 +130,7 @@ from compute_api_client.api.backend_api import BackendApi as BackendApi
 from compute_api_client.api.backend_types_api import BackendTypesApi as BackendTypesApi
 from compute_api_client.api.batch_jobs_api import BatchJobsApi as BatchJobsApi
 from compute_api_client.api.commits_api import CommitsApi as CommitsApi
+from compute_api_client.api.drain_mode_api import DrainModeApi as DrainModeApi
 from compute_api_client.api.files_api import FilesApi as FilesApi
 from compute_api_client.api.final_results_api import FinalResultsApi as FinalResultsApi
 from compute_api_client.api.health_api import HealthApi as HealthApi
@@ -172,11 +177,14 @@ from compute_api_client.models.commit_in import CommitIn as CommitIn
 from compute_api_client.models.compile_payload import CompilePayload as CompilePayload
 from compute_api_client.models.compile_stage import CompileStage as CompileStage
 from compute_api_client.models.domain import Domain as Domain
+from compute_api_client.models.drain_mode import DrainMode as DrainMode
+from compute_api_client.models.drain_mode_in import DrainModeIn as DrainModeIn
 from compute_api_client.models.file import File as File
 from compute_api_client.models.file_in import FileIn as FileIn
 from compute_api_client.models.final_result import FinalResult as FinalResult
 from compute_api_client.models.final_result_in import FinalResultIn as FinalResultIn
 from compute_api_client.models.http_bad_request_error import HTTPBadRequestError as HTTPBadRequestError
+from compute_api_client.models.http_conflict_error import HTTPConflictError as HTTPConflictError
 from compute_api_client.models.http_not_found_error import HTTPNotFoundError as HTTPNotFoundError
 from compute_api_client.models.http_validation_error import HTTPValidationError as HTTPValidationError
 from compute_api_client.models.job import Job as Job

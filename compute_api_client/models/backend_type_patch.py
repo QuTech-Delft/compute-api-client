@@ -44,7 +44,8 @@ class BackendTypePatch(BaseModel):
     identifier: Optional[Annotated[str, Field(strict=True, max_length=32)]] = None
     protocol_version: Optional[StrictInt] = None
     job_execution_time_limit: Optional[Union[StrictFloat, StrictInt]] = None
-    __properties: ClassVar[List[str]] = ["name", "infrastructure", "description", "image_id", "is_hardware", "supports_raw_data", "features", "default_compiler_config", "gateset", "topology", "nqubits", "default_number_of_shots", "max_number_of_shots", "enabled", "identifier", "protocol_version", "job_execution_time_limit"]
+    max_jobs_per_batch_job: Optional[StrictInt] = None
+    __properties: ClassVar[List[str]] = ["name", "infrastructure", "description", "image_id", "is_hardware", "supports_raw_data", "features", "default_compiler_config", "gateset", "topology", "nqubits", "default_number_of_shots", "max_number_of_shots", "enabled", "identifier", "protocol_version", "job_execution_time_limit", "max_jobs_per_batch_job"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -170,6 +171,11 @@ class BackendTypePatch(BaseModel):
         if self.job_execution_time_limit is None and "job_execution_time_limit" in self.model_fields_set:
             _dict['job_execution_time_limit'] = None
 
+        # set to None if max_jobs_per_batch_job (nullable) is None
+        # and model_fields_set contains the field
+        if self.max_jobs_per_batch_job is None and "max_jobs_per_batch_job" in self.model_fields_set:
+            _dict['max_jobs_per_batch_job'] = None
+
         return _dict
 
     @classmethod
@@ -198,7 +204,8 @@ class BackendTypePatch(BaseModel):
             "enabled": obj.get("enabled"),
             "identifier": obj.get("identifier"),
             "protocol_version": obj.get("protocol_version"),
-            "job_execution_time_limit": obj.get("job_execution_time_limit")
+            "job_execution_time_limit": obj.get("job_execution_time_limit"),
+            "max_jobs_per_batch_job": obj.get("max_jobs_per_batch_job")
         })
         return _obj
 

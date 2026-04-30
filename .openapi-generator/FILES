@@ -6,6 +6,7 @@ compute_api_client/api/backend_api.py
 compute_api_client/api/backend_types_api.py
 compute_api_client/api/batch_jobs_api.py
 compute_api_client/api/commits_api.py
+compute_api_client/api/drain_mode_api.py
 compute_api_client/api/files_api.py
 compute_api_client/api/final_results_api.py
 compute_api_client/api/health_api.py
@@ -48,6 +49,9 @@ compute_api_client/docs/CommitsApi.md
 compute_api_client/docs/CompilePayload.md
 compute_api_client/docs/CompileStage.md
 compute_api_client/docs/Domain.md
+compute_api_client/docs/DrainMode.md
+compute_api_client/docs/DrainModeApi.md
+compute_api_client/docs/DrainModeIn.md
 compute_api_client/docs/File.md
 compute_api_client/docs/FileIn.md
 compute_api_client/docs/FilesApi.md
@@ -55,6 +59,7 @@ compute_api_client/docs/FinalResult.md
 compute_api_client/docs/FinalResultIn.md
 compute_api_client/docs/FinalResultsApi.md
 compute_api_client/docs/HTTPBadRequestError.md
+compute_api_client/docs/HTTPConflictError.md
 compute_api_client/docs/HTTPNotFoundError.md
 compute_api_client/docs/HTTPValidationError.md
 compute_api_client/docs/HealthApi.md
@@ -134,11 +139,14 @@ compute_api_client/models/commit_in.py
 compute_api_client/models/compile_payload.py
 compute_api_client/models/compile_stage.py
 compute_api_client/models/domain.py
+compute_api_client/models/drain_mode.py
+compute_api_client/models/drain_mode_in.py
 compute_api_client/models/file.py
 compute_api_client/models/file_in.py
 compute_api_client/models/final_result.py
 compute_api_client/models/final_result_in.py
 compute_api_client/models/http_bad_request_error.py
+compute_api_client/models/http_conflict_error.py
 compute_api_client/models/http_not_found_error.py
 compute_api_client/models/http_validation_error.py
 compute_api_client/models/job.py
@@ -187,4 +195,5 @@ compute_api_client/models/validation_error.py
 compute_api_client/models/validation_error_loc_inner.py
 compute_api_client/rest.py
 compute_api_client/test/__init__.py
+compute_api_client/test/test_http_conflict_error.py
 compute_api_client_README.md
