@@ -181,7 +181,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **read_backend_types_backend_types_get**
-> PageBackendType read_backend_types_backend_types_get(id=id, name=name, infrastructure=infrastructure, description=description, image_id=image_id, is_hardware=is_hardware, supports_raw_data=supports_raw_data, nqubits=nqubits, status=status, default_number_of_shots=default_number_of_shots, max_number_of_shots=max_number_of_shots, enabled=enabled, identifier=identifier, protocol_version__isnull=protocol_version__isnull, protocol_version=protocol_version, job_execution_time_limit=job_execution_time_limit, max_jobs_per_batch_job=max_jobs_per_batch_job, sort_by=sort_by, latest=latest, page=page, size=size)
+> PageBackendType read_backend_types_backend_types_get(id=id, name=name, infrastructure=infrastructure, description=description, image_id=image_id, is_hardware=is_hardware, supports_raw_data=supports_raw_data, nqubits=nqubits, status=status, default_number_of_shots=default_number_of_shots, max_number_of_shots=max_number_of_shots, enabled=enabled, identifier=identifier, protocol_version__isnull=protocol_version__isnull, protocol_version=protocol_version, job_execution_time_limit=job_execution_time_limit, max_jobs_per_batch_job=max_jobs_per_batch_job, batchjobs_per_queue_limit=batchjobs_per_queue_limit, sort_by=sort_by, latest=latest, page=page, size=size)
 
 List backend types
 
@@ -227,6 +227,7 @@ async with compute_api_client.ApiClient(configuration) as api_client:
     protocol_version = 56 # int |  (optional)
     job_execution_time_limit = 3.4 # float |  (optional)
     max_jobs_per_batch_job = 56 # int |  (optional)
+    batchjobs_per_queue_limit = 56 # int |  (optional)
     sort_by = 'sort_by_example' # str | The field name to sort on. Prefix with '-' for descending order. E.g., '-created_on'. (optional)
     latest = True # bool | If True gets the most recently created object. (optional)
     page = 1 # int | Page number (optional) (default to 1)
@@ -234,7 +235,7 @@ async with compute_api_client.ApiClient(configuration) as api_client:
 
     try:
         # List backend types
-        api_response = await api_instance.read_backend_types_backend_types_get(id=id, name=name, infrastructure=infrastructure, description=description, image_id=image_id, is_hardware=is_hardware, supports_raw_data=supports_raw_data, nqubits=nqubits, status=status, default_number_of_shots=default_number_of_shots, max_number_of_shots=max_number_of_shots, enabled=enabled, identifier=identifier, protocol_version__isnull=protocol_version__isnull, protocol_version=protocol_version, job_execution_time_limit=job_execution_time_limit, max_jobs_per_batch_job=max_jobs_per_batch_job, sort_by=sort_by, latest=latest, page=page, size=size)
+        api_response = await api_instance.read_backend_types_backend_types_get(id=id, name=name, infrastructure=infrastructure, description=description, image_id=image_id, is_hardware=is_hardware, supports_raw_data=supports_raw_data, nqubits=nqubits, status=status, default_number_of_shots=default_number_of_shots, max_number_of_shots=max_number_of_shots, enabled=enabled, identifier=identifier, protocol_version__isnull=protocol_version__isnull, protocol_version=protocol_version, job_execution_time_limit=job_execution_time_limit, max_jobs_per_batch_job=max_jobs_per_batch_job, batchjobs_per_queue_limit=batchjobs_per_queue_limit, sort_by=sort_by, latest=latest, page=page, size=size)
         print("The response of BackendTypesApi->read_backend_types_backend_types_get:\n")
         pprint(api_response)
     except Exception as e:
@@ -265,6 +266,7 @@ Name | Type | Description  | Notes
  **protocol_version** | **int**|  | [optional] 
  **job_execution_time_limit** | **float**|  | [optional] 
  **max_jobs_per_batch_job** | **int**|  | [optional] 
+ **batchjobs_per_queue_limit** | **int**|  | [optional] 
  **sort_by** | **str**| The field name to sort on. Prefix with &#39;-&#39; for descending order. E.g., &#39;-created_on&#39;. | [optional] 
  **latest** | **bool**| If True gets the most recently created object. | [optional] 
  **page** | **int**| Page number | [optional] [default to 1]

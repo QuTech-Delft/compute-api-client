@@ -26,6 +26,7 @@ Name | Type | Description | Notes
 **protocol_version** | **int** |  | [optional] 
 **job_execution_time_limit** | **float** | Maximum allowed execution time(seconds) for a job. | 
 **max_jobs_per_batch_job** | **int** | Maximum number of jobs allowed in a batch job. | 
+**batchjobs_per_queue_limit** | **int** | Maximum allowed number of batchjobs per a specific user and a backend type. | 
 
 ## Example
 

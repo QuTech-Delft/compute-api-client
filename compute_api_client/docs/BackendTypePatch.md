@@ -22,6 +22,7 @@ Name | Type | Description | Notes
 **identifier** | **str** |  | [optional] 
 **protocol_version** | **int** |  | [optional] 
 **job_execution_time_limit** | **float** |  | [optional] 
+**batchjobs_per_queue_limit** | **int** |  | [optional] 
 **max_jobs_per_batch_job** | **int** |  | [optional] 
 
 ## Example

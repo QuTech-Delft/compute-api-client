@@ -76,6 +76,7 @@ __all__ = [
     "HTTPBadRequestError",
     "HTTPConflictError",
     "HTTPNotFoundError",
+    "HTTPTooManyRequestsError",
     "HTTPValidationError",
     "Job",
     "JobIn",
@@ -186,6 +187,7 @@ from compute_api_client.models.final_result_in import FinalResultIn as FinalResu
 from compute_api_client.models.http_bad_request_error import HTTPBadRequestError as HTTPBadRequestError
 from compute_api_client.models.http_conflict_error import HTTPConflictError as HTTPConflictError
 from compute_api_client.models.http_not_found_error import HTTPNotFoundError as HTTPNotFoundError
+from compute_api_client.models.http_too_many_requests_error import HTTPTooManyRequestsError as HTTPTooManyRequestsError
 from compute_api_client.models.http_validation_error import HTTPValidationError as HTTPValidationError
 from compute_api_client.models.job import Job as Job
 from compute_api_client.models.job_in import JobIn as JobIn

@@ -265,6 +265,7 @@ class DrainModeApi:
 
         # authentication setting
         _auth_settings: List[str] = [
+            'backend'
         ]
 
         return self.api_client.param_serialize(

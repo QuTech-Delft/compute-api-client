@@ -63,12 +63,8 @@ else
     cd ../message-broadcaster/
     uv lock
 
-    echo "Updating integration test dependencies"
-    cd ../../../tests/integration/
-    uv lock
-
     echo "Updating e2e test dependencies"
-    cd ../e2e/
+    cd ../../../tests/e2e/
     uv lock
 
     echo "Success!"

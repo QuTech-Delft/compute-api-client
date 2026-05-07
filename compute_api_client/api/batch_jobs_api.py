@@ -99,6 +99,8 @@ class BatchJobsApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '201': "BatchJob",
+            '403': None,
+            '429': "HTTPTooManyRequestsError",
             '422': "HTTPValidationError",
         }
         response_data = await self.api_client.call_api(
@@ -167,6 +169,8 @@ class BatchJobsApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '201': "BatchJob",
+            '403': None,
+            '429': "HTTPTooManyRequestsError",
             '422': "HTTPValidationError",
         }
         response_data = await self.api_client.call_api(
@@ -235,6 +239,8 @@ class BatchJobsApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '201': "BatchJob",
+            '403': None,
+            '429': "HTTPTooManyRequestsError",
             '422': "HTTPValidationError",
         }
         response_data = await self.api_client.call_api(

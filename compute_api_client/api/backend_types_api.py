@@ -616,6 +616,7 @@ class BackendTypesApi:
         protocol_version: Optional[StrictInt] = None,
         job_execution_time_limit: Optional[Union[StrictFloat, StrictInt]] = None,
         max_jobs_per_batch_job: Optional[StrictInt] = None,
+        batchjobs_per_queue_limit: Optional[StrictInt] = None,
         sort_by: Annotated[Optional[StrictStr], Field(description="The field name to sort on. Prefix with '-' for descending order. E.g., '-created_on'.")] = None,
         latest: Annotated[Optional[StrictBool], Field(description="If True gets the most recently created object.")] = None,
         page: Annotated[Optional[Annotated[int, Field(strict=True, ge=1)]], Field(description="Page number")] = None,
@@ -671,6 +672,8 @@ class BackendTypesApi:
         :type job_execution_time_limit: float
         :param max_jobs_per_batch_job:
         :type max_jobs_per_batch_job: int
+        :param batchjobs_per_queue_limit:
+        :type batchjobs_per_queue_limit: int
         :param sort_by: The field name to sort on. Prefix with '-' for descending order. E.g., '-created_on'.
         :type sort_by: str
         :param latest: If True gets the most recently created object.
@@ -719,6 +722,7 @@ class BackendTypesApi:
             protocol_version=protocol_version,
             job_execution_time_limit=job_execution_time_limit,
             max_jobs_per_batch_job=max_jobs_per_batch_job,
+            batchjobs_per_queue_limit=batchjobs_per_queue_limit,
             sort_by=sort_by,
             latest=latest,
             page=page,
@@ -764,6 +768,7 @@ class BackendTypesApi:
         protocol_version: Optional[StrictInt] = None,
         job_execution_time_limit: Optional[Union[StrictFloat, StrictInt]] = None,
         max_jobs_per_batch_job: Optional[StrictInt] = None,
+        batchjobs_per_queue_limit: Optional[StrictInt] = None,
         sort_by: Annotated[Optional[StrictStr], Field(description="The field name to sort on. Prefix with '-' for descending order. E.g., '-created_on'.")] = None,
         latest: Annotated[Optional[StrictBool], Field(description="If True gets the most recently created object.")] = None,
         page: Annotated[Optional[Annotated[int, Field(strict=True, ge=1)]], Field(description="Page number")] = None,
@@ -819,6 +824,8 @@ class BackendTypesApi:
         :type job_execution_time_limit: float
         :param max_jobs_per_batch_job:
         :type max_jobs_per_batch_job: int
+        :param batchjobs_per_queue_limit:
+        :type batchjobs_per_queue_limit: int
         :param sort_by: The field name to sort on. Prefix with '-' for descending order. E.g., '-created_on'.
         :type sort_by: str
         :param latest: If True gets the most recently created object.
@@ -867,6 +874,7 @@ class BackendTypesApi:
             protocol_version=protocol_version,
             job_execution_time_limit=job_execution_time_limit,
             max_jobs_per_batch_job=max_jobs_per_batch_job,
+            batchjobs_per_queue_limit=batchjobs_per_queue_limit,
             sort_by=sort_by,
             latest=latest,
             page=page,
@@ -912,6 +920,7 @@ class BackendTypesApi:
         protocol_version: Optional[StrictInt] = None,
         job_execution_time_limit: Optional[Union[StrictFloat, StrictInt]] = None,
         max_jobs_per_batch_job: Optional[StrictInt] = None,
+        batchjobs_per_queue_limit: Optional[StrictInt] = None,
         sort_by: Annotated[Optional[StrictStr], Field(description="The field name to sort on. Prefix with '-' for descending order. E.g., '-created_on'.")] = None,
         latest: Annotated[Optional[StrictBool], Field(description="If True gets the most recently created object.")] = None,
         page: Annotated[Optional[Annotated[int, Field(strict=True, ge=1)]], Field(description="Page number")] = None,
@@ -967,6 +976,8 @@ class BackendTypesApi:
         :type job_execution_time_limit: float
         :param max_jobs_per_batch_job:
         :type max_jobs_per_batch_job: int
+        :param batchjobs_per_queue_limit:
+        :type batchjobs_per_queue_limit: int
         :param sort_by: The field name to sort on. Prefix with '-' for descending order. E.g., '-created_on'.
         :type sort_by: str
         :param latest: If True gets the most recently created object.
@@ -1015,6 +1026,7 @@ class BackendTypesApi:
             protocol_version=protocol_version,
             job_execution_time_limit=job_execution_time_limit,
             max_jobs_per_batch_job=max_jobs_per_batch_job,
+            batchjobs_per_queue_limit=batchjobs_per_queue_limit,
             sort_by=sort_by,
             latest=latest,
             page=page,
@@ -1055,6 +1067,7 @@ class BackendTypesApi:
         protocol_version,
         job_execution_time_limit,
         max_jobs_per_batch_job,
+        batchjobs_per_queue_limit,
         sort_by,
         latest,
         page,
@@ -1148,6 +1161,10 @@ class BackendTypesApi:
         if max_jobs_per_batch_job is not None:
             
             _query_params.append(('max_jobs_per_batch_job', max_jobs_per_batch_job))
+            
+        if batchjobs_per_queue_limit is not None:
+            
+            _query_params.append(('batchjobs_per_queue_limit', batchjobs_per_queue_limit))
             
         if sort_by is not None:
             

@@ -181,6 +181,7 @@ All URIs are relative to _http://localhost_
 - [HTTPBadRequestError](compute_api_client/docs/HTTPBadRequestError.md)
 - [HTTPConflictError](compute_api_client/docs/HTTPConflictError.md)
 - [HTTPNotFoundError](compute_api_client/docs/HTTPNotFoundError.md)
+- [HTTPTooManyRequestsError](compute_api_client/docs/HTTPTooManyRequestsError.md)
 - [HTTPValidationError](compute_api_client/docs/HTTPValidationError.md)
 - [Job](compute_api_client/docs/Job.md)
 - [JobIn](compute_api_client/docs/JobIn.md)

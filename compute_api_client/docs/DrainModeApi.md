@@ -17,6 +17,7 @@ Get drain_mode related stats for all backendtypes.
 
 ### Example
 
+* Api Key Authentication (backend):
 
 ```python
 import compute_api_client
@@ -30,6 +31,16 @@ configuration = compute_api_client.Configuration(
     host = "http://localhost"
 )
 
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: backend
+configuration.api_key['backend'] = os.environ["API_KEY"]
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['backend'] = 'Bearer'
 
 # Enter a context with an instance of the API client
 async with compute_api_client.ApiClient(configuration) as api_client:
@@ -57,7 +68,7 @@ This endpoint does not need any parameter.
 
 ### Authorization
 
-No authorization required
+[backend](../README.md#backend)
 
 ### HTTP request headers
 
