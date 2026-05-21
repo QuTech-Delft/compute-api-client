@@ -30,6 +30,7 @@ class BackendStatus(str, Enum):
     IDLE = 'idle'
     EXECUTING = 'executing'
     CALIBRATING = 'calibrating'
+    BENCHMARKING = 'benchmarking'
 
     @classmethod
     def from_json(cls, json_str: str) -> Self:
