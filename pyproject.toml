@@ -41,7 +41,7 @@ dev = [
     "ruff==0.15.22",
     "deptry==0.25.1",
     "types-requests==2.33.0.20260408",
-    "responses==0.26.0",
+    "responses==0.26.2",
     "refurb==2.3.1; python_version >= '3.10'",
 ]
 
