@@ -1,5 +1,6 @@
 # Role
 
+A member's role within a team.  Admins can add additional users to the team and have insight into the team's `Transaction` history; regular members cannot.
 
 ## Enum
 

@@ -86,7 +86,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **read_transactions_transactions_get**
-> PageTransaction read_transactions_transactions_get(id=id, domain__isnull=domain__isnull, domain=domain, job__isnull=job__isnull, job=job, team_id=team_id, member_id__isnull=member_id__isnull, member_id=member_id, change=change, timestamp=timestamp, sort_by=sort_by, latest=latest, page=page, size=size)
+> PageTransaction read_transactions_transactions_get(page=page, size=size, id=id, domain__isnull=domain__isnull, domain=domain, job__isnull=job__isnull, job=job, team_id=team_id, member_id__isnull=member_id__isnull, member_id=member_id, change=change, timestamp=timestamp, sort_by=sort_by, latest=latest)
 
 List transactions
 
@@ -120,6 +120,8 @@ configuration.access_token = os.environ["ACCESS_TOKEN"]
 async with compute_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = compute_api_client.TransactionsApi(api_client)
+    page = 1 # int |  (optional) (default to 1)
+    size = 50 # int |  (optional) (default to 50)
     id = 56 # int |  (optional)
     domain__isnull = True # bool |  (optional)
     domain = compute_api_client.Domain() # Domain |  (optional)
@@ -132,12 +134,10 @@ async with compute_api_client.ApiClient(configuration) as api_client:
     timestamp = '2013-10-20T19:20:30+01:00' # datetime |  (optional)
     sort_by = 'sort_by_example' # str | The field name to sort on. Prefix with '-' for descending order. E.g., '-created_on'. (optional)
     latest = True # bool | If True gets the most recently created object. (optional)
-    page = 1 # int | Page number (optional) (default to 1)
-    size = 50 # int | Page size (optional) (default to 50)
 
     try:
         # List transactions
-        api_response = await api_instance.read_transactions_transactions_get(id=id, domain__isnull=domain__isnull, domain=domain, job__isnull=job__isnull, job=job, team_id=team_id, member_id__isnull=member_id__isnull, member_id=member_id, change=change, timestamp=timestamp, sort_by=sort_by, latest=latest, page=page, size=size)
+        api_response = await api_instance.read_transactions_transactions_get(page=page, size=size, id=id, domain__isnull=domain__isnull, domain=domain, job__isnull=job__isnull, job=job, team_id=team_id, member_id__isnull=member_id__isnull, member_id=member_id, change=change, timestamp=timestamp, sort_by=sort_by, latest=latest)
         print("The response of TransactionsApi->read_transactions_transactions_get:\n")
         pprint(api_response)
     except Exception as e:
@@ -151,6 +151,8 @@ async with compute_api_client.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **page** | **int**|  | [optional] [default to 1]
+ **size** | **int**|  | [optional] [default to 50]
  **id** | **int**|  | [optional] 
  **domain__isnull** | **bool**|  | [optional] 
  **domain** | [**Domain**](.md)|  | [optional] 
@@ -163,8 +165,6 @@ Name | Type | Description  | Notes
  **timestamp** | **datetime**|  | [optional] 
  **sort_by** | **str**| The field name to sort on. Prefix with &#39;-&#39; for descending order. E.g., &#39;-created_on&#39;. | [optional] 
  **latest** | **bool**| If True gets the most recently created object. | [optional] 
- **page** | **int**| Page number | [optional] [default to 1]
- **size** | **int**| Page size | [optional] [default to 50]
 
 ### Return type
 

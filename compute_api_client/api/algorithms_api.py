@@ -859,6 +859,8 @@ class AlgorithmsApi:
     async def read_algorithms_algorithms_get(
         self,
         search: Annotated[Optional[StrictStr], Field(description="Substring search for algorithm names")] = None,
+        page: Optional[Annotated[int, Field(strict=True, ge=1)]] = None,
+        size: Optional[Annotated[int, Field(le=100, strict=True, ge=1)]] = None,
         id: Optional[StrictInt] = None,
         project_id: Optional[StrictInt] = None,
         type: Optional[AlgorithmType] = None,
@@ -868,8 +870,6 @@ class AlgorithmsApi:
         name: Optional[StrictStr] = None,
         sort_by: Annotated[Optional[StrictStr], Field(description="The field name to sort on. Prefix with '-' for descending order. E.g., '-created_on'.")] = None,
         latest: Annotated[Optional[StrictBool], Field(description="If True gets the most recently created object.")] = None,
-        page: Annotated[Optional[Annotated[int, Field(strict=True, ge=1)]], Field(description="Page number")] = None,
-        size: Annotated[Optional[Annotated[int, Field(le=100, strict=True, ge=1)]], Field(description="Page size")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -889,6 +889,10 @@ class AlgorithmsApi:
 
         :param search: Substring search for algorithm names
         :type search: str
+        :param page:
+        :type page: int
+        :param size:
+        :type size: int
         :param id:
         :type id: int
         :param project_id:
@@ -907,10 +911,6 @@ class AlgorithmsApi:
         :type sort_by: str
         :param latest: If True gets the most recently created object.
         :type latest: bool
-        :param page: Page number
-        :type page: int
-        :param size: Page size
-        :type size: int
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -935,6 +935,8 @@ class AlgorithmsApi:
 
         _param = self._read_algorithms_algorithms_get_serialize(
             search=search,
+            page=page,
+            size=size,
             id=id,
             project_id=project_id,
             type=type,
@@ -944,8 +946,6 @@ class AlgorithmsApi:
             name=name,
             sort_by=sort_by,
             latest=latest,
-            page=page,
-            size=size,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -971,6 +971,8 @@ class AlgorithmsApi:
     async def read_algorithms_algorithms_get_with_http_info(
         self,
         search: Annotated[Optional[StrictStr], Field(description="Substring search for algorithm names")] = None,
+        page: Optional[Annotated[int, Field(strict=True, ge=1)]] = None,
+        size: Optional[Annotated[int, Field(le=100, strict=True, ge=1)]] = None,
         id: Optional[StrictInt] = None,
         project_id: Optional[StrictInt] = None,
         type: Optional[AlgorithmType] = None,
@@ -980,8 +982,6 @@ class AlgorithmsApi:
         name: Optional[StrictStr] = None,
         sort_by: Annotated[Optional[StrictStr], Field(description="The field name to sort on. Prefix with '-' for descending order. E.g., '-created_on'.")] = None,
         latest: Annotated[Optional[StrictBool], Field(description="If True gets the most recently created object.")] = None,
-        page: Annotated[Optional[Annotated[int, Field(strict=True, ge=1)]], Field(description="Page number")] = None,
-        size: Annotated[Optional[Annotated[int, Field(le=100, strict=True, ge=1)]], Field(description="Page size")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -1001,6 +1001,10 @@ class AlgorithmsApi:
 
         :param search: Substring search for algorithm names
         :type search: str
+        :param page:
+        :type page: int
+        :param size:
+        :type size: int
         :param id:
         :type id: int
         :param project_id:
@@ -1019,10 +1023,6 @@ class AlgorithmsApi:
         :type sort_by: str
         :param latest: If True gets the most recently created object.
         :type latest: bool
-        :param page: Page number
-        :type page: int
-        :param size: Page size
-        :type size: int
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -1047,6 +1047,8 @@ class AlgorithmsApi:
 
         _param = self._read_algorithms_algorithms_get_serialize(
             search=search,
+            page=page,
+            size=size,
             id=id,
             project_id=project_id,
             type=type,
@@ -1056,8 +1058,6 @@ class AlgorithmsApi:
             name=name,
             sort_by=sort_by,
             latest=latest,
-            page=page,
-            size=size,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -1083,6 +1083,8 @@ class AlgorithmsApi:
     async def read_algorithms_algorithms_get_without_preload_content(
         self,
         search: Annotated[Optional[StrictStr], Field(description="Substring search for algorithm names")] = None,
+        page: Optional[Annotated[int, Field(strict=True, ge=1)]] = None,
+        size: Optional[Annotated[int, Field(le=100, strict=True, ge=1)]] = None,
         id: Optional[StrictInt] = None,
         project_id: Optional[StrictInt] = None,
         type: Optional[AlgorithmType] = None,
@@ -1092,8 +1094,6 @@ class AlgorithmsApi:
         name: Optional[StrictStr] = None,
         sort_by: Annotated[Optional[StrictStr], Field(description="The field name to sort on. Prefix with '-' for descending order. E.g., '-created_on'.")] = None,
         latest: Annotated[Optional[StrictBool], Field(description="If True gets the most recently created object.")] = None,
-        page: Annotated[Optional[Annotated[int, Field(strict=True, ge=1)]], Field(description="Page number")] = None,
-        size: Annotated[Optional[Annotated[int, Field(le=100, strict=True, ge=1)]], Field(description="Page size")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -1113,6 +1113,10 @@ class AlgorithmsApi:
 
         :param search: Substring search for algorithm names
         :type search: str
+        :param page:
+        :type page: int
+        :param size:
+        :type size: int
         :param id:
         :type id: int
         :param project_id:
@@ -1131,10 +1135,6 @@ class AlgorithmsApi:
         :type sort_by: str
         :param latest: If True gets the most recently created object.
         :type latest: bool
-        :param page: Page number
-        :type page: int
-        :param size: Page size
-        :type size: int
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -1159,6 +1159,8 @@ class AlgorithmsApi:
 
         _param = self._read_algorithms_algorithms_get_serialize(
             search=search,
+            page=page,
+            size=size,
             id=id,
             project_id=project_id,
             type=type,
@@ -1168,8 +1170,6 @@ class AlgorithmsApi:
             name=name,
             sort_by=sort_by,
             latest=latest,
-            page=page,
-            size=size,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -1190,6 +1190,8 @@ class AlgorithmsApi:
     def _read_algorithms_algorithms_get_serialize(
         self,
         search,
+        page,
+        size,
         id,
         project_id,
         type,
@@ -1199,8 +1201,6 @@ class AlgorithmsApi:
         name,
         sort_by,
         latest,
-        page,
-        size,
         _request_auth,
         _content_type,
         _headers,
@@ -1226,6 +1226,14 @@ class AlgorithmsApi:
         if search is not None:
             
             _query_params.append(('search', search))
+            
+        if page is not None:
+            
+            _query_params.append(('page', page))
+            
+        if size is not None:
+            
+            _query_params.append(('size', size))
             
         if id is not None:
             
@@ -1262,14 +1270,6 @@ class AlgorithmsApi:
         if latest is not None:
             
             _query_params.append(('latest', latest))
-            
-        if page is not None:
-            
-            _query_params.append(('page', page))
-            
-        if size is not None:
-            
-            _query_params.append(('size', size))
             
         # process the header parameters
         # process the form parameters

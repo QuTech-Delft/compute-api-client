@@ -22,6 +22,7 @@ from typing import Optional
 from typing_extensions import Annotated
 from compute_api_client.models.backend import Backend
 from compute_api_client.models.backend_in import BackendIn
+from compute_api_client.models.backend_message import BackendMessage
 from compute_api_client.models.backend_patch import BackendPatch
 from compute_api_client.models.backend_status import BackendStatus
 from compute_api_client.models.backend_with_authentication import BackendWithAuthentication
@@ -838,6 +839,8 @@ class BackendApi:
     @validate_call
     async def read_backends_backends_get(
         self,
+        page: Optional[Annotated[int, Field(strict=True, ge=1)]] = None,
+        size: Optional[Annotated[int, Field(le=100, strict=True, ge=1)]] = None,
         id: Optional[StrictInt] = None,
         name: Optional[StrictStr] = None,
         location: Optional[StrictStr] = None,
@@ -846,8 +849,7 @@ class BackendApi:
         last_heartbeat: Optional[datetime] = None,
         sort_by: Annotated[Optional[StrictStr], Field(description="The field name to sort on. Prefix with '-' for descending order. E.g., '-created_on'.")] = None,
         latest: Annotated[Optional[StrictBool], Field(description="If True gets the most recently created object.")] = None,
-        page: Annotated[Optional[Annotated[int, Field(strict=True, ge=1)]], Field(description="Page number")] = None,
-        size: Annotated[Optional[Annotated[int, Field(le=100, strict=True, ge=1)]], Field(description="Page size")] = None,
+        backend_message: Optional[BackendMessage] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -865,6 +867,10 @@ class BackendApi:
 
         Read backends.
 
+        :param page:
+        :type page: int
+        :param size:
+        :type size: int
         :param id:
         :type id: int
         :param name:
@@ -881,10 +887,8 @@ class BackendApi:
         :type sort_by: str
         :param latest: If True gets the most recently created object.
         :type latest: bool
-        :param page: Page number
-        :type page: int
-        :param size: Page size
-        :type size: int
+        :param backend_message:
+        :type backend_message: BackendMessage
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -908,6 +912,8 @@ class BackendApi:
         """ # noqa: E501
 
         _param = self._read_backends_backends_get_serialize(
+            page=page,
+            size=size,
             id=id,
             name=name,
             location=location,
@@ -916,8 +922,7 @@ class BackendApi:
             last_heartbeat=last_heartbeat,
             sort_by=sort_by,
             latest=latest,
-            page=page,
-            size=size,
+            backend_message=backend_message,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -942,6 +947,8 @@ class BackendApi:
     @validate_call
     async def read_backends_backends_get_with_http_info(
         self,
+        page: Optional[Annotated[int, Field(strict=True, ge=1)]] = None,
+        size: Optional[Annotated[int, Field(le=100, strict=True, ge=1)]] = None,
         id: Optional[StrictInt] = None,
         name: Optional[StrictStr] = None,
         location: Optional[StrictStr] = None,
@@ -950,8 +957,7 @@ class BackendApi:
         last_heartbeat: Optional[datetime] = None,
         sort_by: Annotated[Optional[StrictStr], Field(description="The field name to sort on. Prefix with '-' for descending order. E.g., '-created_on'.")] = None,
         latest: Annotated[Optional[StrictBool], Field(description="If True gets the most recently created object.")] = None,
-        page: Annotated[Optional[Annotated[int, Field(strict=True, ge=1)]], Field(description="Page number")] = None,
-        size: Annotated[Optional[Annotated[int, Field(le=100, strict=True, ge=1)]], Field(description="Page size")] = None,
+        backend_message: Optional[BackendMessage] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -969,6 +975,10 @@ class BackendApi:
 
         Read backends.
 
+        :param page:
+        :type page: int
+        :param size:
+        :type size: int
         :param id:
         :type id: int
         :param name:
@@ -985,10 +995,8 @@ class BackendApi:
         :type sort_by: str
         :param latest: If True gets the most recently created object.
         :type latest: bool
-        :param page: Page number
-        :type page: int
-        :param size: Page size
-        :type size: int
+        :param backend_message:
+        :type backend_message: BackendMessage
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -1012,6 +1020,8 @@ class BackendApi:
         """ # noqa: E501
 
         _param = self._read_backends_backends_get_serialize(
+            page=page,
+            size=size,
             id=id,
             name=name,
             location=location,
@@ -1020,8 +1030,7 @@ class BackendApi:
             last_heartbeat=last_heartbeat,
             sort_by=sort_by,
             latest=latest,
-            page=page,
-            size=size,
+            backend_message=backend_message,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -1046,6 +1055,8 @@ class BackendApi:
     @validate_call
     async def read_backends_backends_get_without_preload_content(
         self,
+        page: Optional[Annotated[int, Field(strict=True, ge=1)]] = None,
+        size: Optional[Annotated[int, Field(le=100, strict=True, ge=1)]] = None,
         id: Optional[StrictInt] = None,
         name: Optional[StrictStr] = None,
         location: Optional[StrictStr] = None,
@@ -1054,8 +1065,7 @@ class BackendApi:
         last_heartbeat: Optional[datetime] = None,
         sort_by: Annotated[Optional[StrictStr], Field(description="The field name to sort on. Prefix with '-' for descending order. E.g., '-created_on'.")] = None,
         latest: Annotated[Optional[StrictBool], Field(description="If True gets the most recently created object.")] = None,
-        page: Annotated[Optional[Annotated[int, Field(strict=True, ge=1)]], Field(description="Page number")] = None,
-        size: Annotated[Optional[Annotated[int, Field(le=100, strict=True, ge=1)]], Field(description="Page size")] = None,
+        backend_message: Optional[BackendMessage] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -1073,6 +1083,10 @@ class BackendApi:
 
         Read backends.
 
+        :param page:
+        :type page: int
+        :param size:
+        :type size: int
         :param id:
         :type id: int
         :param name:
@@ -1089,10 +1103,8 @@ class BackendApi:
         :type sort_by: str
         :param latest: If True gets the most recently created object.
         :type latest: bool
-        :param page: Page number
-        :type page: int
-        :param size: Page size
-        :type size: int
+        :param backend_message:
+        :type backend_message: BackendMessage
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -1116,6 +1128,8 @@ class BackendApi:
         """ # noqa: E501
 
         _param = self._read_backends_backends_get_serialize(
+            page=page,
+            size=size,
             id=id,
             name=name,
             location=location,
@@ -1124,8 +1138,7 @@ class BackendApi:
             last_heartbeat=last_heartbeat,
             sort_by=sort_by,
             latest=latest,
-            page=page,
-            size=size,
+            backend_message=backend_message,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -1145,6 +1158,8 @@ class BackendApi:
 
     def _read_backends_backends_get_serialize(
         self,
+        page,
+        size,
         id,
         name,
         location,
@@ -1153,8 +1168,7 @@ class BackendApi:
         last_heartbeat,
         sort_by,
         latest,
-        page,
-        size,
+        backend_message,
         _request_auth,
         _content_type,
         _headers,
@@ -1177,6 +1191,14 @@ class BackendApi:
 
         # process the path parameters
         # process the query parameters
+        if page is not None:
+            
+            _query_params.append(('page', page))
+            
+        if size is not None:
+            
+            _query_params.append(('size', size))
+            
         if id is not None:
             
             _query_params.append(('id', id))
@@ -1218,17 +1240,11 @@ class BackendApi:
             
             _query_params.append(('latest', latest))
             
-        if page is not None:
-            
-            _query_params.append(('page', page))
-            
-        if size is not None:
-            
-            _query_params.append(('size', size))
-            
         # process the header parameters
         # process the form parameters
         # process the body parameter
+        if backend_message is not None:
+            _body_params = backend_message
 
 
         # set the HTTP header `Accept`
@@ -1239,6 +1255,19 @@ class BackendApi:
                 ]
             )
 
+        # set the HTTP header `Content-Type`
+        if _content_type:
+            _header_params['Content-Type'] = _content_type
+        else:
+            _default_content_type = (
+                self.api_client.select_header_content_type(
+                    [
+                        'application/json'
+                    ]
+                )
+            )
+            if _default_content_type is not None:
+                _header_params['Content-Type'] = _default_content_type
 
         # authentication setting
         _auth_settings: List[str] = [

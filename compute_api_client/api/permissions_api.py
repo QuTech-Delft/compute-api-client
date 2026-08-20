@@ -312,12 +312,12 @@ class PermissionsApi:
     @validate_call
     async def read_permission_groups_permission_groups_get(
         self,
+        page: Optional[Annotated[int, Field(strict=True, ge=1)]] = None,
+        size: Optional[Annotated[int, Field(le=100, strict=True, ge=1)]] = None,
         id: Optional[StrictInt] = None,
         name: Optional[StrictStr] = None,
         sort_by: Annotated[Optional[StrictStr], Field(description="The field name to sort on. Prefix with '-' for descending order. E.g., '-created_on'.")] = None,
         latest: Annotated[Optional[StrictBool], Field(description="If True gets the most recently created object.")] = None,
-        page: Annotated[Optional[Annotated[int, Field(strict=True, ge=1)]], Field(description="Page number")] = None,
-        size: Annotated[Optional[Annotated[int, Field(le=100, strict=True, ge=1)]], Field(description="Page size")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -335,6 +335,10 @@ class PermissionsApi:
 
         Read permissions groups.
 
+        :param page:
+        :type page: int
+        :param size:
+        :type size: int
         :param id:
         :type id: int
         :param name:
@@ -343,10 +347,6 @@ class PermissionsApi:
         :type sort_by: str
         :param latest: If True gets the most recently created object.
         :type latest: bool
-        :param page: Page number
-        :type page: int
-        :param size: Page size
-        :type size: int
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -370,12 +370,12 @@ class PermissionsApi:
         """ # noqa: E501
 
         _param = self._read_permission_groups_permission_groups_get_serialize(
+            page=page,
+            size=size,
             id=id,
             name=name,
             sort_by=sort_by,
             latest=latest,
-            page=page,
-            size=size,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -400,12 +400,12 @@ class PermissionsApi:
     @validate_call
     async def read_permission_groups_permission_groups_get_with_http_info(
         self,
+        page: Optional[Annotated[int, Field(strict=True, ge=1)]] = None,
+        size: Optional[Annotated[int, Field(le=100, strict=True, ge=1)]] = None,
         id: Optional[StrictInt] = None,
         name: Optional[StrictStr] = None,
         sort_by: Annotated[Optional[StrictStr], Field(description="The field name to sort on. Prefix with '-' for descending order. E.g., '-created_on'.")] = None,
         latest: Annotated[Optional[StrictBool], Field(description="If True gets the most recently created object.")] = None,
-        page: Annotated[Optional[Annotated[int, Field(strict=True, ge=1)]], Field(description="Page number")] = None,
-        size: Annotated[Optional[Annotated[int, Field(le=100, strict=True, ge=1)]], Field(description="Page size")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -423,6 +423,10 @@ class PermissionsApi:
 
         Read permissions groups.
 
+        :param page:
+        :type page: int
+        :param size:
+        :type size: int
         :param id:
         :type id: int
         :param name:
@@ -431,10 +435,6 @@ class PermissionsApi:
         :type sort_by: str
         :param latest: If True gets the most recently created object.
         :type latest: bool
-        :param page: Page number
-        :type page: int
-        :param size: Page size
-        :type size: int
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -458,12 +458,12 @@ class PermissionsApi:
         """ # noqa: E501
 
         _param = self._read_permission_groups_permission_groups_get_serialize(
+            page=page,
+            size=size,
             id=id,
             name=name,
             sort_by=sort_by,
             latest=latest,
-            page=page,
-            size=size,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -488,12 +488,12 @@ class PermissionsApi:
     @validate_call
     async def read_permission_groups_permission_groups_get_without_preload_content(
         self,
+        page: Optional[Annotated[int, Field(strict=True, ge=1)]] = None,
+        size: Optional[Annotated[int, Field(le=100, strict=True, ge=1)]] = None,
         id: Optional[StrictInt] = None,
         name: Optional[StrictStr] = None,
         sort_by: Annotated[Optional[StrictStr], Field(description="The field name to sort on. Prefix with '-' for descending order. E.g., '-created_on'.")] = None,
         latest: Annotated[Optional[StrictBool], Field(description="If True gets the most recently created object.")] = None,
-        page: Annotated[Optional[Annotated[int, Field(strict=True, ge=1)]], Field(description="Page number")] = None,
-        size: Annotated[Optional[Annotated[int, Field(le=100, strict=True, ge=1)]], Field(description="Page size")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -511,6 +511,10 @@ class PermissionsApi:
 
         Read permissions groups.
 
+        :param page:
+        :type page: int
+        :param size:
+        :type size: int
         :param id:
         :type id: int
         :param name:
@@ -519,10 +523,6 @@ class PermissionsApi:
         :type sort_by: str
         :param latest: If True gets the most recently created object.
         :type latest: bool
-        :param page: Page number
-        :type page: int
-        :param size: Page size
-        :type size: int
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -546,12 +546,12 @@ class PermissionsApi:
         """ # noqa: E501
 
         _param = self._read_permission_groups_permission_groups_get_serialize(
+            page=page,
+            size=size,
             id=id,
             name=name,
             sort_by=sort_by,
             latest=latest,
-            page=page,
-            size=size,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -571,12 +571,12 @@ class PermissionsApi:
 
     def _read_permission_groups_permission_groups_get_serialize(
         self,
+        page,
+        size,
         id,
         name,
         sort_by,
         latest,
-        page,
-        size,
         _request_auth,
         _content_type,
         _headers,
@@ -599,6 +599,14 @@ class PermissionsApi:
 
         # process the path parameters
         # process the query parameters
+        if page is not None:
+            
+            _query_params.append(('page', page))
+            
+        if size is not None:
+            
+            _query_params.append(('size', size))
+            
         if id is not None:
             
             _query_params.append(('id', id))
@@ -614,14 +622,6 @@ class PermissionsApi:
         if latest is not None:
             
             _query_params.append(('latest', latest))
-            
-        if page is not None:
-            
-            _query_params.append(('page', page))
-            
-        if size is not None:
-            
-            _query_params.append(('size', size))
             
         # process the header parameters
         # process the form parameters
@@ -930,13 +930,13 @@ class PermissionsApi:
     @validate_call
     async def read_permissions_permissions_get(
         self,
+        page: Optional[Annotated[int, Field(strict=True, ge=1)]] = None,
+        size: Optional[Annotated[int, Field(le=100, strict=True, ge=1)]] = None,
         id: Optional[StrictInt] = None,
         permission: Optional[StrictStr] = None,
         name: Optional[StrictStr] = None,
         sort_by: Annotated[Optional[StrictStr], Field(description="The field name to sort on. Prefix with '-' for descending order. E.g., '-created_on'.")] = None,
         latest: Annotated[Optional[StrictBool], Field(description="If True gets the most recently created object.")] = None,
-        page: Annotated[Optional[Annotated[int, Field(strict=True, ge=1)]], Field(description="Page number")] = None,
-        size: Annotated[Optional[Annotated[int, Field(le=100, strict=True, ge=1)]], Field(description="Page size")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -954,6 +954,10 @@ class PermissionsApi:
 
         Read permissions.
 
+        :param page:
+        :type page: int
+        :param size:
+        :type size: int
         :param id:
         :type id: int
         :param permission:
@@ -964,10 +968,6 @@ class PermissionsApi:
         :type sort_by: str
         :param latest: If True gets the most recently created object.
         :type latest: bool
-        :param page: Page number
-        :type page: int
-        :param size: Page size
-        :type size: int
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -991,13 +991,13 @@ class PermissionsApi:
         """ # noqa: E501
 
         _param = self._read_permissions_permissions_get_serialize(
+            page=page,
+            size=size,
             id=id,
             permission=permission,
             name=name,
             sort_by=sort_by,
             latest=latest,
-            page=page,
-            size=size,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -1022,13 +1022,13 @@ class PermissionsApi:
     @validate_call
     async def read_permissions_permissions_get_with_http_info(
         self,
+        page: Optional[Annotated[int, Field(strict=True, ge=1)]] = None,
+        size: Optional[Annotated[int, Field(le=100, strict=True, ge=1)]] = None,
         id: Optional[StrictInt] = None,
         permission: Optional[StrictStr] = None,
         name: Optional[StrictStr] = None,
         sort_by: Annotated[Optional[StrictStr], Field(description="The field name to sort on. Prefix with '-' for descending order. E.g., '-created_on'.")] = None,
         latest: Annotated[Optional[StrictBool], Field(description="If True gets the most recently created object.")] = None,
-        page: Annotated[Optional[Annotated[int, Field(strict=True, ge=1)]], Field(description="Page number")] = None,
-        size: Annotated[Optional[Annotated[int, Field(le=100, strict=True, ge=1)]], Field(description="Page size")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -1046,6 +1046,10 @@ class PermissionsApi:
 
         Read permissions.
 
+        :param page:
+        :type page: int
+        :param size:
+        :type size: int
         :param id:
         :type id: int
         :param permission:
@@ -1056,10 +1060,6 @@ class PermissionsApi:
         :type sort_by: str
         :param latest: If True gets the most recently created object.
         :type latest: bool
-        :param page: Page number
-        :type page: int
-        :param size: Page size
-        :type size: int
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -1083,13 +1083,13 @@ class PermissionsApi:
         """ # noqa: E501
 
         _param = self._read_permissions_permissions_get_serialize(
+            page=page,
+            size=size,
             id=id,
             permission=permission,
             name=name,
             sort_by=sort_by,
             latest=latest,
-            page=page,
-            size=size,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -1114,13 +1114,13 @@ class PermissionsApi:
     @validate_call
     async def read_permissions_permissions_get_without_preload_content(
         self,
+        page: Optional[Annotated[int, Field(strict=True, ge=1)]] = None,
+        size: Optional[Annotated[int, Field(le=100, strict=True, ge=1)]] = None,
         id: Optional[StrictInt] = None,
         permission: Optional[StrictStr] = None,
         name: Optional[StrictStr] = None,
         sort_by: Annotated[Optional[StrictStr], Field(description="The field name to sort on. Prefix with '-' for descending order. E.g., '-created_on'.")] = None,
         latest: Annotated[Optional[StrictBool], Field(description="If True gets the most recently created object.")] = None,
-        page: Annotated[Optional[Annotated[int, Field(strict=True, ge=1)]], Field(description="Page number")] = None,
-        size: Annotated[Optional[Annotated[int, Field(le=100, strict=True, ge=1)]], Field(description="Page size")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -1138,6 +1138,10 @@ class PermissionsApi:
 
         Read permissions.
 
+        :param page:
+        :type page: int
+        :param size:
+        :type size: int
         :param id:
         :type id: int
         :param permission:
@@ -1148,10 +1152,6 @@ class PermissionsApi:
         :type sort_by: str
         :param latest: If True gets the most recently created object.
         :type latest: bool
-        :param page: Page number
-        :type page: int
-        :param size: Page size
-        :type size: int
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -1175,13 +1175,13 @@ class PermissionsApi:
         """ # noqa: E501
 
         _param = self._read_permissions_permissions_get_serialize(
+            page=page,
+            size=size,
             id=id,
             permission=permission,
             name=name,
             sort_by=sort_by,
             latest=latest,
-            page=page,
-            size=size,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -1201,13 +1201,13 @@ class PermissionsApi:
 
     def _read_permissions_permissions_get_serialize(
         self,
+        page,
+        size,
         id,
         permission,
         name,
         sort_by,
         latest,
-        page,
-        size,
         _request_auth,
         _content_type,
         _headers,
@@ -1230,6 +1230,14 @@ class PermissionsApi:
 
         # process the path parameters
         # process the query parameters
+        if page is not None:
+            
+            _query_params.append(('page', page))
+            
+        if size is not None:
+            
+            _query_params.append(('size', size))
+            
         if id is not None:
             
             _query_params.append(('id', id))
@@ -1249,14 +1257,6 @@ class PermissionsApi:
         if latest is not None:
             
             _query_params.append(('latest', latest))
-            
-        if page is not None:
-            
-            _query_params.append(('page', page))
-            
-        if size is not None:
-            
-            _query_params.append(('size', size))
             
         # process the header parameters
         # process the form parameters

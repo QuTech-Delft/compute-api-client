@@ -239,7 +239,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **read_users_users_get**
-> PageUser read_users_users_get(id=id, full_name=full_name, email=email, is_superuser=is_superuser, is_staff=is_staff, is_active=is_active, is_confirmed=is_confirmed, oidc_sub=oidc_sub, sort_by=sort_by, latest=latest, page=page, size=size)
+> PageUser read_users_users_get(page=page, size=size, id=id, full_name=full_name, email=email, is_superuser=is_superuser, is_staff=is_staff, is_active=is_active, is_confirmed=is_confirmed, oidc_sub=oidc_sub, sort_by=sort_by, latest=latest)
 
 List users
 
@@ -272,6 +272,8 @@ configuration.access_token = os.environ["ACCESS_TOKEN"]
 async with compute_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = compute_api_client.UsersApi(api_client)
+    page = 1 # int |  (optional) (default to 1)
+    size = 50 # int |  (optional) (default to 50)
     id = 56 # int |  (optional)
     full_name = 'full_name_example' # str |  (optional)
     email = 'email_example' # str |  (optional)
@@ -282,12 +284,10 @@ async with compute_api_client.ApiClient(configuration) as api_client:
     oidc_sub = 'oidc_sub_example' # str |  (optional)
     sort_by = 'sort_by_example' # str | The field name to sort on. Prefix with '-' for descending order. E.g., '-created_on'. (optional)
     latest = True # bool | If True gets the most recently created object. (optional)
-    page = 1 # int | Page number (optional) (default to 1)
-    size = 50 # int | Page size (optional) (default to 50)
 
     try:
         # List users
-        api_response = await api_instance.read_users_users_get(id=id, full_name=full_name, email=email, is_superuser=is_superuser, is_staff=is_staff, is_active=is_active, is_confirmed=is_confirmed, oidc_sub=oidc_sub, sort_by=sort_by, latest=latest, page=page, size=size)
+        api_response = await api_instance.read_users_users_get(page=page, size=size, id=id, full_name=full_name, email=email, is_superuser=is_superuser, is_staff=is_staff, is_active=is_active, is_confirmed=is_confirmed, oidc_sub=oidc_sub, sort_by=sort_by, latest=latest)
         print("The response of UsersApi->read_users_users_get:\n")
         pprint(api_response)
     except Exception as e:
@@ -301,6 +301,8 @@ async with compute_api_client.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **page** | **int**|  | [optional] [default to 1]
+ **size** | **int**|  | [optional] [default to 50]
  **id** | **int**|  | [optional] 
  **full_name** | **str**|  | [optional] 
  **email** | **str**|  | [optional] 
@@ -311,8 +313,6 @@ Name | Type | Description  | Notes
  **oidc_sub** | **str**|  | [optional] 
  **sort_by** | **str**| The field name to sort on. Prefix with &#39;-&#39; for descending order. E.g., &#39;-created_on&#39;. | [optional] 
  **latest** | **bool**| If True gets the most recently created object. | [optional] 
- **page** | **int**| Page number | [optional] [default to 1]
- **size** | **int**| Page size | [optional] [default to 50]
 
 ### Return type
 

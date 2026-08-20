@@ -589,6 +589,8 @@ class ReservationsApi:
     @validate_call
     async def read_reservations_reservations_get(
         self,
+        page: Optional[Annotated[int, Field(strict=True, ge=1)]] = None,
+        size: Optional[Annotated[int, Field(le=100, strict=True, ge=1)]] = None,
         id: Optional[StrictInt] = None,
         member_id: Optional[StrictInt] = None,
         start_time: Optional[datetime] = None,
@@ -599,8 +601,6 @@ class ReservationsApi:
         is_terminated: Optional[StrictBool] = None,
         sort_by: Annotated[Optional[StrictStr], Field(description="The field name to sort on. Prefix with '-' for descending order. E.g., '-created_on'.")] = None,
         latest: Annotated[Optional[StrictBool], Field(description="If True gets the most recently created object.")] = None,
-        page: Annotated[Optional[Annotated[int, Field(strict=True, ge=1)]], Field(description="Page number")] = None,
-        size: Annotated[Optional[Annotated[int, Field(le=100, strict=True, ge=1)]], Field(description="Page size")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -618,6 +618,10 @@ class ReservationsApi:
 
         Read reservations.
 
+        :param page:
+        :type page: int
+        :param size:
+        :type size: int
         :param id:
         :type id: int
         :param member_id:
@@ -638,10 +642,6 @@ class ReservationsApi:
         :type sort_by: str
         :param latest: If True gets the most recently created object.
         :type latest: bool
-        :param page: Page number
-        :type page: int
-        :param size: Page size
-        :type size: int
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -665,6 +665,8 @@ class ReservationsApi:
         """ # noqa: E501
 
         _param = self._read_reservations_reservations_get_serialize(
+            page=page,
+            size=size,
             id=id,
             member_id=member_id,
             start_time=start_time,
@@ -675,8 +677,6 @@ class ReservationsApi:
             is_terminated=is_terminated,
             sort_by=sort_by,
             latest=latest,
-            page=page,
-            size=size,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -701,6 +701,8 @@ class ReservationsApi:
     @validate_call
     async def read_reservations_reservations_get_with_http_info(
         self,
+        page: Optional[Annotated[int, Field(strict=True, ge=1)]] = None,
+        size: Optional[Annotated[int, Field(le=100, strict=True, ge=1)]] = None,
         id: Optional[StrictInt] = None,
         member_id: Optional[StrictInt] = None,
         start_time: Optional[datetime] = None,
@@ -711,8 +713,6 @@ class ReservationsApi:
         is_terminated: Optional[StrictBool] = None,
         sort_by: Annotated[Optional[StrictStr], Field(description="The field name to sort on. Prefix with '-' for descending order. E.g., '-created_on'.")] = None,
         latest: Annotated[Optional[StrictBool], Field(description="If True gets the most recently created object.")] = None,
-        page: Annotated[Optional[Annotated[int, Field(strict=True, ge=1)]], Field(description="Page number")] = None,
-        size: Annotated[Optional[Annotated[int, Field(le=100, strict=True, ge=1)]], Field(description="Page size")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -730,6 +730,10 @@ class ReservationsApi:
 
         Read reservations.
 
+        :param page:
+        :type page: int
+        :param size:
+        :type size: int
         :param id:
         :type id: int
         :param member_id:
@@ -750,10 +754,6 @@ class ReservationsApi:
         :type sort_by: str
         :param latest: If True gets the most recently created object.
         :type latest: bool
-        :param page: Page number
-        :type page: int
-        :param size: Page size
-        :type size: int
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -777,6 +777,8 @@ class ReservationsApi:
         """ # noqa: E501
 
         _param = self._read_reservations_reservations_get_serialize(
+            page=page,
+            size=size,
             id=id,
             member_id=member_id,
             start_time=start_time,
@@ -787,8 +789,6 @@ class ReservationsApi:
             is_terminated=is_terminated,
             sort_by=sort_by,
             latest=latest,
-            page=page,
-            size=size,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -813,6 +813,8 @@ class ReservationsApi:
     @validate_call
     async def read_reservations_reservations_get_without_preload_content(
         self,
+        page: Optional[Annotated[int, Field(strict=True, ge=1)]] = None,
+        size: Optional[Annotated[int, Field(le=100, strict=True, ge=1)]] = None,
         id: Optional[StrictInt] = None,
         member_id: Optional[StrictInt] = None,
         start_time: Optional[datetime] = None,
@@ -823,8 +825,6 @@ class ReservationsApi:
         is_terminated: Optional[StrictBool] = None,
         sort_by: Annotated[Optional[StrictStr], Field(description="The field name to sort on. Prefix with '-' for descending order. E.g., '-created_on'.")] = None,
         latest: Annotated[Optional[StrictBool], Field(description="If True gets the most recently created object.")] = None,
-        page: Annotated[Optional[Annotated[int, Field(strict=True, ge=1)]], Field(description="Page number")] = None,
-        size: Annotated[Optional[Annotated[int, Field(le=100, strict=True, ge=1)]], Field(description="Page size")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -842,6 +842,10 @@ class ReservationsApi:
 
         Read reservations.
 
+        :param page:
+        :type page: int
+        :param size:
+        :type size: int
         :param id:
         :type id: int
         :param member_id:
@@ -862,10 +866,6 @@ class ReservationsApi:
         :type sort_by: str
         :param latest: If True gets the most recently created object.
         :type latest: bool
-        :param page: Page number
-        :type page: int
-        :param size: Page size
-        :type size: int
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -889,6 +889,8 @@ class ReservationsApi:
         """ # noqa: E501
 
         _param = self._read_reservations_reservations_get_serialize(
+            page=page,
+            size=size,
             id=id,
             member_id=member_id,
             start_time=start_time,
@@ -899,8 +901,6 @@ class ReservationsApi:
             is_terminated=is_terminated,
             sort_by=sort_by,
             latest=latest,
-            page=page,
-            size=size,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -920,6 +920,8 @@ class ReservationsApi:
 
     def _read_reservations_reservations_get_serialize(
         self,
+        page,
+        size,
         id,
         member_id,
         start_time,
@@ -930,8 +932,6 @@ class ReservationsApi:
         is_terminated,
         sort_by,
         latest,
-        page,
-        size,
         _request_auth,
         _content_type,
         _headers,
@@ -954,6 +954,14 @@ class ReservationsApi:
 
         # process the path parameters
         # process the query parameters
+        if page is not None:
+            
+            _query_params.append(('page', page))
+            
+        if size is not None:
+            
+            _query_params.append(('size', size))
+            
         if id is not None:
             
             _query_params.append(('id', id))
@@ -1011,14 +1019,6 @@ class ReservationsApi:
         if latest is not None:
             
             _query_params.append(('latest', latest))
-            
-        if page is not None:
-            
-            _query_params.append(('page', page))
-            
-        if size is not None:
-            
-            _query_params.append(('size', size))
             
         # process the header parameters
         # process the form parameters

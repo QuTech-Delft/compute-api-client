@@ -69,7 +69,7 @@ async with compute_api_client.ApiClient(configuration) as api_client:
 
 ## Documentation for API Endpoints
 
-All URIs are relative to _http://localhost_
+All URIs are relative to *http://localhost*
 
 | Class             | Method                                                                                                                                                                       | HTTP request                              | Description                                         |
 | ----------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------- | --------------------------------------------------- |

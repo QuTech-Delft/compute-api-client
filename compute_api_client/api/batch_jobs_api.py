@@ -1392,6 +1392,8 @@ class BatchJobsApi:
     @validate_call
     async def read_batch_jobs_batch_jobs_get(
         self,
+        page: Optional[Annotated[int, Field(strict=True, ge=1)]] = None,
+        size: Optional[Annotated[int, Field(le=100, strict=True, ge=1)]] = None,
         id: Optional[StrictInt] = None,
         created_on: Optional[datetime] = None,
         status: Optional[BatchJobStatus] = None,
@@ -1407,8 +1409,6 @@ class BatchJobsApi:
         aggregated_algorithm_type: Optional[AlgorithmType] = None,
         sort_by: Annotated[Optional[StrictStr], Field(description="The field name to sort on. Prefix with '-' for descending order. E.g., '-created_on'.")] = None,
         latest: Annotated[Optional[StrictBool], Field(description="If True gets the most recently created object.")] = None,
-        page: Annotated[Optional[Annotated[int, Field(strict=True, ge=1)]], Field(description="Page number")] = None,
-        size: Annotated[Optional[Annotated[int, Field(le=100, strict=True, ge=1)]], Field(description="Page size")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -1426,6 +1426,10 @@ class BatchJobsApi:
 
         List batch jobs.
 
+        :param page:
+        :type page: int
+        :param size:
+        :type size: int
         :param id:
         :type id: int
         :param created_on:
@@ -1456,10 +1460,6 @@ class BatchJobsApi:
         :type sort_by: str
         :param latest: If True gets the most recently created object.
         :type latest: bool
-        :param page: Page number
-        :type page: int
-        :param size: Page size
-        :type size: int
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -1483,6 +1483,8 @@ class BatchJobsApi:
         """ # noqa: E501
 
         _param = self._read_batch_jobs_batch_jobs_get_serialize(
+            page=page,
+            size=size,
             id=id,
             created_on=created_on,
             status=status,
@@ -1498,8 +1500,6 @@ class BatchJobsApi:
             aggregated_algorithm_type=aggregated_algorithm_type,
             sort_by=sort_by,
             latest=latest,
-            page=page,
-            size=size,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -1524,6 +1524,8 @@ class BatchJobsApi:
     @validate_call
     async def read_batch_jobs_batch_jobs_get_with_http_info(
         self,
+        page: Optional[Annotated[int, Field(strict=True, ge=1)]] = None,
+        size: Optional[Annotated[int, Field(le=100, strict=True, ge=1)]] = None,
         id: Optional[StrictInt] = None,
         created_on: Optional[datetime] = None,
         status: Optional[BatchJobStatus] = None,
@@ -1539,8 +1541,6 @@ class BatchJobsApi:
         aggregated_algorithm_type: Optional[AlgorithmType] = None,
         sort_by: Annotated[Optional[StrictStr], Field(description="The field name to sort on. Prefix with '-' for descending order. E.g., '-created_on'.")] = None,
         latest: Annotated[Optional[StrictBool], Field(description="If True gets the most recently created object.")] = None,
-        page: Annotated[Optional[Annotated[int, Field(strict=True, ge=1)]], Field(description="Page number")] = None,
-        size: Annotated[Optional[Annotated[int, Field(le=100, strict=True, ge=1)]], Field(description="Page size")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -1558,6 +1558,10 @@ class BatchJobsApi:
 
         List batch jobs.
 
+        :param page:
+        :type page: int
+        :param size:
+        :type size: int
         :param id:
         :type id: int
         :param created_on:
@@ -1588,10 +1592,6 @@ class BatchJobsApi:
         :type sort_by: str
         :param latest: If True gets the most recently created object.
         :type latest: bool
-        :param page: Page number
-        :type page: int
-        :param size: Page size
-        :type size: int
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -1615,6 +1615,8 @@ class BatchJobsApi:
         """ # noqa: E501
 
         _param = self._read_batch_jobs_batch_jobs_get_serialize(
+            page=page,
+            size=size,
             id=id,
             created_on=created_on,
             status=status,
@@ -1630,8 +1632,6 @@ class BatchJobsApi:
             aggregated_algorithm_type=aggregated_algorithm_type,
             sort_by=sort_by,
             latest=latest,
-            page=page,
-            size=size,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -1656,6 +1656,8 @@ class BatchJobsApi:
     @validate_call
     async def read_batch_jobs_batch_jobs_get_without_preload_content(
         self,
+        page: Optional[Annotated[int, Field(strict=True, ge=1)]] = None,
+        size: Optional[Annotated[int, Field(le=100, strict=True, ge=1)]] = None,
         id: Optional[StrictInt] = None,
         created_on: Optional[datetime] = None,
         status: Optional[BatchJobStatus] = None,
@@ -1671,8 +1673,6 @@ class BatchJobsApi:
         aggregated_algorithm_type: Optional[AlgorithmType] = None,
         sort_by: Annotated[Optional[StrictStr], Field(description="The field name to sort on. Prefix with '-' for descending order. E.g., '-created_on'.")] = None,
         latest: Annotated[Optional[StrictBool], Field(description="If True gets the most recently created object.")] = None,
-        page: Annotated[Optional[Annotated[int, Field(strict=True, ge=1)]], Field(description="Page number")] = None,
-        size: Annotated[Optional[Annotated[int, Field(le=100, strict=True, ge=1)]], Field(description="Page size")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -1690,6 +1690,10 @@ class BatchJobsApi:
 
         List batch jobs.
 
+        :param page:
+        :type page: int
+        :param size:
+        :type size: int
         :param id:
         :type id: int
         :param created_on:
@@ -1720,10 +1724,6 @@ class BatchJobsApi:
         :type sort_by: str
         :param latest: If True gets the most recently created object.
         :type latest: bool
-        :param page: Page number
-        :type page: int
-        :param size: Page size
-        :type size: int
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -1747,6 +1747,8 @@ class BatchJobsApi:
         """ # noqa: E501
 
         _param = self._read_batch_jobs_batch_jobs_get_serialize(
+            page=page,
+            size=size,
             id=id,
             created_on=created_on,
             status=status,
@@ -1762,8 +1764,6 @@ class BatchJobsApi:
             aggregated_algorithm_type=aggregated_algorithm_type,
             sort_by=sort_by,
             latest=latest,
-            page=page,
-            size=size,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -1783,6 +1783,8 @@ class BatchJobsApi:
 
     def _read_batch_jobs_batch_jobs_get_serialize(
         self,
+        page,
+        size,
         id,
         created_on,
         status,
@@ -1798,8 +1800,6 @@ class BatchJobsApi:
         aggregated_algorithm_type,
         sort_by,
         latest,
-        page,
-        size,
         _request_auth,
         _content_type,
         _headers,
@@ -1822,6 +1822,14 @@ class BatchJobsApi:
 
         # process the path parameters
         # process the query parameters
+        if page is not None:
+            
+            _query_params.append(('page', page))
+            
+        if size is not None:
+            
+            _query_params.append(('size', size))
+            
         if id is not None:
             
             _query_params.append(('id', id))
@@ -1917,14 +1925,6 @@ class BatchJobsApi:
         if latest is not None:
             
             _query_params.append(('latest', latest))
-            
-        if page is not None:
-            
-            _query_params.append(('page', page))
-            
-        if size is not None:
-            
-            _query_params.append(('size', size))
             
         # process the header parameters
         # process the form parameters

@@ -599,6 +599,8 @@ class BackendTypesApi:
     @validate_call
     async def read_backend_types_backend_types_get(
         self,
+        page: Optional[Annotated[int, Field(strict=True, ge=1)]] = None,
+        size: Optional[Annotated[int, Field(le=100, strict=True, ge=1)]] = None,
         id: Optional[StrictInt] = None,
         name: Optional[StrictStr] = None,
         infrastructure: Optional[StrictStr] = None,
@@ -619,8 +621,6 @@ class BackendTypesApi:
         batchjobs_per_queue_limit: Optional[StrictInt] = None,
         sort_by: Annotated[Optional[StrictStr], Field(description="The field name to sort on. Prefix with '-' for descending order. E.g., '-created_on'.")] = None,
         latest: Annotated[Optional[StrictBool], Field(description="If True gets the most recently created object.")] = None,
-        page: Annotated[Optional[Annotated[int, Field(strict=True, ge=1)]], Field(description="Page number")] = None,
-        size: Annotated[Optional[Annotated[int, Field(le=100, strict=True, ge=1)]], Field(description="Page size")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -638,6 +638,10 @@ class BackendTypesApi:
 
         Read backend types.  Only enabled backend types are returned.
 
+        :param page:
+        :type page: int
+        :param size:
+        :type size: int
         :param id:
         :type id: int
         :param name:
@@ -678,10 +682,6 @@ class BackendTypesApi:
         :type sort_by: str
         :param latest: If True gets the most recently created object.
         :type latest: bool
-        :param page: Page number
-        :type page: int
-        :param size: Page size
-        :type size: int
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -705,6 +705,8 @@ class BackendTypesApi:
         """ # noqa: E501
 
         _param = self._read_backend_types_backend_types_get_serialize(
+            page=page,
+            size=size,
             id=id,
             name=name,
             infrastructure=infrastructure,
@@ -725,8 +727,6 @@ class BackendTypesApi:
             batchjobs_per_queue_limit=batchjobs_per_queue_limit,
             sort_by=sort_by,
             latest=latest,
-            page=page,
-            size=size,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -751,6 +751,8 @@ class BackendTypesApi:
     @validate_call
     async def read_backend_types_backend_types_get_with_http_info(
         self,
+        page: Optional[Annotated[int, Field(strict=True, ge=1)]] = None,
+        size: Optional[Annotated[int, Field(le=100, strict=True, ge=1)]] = None,
         id: Optional[StrictInt] = None,
         name: Optional[StrictStr] = None,
         infrastructure: Optional[StrictStr] = None,
@@ -771,8 +773,6 @@ class BackendTypesApi:
         batchjobs_per_queue_limit: Optional[StrictInt] = None,
         sort_by: Annotated[Optional[StrictStr], Field(description="The field name to sort on. Prefix with '-' for descending order. E.g., '-created_on'.")] = None,
         latest: Annotated[Optional[StrictBool], Field(description="If True gets the most recently created object.")] = None,
-        page: Annotated[Optional[Annotated[int, Field(strict=True, ge=1)]], Field(description="Page number")] = None,
-        size: Annotated[Optional[Annotated[int, Field(le=100, strict=True, ge=1)]], Field(description="Page size")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -790,6 +790,10 @@ class BackendTypesApi:
 
         Read backend types.  Only enabled backend types are returned.
 
+        :param page:
+        :type page: int
+        :param size:
+        :type size: int
         :param id:
         :type id: int
         :param name:
@@ -830,10 +834,6 @@ class BackendTypesApi:
         :type sort_by: str
         :param latest: If True gets the most recently created object.
         :type latest: bool
-        :param page: Page number
-        :type page: int
-        :param size: Page size
-        :type size: int
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -857,6 +857,8 @@ class BackendTypesApi:
         """ # noqa: E501
 
         _param = self._read_backend_types_backend_types_get_serialize(
+            page=page,
+            size=size,
             id=id,
             name=name,
             infrastructure=infrastructure,
@@ -877,8 +879,6 @@ class BackendTypesApi:
             batchjobs_per_queue_limit=batchjobs_per_queue_limit,
             sort_by=sort_by,
             latest=latest,
-            page=page,
-            size=size,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -903,6 +903,8 @@ class BackendTypesApi:
     @validate_call
     async def read_backend_types_backend_types_get_without_preload_content(
         self,
+        page: Optional[Annotated[int, Field(strict=True, ge=1)]] = None,
+        size: Optional[Annotated[int, Field(le=100, strict=True, ge=1)]] = None,
         id: Optional[StrictInt] = None,
         name: Optional[StrictStr] = None,
         infrastructure: Optional[StrictStr] = None,
@@ -923,8 +925,6 @@ class BackendTypesApi:
         batchjobs_per_queue_limit: Optional[StrictInt] = None,
         sort_by: Annotated[Optional[StrictStr], Field(description="The field name to sort on. Prefix with '-' for descending order. E.g., '-created_on'.")] = None,
         latest: Annotated[Optional[StrictBool], Field(description="If True gets the most recently created object.")] = None,
-        page: Annotated[Optional[Annotated[int, Field(strict=True, ge=1)]], Field(description="Page number")] = None,
-        size: Annotated[Optional[Annotated[int, Field(le=100, strict=True, ge=1)]], Field(description="Page size")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -942,6 +942,10 @@ class BackendTypesApi:
 
         Read backend types.  Only enabled backend types are returned.
 
+        :param page:
+        :type page: int
+        :param size:
+        :type size: int
         :param id:
         :type id: int
         :param name:
@@ -982,10 +986,6 @@ class BackendTypesApi:
         :type sort_by: str
         :param latest: If True gets the most recently created object.
         :type latest: bool
-        :param page: Page number
-        :type page: int
-        :param size: Page size
-        :type size: int
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -1009,6 +1009,8 @@ class BackendTypesApi:
         """ # noqa: E501
 
         _param = self._read_backend_types_backend_types_get_serialize(
+            page=page,
+            size=size,
             id=id,
             name=name,
             infrastructure=infrastructure,
@@ -1029,8 +1031,6 @@ class BackendTypesApi:
             batchjobs_per_queue_limit=batchjobs_per_queue_limit,
             sort_by=sort_by,
             latest=latest,
-            page=page,
-            size=size,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -1050,6 +1050,8 @@ class BackendTypesApi:
 
     def _read_backend_types_backend_types_get_serialize(
         self,
+        page,
+        size,
         id,
         name,
         infrastructure,
@@ -1070,8 +1072,6 @@ class BackendTypesApi:
         batchjobs_per_queue_limit,
         sort_by,
         latest,
-        page,
-        size,
         _request_auth,
         _content_type,
         _headers,
@@ -1094,6 +1094,14 @@ class BackendTypesApi:
 
         # process the path parameters
         # process the query parameters
+        if page is not None:
+            
+            _query_params.append(('page', page))
+            
+        if size is not None:
+            
+            _query_params.append(('size', size))
+            
         if id is not None:
             
             _query_params.append(('id', id))
@@ -1173,14 +1181,6 @@ class BackendTypesApi:
         if latest is not None:
             
             _query_params.append(('latest', latest))
-            
-        if page is not None:
-            
-            _query_params.append(('page', page))
-            
-        if size is not None:
-            
-            _query_params.append(('size', size))
             
         # process the header parameters
         # process the form parameters

@@ -331,7 +331,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **read_jobs_jobs_get**
-> PageJob read_jobs_jobs_get(id=id, created_on=created_on, file_id=file_id, algorithm_type=algorithm_type, status=status, batch_job_id=batch_job_id, queued_at__isnull=queued_at__isnull, queued_at=queued_at, finished_at__isnull=finished_at__isnull, finished_at=finished_at, number_of_shots__isnull=number_of_shots__isnull, number_of_shots=number_of_shots, raw_data_enabled=raw_data_enabled, session_id=session_id, trace_id=trace_id, message=message, source=source, sort_by=sort_by, latest=latest, page=page, size=size)
+> PageJob read_jobs_jobs_get(page=page, size=size, id=id, created_on=created_on, file_id=file_id, algorithm_type=algorithm_type, status=status, batch_job_id=batch_job_id, queued_at__isnull=queued_at__isnull, queued_at=queued_at, finished_at__isnull=finished_at__isnull, finished_at=finished_at, number_of_shots__isnull=number_of_shots__isnull, number_of_shots=number_of_shots, raw_data_enabled=raw_data_enabled, session_id=session_id, trace_id=trace_id, message=message, source=source, sort_by=sort_by, latest=latest)
 
 List jobs
 
@@ -373,6 +373,8 @@ configuration.api_key['backend'] = os.environ["API_KEY"]
 async with compute_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = compute_api_client.JobsApi(api_client)
+    page = 1 # int |  (optional) (default to 1)
+    size = 50 # int |  (optional) (default to 50)
     id = 56 # int |  (optional)
     created_on = '2013-10-20T19:20:30+01:00' # datetime |  (optional)
     file_id = 56 # int |  (optional)
@@ -392,12 +394,10 @@ async with compute_api_client.ApiClient(configuration) as api_client:
     source = 'source_example' # str |  (optional)
     sort_by = 'sort_by_example' # str | The field name to sort on. Prefix with '-' for descending order. E.g., '-created_on'. (optional)
     latest = True # bool | If True gets the most recently created object. (optional)
-    page = 1 # int | Page number (optional) (default to 1)
-    size = 50 # int | Page size (optional) (default to 50)
 
     try:
         # List jobs
-        api_response = await api_instance.read_jobs_jobs_get(id=id, created_on=created_on, file_id=file_id, algorithm_type=algorithm_type, status=status, batch_job_id=batch_job_id, queued_at__isnull=queued_at__isnull, queued_at=queued_at, finished_at__isnull=finished_at__isnull, finished_at=finished_at, number_of_shots__isnull=number_of_shots__isnull, number_of_shots=number_of_shots, raw_data_enabled=raw_data_enabled, session_id=session_id, trace_id=trace_id, message=message, source=source, sort_by=sort_by, latest=latest, page=page, size=size)
+        api_response = await api_instance.read_jobs_jobs_get(page=page, size=size, id=id, created_on=created_on, file_id=file_id, algorithm_type=algorithm_type, status=status, batch_job_id=batch_job_id, queued_at__isnull=queued_at__isnull, queued_at=queued_at, finished_at__isnull=finished_at__isnull, finished_at=finished_at, number_of_shots__isnull=number_of_shots__isnull, number_of_shots=number_of_shots, raw_data_enabled=raw_data_enabled, session_id=session_id, trace_id=trace_id, message=message, source=source, sort_by=sort_by, latest=latest)
         print("The response of JobsApi->read_jobs_jobs_get:\n")
         pprint(api_response)
     except Exception as e:
@@ -411,6 +411,8 @@ async with compute_api_client.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **page** | **int**|  | [optional] [default to 1]
+ **size** | **int**|  | [optional] [default to 50]
  **id** | **int**|  | [optional] 
  **created_on** | **datetime**|  | [optional] 
  **file_id** | **int**|  | [optional] 
@@ -430,8 +432,6 @@ Name | Type | Description  | Notes
  **source** | **str**|  | [optional] 
  **sort_by** | **str**| The field name to sort on. Prefix with &#39;-&#39; for descending order. E.g., &#39;-created_on&#39;. | [optional] 
  **latest** | **bool**| If True gets the most recently created object. | [optional] 
- **page** | **int**| Page number | [optional] [default to 1]
- **size** | **int**| Page size | [optional] [default to 50]
 
 ### Return type
 

@@ -1179,6 +1179,8 @@ class JobsApi:
     @validate_call
     async def read_jobs_jobs_get(
         self,
+        page: Optional[Annotated[int, Field(strict=True, ge=1)]] = None,
+        size: Optional[Annotated[int, Field(le=100, strict=True, ge=1)]] = None,
         id: Optional[StrictInt] = None,
         created_on: Optional[datetime] = None,
         file_id: Optional[StrictInt] = None,
@@ -1198,8 +1200,6 @@ class JobsApi:
         source: Optional[StrictStr] = None,
         sort_by: Annotated[Optional[StrictStr], Field(description="The field name to sort on. Prefix with '-' for descending order. E.g., '-created_on'.")] = None,
         latest: Annotated[Optional[StrictBool], Field(description="If True gets the most recently created object.")] = None,
-        page: Annotated[Optional[Annotated[int, Field(strict=True, ge=1)]], Field(description="Page number")] = None,
-        size: Annotated[Optional[Annotated[int, Field(le=100, strict=True, ge=1)]], Field(description="Page size")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -1217,6 +1217,10 @@ class JobsApi:
 
         List jobs.
 
+        :param page:
+        :type page: int
+        :param size:
+        :type size: int
         :param id:
         :type id: int
         :param created_on:
@@ -1255,10 +1259,6 @@ class JobsApi:
         :type sort_by: str
         :param latest: If True gets the most recently created object.
         :type latest: bool
-        :param page: Page number
-        :type page: int
-        :param size: Page size
-        :type size: int
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -1282,6 +1282,8 @@ class JobsApi:
         """ # noqa: E501
 
         _param = self._read_jobs_jobs_get_serialize(
+            page=page,
+            size=size,
             id=id,
             created_on=created_on,
             file_id=file_id,
@@ -1301,8 +1303,6 @@ class JobsApi:
             source=source,
             sort_by=sort_by,
             latest=latest,
-            page=page,
-            size=size,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -1327,6 +1327,8 @@ class JobsApi:
     @validate_call
     async def read_jobs_jobs_get_with_http_info(
         self,
+        page: Optional[Annotated[int, Field(strict=True, ge=1)]] = None,
+        size: Optional[Annotated[int, Field(le=100, strict=True, ge=1)]] = None,
         id: Optional[StrictInt] = None,
         created_on: Optional[datetime] = None,
         file_id: Optional[StrictInt] = None,
@@ -1346,8 +1348,6 @@ class JobsApi:
         source: Optional[StrictStr] = None,
         sort_by: Annotated[Optional[StrictStr], Field(description="The field name to sort on. Prefix with '-' for descending order. E.g., '-created_on'.")] = None,
         latest: Annotated[Optional[StrictBool], Field(description="If True gets the most recently created object.")] = None,
-        page: Annotated[Optional[Annotated[int, Field(strict=True, ge=1)]], Field(description="Page number")] = None,
-        size: Annotated[Optional[Annotated[int, Field(le=100, strict=True, ge=1)]], Field(description="Page size")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -1365,6 +1365,10 @@ class JobsApi:
 
         List jobs.
 
+        :param page:
+        :type page: int
+        :param size:
+        :type size: int
         :param id:
         :type id: int
         :param created_on:
@@ -1403,10 +1407,6 @@ class JobsApi:
         :type sort_by: str
         :param latest: If True gets the most recently created object.
         :type latest: bool
-        :param page: Page number
-        :type page: int
-        :param size: Page size
-        :type size: int
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -1430,6 +1430,8 @@ class JobsApi:
         """ # noqa: E501
 
         _param = self._read_jobs_jobs_get_serialize(
+            page=page,
+            size=size,
             id=id,
             created_on=created_on,
             file_id=file_id,
@@ -1449,8 +1451,6 @@ class JobsApi:
             source=source,
             sort_by=sort_by,
             latest=latest,
-            page=page,
-            size=size,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -1475,6 +1475,8 @@ class JobsApi:
     @validate_call
     async def read_jobs_jobs_get_without_preload_content(
         self,
+        page: Optional[Annotated[int, Field(strict=True, ge=1)]] = None,
+        size: Optional[Annotated[int, Field(le=100, strict=True, ge=1)]] = None,
         id: Optional[StrictInt] = None,
         created_on: Optional[datetime] = None,
         file_id: Optional[StrictInt] = None,
@@ -1494,8 +1496,6 @@ class JobsApi:
         source: Optional[StrictStr] = None,
         sort_by: Annotated[Optional[StrictStr], Field(description="The field name to sort on. Prefix with '-' for descending order. E.g., '-created_on'.")] = None,
         latest: Annotated[Optional[StrictBool], Field(description="If True gets the most recently created object.")] = None,
-        page: Annotated[Optional[Annotated[int, Field(strict=True, ge=1)]], Field(description="Page number")] = None,
-        size: Annotated[Optional[Annotated[int, Field(le=100, strict=True, ge=1)]], Field(description="Page size")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -1513,6 +1513,10 @@ class JobsApi:
 
         List jobs.
 
+        :param page:
+        :type page: int
+        :param size:
+        :type size: int
         :param id:
         :type id: int
         :param created_on:
@@ -1551,10 +1555,6 @@ class JobsApi:
         :type sort_by: str
         :param latest: If True gets the most recently created object.
         :type latest: bool
-        :param page: Page number
-        :type page: int
-        :param size: Page size
-        :type size: int
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -1578,6 +1578,8 @@ class JobsApi:
         """ # noqa: E501
 
         _param = self._read_jobs_jobs_get_serialize(
+            page=page,
+            size=size,
             id=id,
             created_on=created_on,
             file_id=file_id,
@@ -1597,8 +1599,6 @@ class JobsApi:
             source=source,
             sort_by=sort_by,
             latest=latest,
-            page=page,
-            size=size,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -1618,6 +1618,8 @@ class JobsApi:
 
     def _read_jobs_jobs_get_serialize(
         self,
+        page,
+        size,
         id,
         created_on,
         file_id,
@@ -1637,8 +1639,6 @@ class JobsApi:
         source,
         sort_by,
         latest,
-        page,
-        size,
         _request_auth,
         _content_type,
         _headers,
@@ -1661,6 +1661,14 @@ class JobsApi:
 
         # process the path parameters
         # process the query parameters
+        if page is not None:
+            
+            _query_params.append(('page', page))
+            
+        if size is not None:
+            
+            _query_params.append(('size', size))
+            
         if id is not None:
             
             _query_params.append(('id', id))
@@ -1763,14 +1771,6 @@ class JobsApi:
         if latest is not None:
             
             _query_params.append(('latest', latest))
-            
-        if page is not None:
-            
-            _query_params.append(('page', page))
-            
-        if size is not None:
-            
-            _query_params.append(('size', size))
             
         # process the header parameters
         # process the form parameters

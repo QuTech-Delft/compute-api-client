@@ -88,7 +88,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **read_permission_groups_permission_groups_get**
-> PagePermissionGroup read_permission_groups_permission_groups_get(id=id, name=name, sort_by=sort_by, latest=latest, page=page, size=size)
+> PagePermissionGroup read_permission_groups_permission_groups_get(page=page, size=size, id=id, name=name, sort_by=sort_by, latest=latest)
 
 List permission groups
 
@@ -121,16 +121,16 @@ configuration.access_token = os.environ["ACCESS_TOKEN"]
 async with compute_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = compute_api_client.PermissionsApi(api_client)
+    page = 1 # int |  (optional) (default to 1)
+    size = 50 # int |  (optional) (default to 50)
     id = 56 # int |  (optional)
     name = 'name_example' # str |  (optional)
     sort_by = 'sort_by_example' # str | The field name to sort on. Prefix with '-' for descending order. E.g., '-created_on'. (optional)
     latest = True # bool | If True gets the most recently created object. (optional)
-    page = 1 # int | Page number (optional) (default to 1)
-    size = 50 # int | Page size (optional) (default to 50)
 
     try:
         # List permission groups
-        api_response = await api_instance.read_permission_groups_permission_groups_get(id=id, name=name, sort_by=sort_by, latest=latest, page=page, size=size)
+        api_response = await api_instance.read_permission_groups_permission_groups_get(page=page, size=size, id=id, name=name, sort_by=sort_by, latest=latest)
         print("The response of PermissionsApi->read_permission_groups_permission_groups_get:\n")
         pprint(api_response)
     except Exception as e:
@@ -144,12 +144,12 @@ async with compute_api_client.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **page** | **int**|  | [optional] [default to 1]
+ **size** | **int**|  | [optional] [default to 50]
  **id** | **int**|  | [optional] 
  **name** | **str**|  | [optional] 
  **sort_by** | **str**| The field name to sort on. Prefix with &#39;-&#39; for descending order. E.g., &#39;-created_on&#39;. | [optional] 
  **latest** | **bool**| If True gets the most recently created object. | [optional] 
- **page** | **int**| Page number | [optional] [default to 1]
- **size** | **int**| Page size | [optional] [default to 50]
 
 ### Return type
 
@@ -251,7 +251,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **read_permissions_permissions_get**
-> PagePermission read_permissions_permissions_get(id=id, permission=permission, name=name, sort_by=sort_by, latest=latest, page=page, size=size)
+> PagePermission read_permissions_permissions_get(page=page, size=size, id=id, permission=permission, name=name, sort_by=sort_by, latest=latest)
 
 List permissions
 
@@ -284,17 +284,17 @@ configuration.access_token = os.environ["ACCESS_TOKEN"]
 async with compute_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = compute_api_client.PermissionsApi(api_client)
+    page = 1 # int |  (optional) (default to 1)
+    size = 50 # int |  (optional) (default to 50)
     id = 56 # int |  (optional)
     permission = 'permission_example' # str |  (optional)
     name = 'name_example' # str |  (optional)
     sort_by = 'sort_by_example' # str | The field name to sort on. Prefix with '-' for descending order. E.g., '-created_on'. (optional)
     latest = True # bool | If True gets the most recently created object. (optional)
-    page = 1 # int | Page number (optional) (default to 1)
-    size = 50 # int | Page size (optional) (default to 50)
 
     try:
         # List permissions
-        api_response = await api_instance.read_permissions_permissions_get(id=id, permission=permission, name=name, sort_by=sort_by, latest=latest, page=page, size=size)
+        api_response = await api_instance.read_permissions_permissions_get(page=page, size=size, id=id, permission=permission, name=name, sort_by=sort_by, latest=latest)
         print("The response of PermissionsApi->read_permissions_permissions_get:\n")
         pprint(api_response)
     except Exception as e:
@@ -308,13 +308,13 @@ async with compute_api_client.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **page** | **int**|  | [optional] [default to 1]
+ **size** | **int**|  | [optional] [default to 50]
  **id** | **int**|  | [optional] 
  **permission** | **str**|  | [optional] 
  **name** | **str**|  | [optional] 
  **sort_by** | **str**| The field name to sort on. Prefix with &#39;-&#39; for descending order. E.g., &#39;-created_on&#39;. | [optional] 
  **latest** | **bool**| If True gets the most recently created object. | [optional] 
- **page** | **int**| Page number | [optional] [default to 1]
- **size** | **int**| Page size | [optional] [default to 50]
 
 ### Return type
 

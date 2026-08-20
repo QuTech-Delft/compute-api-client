@@ -86,7 +86,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **read_teams_teams_get**
-> PageTeam read_teams_teams_get(id=id, name=name, slug=slug, individual_user=individual_user, sort_by=sort_by, latest=latest, page=page, size=size)
+> PageTeam read_teams_teams_get(page=page, size=size, id=id, name=name, slug=slug, individual_user=individual_user, sort_by=sort_by, latest=latest)
 
 List teams
 
@@ -119,18 +119,18 @@ configuration.access_token = os.environ["ACCESS_TOKEN"]
 async with compute_api_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = compute_api_client.TeamsApi(api_client)
+    page = 1 # int |  (optional) (default to 1)
+    size = 50 # int |  (optional) (default to 50)
     id = 56 # int |  (optional)
     name = 'name_example' # str |  (optional)
     slug = 'slug_example' # str |  (optional)
     individual_user = True # bool |  (optional)
     sort_by = 'sort_by_example' # str | The field name to sort on. Prefix with '-' for descending order. E.g., '-created_on'. (optional)
     latest = True # bool | If True gets the most recently created object. (optional)
-    page = 1 # int | Page number (optional) (default to 1)
-    size = 50 # int | Page size (optional) (default to 50)
 
     try:
         # List teams
-        api_response = await api_instance.read_teams_teams_get(id=id, name=name, slug=slug, individual_user=individual_user, sort_by=sort_by, latest=latest, page=page, size=size)
+        api_response = await api_instance.read_teams_teams_get(page=page, size=size, id=id, name=name, slug=slug, individual_user=individual_user, sort_by=sort_by, latest=latest)
         print("The response of TeamsApi->read_teams_teams_get:\n")
         pprint(api_response)
     except Exception as e:
@@ -144,14 +144,14 @@ async with compute_api_client.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **page** | **int**|  | [optional] [default to 1]
+ **size** | **int**|  | [optional] [default to 50]
  **id** | **int**|  | [optional] 
  **name** | **str**|  | [optional] 
  **slug** | **str**|  | [optional] 
  **individual_user** | **bool**|  | [optional] 
  **sort_by** | **str**| The field name to sort on. Prefix with &#39;-&#39; for descending order. E.g., &#39;-created_on&#39;. | [optional] 
  **latest** | **bool**| If True gets the most recently created object. | [optional] 
- **page** | **int**| Page number | [optional] [default to 1]
- **size** | **int**| Page size | [optional] [default to 50]
 
 ### Return type
 

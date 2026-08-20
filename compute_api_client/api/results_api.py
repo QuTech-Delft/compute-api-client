@@ -857,6 +857,8 @@ class ResultsApi:
     async def read_results_by_algorithm_id_results_algorithm_algorithm_id_get(
         self,
         algorithm_id: StrictInt,
+        page: Optional[Annotated[int, Field(strict=True, ge=1)]] = None,
+        size: Optional[Annotated[int, Field(le=100, strict=True, ge=1)]] = None,
         id: Optional[StrictInt] = None,
         created_on: Optional[datetime] = None,
         job_id: Optional[StrictInt] = None,
@@ -865,12 +867,8 @@ class ResultsApi:
         shots_requested: Optional[StrictInt] = None,
         shots_done__isnull: Optional[StrictBool] = None,
         shots_done: Optional[StrictInt] = None,
-        results__isnull: Optional[StrictBool] = None,
-        raw_data__isnull: Optional[StrictBool] = None,
         sort_by: Annotated[Optional[StrictStr], Field(description="The field name to sort on. Prefix with '-' for descending order. E.g., '-created_on'.")] = None,
         latest: Annotated[Optional[StrictBool], Field(description="If True gets the most recently created object.")] = None,
-        page: Annotated[Optional[Annotated[int, Field(strict=True, ge=1)]], Field(description="Page number")] = None,
-        size: Annotated[Optional[Annotated[int, Field(le=100, strict=True, ge=1)]], Field(description="Page size")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -890,6 +888,10 @@ class ResultsApi:
 
         :param algorithm_id: (required)
         :type algorithm_id: int
+        :param page:
+        :type page: int
+        :param size:
+        :type size: int
         :param id:
         :type id: int
         :param created_on:
@@ -906,18 +908,10 @@ class ResultsApi:
         :type shots_done__isnull: bool
         :param shots_done:
         :type shots_done: int
-        :param results__isnull:
-        :type results__isnull: bool
-        :param raw_data__isnull:
-        :type raw_data__isnull: bool
         :param sort_by: The field name to sort on. Prefix with '-' for descending order. E.g., '-created_on'.
         :type sort_by: str
         :param latest: If True gets the most recently created object.
         :type latest: bool
-        :param page: Page number
-        :type page: int
-        :param size: Page size
-        :type size: int
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -942,6 +936,8 @@ class ResultsApi:
 
         _param = self._read_results_by_algorithm_id_results_algorithm_algorithm_id_get_serialize(
             algorithm_id=algorithm_id,
+            page=page,
+            size=size,
             id=id,
             created_on=created_on,
             job_id=job_id,
@@ -950,12 +946,8 @@ class ResultsApi:
             shots_requested=shots_requested,
             shots_done__isnull=shots_done__isnull,
             shots_done=shots_done,
-            results__isnull=results__isnull,
-            raw_data__isnull=raw_data__isnull,
             sort_by=sort_by,
             latest=latest,
-            page=page,
-            size=size,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -982,6 +974,8 @@ class ResultsApi:
     async def read_results_by_algorithm_id_results_algorithm_algorithm_id_get_with_http_info(
         self,
         algorithm_id: StrictInt,
+        page: Optional[Annotated[int, Field(strict=True, ge=1)]] = None,
+        size: Optional[Annotated[int, Field(le=100, strict=True, ge=1)]] = None,
         id: Optional[StrictInt] = None,
         created_on: Optional[datetime] = None,
         job_id: Optional[StrictInt] = None,
@@ -990,12 +984,8 @@ class ResultsApi:
         shots_requested: Optional[StrictInt] = None,
         shots_done__isnull: Optional[StrictBool] = None,
         shots_done: Optional[StrictInt] = None,
-        results__isnull: Optional[StrictBool] = None,
-        raw_data__isnull: Optional[StrictBool] = None,
         sort_by: Annotated[Optional[StrictStr], Field(description="The field name to sort on. Prefix with '-' for descending order. E.g., '-created_on'.")] = None,
         latest: Annotated[Optional[StrictBool], Field(description="If True gets the most recently created object.")] = None,
-        page: Annotated[Optional[Annotated[int, Field(strict=True, ge=1)]], Field(description="Page number")] = None,
-        size: Annotated[Optional[Annotated[int, Field(le=100, strict=True, ge=1)]], Field(description="Page size")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -1015,6 +1005,10 @@ class ResultsApi:
 
         :param algorithm_id: (required)
         :type algorithm_id: int
+        :param page:
+        :type page: int
+        :param size:
+        :type size: int
         :param id:
         :type id: int
         :param created_on:
@@ -1031,18 +1025,10 @@ class ResultsApi:
         :type shots_done__isnull: bool
         :param shots_done:
         :type shots_done: int
-        :param results__isnull:
-        :type results__isnull: bool
-        :param raw_data__isnull:
-        :type raw_data__isnull: bool
         :param sort_by: The field name to sort on. Prefix with '-' for descending order. E.g., '-created_on'.
         :type sort_by: str
         :param latest: If True gets the most recently created object.
         :type latest: bool
-        :param page: Page number
-        :type page: int
-        :param size: Page size
-        :type size: int
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -1067,6 +1053,8 @@ class ResultsApi:
 
         _param = self._read_results_by_algorithm_id_results_algorithm_algorithm_id_get_serialize(
             algorithm_id=algorithm_id,
+            page=page,
+            size=size,
             id=id,
             created_on=created_on,
             job_id=job_id,
@@ -1075,12 +1063,8 @@ class ResultsApi:
             shots_requested=shots_requested,
             shots_done__isnull=shots_done__isnull,
             shots_done=shots_done,
-            results__isnull=results__isnull,
-            raw_data__isnull=raw_data__isnull,
             sort_by=sort_by,
             latest=latest,
-            page=page,
-            size=size,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -1107,6 +1091,8 @@ class ResultsApi:
     async def read_results_by_algorithm_id_results_algorithm_algorithm_id_get_without_preload_content(
         self,
         algorithm_id: StrictInt,
+        page: Optional[Annotated[int, Field(strict=True, ge=1)]] = None,
+        size: Optional[Annotated[int, Field(le=100, strict=True, ge=1)]] = None,
         id: Optional[StrictInt] = None,
         created_on: Optional[datetime] = None,
         job_id: Optional[StrictInt] = None,
@@ -1115,12 +1101,8 @@ class ResultsApi:
         shots_requested: Optional[StrictInt] = None,
         shots_done__isnull: Optional[StrictBool] = None,
         shots_done: Optional[StrictInt] = None,
-        results__isnull: Optional[StrictBool] = None,
-        raw_data__isnull: Optional[StrictBool] = None,
         sort_by: Annotated[Optional[StrictStr], Field(description="The field name to sort on. Prefix with '-' for descending order. E.g., '-created_on'.")] = None,
         latest: Annotated[Optional[StrictBool], Field(description="If True gets the most recently created object.")] = None,
-        page: Annotated[Optional[Annotated[int, Field(strict=True, ge=1)]], Field(description="Page number")] = None,
-        size: Annotated[Optional[Annotated[int, Field(le=100, strict=True, ge=1)]], Field(description="Page size")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -1140,6 +1122,10 @@ class ResultsApi:
 
         :param algorithm_id: (required)
         :type algorithm_id: int
+        :param page:
+        :type page: int
+        :param size:
+        :type size: int
         :param id:
         :type id: int
         :param created_on:
@@ -1156,18 +1142,10 @@ class ResultsApi:
         :type shots_done__isnull: bool
         :param shots_done:
         :type shots_done: int
-        :param results__isnull:
-        :type results__isnull: bool
-        :param raw_data__isnull:
-        :type raw_data__isnull: bool
         :param sort_by: The field name to sort on. Prefix with '-' for descending order. E.g., '-created_on'.
         :type sort_by: str
         :param latest: If True gets the most recently created object.
         :type latest: bool
-        :param page: Page number
-        :type page: int
-        :param size: Page size
-        :type size: int
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -1192,6 +1170,8 @@ class ResultsApi:
 
         _param = self._read_results_by_algorithm_id_results_algorithm_algorithm_id_get_serialize(
             algorithm_id=algorithm_id,
+            page=page,
+            size=size,
             id=id,
             created_on=created_on,
             job_id=job_id,
@@ -1200,12 +1180,8 @@ class ResultsApi:
             shots_requested=shots_requested,
             shots_done__isnull=shots_done__isnull,
             shots_done=shots_done,
-            results__isnull=results__isnull,
-            raw_data__isnull=raw_data__isnull,
             sort_by=sort_by,
             latest=latest,
-            page=page,
-            size=size,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -1227,6 +1203,8 @@ class ResultsApi:
     def _read_results_by_algorithm_id_results_algorithm_algorithm_id_get_serialize(
         self,
         algorithm_id,
+        page,
+        size,
         id,
         created_on,
         job_id,
@@ -1235,12 +1213,8 @@ class ResultsApi:
         shots_requested,
         shots_done__isnull,
         shots_done,
-        results__isnull,
-        raw_data__isnull,
         sort_by,
         latest,
-        page,
-        size,
         _request_auth,
         _content_type,
         _headers,
@@ -1265,6 +1239,14 @@ class ResultsApi:
         if algorithm_id is not None:
             _path_params['algorithm_id'] = algorithm_id
         # process the query parameters
+        if page is not None:
+            
+            _query_params.append(('page', page))
+            
+        if size is not None:
+            
+            _query_params.append(('size', size))
+            
         if id is not None:
             
             _query_params.append(('id', id))
@@ -1306,14 +1288,6 @@ class ResultsApi:
             
             _query_params.append(('shots_done', shots_done))
             
-        if results__isnull is not None:
-            
-            _query_params.append(('results__isnull', results__isnull))
-            
-        if raw_data__isnull is not None:
-            
-            _query_params.append(('raw_data__isnull', raw_data__isnull))
-            
         if sort_by is not None:
             
             _query_params.append(('sort_by', sort_by))
@@ -1321,14 +1295,6 @@ class ResultsApi:
         if latest is not None:
             
             _query_params.append(('latest', latest))
-            
-        if page is not None:
-            
-            _query_params.append(('page', page))
-            
-        if size is not None:
-            
-            _query_params.append(('size', size))
             
         # process the header parameters
         # process the form parameters
@@ -1371,8 +1337,8 @@ class ResultsApi:
     async def read_results_by_job_id_results_job_job_id_get(
         self,
         job_id: StrictInt,
-        page: Annotated[Optional[Annotated[int, Field(strict=True, ge=1)]], Field(description="Page number")] = None,
-        size: Annotated[Optional[Annotated[int, Field(le=100, strict=True, ge=1)]], Field(description="Page size")] = None,
+        page: Optional[Annotated[int, Field(strict=True, ge=1)]] = None,
+        size: Optional[Annotated[int, Field(le=100, strict=True, ge=1)]] = None,
         sort_by: Optional[StrictStr] = None,
         latest: Optional[StrictBool] = None,
         _request_timeout: Union[
@@ -1394,9 +1360,9 @@ class ResultsApi:
 
         :param job_id: (required)
         :type job_id: int
-        :param page: Page number
+        :param page:
         :type page: int
-        :param size: Page size
+        :param size:
         :type size: int
         :param sort_by:
         :type sort_by: str
@@ -1456,8 +1422,8 @@ class ResultsApi:
     async def read_results_by_job_id_results_job_job_id_get_with_http_info(
         self,
         job_id: StrictInt,
-        page: Annotated[Optional[Annotated[int, Field(strict=True, ge=1)]], Field(description="Page number")] = None,
-        size: Annotated[Optional[Annotated[int, Field(le=100, strict=True, ge=1)]], Field(description="Page size")] = None,
+        page: Optional[Annotated[int, Field(strict=True, ge=1)]] = None,
+        size: Optional[Annotated[int, Field(le=100, strict=True, ge=1)]] = None,
         sort_by: Optional[StrictStr] = None,
         latest: Optional[StrictBool] = None,
         _request_timeout: Union[
@@ -1479,9 +1445,9 @@ class ResultsApi:
 
         :param job_id: (required)
         :type job_id: int
-        :param page: Page number
+        :param page:
         :type page: int
-        :param size: Page size
+        :param size:
         :type size: int
         :param sort_by:
         :type sort_by: str
@@ -1541,8 +1507,8 @@ class ResultsApi:
     async def read_results_by_job_id_results_job_job_id_get_without_preload_content(
         self,
         job_id: StrictInt,
-        page: Annotated[Optional[Annotated[int, Field(strict=True, ge=1)]], Field(description="Page number")] = None,
-        size: Annotated[Optional[Annotated[int, Field(le=100, strict=True, ge=1)]], Field(description="Page size")] = None,
+        page: Optional[Annotated[int, Field(strict=True, ge=1)]] = None,
+        size: Optional[Annotated[int, Field(le=100, strict=True, ge=1)]] = None,
         sort_by: Optional[StrictStr] = None,
         latest: Optional[StrictBool] = None,
         _request_timeout: Union[
@@ -1564,9 +1530,9 @@ class ResultsApi:
 
         :param job_id: (required)
         :type job_id: int
-        :param page: Page number
+        :param page:
         :type page: int
-        :param size: Page size
+        :param size:
         :type size: int
         :param sort_by:
         :type sort_by: str
