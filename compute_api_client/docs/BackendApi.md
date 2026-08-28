@@ -8,6 +8,7 @@ Method | HTTP request | Description
 [**read_backend_backends_id_get**](BackendApi.md#read_backend_backends_id_get) | **GET** /backends/{id} | Retrieve backend
 [**read_backend_self_backends_me_get**](BackendApi.md#read_backend_self_backends_me_get) | **GET** /backends/me | Retrieve backend
 [**read_backends_backends_get**](BackendApi.md#read_backends_backends_get) | **GET** /backends | List backends
+[**read_backends_with_hostnames_backends_hostnames_get**](BackendApi.md#read_backends_with_hostnames_backends_hostnames_get) | **GET** /backends/hostnames | Get backends along with their hostnames
 [**update_backend_self_backends_me_patch**](BackendApi.md#update_backend_self_backends_me_patch) | **PATCH** /backends/me | Update backend
 
 
@@ -241,7 +242,7 @@ This endpoint does not need any parameter.
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **read_backends_backends_get**
-> PageBackend read_backends_backends_get(page=page, size=size, id=id, name=name, location=location, backend_type_id=backend_type_id, status=status, last_heartbeat=last_heartbeat, sort_by=sort_by, latest=latest, backend_message=backend_message)
+> PageBackend read_backends_backends_get(page=page, size=size, id=id, name=name, location=location, backend_type_id=backend_type_id, status=status, last_heartbeat=last_heartbeat, sort_by=sort_by, latest=latest)
 
 List backends
 
@@ -253,7 +254,6 @@ Read backends.
 
 ```python
 import compute_api_client
-from compute_api_client.models.backend_message import BackendMessage
 from compute_api_client.models.backend_status import BackendStatus
 from compute_api_client.models.page_backend import PageBackend
 from compute_api_client.rest import ApiException
@@ -286,11 +286,10 @@ async with compute_api_client.ApiClient(configuration) as api_client:
     last_heartbeat = '2013-10-20T19:20:30+01:00' # datetime |  (optional)
     sort_by = 'sort_by_example' # str | The field name to sort on. Prefix with '-' for descending order. E.g., '-created_on'. (optional)
     latest = True # bool | If True gets the most recently created object. (optional)
-    backend_message = compute_api_client.BackendMessage() # BackendMessage |  (optional)
 
     try:
         # List backends
-        api_response = await api_instance.read_backends_backends_get(page=page, size=size, id=id, name=name, location=location, backend_type_id=backend_type_id, status=status, last_heartbeat=last_heartbeat, sort_by=sort_by, latest=latest, backend_message=backend_message)
+        api_response = await api_instance.read_backends_backends_get(page=page, size=size, id=id, name=name, location=location, backend_type_id=backend_type_id, status=status, last_heartbeat=last_heartbeat, sort_by=sort_by, latest=latest)
         print("The response of BackendApi->read_backends_backends_get:\n")
         pprint(api_response)
     except Exception as e:
@@ -314,7 +313,6 @@ Name | Type | Description  | Notes
  **last_heartbeat** | **datetime**|  | [optional] 
  **sort_by** | **str**| The field name to sort on. Prefix with &#39;-&#39; for descending order. E.g., &#39;-created_on&#39;. | [optional] 
  **latest** | **bool**| If True gets the most recently created object. | [optional] 
- **backend_message** | [**BackendMessage**](BackendMessage.md)|  | [optional] 
 
 ### Return type
 
@@ -326,7 +324,108 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Successful Response |  -  |
+**422** | Validation Error |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **read_backends_with_hostnames_backends_hostnames_get**
+> PageBackendWithHostname read_backends_with_hostnames_backends_hostnames_get(page=page, size=size, id=id, name=name, location=location, backend_type_id=backend_type_id, status=status, last_heartbeat=last_heartbeat, hostname=hostname, sort_by=sort_by, latest=latest)
+
+Get backends along with their hostnames
+
+Read backends with hostnames.
+
+### Example
+
+* Api Key Authentication (backend):
+
+```python
+import compute_api_client
+from compute_api_client.models.backend_status import BackendStatus
+from compute_api_client.models.page_backend_with_hostname import PageBackendWithHostname
+from compute_api_client.rest import ApiException
+from pprint import pprint
+
+# Defining the host is optional and defaults to http://localhost
+# See configuration.py for a list of all supported configuration parameters.
+configuration = compute_api_client.Configuration(
+    host = "http://localhost"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: backend
+configuration.api_key['backend'] = os.environ["API_KEY"]
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['backend'] = 'Bearer'
+
+# Enter a context with an instance of the API client
+async with compute_api_client.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = compute_api_client.BackendApi(api_client)
+    page = 1 # int |  (optional) (default to 1)
+    size = 50 # int |  (optional) (default to 50)
+    id = 56 # int |  (optional)
+    name = 'name_example' # str |  (optional)
+    location = 'location_example' # str |  (optional)
+    backend_type_id = 56 # int |  (optional)
+    status = compute_api_client.BackendStatus() # BackendStatus |  (optional)
+    last_heartbeat = '2013-10-20T19:20:30+01:00' # datetime |  (optional)
+    hostname = 'hostname_example' # str |  (optional)
+    sort_by = 'sort_by_example' # str | The field name to sort on. Prefix with '-' for descending order. E.g., '-created_on'. (optional)
+    latest = True # bool | If True gets the most recently created object. (optional)
+
+    try:
+        # Get backends along with their hostnames
+        api_response = await api_instance.read_backends_with_hostnames_backends_hostnames_get(page=page, size=size, id=id, name=name, location=location, backend_type_id=backend_type_id, status=status, last_heartbeat=last_heartbeat, hostname=hostname, sort_by=sort_by, latest=latest)
+        print("The response of BackendApi->read_backends_with_hostnames_backends_hostnames_get:\n")
+        pprint(api_response)
+    except Exception as e:
+        print("Exception when calling BackendApi->read_backends_with_hostnames_backends_hostnames_get: %s\n" % e)
+```
+
+
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **page** | **int**|  | [optional] [default to 1]
+ **size** | **int**|  | [optional] [default to 50]
+ **id** | **int**|  | [optional] 
+ **name** | **str**|  | [optional] 
+ **location** | **str**|  | [optional] 
+ **backend_type_id** | **int**|  | [optional] 
+ **status** | [**BackendStatus**](.md)|  | [optional] 
+ **last_heartbeat** | **datetime**|  | [optional] 
+ **hostname** | **str**|  | [optional] 
+ **sort_by** | **str**| The field name to sort on. Prefix with &#39;-&#39; for descending order. E.g., &#39;-created_on&#39;. | [optional] 
+ **latest** | **bool**| If True gets the most recently created object. | [optional] 
+
+### Return type
+
+[**PageBackendWithHostname**](PageBackendWithHostname.md)
+
+### Authorization
+
+[backend](../README.md#backend)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 ### HTTP response details

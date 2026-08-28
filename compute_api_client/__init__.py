@@ -59,6 +59,7 @@ __all__ = [
     "BackendType",
     "BackendTypePatch",
     "BackendWithAuthentication",
+    "BackendWithHostname",
     "BatchJob",
     "BatchJobIn",
     "BatchJobStatus",
@@ -90,6 +91,7 @@ __all__ = [
     "PageAlgorithm",
     "PageBackend",
     "PageBackendType",
+    "PageBackendWithHostname",
     "PageBatchJob",
     "PageCommit",
     "PageFile",
@@ -170,6 +172,7 @@ from compute_api_client.models.backend_status import BackendStatus as BackendSta
 from compute_api_client.models.backend_type import BackendType as BackendType
 from compute_api_client.models.backend_type_patch import BackendTypePatch as BackendTypePatch
 from compute_api_client.models.backend_with_authentication import BackendWithAuthentication as BackendWithAuthentication
+from compute_api_client.models.backend_with_hostname import BackendWithHostname as BackendWithHostname
 from compute_api_client.models.batch_job import BatchJob as BatchJob
 from compute_api_client.models.batch_job_in import BatchJobIn as BatchJobIn
 from compute_api_client.models.batch_job_status import BatchJobStatus as BatchJobStatus
@@ -201,6 +204,7 @@ from compute_api_client.models.member_in import MemberIn as MemberIn
 from compute_api_client.models.page_algorithm import PageAlgorithm as PageAlgorithm
 from compute_api_client.models.page_backend import PageBackend as PageBackend
 from compute_api_client.models.page_backend_type import PageBackendType as PageBackendType
+from compute_api_client.models.page_backend_with_hostname import PageBackendWithHostname as PageBackendWithHostname
 from compute_api_client.models.page_batch_job import PageBatchJob as PageBatchJob
 from compute_api_client.models.page_commit import PageCommit as PageCommit
 from compute_api_client.models.page_file import PageFile as PageFile

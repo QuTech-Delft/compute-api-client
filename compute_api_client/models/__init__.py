@@ -26,6 +26,7 @@ from compute_api_client.models.backend_status import BackendStatus
 from compute_api_client.models.backend_type import BackendType
 from compute_api_client.models.backend_type_patch import BackendTypePatch
 from compute_api_client.models.backend_with_authentication import BackendWithAuthentication
+from compute_api_client.models.backend_with_hostname import BackendWithHostname
 from compute_api_client.models.batch_job import BatchJob
 from compute_api_client.models.batch_job_in import BatchJobIn
 from compute_api_client.models.batch_job_status import BatchJobStatus
@@ -57,6 +58,7 @@ from compute_api_client.models.member_in import MemberIn
 from compute_api_client.models.page_algorithm import PageAlgorithm
 from compute_api_client.models.page_backend import PageBackend
 from compute_api_client.models.page_backend_type import PageBackendType
+from compute_api_client.models.page_backend_with_hostname import PageBackendWithHostname
 from compute_api_client.models.page_batch_job import PageBatchJob
 from compute_api_client.models.page_commit import PageCommit
 from compute_api_client.models.page_file import PageFile

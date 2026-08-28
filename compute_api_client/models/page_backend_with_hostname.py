@@ -17,23 +17,23 @@ import pprint
 import re  # noqa: F401
 import json
 
-from datetime import datetime
-from pydantic import BaseModel, ConfigDict, StrictStr
-from typing import Any, ClassVar, Dict, List, Optional
-from compute_api_client.models.backend_message import BackendMessage
-from compute_api_client.models.backend_status import BackendStatus
+from pydantic import BaseModel, ConfigDict, Field
+from typing import Any, ClassVar, Dict, List
+from typing_extensions import Annotated
+from compute_api_client.models.backend_with_hostname import BackendWithHostname
 from typing import Optional, Set
 from typing_extensions import Self
 
-class BackendPatch(BaseModel):
+class PageBackendWithHostname(BaseModel):
     """
-    BackendPatch
+    PageBackendWithHostname
     """ # noqa: E501
-    message: Optional[BackendMessage] = None
-    status: Optional[BackendStatus] = None
-    last_heartbeat: Optional[datetime] = None
-    hostname: Optional[StrictStr] = None
-    __properties: ClassVar[List[str]] = ["message", "status", "last_heartbeat", "hostname"]
+    items: List[BackendWithHostname]
+    total: Annotated[int, Field(strict=True, ge=0)]
+    page: Annotated[int, Field(strict=True, ge=1)]
+    size: Annotated[int, Field(strict=True, ge=1)]
+    pages: Annotated[int, Field(strict=True, ge=0)]
+    __properties: ClassVar[List[str]] = ["items", "total", "page", "size", "pages"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -53,7 +53,7 @@ class BackendPatch(BaseModel):
 
     @classmethod
     def from_json(cls, json_str: str) -> Optional[Self]:
-        """Create an instance of BackendPatch from a JSON string"""
+        """Create an instance of PageBackendWithHostname from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
     def to_dict(self) -> Dict[str, Any]:
@@ -74,34 +74,18 @@ class BackendPatch(BaseModel):
             exclude=excluded_fields,
             exclude_none=True,
         )
-        # override the default output from pydantic by calling `to_dict()` of message
-        if self.message:
-            _dict['message'] = self.message.to_dict()
-        # set to None if message (nullable) is None
-        # and model_fields_set contains the field
-        if self.message is None and "message" in self.model_fields_set:
-            _dict['message'] = None
-
-        # set to None if status (nullable) is None
-        # and model_fields_set contains the field
-        if self.status is None and "status" in self.model_fields_set:
-            _dict['status'] = None
-
-        # set to None if last_heartbeat (nullable) is None
-        # and model_fields_set contains the field
-        if self.last_heartbeat is None and "last_heartbeat" in self.model_fields_set:
-            _dict['last_heartbeat'] = None
-
-        # set to None if hostname (nullable) is None
-        # and model_fields_set contains the field
-        if self.hostname is None and "hostname" in self.model_fields_set:
-            _dict['hostname'] = None
-
+        # override the default output from pydantic by calling `to_dict()` of each item in items (list)
+        _items = []
+        if self.items:
+            for _item_items in self.items:
+                if _item_items:
+                    _items.append(_item_items.to_dict())
+            _dict['items'] = _items
         return _dict
 
     @classmethod
     def from_dict(cls, obj: Optional[Dict[str, Any]]) -> Optional[Self]:
-        """Create an instance of BackendPatch from a dict"""
+        """Create an instance of PageBackendWithHostname from a dict"""
         if obj is None:
             return None
 
@@ -109,10 +93,11 @@ class BackendPatch(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
-            "message": BackendMessage.from_dict(obj["message"]) if obj.get("message") is not None else None,
-            "status": obj.get("status"),
-            "last_heartbeat": obj.get("last_heartbeat"),
-            "hostname": obj.get("hostname")
+            "items": [BackendWithHostname.from_dict(_item) for _item in obj["items"]] if obj.get("items") is not None else None,
+            "total": obj.get("total"),
+            "page": obj.get("page"),
+            "size": obj.get("size"),
+            "pages": obj.get("pages")
         })
         return _obj
 

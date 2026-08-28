@@ -39,6 +39,7 @@ compute_api_client/docs/BackendType.md
 compute_api_client/docs/BackendTypePatch.md
 compute_api_client/docs/BackendTypesApi.md
 compute_api_client/docs/BackendWithAuthentication.md
+compute_api_client/docs/BackendWithHostname.md
 compute_api_client/docs/BatchJob.md
 compute_api_client/docs/BatchJobIn.md
 compute_api_client/docs/BatchJobStatus.md
@@ -79,6 +80,7 @@ compute_api_client/docs/MembersApi.md
 compute_api_client/docs/PageAlgorithm.md
 compute_api_client/docs/PageBackend.md
 compute_api_client/docs/PageBackendType.md
+compute_api_client/docs/PageBackendWithHostname.md
 compute_api_client/docs/PageBatchJob.md
 compute_api_client/docs/PageCommit.md
 compute_api_client/docs/PageFile.md
@@ -132,6 +134,7 @@ compute_api_client/models/backend_status.py
 compute_api_client/models/backend_type.py
 compute_api_client/models/backend_type_patch.py
 compute_api_client/models/backend_with_authentication.py
+compute_api_client/models/backend_with_hostname.py
 compute_api_client/models/batch_job.py
 compute_api_client/models/batch_job_in.py
 compute_api_client/models/batch_job_status.py
@@ -163,6 +166,7 @@ compute_api_client/models/member_in.py
 compute_api_client/models/page_algorithm.py
 compute_api_client/models/page_backend.py
 compute_api_client/models/page_backend_type.py
+compute_api_client/models/page_backend_with_hostname.py
 compute_api_client/models/page_batch_job.py
 compute_api_client/models/page_commit.py
 compute_api_client/models/page_file.py

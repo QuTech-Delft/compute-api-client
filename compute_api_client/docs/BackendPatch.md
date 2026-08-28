@@ -8,6 +8,7 @@ Name | Type | Description | Notes
 **message** | [**BackendMessage**](BackendMessage.md) |  | [optional] 
 **status** | [**BackendStatus**](BackendStatus.md) |  | [optional] 
 **last_heartbeat** | **datetime** |  | [optional] 
+**hostname** | **str** |  | [optional] 
 
 ## Example
 

@@ -22,11 +22,11 @@ from typing import Optional
 from typing_extensions import Annotated
 from compute_api_client.models.backend import Backend
 from compute_api_client.models.backend_in import BackendIn
-from compute_api_client.models.backend_message import BackendMessage
 from compute_api_client.models.backend_patch import BackendPatch
 from compute_api_client.models.backend_status import BackendStatus
 from compute_api_client.models.backend_with_authentication import BackendWithAuthentication
 from compute_api_client.models.page_backend import PageBackend
+from compute_api_client.models.page_backend_with_hostname import PageBackendWithHostname
 
 from compute_api_client.api_client import ApiClient, RequestSerialized
 from compute_api_client.api_response import ApiResponse
@@ -849,7 +849,6 @@ class BackendApi:
         last_heartbeat: Optional[datetime] = None,
         sort_by: Annotated[Optional[StrictStr], Field(description="The field name to sort on. Prefix with '-' for descending order. E.g., '-created_on'.")] = None,
         latest: Annotated[Optional[StrictBool], Field(description="If True gets the most recently created object.")] = None,
-        backend_message: Optional[BackendMessage] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -887,8 +886,6 @@ class BackendApi:
         :type sort_by: str
         :param latest: If True gets the most recently created object.
         :type latest: bool
-        :param backend_message:
-        :type backend_message: BackendMessage
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -922,7 +919,6 @@ class BackendApi:
             last_heartbeat=last_heartbeat,
             sort_by=sort_by,
             latest=latest,
-            backend_message=backend_message,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -957,7 +953,6 @@ class BackendApi:
         last_heartbeat: Optional[datetime] = None,
         sort_by: Annotated[Optional[StrictStr], Field(description="The field name to sort on. Prefix with '-' for descending order. E.g., '-created_on'.")] = None,
         latest: Annotated[Optional[StrictBool], Field(description="If True gets the most recently created object.")] = None,
-        backend_message: Optional[BackendMessage] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -995,8 +990,6 @@ class BackendApi:
         :type sort_by: str
         :param latest: If True gets the most recently created object.
         :type latest: bool
-        :param backend_message:
-        :type backend_message: BackendMessage
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -1030,7 +1023,6 @@ class BackendApi:
             last_heartbeat=last_heartbeat,
             sort_by=sort_by,
             latest=latest,
-            backend_message=backend_message,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -1065,7 +1057,6 @@ class BackendApi:
         last_heartbeat: Optional[datetime] = None,
         sort_by: Annotated[Optional[StrictStr], Field(description="The field name to sort on. Prefix with '-' for descending order. E.g., '-created_on'.")] = None,
         latest: Annotated[Optional[StrictBool], Field(description="If True gets the most recently created object.")] = None,
-        backend_message: Optional[BackendMessage] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -1103,8 +1094,6 @@ class BackendApi:
         :type sort_by: str
         :param latest: If True gets the most recently created object.
         :type latest: bool
-        :param backend_message:
-        :type backend_message: BackendMessage
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -1138,7 +1127,6 @@ class BackendApi:
             last_heartbeat=last_heartbeat,
             sort_by=sort_by,
             latest=latest,
-            backend_message=backend_message,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -1168,7 +1156,6 @@ class BackendApi:
         last_heartbeat,
         sort_by,
         latest,
-        backend_message,
         _request_auth,
         _content_type,
         _headers,
@@ -1243,8 +1230,6 @@ class BackendApi:
         # process the header parameters
         # process the form parameters
         # process the body parameter
-        if backend_message is not None:
-            _body_params = backend_message
 
 
         # set the HTTP header `Accept`
@@ -1255,19 +1240,6 @@ class BackendApi:
                 ]
             )
 
-        # set the HTTP header `Content-Type`
-        if _content_type:
-            _header_params['Content-Type'] = _content_type
-        else:
-            _default_content_type = (
-                self.api_client.select_header_content_type(
-                    [
-                        'application/json'
-                    ]
-                )
-            )
-            if _default_content_type is not None:
-                _header_params['Content-Type'] = _default_content_type
 
         # authentication setting
         _auth_settings: List[str] = [
@@ -1277,6 +1249,451 @@ class BackendApi:
         return self.api_client.param_serialize(
             method='GET',
             resource_path='/backends',
+            path_params=_path_params,
+            query_params=_query_params,
+            header_params=_header_params,
+            body=_body_params,
+            post_params=_form_params,
+            files=_files,
+            auth_settings=_auth_settings,
+            collection_formats=_collection_formats,
+            _host=_host,
+            _request_auth=_request_auth
+        )
+
+
+
+
+    @validate_call
+    async def read_backends_with_hostnames_backends_hostnames_get(
+        self,
+        page: Optional[Annotated[int, Field(strict=True, ge=1)]] = None,
+        size: Optional[Annotated[int, Field(le=100, strict=True, ge=1)]] = None,
+        id: Optional[StrictInt] = None,
+        name: Optional[StrictStr] = None,
+        location: Optional[StrictStr] = None,
+        backend_type_id: Optional[StrictInt] = None,
+        status: Optional[BackendStatus] = None,
+        last_heartbeat: Optional[datetime] = None,
+        hostname: Optional[StrictStr] = None,
+        sort_by: Annotated[Optional[StrictStr], Field(description="The field name to sort on. Prefix with '-' for descending order. E.g., '-created_on'.")] = None,
+        latest: Annotated[Optional[StrictBool], Field(description="If True gets the most recently created object.")] = None,
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+    ) -> PageBackendWithHostname:
+        """Get backends along with their hostnames
+
+        Read backends with hostnames.
+
+        :param page:
+        :type page: int
+        :param size:
+        :type size: int
+        :param id:
+        :type id: int
+        :param name:
+        :type name: str
+        :param location:
+        :type location: str
+        :param backend_type_id:
+        :type backend_type_id: int
+        :param status:
+        :type status: BackendStatus
+        :param last_heartbeat:
+        :type last_heartbeat: datetime
+        :param hostname:
+        :type hostname: str
+        :param sort_by: The field name to sort on. Prefix with '-' for descending order. E.g., '-created_on'.
+        :type sort_by: str
+        :param latest: If True gets the most recently created object.
+        :type latest: bool
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._read_backends_with_hostnames_backends_hostnames_get_serialize(
+            page=page,
+            size=size,
+            id=id,
+            name=name,
+            location=location,
+            backend_type_id=backend_type_id,
+            status=status,
+            last_heartbeat=last_heartbeat,
+            hostname=hostname,
+            sort_by=sort_by,
+            latest=latest,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '200': "PageBackendWithHostname",
+            '422': "HTTPValidationError",
+        }
+        response_data = await self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        await response_data.read()
+        return self.api_client.response_deserialize(
+            response_data=response_data,
+            response_types_map=_response_types_map,
+        ).data
+
+
+    @validate_call
+    async def read_backends_with_hostnames_backends_hostnames_get_with_http_info(
+        self,
+        page: Optional[Annotated[int, Field(strict=True, ge=1)]] = None,
+        size: Optional[Annotated[int, Field(le=100, strict=True, ge=1)]] = None,
+        id: Optional[StrictInt] = None,
+        name: Optional[StrictStr] = None,
+        location: Optional[StrictStr] = None,
+        backend_type_id: Optional[StrictInt] = None,
+        status: Optional[BackendStatus] = None,
+        last_heartbeat: Optional[datetime] = None,
+        hostname: Optional[StrictStr] = None,
+        sort_by: Annotated[Optional[StrictStr], Field(description="The field name to sort on. Prefix with '-' for descending order. E.g., '-created_on'.")] = None,
+        latest: Annotated[Optional[StrictBool], Field(description="If True gets the most recently created object.")] = None,
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+    ) -> ApiResponse[PageBackendWithHostname]:
+        """Get backends along with their hostnames
+
+        Read backends with hostnames.
+
+        :param page:
+        :type page: int
+        :param size:
+        :type size: int
+        :param id:
+        :type id: int
+        :param name:
+        :type name: str
+        :param location:
+        :type location: str
+        :param backend_type_id:
+        :type backend_type_id: int
+        :param status:
+        :type status: BackendStatus
+        :param last_heartbeat:
+        :type last_heartbeat: datetime
+        :param hostname:
+        :type hostname: str
+        :param sort_by: The field name to sort on. Prefix with '-' for descending order. E.g., '-created_on'.
+        :type sort_by: str
+        :param latest: If True gets the most recently created object.
+        :type latest: bool
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._read_backends_with_hostnames_backends_hostnames_get_serialize(
+            page=page,
+            size=size,
+            id=id,
+            name=name,
+            location=location,
+            backend_type_id=backend_type_id,
+            status=status,
+            last_heartbeat=last_heartbeat,
+            hostname=hostname,
+            sort_by=sort_by,
+            latest=latest,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '200': "PageBackendWithHostname",
+            '422': "HTTPValidationError",
+        }
+        response_data = await self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        await response_data.read()
+        return self.api_client.response_deserialize(
+            response_data=response_data,
+            response_types_map=_response_types_map,
+        )
+
+
+    @validate_call
+    async def read_backends_with_hostnames_backends_hostnames_get_without_preload_content(
+        self,
+        page: Optional[Annotated[int, Field(strict=True, ge=1)]] = None,
+        size: Optional[Annotated[int, Field(le=100, strict=True, ge=1)]] = None,
+        id: Optional[StrictInt] = None,
+        name: Optional[StrictStr] = None,
+        location: Optional[StrictStr] = None,
+        backend_type_id: Optional[StrictInt] = None,
+        status: Optional[BackendStatus] = None,
+        last_heartbeat: Optional[datetime] = None,
+        hostname: Optional[StrictStr] = None,
+        sort_by: Annotated[Optional[StrictStr], Field(description="The field name to sort on. Prefix with '-' for descending order. E.g., '-created_on'.")] = None,
+        latest: Annotated[Optional[StrictBool], Field(description="If True gets the most recently created object.")] = None,
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+    ) -> RESTResponseType:
+        """Get backends along with their hostnames
+
+        Read backends with hostnames.
+
+        :param page:
+        :type page: int
+        :param size:
+        :type size: int
+        :param id:
+        :type id: int
+        :param name:
+        :type name: str
+        :param location:
+        :type location: str
+        :param backend_type_id:
+        :type backend_type_id: int
+        :param status:
+        :type status: BackendStatus
+        :param last_heartbeat:
+        :type last_heartbeat: datetime
+        :param hostname:
+        :type hostname: str
+        :param sort_by: The field name to sort on. Prefix with '-' for descending order. E.g., '-created_on'.
+        :type sort_by: str
+        :param latest: If True gets the most recently created object.
+        :type latest: bool
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._read_backends_with_hostnames_backends_hostnames_get_serialize(
+            page=page,
+            size=size,
+            id=id,
+            name=name,
+            location=location,
+            backend_type_id=backend_type_id,
+            status=status,
+            last_heartbeat=last_heartbeat,
+            hostname=hostname,
+            sort_by=sort_by,
+            latest=latest,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '200': "PageBackendWithHostname",
+            '422': "HTTPValidationError",
+        }
+        response_data = await self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        return response_data.response
+
+
+    def _read_backends_with_hostnames_backends_hostnames_get_serialize(
+        self,
+        page,
+        size,
+        id,
+        name,
+        location,
+        backend_type_id,
+        status,
+        last_heartbeat,
+        hostname,
+        sort_by,
+        latest,
+        _request_auth,
+        _content_type,
+        _headers,
+        _host_index,
+    ) -> RequestSerialized:
+
+        _host = None
+
+        _collection_formats: Dict[str, str] = {
+        }
+
+        _path_params: Dict[str, str] = {}
+        _query_params: List[Tuple[str, str]] = []
+        _header_params: Dict[str, Optional[str]] = _headers or {}
+        _form_params: List[Tuple[str, str]] = []
+        _files: Dict[
+            str, Union[str, bytes, List[str], List[bytes], List[Tuple[str, bytes]]]
+        ] = {}
+        _body_params: Optional[bytes] = None
+
+        # process the path parameters
+        # process the query parameters
+        if page is not None:
+            
+            _query_params.append(('page', page))
+            
+        if size is not None:
+            
+            _query_params.append(('size', size))
+            
+        if id is not None:
+            
+            _query_params.append(('id', id))
+            
+        if name is not None:
+            
+            _query_params.append(('name', name))
+            
+        if location is not None:
+            
+            _query_params.append(('location', location))
+            
+        if backend_type_id is not None:
+            
+            _query_params.append(('backend_type_id', backend_type_id))
+            
+        if status is not None:
+            
+            _query_params.append(('status', status.value))
+            
+        if last_heartbeat is not None:
+            if isinstance(last_heartbeat, datetime):
+                _query_params.append(
+                    (
+                        'last_heartbeat',
+                        last_heartbeat.strftime(
+                            self.api_client.configuration.datetime_format
+                        )
+                    )
+                )
+            else:
+                _query_params.append(('last_heartbeat', last_heartbeat))
+            
+        if hostname is not None:
+            
+            _query_params.append(('hostname', hostname))
+            
+        if sort_by is not None:
+            
+            _query_params.append(('sort_by', sort_by))
+            
+        if latest is not None:
+            
+            _query_params.append(('latest', latest))
+            
+        # process the header parameters
+        # process the form parameters
+        # process the body parameter
+
+
+        # set the HTTP header `Accept`
+        if 'Accept' not in _header_params:
+            _header_params['Accept'] = self.api_client.select_header_accept(
+                [
+                    'application/json'
+                ]
+            )
+
+
+        # authentication setting
+        _auth_settings: List[str] = [
+            'backend'
+        ]
+
+        return self.api_client.param_serialize(
+            method='GET',
+            resource_path='/backends/hostnames',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,

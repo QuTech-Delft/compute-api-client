@@ -63,6 +63,10 @@ else
     cd ../message-broadcaster/
     uv lock
 
+    echo "Updating backend metrics dependencies"
+    cd ../backend-metrics/
+    uv lock
+
     echo "Updating e2e test dependencies"
     cd ../../../tests/e2e/
     uv lock

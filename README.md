@@ -83,6 +83,7 @@ All URIs are relative to *http://localhost*
 | _BackendApi_      | [**read_backend_backends_id_get**](compute_api_client/docs/BackendApi.md#read_backend_backends_id_get)                                                                       | **GET** /backends/{id}                    | Retrieve backend                                    |
 | _BackendApi_      | [**read_backend_self_backends_me_get**](compute_api_client/docs/BackendApi.md#read_backend_self_backends_me_get)                                                             | **GET** /backends/me                      | Retrieve backend                                    |
 | _BackendApi_      | [**read_backends_backends_get**](compute_api_client/docs/BackendApi.md#read_backends_backends_get)                                                                           | **GET** /backends                         | List backends                                       |
+| _BackendApi_      | [**read_backends_with_hostnames_backends_hostnames_get**](compute_api_client/docs/BackendApi.md#read_backends_with_hostnames_backends_hostnames_get)                         | **GET** /backends/hostnames               | Get backends along with their hostnames             |
 | _BackendApi_      | [**update_backend_self_backends_me_patch**](compute_api_client/docs/BackendApi.md#update_backend_self_backends_me_patch)                                                     | **PATCH** /backends/me                    | Update backend                                      |
 | _BackendTypesApi_ | [**read_backend_type_backend_types_id_get**](compute_api_client/docs/BackendTypesApi.md#read_backend_type_backend_types_id_get)                                              | **GET** /backend_types/{id}               | Retrieve backend type                               |
 | _BackendTypesApi_ | [**read_backend_type_queue_backend_types_id_queue_get**](compute_api_client/docs/BackendTypesApi.md#read_backend_type_queue_backend_types_id_queue_get)                      | **GET** /backend_types/{id}/queue         | Retrieve backend type (batch) job queue statistics  |
@@ -164,6 +165,7 @@ All URIs are relative to *http://localhost*
 - [BackendType](compute_api_client/docs/BackendType.md)
 - [BackendTypePatch](compute_api_client/docs/BackendTypePatch.md)
 - [BackendWithAuthentication](compute_api_client/docs/BackendWithAuthentication.md)
+- [BackendWithHostname](compute_api_client/docs/BackendWithHostname.md)
 - [BatchJob](compute_api_client/docs/BatchJob.md)
 - [BatchJobIn](compute_api_client/docs/BatchJobIn.md)
 - [BatchJobStatus](compute_api_client/docs/BatchJobStatus.md)
@@ -195,6 +197,7 @@ All URIs are relative to *http://localhost*
 - [PageAlgorithm](compute_api_client/docs/PageAlgorithm.md)
 - [PageBackend](compute_api_client/docs/PageBackend.md)
 - [PageBackendType](compute_api_client/docs/PageBackendType.md)
+- [PageBackendWithHostname](compute_api_client/docs/PageBackendWithHostname.md)
 - [PageBatchJob](compute_api_client/docs/PageBatchJob.md)
 - [PageCommit](compute_api_client/docs/PageCommit.md)
 - [PageFile](compute_api_client/docs/PageFile.md)

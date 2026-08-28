@@ -18,22 +18,27 @@ import re  # noqa: F401
 import json
 
 from datetime import datetime
-from pydantic import BaseModel, ConfigDict, StrictStr
+from pydantic import BaseModel, ConfigDict, Field, StrictInt
 from typing import Any, ClassVar, Dict, List, Optional
+from typing_extensions import Annotated
 from compute_api_client.models.backend_message import BackendMessage
 from compute_api_client.models.backend_status import BackendStatus
 from typing import Optional, Set
 from typing_extensions import Self
 
-class BackendPatch(BaseModel):
+class BackendWithHostname(BaseModel):
     """
-    BackendPatch
+    BackendWithHostname
     """ # noqa: E501
-    message: Optional[BackendMessage] = None
-    status: Optional[BackendStatus] = None
-    last_heartbeat: Optional[datetime] = None
-    hostname: Optional[StrictStr] = None
-    __properties: ClassVar[List[str]] = ["message", "status", "last_heartbeat", "hostname"]
+    id: StrictInt = Field(description="The id of the backend")
+    name: Annotated[str, Field(strict=True, max_length=32)] = Field(description="The name of the backend")
+    location: Annotated[str, Field(strict=True, max_length=32)] = Field(description="The location of the backend")
+    backend_type_id: StrictInt = Field(description="The id of the backend type")
+    status: BackendStatus = Field(description="Status of the backend")
+    message: Optional[BackendMessage] = Field(default=None, description="The message obj for a backend")
+    last_heartbeat: datetime = Field(description="Time of last heartbeat")
+    hostname: Annotated[str, Field(strict=True, max_length=255)] = Field(description="The hostname of the backend")
+    __properties: ClassVar[List[str]] = ["id", "name", "location", "backend_type_id", "status", "message", "last_heartbeat", "hostname"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -53,7 +58,7 @@ class BackendPatch(BaseModel):
 
     @classmethod
     def from_json(cls, json_str: str) -> Optional[Self]:
-        """Create an instance of BackendPatch from a JSON string"""
+        """Create an instance of BackendWithHostname from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
     def to_dict(self) -> Dict[str, Any]:
@@ -77,31 +82,11 @@ class BackendPatch(BaseModel):
         # override the default output from pydantic by calling `to_dict()` of message
         if self.message:
             _dict['message'] = self.message.to_dict()
-        # set to None if message (nullable) is None
-        # and model_fields_set contains the field
-        if self.message is None and "message" in self.model_fields_set:
-            _dict['message'] = None
-
-        # set to None if status (nullable) is None
-        # and model_fields_set contains the field
-        if self.status is None and "status" in self.model_fields_set:
-            _dict['status'] = None
-
-        # set to None if last_heartbeat (nullable) is None
-        # and model_fields_set contains the field
-        if self.last_heartbeat is None and "last_heartbeat" in self.model_fields_set:
-            _dict['last_heartbeat'] = None
-
-        # set to None if hostname (nullable) is None
-        # and model_fields_set contains the field
-        if self.hostname is None and "hostname" in self.model_fields_set:
-            _dict['hostname'] = None
-
         return _dict
 
     @classmethod
     def from_dict(cls, obj: Optional[Dict[str, Any]]) -> Optional[Self]:
-        """Create an instance of BackendPatch from a dict"""
+        """Create an instance of BackendWithHostname from a dict"""
         if obj is None:
             return None
 
@@ -109,8 +94,12 @@ class BackendPatch(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
-            "message": BackendMessage.from_dict(obj["message"]) if obj.get("message") is not None else None,
+            "id": obj.get("id"),
+            "name": obj.get("name"),
+            "location": obj.get("location"),
+            "backend_type_id": obj.get("backend_type_id"),
             "status": obj.get("status"),
+            "message": BackendMessage.from_dict(obj["message"]) if obj.get("message") is not None else None,
             "last_heartbeat": obj.get("last_heartbeat"),
             "hostname": obj.get("hostname")
         })

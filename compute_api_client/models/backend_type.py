@@ -42,7 +42,7 @@ class BackendType(BaseModel):
     topology: List[List[StrictInt]] = Field(description="The topology of the backend")
     nqubits: StrictInt = Field(description="The number of qubits on the backend")
     status: BackendStatus = Field(description="The status of the backend type")
-    messages: Dict[str, Optional[BackendMessage]] = Field(description="List of status messages for the various instances")
+    messages: Dict[str, BackendMessage] = Field(description="List of status messages for the various instances")
     default_number_of_shots: StrictInt = Field(description="The default shots")
     max_number_of_shots: StrictInt = Field(description="The maximum number of shots")
     enabled: StrictBool = Field(description="If it is enabled")
