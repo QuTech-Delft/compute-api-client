@@ -6,7 +6,11 @@ import pytest
 import responses
 from responses import matchers
 
-from qi2_shared.authentication import AuthorisationError, IdentityProvider, OauthDeviceSession
+from qi2_shared.authentication import (
+    AuthorisationError,
+    IdentityProvider,
+    OauthDeviceSession,
+)
 from qi2_shared.settings import ApiSettings, AuthSettings, TokenInfo
 
 

@@ -1,7 +1,6 @@
-from typing import Any, Optional
+from typing import Any
 
 import compute_api_client
-
 from qi2_shared.authentication import IdentityProvider, OauthDeviceSession
 from qi2_shared.settings import ApiSettings
 
@@ -20,7 +19,7 @@ class Configuration(compute_api_client.Configuration):  # type: ignore[misc]
         return super().auth_settings()
 
 
-_config: Optional[Configuration] = None
+_config: Configuration | None = None
 
 
 def connect() -> None:
@@ -44,7 +43,6 @@ def connect() -> None:
 
 
 def config() -> Configuration:
-    global _config
     if _config is None:
         connect()
 

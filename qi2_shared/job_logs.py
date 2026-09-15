@@ -1,6 +1,5 @@
 import asyncio
 import time
-from typing import List, Optional
 
 from compute_api_client import JobLogPage, JobsApi
 
@@ -8,14 +7,14 @@ from compute_api_client import JobLogPage, JobsApi
 async def poll_job_logs(
     jobs_api: JobsApi,
     job_id: int,
-    expected_logs: Optional[int] = None,
+    expected_logs: int | None = None,
     poll_interval: float = 5.0,
     timeout: float = 30.0,
-) -> List[str]:
+) -> list[str]:
     """Poll job logs until expected_logs is reached or timeout expires."""
-    total_logs: List[str] = []
+    total_logs: list[str] = []
     seen_timestamps: set[int] = set()
-    next_start: Optional[int] = None
+    next_start: int | None = None
 
     start_time = time.monotonic()
 

@@ -1,5 +1,5 @@
 import time
-from typing import Any, Tuple, cast
+from typing import Any, cast
 
 import requests
 
@@ -8,8 +8,6 @@ from qi2_shared.settings import ApiSettings, TokenInfo, Url
 
 class AuthorisationError(Exception):
     """Indicates that the authorisation permanently went wrong."""
-
-    pass
 
 
 class IdentityProvider:
@@ -20,7 +18,7 @@ class IdentityProvider:
         self._token_endpoint, self._device_endpoint = self._get_endpoints()
         self._headers = {"Content-Type": "application/x-www-form-urlencoded"}
 
-    def _get_endpoints(self) -> Tuple[str, str]:
+    def _get_endpoints(self) -> tuple[str, str]:
         response = requests.get(self._well_known_endpoint)
         response.raise_for_status()
         config = response.json()

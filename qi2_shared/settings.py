@@ -4,10 +4,9 @@ from __future__ import annotations
 
 import time
 from pathlib import Path
-from typing import Dict, Optional
+from typing import Annotated
 
 from pydantic import BaseModel, BeforeValidator, Field, HttpUrl
-from typing_extensions import Annotated
 
 Url = Annotated[str, BeforeValidator(lambda value: str(HttpUrl(value)).rstrip("/"))]
 API_SETTINGS_FILE = Path.joinpath(Path.home(), ".quantuminspire", "config.json")
@@ -19,7 +18,7 @@ class TokenInfo(BaseModel):
     access_token: str
     expires_in: int  # [s]
     refresh_token: str
-    refresh_expires_in: Optional[int] = None  # [s]
+    refresh_expires_in: int | None = None  # [s]
     generated_at: float = Field(default_factory=time.time)
 
     @property
@@ -35,14 +34,14 @@ class AuthSettings(BaseModel):
     code_challenge_method: str
     code_verifyer_length: int
     well_known_endpoint: Url
-    tokens: Optional[TokenInfo]
-    team_member_id: Optional[int]
+    tokens: TokenInfo | None
+    team_member_id: int | None
 
 
 class ApiSettings(BaseModel):
     """The settings class for the Quantum Inspire persistent configuration."""
 
-    auths: Dict[Url, AuthSettings]
+    auths: dict[Url, AuthSettings]
     default_host: Url
 
     def store_tokens(self, host: Url, tokens: TokenInfo, path: Path = API_SETTINGS_FILE) -> None:

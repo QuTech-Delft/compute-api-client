@@ -13,17 +13,18 @@ language governing permissions and limitations under the License.
 """
 
 from abc import ABC, abstractmethod
-from typing import Any, Dict, List, Optional
+from typing import Any
+
+from pydantic import BaseModel
 
 from compute_api_client.models.backend_type import BackendType
-from pydantic import BaseModel
 
 
 class ExecuteCircuitResult(BaseModel):
     """Result of executing a quantum circuit."""
 
-    results: Dict[str, int]
-    raw_data: Optional[List[str]]
+    results: dict[str, int]
+    raw_data: list[str] | None
     shots_requested: int
     shots_done: int
 
@@ -34,7 +35,7 @@ class QuantumInterface(ABC):
     # pylint: disable = R0903
     # Too few public methods (1/2) (too-few-public-methods)
 
-    results: List[Dict[str, Any]]
+    results: list[dict[str, Any]]
     backend_type: BackendType
 
     @abstractmethod

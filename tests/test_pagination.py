@@ -1,9 +1,9 @@
 from unittest.mock import AsyncMock, MagicMock
 
 import pytest
-from compute_api_client import BackendType, BatchJob, PageBackendType, PageBatchJob
 from pytest_mock import MockerFixture
 
+from compute_api_client import BackendType, BatchJob, PageBackendType, PageBatchJob
 from qi2_shared.pagination import PageReader
 
 

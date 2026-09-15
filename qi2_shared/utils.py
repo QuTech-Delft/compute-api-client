@@ -1,6 +1,7 @@
 import asyncio
 import concurrent
-from typing import Any, Coroutine
+from collections.abc import Coroutine
+from typing import Any
 
 
 def run_async(async_function: Coroutine[Any, Any, Any]) -> Any:
