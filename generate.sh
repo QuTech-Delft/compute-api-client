@@ -28,9 +28,16 @@ openapi-generator-cli generate \
 
     mv compute_api_client_README.md README.md
 
+npx --yes prettier@4.0.0-alpha.8 --prose-wrap=always --print-width=120 --write README.md
+
 if [ "$check" = "check" ]; then
     # Allows CI to verify the client is up to date
-    git diff HEAD
+    git add -N .
+    # make sure all files except of README match exactly
+    git diff --exit-code HEAD -- . ':(top,exclude)src/python/libs/compute-api-client/README.md'
+    # for the README file only, check diff except for the Authorization URL
+    git diff --exit-code HEAD --ignore-matching-lines '^- \*\*Authorization URL\*\*: ' \
+    -- ':(top)src/python/libs/compute-api-client/README.md'
 else
     # Update documentation
     curl -o ../../../../docs/design/code/apps/compute_job_manager_openapi.json http://localhost:8000/openapi.json

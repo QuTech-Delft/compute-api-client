@@ -182,6 +182,8 @@ All URIs are relative to *http://localhost*
 - [FinalResultIn](compute_api_client/docs/FinalResultIn.md)
 - [HTTPBadRequestError](compute_api_client/docs/HTTPBadRequestError.md)
 - [HTTPConflictError](compute_api_client/docs/HTTPConflictError.md)
+- [HTTPForbiddenError](compute_api_client/docs/HTTPForbiddenError.md)
+- [HTTPInternalServerError](compute_api_client/docs/HTTPInternalServerError.md)
 - [HTTPNotFoundError](compute_api_client/docs/HTTPNotFoundError.md)
 - [HTTPTooManyRequestsError](compute_api_client/docs/HTTPTooManyRequestsError.md)
 - [HTTPValidationError](compute_api_client/docs/HTTPValidationError.md)

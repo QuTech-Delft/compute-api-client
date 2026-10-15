@@ -101,6 +101,7 @@ class JobsApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '201': "Job",
+            '403': "HTTPForbiddenError",
             '409': "HTTPConflictError",
             '422': "HTTPValidationError",
         }
@@ -170,6 +171,7 @@ class JobsApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '201': "Job",
+            '403': "HTTPForbiddenError",
             '409': "HTTPConflictError",
             '422': "HTTPValidationError",
         }
@@ -239,6 +241,7 @@ class JobsApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '201': "Job",
+            '403': "HTTPForbiddenError",
             '409': "HTTPConflictError",
             '422': "HTTPValidationError",
         }
@@ -381,6 +384,7 @@ class JobsApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '204': None,
+            '403': "HTTPForbiddenError",
             '404': "HTTPNotFoundError",
             '422': "HTTPValidationError",
         }
@@ -450,6 +454,7 @@ class JobsApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '204': None,
+            '403': "HTTPForbiddenError",
             '404': "HTTPNotFoundError",
             '422': "HTTPValidationError",
         }
@@ -519,6 +524,7 @@ class JobsApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '204': None,
+            '403': "HTTPForbiddenError",
             '404': "HTTPNotFoundError",
             '422': "HTTPValidationError",
         }
@@ -660,6 +666,10 @@ class JobsApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "JobLogPage",
+            '400': "HTTPBadRequestError",
+            '403': "HTTPForbiddenError",
+            '404': "HTTPNotFoundError",
+            '500': "HTTPInternalServerError",
             '422': "HTTPValidationError",
         }
         response_data = await self.api_client.call_api(
@@ -740,6 +750,10 @@ class JobsApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "JobLogPage",
+            '400': "HTTPBadRequestError",
+            '403': "HTTPForbiddenError",
+            '404': "HTTPNotFoundError",
+            '500': "HTTPInternalServerError",
             '422': "HTTPValidationError",
         }
         response_data = await self.api_client.call_api(
@@ -820,6 +834,10 @@ class JobsApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "JobLogPage",
+            '400': "HTTPBadRequestError",
+            '403': "HTTPForbiddenError",
+            '404': "HTTPNotFoundError",
+            '500': "HTTPInternalServerError",
             '422': "HTTPValidationError",
         }
         response_data = await self.api_client.call_api(
@@ -963,6 +981,7 @@ class JobsApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "Job",
+            '403': "HTTPForbiddenError",
             '404': "HTTPNotFoundError",
             '422': "HTTPValidationError",
         }
@@ -1032,6 +1051,7 @@ class JobsApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "Job",
+            '403': "HTTPForbiddenError",
             '404': "HTTPNotFoundError",
             '422': "HTTPValidationError",
         }
@@ -1101,6 +1121,7 @@ class JobsApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "Job",
+            '403': "HTTPForbiddenError",
             '404': "HTTPNotFoundError",
             '422': "HTTPValidationError",
         }
@@ -1869,6 +1890,7 @@ class JobsApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "Job",
+            '403': "HTTPForbiddenError",
             '404': "HTTPNotFoundError",
             '422': "HTTPValidationError",
         }
@@ -1942,6 +1964,7 @@ class JobsApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "Job",
+            '403': "HTTPForbiddenError",
             '404': "HTTPNotFoundError",
             '422': "HTTPValidationError",
         }
@@ -2015,6 +2038,7 @@ class JobsApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "Job",
+            '403': "HTTPForbiddenError",
             '404': "HTTPNotFoundError",
             '422': "HTTPValidationError",
         }

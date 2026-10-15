@@ -102,8 +102,9 @@ class CommitsApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '204': None,
-            '404': "HTTPNotFoundError",
             '400': "HTTPBadRequestError",
+            '403': "HTTPForbiddenError",
+            '404': "HTTPNotFoundError",
             '422': "HTTPValidationError",
         }
         response_data = await self.api_client.call_api(
@@ -176,8 +177,9 @@ class CommitsApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '204': None,
-            '404': "HTTPNotFoundError",
             '400': "HTTPBadRequestError",
+            '403': "HTTPForbiddenError",
+            '404': "HTTPNotFoundError",
             '422': "HTTPValidationError",
         }
         response_data = await self.api_client.call_api(
@@ -250,8 +252,9 @@ class CommitsApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '204': None,
-            '404': "HTTPNotFoundError",
             '400': "HTTPBadRequestError",
+            '403': "HTTPForbiddenError",
+            '404': "HTTPNotFoundError",
             '422': "HTTPValidationError",
         }
         response_data = await self.api_client.call_api(
@@ -397,6 +400,7 @@ class CommitsApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '201': "Commit",
+            '403': "HTTPForbiddenError",
             '422': "HTTPValidationError",
         }
         response_data = await self.api_client.call_api(
@@ -465,6 +469,7 @@ class CommitsApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '201': "Commit",
+            '403': "HTTPForbiddenError",
             '422': "HTTPValidationError",
         }
         response_data = await self.api_client.call_api(
@@ -533,6 +538,7 @@ class CommitsApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '201': "Commit",
+            '403': "HTTPForbiddenError",
             '422': "HTTPValidationError",
         }
         response_data = await self.api_client.call_api(
@@ -674,6 +680,7 @@ class CommitsApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '204': None,
+            '403': "HTTPForbiddenError",
             '404': "HTTPNotFoundError",
             '422': "HTTPValidationError",
         }
@@ -743,6 +750,7 @@ class CommitsApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '204': None,
+            '403': "HTTPForbiddenError",
             '404': "HTTPNotFoundError",
             '422': "HTTPValidationError",
         }
@@ -812,6 +820,7 @@ class CommitsApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '204': None,
+            '403': "HTTPForbiddenError",
             '404': "HTTPNotFoundError",
             '422': "HTTPValidationError",
         }
@@ -941,7 +950,8 @@ class CommitsApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "Commit",
-            '201': "HTTPNotFoundError",
+            '403': "HTTPForbiddenError",
+            '404': "HTTPNotFoundError",
             '422': "HTTPValidationError",
         }
         response_data = await self.api_client.call_api(
@@ -1010,7 +1020,8 @@ class CommitsApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "Commit",
-            '201': "HTTPNotFoundError",
+            '403': "HTTPForbiddenError",
+            '404': "HTTPNotFoundError",
             '422': "HTTPValidationError",
         }
         response_data = await self.api_client.call_api(
@@ -1079,7 +1090,8 @@ class CommitsApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "Commit",
-            '201': "HTTPNotFoundError",
+            '403': "HTTPForbiddenError",
+            '404': "HTTPNotFoundError",
             '422': "HTTPValidationError",
         }
         response_data = await self.api_client.call_api(

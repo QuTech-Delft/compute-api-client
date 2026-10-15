@@ -98,6 +98,7 @@ class AlgorithmsApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '201': "Algorithm",
+            '403': "HTTPForbiddenError",
             '422': "HTTPValidationError",
         }
         response_data = await self.api_client.call_api(
@@ -166,6 +167,7 @@ class AlgorithmsApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '201': "Algorithm",
+            '403': "HTTPForbiddenError",
             '422': "HTTPValidationError",
         }
         response_data = await self.api_client.call_api(
@@ -234,6 +236,7 @@ class AlgorithmsApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '201': "Algorithm",
+            '403': "HTTPForbiddenError",
             '422': "HTTPValidationError",
         }
         response_data = await self.api_client.call_api(
@@ -375,6 +378,7 @@ class AlgorithmsApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '204': None,
+            '403': "HTTPForbiddenError",
             '404': "HTTPNotFoundError",
             '422': "HTTPValidationError",
         }
@@ -444,6 +448,7 @@ class AlgorithmsApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '204': None,
+            '403': "HTTPForbiddenError",
             '404': "HTTPNotFoundError",
             '422': "HTTPValidationError",
         }
@@ -513,6 +518,7 @@ class AlgorithmsApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '204': None,
+            '403': "HTTPForbiddenError",
             '404': "HTTPNotFoundError",
             '422': "HTTPValidationError",
         }
@@ -642,6 +648,7 @@ class AlgorithmsApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "Algorithm",
+            '403': "HTTPForbiddenError",
             '404': "HTTPNotFoundError",
             '422': "HTTPValidationError",
         }
@@ -711,6 +718,7 @@ class AlgorithmsApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "Algorithm",
+            '403': "HTTPForbiddenError",
             '404': "HTTPNotFoundError",
             '422': "HTTPValidationError",
         }
@@ -780,6 +788,7 @@ class AlgorithmsApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "Algorithm",
+            '403': "HTTPForbiddenError",
             '404': "HTTPNotFoundError",
             '422': "HTTPValidationError",
         }
@@ -1367,8 +1376,9 @@ class AlgorithmsApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "Algorithm",
+            '403': "HTTPForbiddenError",
             '404': "HTTPNotFoundError",
-            '422': "HTTPValidationError",
+            '422': "HTTPBadRequestError",
         }
         response_data = await self.api_client.call_api(
             *_param,
@@ -1440,8 +1450,9 @@ class AlgorithmsApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "Algorithm",
+            '403': "HTTPForbiddenError",
             '404': "HTTPNotFoundError",
-            '422': "HTTPValidationError",
+            '422': "HTTPBadRequestError",
         }
         response_data = await self.api_client.call_api(
             *_param,
@@ -1513,8 +1524,9 @@ class AlgorithmsApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "Algorithm",
+            '403': "HTTPForbiddenError",
             '404': "HTTPNotFoundError",
-            '422': "HTTPValidationError",
+            '422': "HTTPBadRequestError",
         }
         response_data = await self.api_client.call_api(
             *_param,

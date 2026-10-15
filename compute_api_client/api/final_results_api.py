@@ -93,6 +93,7 @@ class FinalResultsApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '201': "FinalResult",
+            '403': "HTTPForbiddenError",
             '422': "HTTPValidationError",
         }
         response_data = await self.api_client.call_api(
@@ -161,6 +162,7 @@ class FinalResultsApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '201': "FinalResult",
+            '403': "HTTPForbiddenError",
             '422': "HTTPValidationError",
         }
         response_data = await self.api_client.call_api(
@@ -229,6 +231,7 @@ class FinalResultsApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '201': "FinalResult",
+            '403': "HTTPForbiddenError",
             '422': "HTTPValidationError",
         }
         response_data = await self.api_client.call_api(
@@ -371,6 +374,8 @@ class FinalResultsApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "FinalResult",
+            '403': "HTTPForbiddenError",
+            '404': "HTTPNotFoundError",
             '422': "HTTPValidationError",
         }
         response_data = await self.api_client.call_api(
@@ -439,6 +444,8 @@ class FinalResultsApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "FinalResult",
+            '403': "HTTPForbiddenError",
+            '404': "HTTPNotFoundError",
             '422': "HTTPValidationError",
         }
         response_data = await self.api_client.call_api(
@@ -507,6 +514,8 @@ class FinalResultsApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "FinalResult",
+            '403': "HTTPForbiddenError",
+            '404': "HTTPNotFoundError",
             '422': "HTTPValidationError",
         }
         response_data = await self.api_client.call_api(
@@ -635,6 +644,7 @@ class FinalResultsApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "FinalResult",
+            '403': "HTTPForbiddenError",
             '404': "HTTPNotFoundError",
             '422': "HTTPValidationError",
         }
@@ -704,6 +714,7 @@ class FinalResultsApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "FinalResult",
+            '403': "HTTPForbiddenError",
             '404': "HTTPNotFoundError",
             '422': "HTTPValidationError",
         }
@@ -773,6 +784,7 @@ class FinalResultsApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "FinalResult",
+            '403': "HTTPForbiddenError",
             '404': "HTTPNotFoundError",
             '422': "HTTPValidationError",
         }

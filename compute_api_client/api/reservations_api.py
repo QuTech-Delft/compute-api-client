@@ -97,7 +97,7 @@ class ReservationsApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '201': "Reservation",
-            '422': "HTTPValidationError",
+            '422': "HTTPBadRequestError",
         }
         response_data = await self.api_client.call_api(
             *_param,
@@ -165,7 +165,7 @@ class ReservationsApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '201': "Reservation",
-            '422': "HTTPValidationError",
+            '422': "HTTPBadRequestError",
         }
         response_data = await self.api_client.call_api(
             *_param,
@@ -233,7 +233,7 @@ class ReservationsApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '201': "Reservation",
-            '422': "HTTPValidationError",
+            '422': "HTTPBadRequestError",
         }
         response_data = await self.api_client.call_api(
             *_param,
@@ -1113,7 +1113,7 @@ class ReservationsApi:
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "Reservation",
             '404': "HTTPNotFoundError",
-            '422': "HTTPValidationError",
+            '422': "HTTPBadRequestError",
         }
         response_data = await self.api_client.call_api(
             *_param,
@@ -1182,7 +1182,7 @@ class ReservationsApi:
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "Reservation",
             '404': "HTTPNotFoundError",
-            '422': "HTTPValidationError",
+            '422': "HTTPBadRequestError",
         }
         response_data = await self.api_client.call_api(
             *_param,
@@ -1251,7 +1251,7 @@ class ReservationsApi:
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "Reservation",
             '404': "HTTPNotFoundError",
-            '422': "HTTPValidationError",
+            '422': "HTTPBadRequestError",
         }
         response_data = await self.api_client.call_api(
             *_param,

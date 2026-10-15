@@ -641,6 +641,7 @@ class ResultsApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "Result",
+            '403': "HTTPForbiddenError",
             '404': "HTTPNotFoundError",
             '422': "HTTPValidationError",
         }
@@ -710,6 +711,7 @@ class ResultsApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "Result",
+            '403': "HTTPForbiddenError",
             '404': "HTTPNotFoundError",
             '422': "HTTPValidationError",
         }
@@ -779,6 +781,7 @@ class ResultsApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "Result",
+            '403': "HTTPForbiddenError",
             '404': "HTTPNotFoundError",
             '422': "HTTPValidationError",
         }
@@ -956,6 +959,7 @@ class ResultsApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "PageResult",
+            '403': "HTTPForbiddenError",
             '404': "HTTPNotFoundError",
             '422': "HTTPValidationError",
         }
@@ -1073,6 +1077,7 @@ class ResultsApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "PageResult",
+            '403': "HTTPForbiddenError",
             '404': "HTTPNotFoundError",
             '422': "HTTPValidationError",
         }
@@ -1190,6 +1195,7 @@ class ResultsApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "PageResult",
+            '403': "HTTPForbiddenError",
             '404': "HTTPNotFoundError",
             '422': "HTTPValidationError",
         }
@@ -1404,6 +1410,7 @@ class ResultsApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "PageResult",
+            '403': "HTTPForbiddenError",
             '404': "HTTPNotFoundError",
             '422': "HTTPValidationError",
         }
@@ -1489,6 +1496,7 @@ class ResultsApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "PageResult",
+            '403': "HTTPForbiddenError",
             '404': "HTTPNotFoundError",
             '422': "HTTPValidationError",
         }
@@ -1574,6 +1582,7 @@ class ResultsApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "PageResult",
+            '403': "HTTPForbiddenError",
             '404': "HTTPNotFoundError",
             '422': "HTTPValidationError",
         }

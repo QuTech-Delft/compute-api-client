@@ -373,6 +373,7 @@ class UsersApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '204': None,
+            '403': "HTTPForbiddenError",
             '404': "HTTPNotFoundError",
             '422': "HTTPValidationError",
         }
@@ -442,6 +443,7 @@ class UsersApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '204': None,
+            '403': "HTTPForbiddenError",
             '404': "HTTPNotFoundError",
             '422': "HTTPValidationError",
         }
@@ -511,6 +513,7 @@ class UsersApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '204': None,
+            '403': "HTTPForbiddenError",
             '404': "HTTPNotFoundError",
             '422': "HTTPValidationError",
         }
@@ -640,6 +643,7 @@ class UsersApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "User",
+            '403': "HTTPForbiddenError",
             '404': "HTTPNotFoundError",
             '422': "HTTPValidationError",
         }
@@ -709,6 +713,7 @@ class UsersApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "User",
+            '403': "HTTPForbiddenError",
             '404': "HTTPNotFoundError",
             '422': "HTTPValidationError",
         }
@@ -778,6 +783,7 @@ class UsersApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "User",
+            '403': "HTTPForbiddenError",
             '404': "HTTPNotFoundError",
             '422': "HTTPValidationError",
         }

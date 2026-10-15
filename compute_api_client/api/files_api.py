@@ -97,6 +97,7 @@ class FilesApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '201': "File",
+            '403': "HTTPForbiddenError",
             '422': "HTTPValidationError",
         }
         response_data = await self.api_client.call_api(
@@ -165,6 +166,7 @@ class FilesApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '201': "File",
+            '403': "HTTPForbiddenError",
             '422': "HTTPValidationError",
         }
         response_data = await self.api_client.call_api(
@@ -233,6 +235,7 @@ class FilesApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '201': "File",
+            '403': "HTTPForbiddenError",
             '422': "HTTPValidationError",
         }
         response_data = await self.api_client.call_api(
@@ -374,6 +377,7 @@ class FilesApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '204': None,
+            '403': "HTTPForbiddenError",
             '404': "HTTPNotFoundError",
             '422': "HTTPValidationError",
         }
@@ -443,6 +447,7 @@ class FilesApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '204': None,
+            '403': "HTTPForbiddenError",
             '404': "HTTPNotFoundError",
             '422': "HTTPValidationError",
         }
@@ -512,6 +517,7 @@ class FilesApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '204': None,
+            '403': "HTTPForbiddenError",
             '404': "HTTPNotFoundError",
             '422': "HTTPValidationError",
         }
@@ -641,6 +647,7 @@ class FilesApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "File",
+            '403': "HTTPForbiddenError",
             '404': "HTTPNotFoundError",
             '422': "HTTPValidationError",
         }
@@ -710,6 +717,7 @@ class FilesApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "File",
+            '403': "HTTPForbiddenError",
             '404': "HTTPNotFoundError",
             '422': "HTTPValidationError",
         }
@@ -779,6 +787,7 @@ class FilesApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "File",
+            '403': "HTTPForbiddenError",
             '404': "HTTPNotFoundError",
             '422': "HTTPValidationError",
         }

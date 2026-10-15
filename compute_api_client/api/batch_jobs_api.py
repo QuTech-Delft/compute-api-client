@@ -99,7 +99,7 @@ class BatchJobsApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '201': "BatchJob",
-            '403': None,
+            '403': "HTTPForbiddenError",
             '429': "HTTPTooManyRequestsError",
             '422': "HTTPValidationError",
         }
@@ -169,7 +169,7 @@ class BatchJobsApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '201': "BatchJob",
-            '403': None,
+            '403': "HTTPForbiddenError",
             '429': "HTTPTooManyRequestsError",
             '422': "HTTPValidationError",
         }
@@ -239,7 +239,7 @@ class BatchJobsApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '201': "BatchJob",
-            '403': None,
+            '403': "HTTPForbiddenError",
             '429': "HTTPTooManyRequestsError",
             '422': "HTTPValidationError",
         }
@@ -382,8 +382,9 @@ class BatchJobsApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "BatchJob",
+            '403': "HTTPForbiddenError",
             '404': "HTTPNotFoundError",
-            '422': "HTTPValidationError",
+            '422': "HTTPBadRequestError",
         }
         response_data = await self.api_client.call_api(
             *_param,
@@ -451,8 +452,9 @@ class BatchJobsApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "BatchJob",
+            '403': "HTTPForbiddenError",
             '404': "HTTPNotFoundError",
-            '422': "HTTPValidationError",
+            '422': "HTTPBadRequestError",
         }
         response_data = await self.api_client.call_api(
             *_param,
@@ -520,8 +522,9 @@ class BatchJobsApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "BatchJob",
+            '403': "HTTPForbiddenError",
             '404': "HTTPNotFoundError",
-            '422': "HTTPValidationError",
+            '422': "HTTPBadRequestError",
         }
         response_data = await self.api_client.call_api(
             *_param,
@@ -649,8 +652,9 @@ class BatchJobsApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "BatchJob",
+            '403': "HTTPForbiddenError",
             '404': "HTTPNotFoundError",
-            '422': "HTTPValidationError",
+            '422': "HTTPBadRequestError",
         }
         response_data = await self.api_client.call_api(
             *_param,
@@ -718,8 +722,9 @@ class BatchJobsApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "BatchJob",
+            '403': "HTTPForbiddenError",
             '404': "HTTPNotFoundError",
-            '422': "HTTPValidationError",
+            '422': "HTTPBadRequestError",
         }
         response_data = await self.api_client.call_api(
             *_param,
@@ -787,8 +792,9 @@ class BatchJobsApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "BatchJob",
+            '403': "HTTPForbiddenError",
             '404': "HTTPNotFoundError",
-            '422': "HTTPValidationError",
+            '422': "HTTPBadRequestError",
         }
         response_data = await self.api_client.call_api(
             *_param,

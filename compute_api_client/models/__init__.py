@@ -43,6 +43,8 @@ from compute_api_client.models.final_result import FinalResult
 from compute_api_client.models.final_result_in import FinalResultIn
 from compute_api_client.models.http_bad_request_error import HTTPBadRequestError
 from compute_api_client.models.http_conflict_error import HTTPConflictError
+from compute_api_client.models.http_forbidden_error import HTTPForbiddenError
+from compute_api_client.models.http_internal_server_error import HTTPInternalServerError
 from compute_api_client.models.http_not_found_error import HTTPNotFoundError
 from compute_api_client.models.http_too_many_requests_error import HTTPTooManyRequestsError
 from compute_api_client.models.http_validation_error import HTTPValidationError
