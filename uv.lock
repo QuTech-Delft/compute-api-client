@@ -1084,7 +1084,7 @@ dev = [
 requires-dist = [
     { name = "aiohttp", specifier = "==3.14.3" },
     { name = "aiohttp-retry", specifier = "==2.9.1" },
-    { name = "pydantic", specifier = "==2.13.4" },
+    { name = "pydantic", specifier = "~=2.13.4" },
     { name = "python-dateutil", specifier = "==2.9.0.post0" },
     { name = "requests", specifier = ">=2.32.0" },
     { name = "urllib3", specifier = "==2.8.0" },
@@ -1103,7 +1103,7 @@ dev = [
     { name = "pytest-mock", specifier = "==3.15.1" },
     { name = "refurb", marker = "python_full_version >= '3.10'", specifier = "==2.3.1" },
     { name = "responses", specifier = "==0.26.3" },
-    { name = "ruff", specifier = "==0.16.8" },
+    { name = "ruff", specifier = "~=0.16.8" },
     { name = "types-requests", specifier = "==2.33.0.20260906" },
 ]
 
