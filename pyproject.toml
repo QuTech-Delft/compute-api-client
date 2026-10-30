@@ -16,7 +16,7 @@ classifiers = [
     "License :: OSI Approved :: Apache Software License",
 ]
 dependencies = [
-    "aiohttp==3.14.4",
+    "aiohttp==3.14.5",
     "pydantic~=2.13.4",
     "python-dateutil==2.9.0.post0",
     "urllib3==2.8.0",
